@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigo Resumido | Uroginecologia Em Dia</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        .article-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .reference-list {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+        }
+        
+        .reference-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 0.5rem;
+        }
+        
+        .key-point {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .evidence-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .evidence-table th,
+        .evidence-table td {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .evidence-table th {
+            background-color: #3b82f6;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                    <button class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors" id="mobileMenuButton">
+                        <i data-feather="menu" class="w-5 h-5"></i>
+                    </button>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/uroginecologiaemdia" class="text-blue-800 hover:text-blue-600 transition-colors">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/uroginecologiaemdia" class="text-blue-800 hover:text-blue-600 transition-colors">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/uroginecologiaemdia" class="text-blue-800 hover:text-blue-600 transition-colors">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i data-feather="activity" class="w-10 h-10 mr-3 text-blue-800"></i>
+                    <h1 class="text-2xl md:text-3xl font-bold text-blue-800 text-center">Uroginecologia Em Dia</h1>
+                </div>
+                
+                <div class="relative w-full md:w-64">
+                    <input type="text" id="searchInput" placeholder="Buscar artigos..." 
+                           class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800">
+                    <button class="absolute right-3 top-2 text-blue-800 hover:text-blue-600 transition-colors" id="searchButton">
+                        <i data-feather="search" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="border-b border-gray-200">
+                <div class="flex justify-center space-x-1 flex-wrap">
+                    <a href="/index.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                        Página Inicial
+                    </a>
+                    <a href="/pages/protocolos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                        Protocolos
+                    </a>
+                    <a href="/pages/artigos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-blue-600 transition-colors">
+                        Artigos Resumidos
+                    </a>
+                    <a href="/pages/eventos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                        Eventos
+                    </a>
+                    <a href="/pages/noticias.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                        Notícias
+                    </a>
+                    <a href="/pages/sobre.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                        Sobre Nós
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-50 hidden">
+        <div class="fixed inset-0 bg-black bg-opacity-50" id="mobileMenuOverlay"></div>
+        <div class="fixed left-0 top-0 h-full w-72 bg-white shadow-lg p-6 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-bold text-blue-800">Menu</h2>
+                <button id="closeMobileMenu" class="text-blue-800 hover:text-blue-600">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <nav>
+                <ul class="space-y-4">
+                    <li><a href="/index.html" class="block py-2 px-4 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">Página Inicial</a></li>
+                    <li><a href="/pages/artigos.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Artigos Resumidos</a></li>
+                    <li><a href="/pages/protocolos.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Protocolos</a></li>
+                    <li><a href="/pages/eventos.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Eventos</a></li>
+                    <li><a href="/pages/noticias.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Notícias</a></li>
+                    <li><a href="/pages/sobre.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Sobre Nós</a></li>
+                    <li><a href="/pages/contato.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Fale Conosco</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Breadcrumb -->
+        <nav class="mb-6 text-sm text-gray-600">
+            <a href="/index.html" class="text-blue-600 hover:text-blue-800 transition-colors">Página Inicial</a> &gt;
+            <a href="/pages/artigos.html" class="text-blue-600 hover:text-blue-800 transition-colors">Artigos Resumidos</a> &gt;
+            <span class="text-gray-800 font-medium">Diretrizes de Avaliação da Incontinência Urinária Feminina</span>
+        </nav>
+
+        <!-- Article Header -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-blue-600">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-6">
+                    <div class="flex-1">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="inline-block bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">Artigo Resumido</span>
+                            <span class="inline-block bg-green-600 text-white text-xs px-3 py-1 rounded-full font-medium">Uroginecologia</span>
+                            <span class="inline-block bg-purple-600 text-white text-xs px-3 py-1 rounded-full font-medium">Diretrizes Clínicas</span>
+                        </div>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-3 leading-tight">Diretrizes de Avaliação da Incontinência Urinária Feminina: Revisão Sistemática das Recomendações entre Especialidades Clínicas</h1>
+                        <p class="text-gray-600 text-lg">Análise crítica da qualidade metodológica, abrangência e clareza das diretrizes de avaliação da incontinência urinária não complicada em mulheres adultas</p>
+                    </div>
+                    <div class="text-right bg-gray-50 p-4 rounded-lg min-w-[200px]">
+                        <p class="text-sm text-gray-500 mb-1">Resumo por</p>
+                        <p class="font-semibold text-blue-800 mb-3">Dra. Ana Paula de Oliveira Pinto</p>
+                        <p class="text-sm text-gray-500 mb-1">Publicado em</p>
+                        <p class="font-medium text-gray-700">Janeiro de 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Content -->
+        <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+            <!-- Introdução -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Introdução</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A incontinência urinária (IU) feminina não complicada é uma condição clínica de alta prevalência, afetando entre 13% e 51% das mulheres adultas, com impacto significativo na qualidade de vida. Apesar da disponibilidade de diversas estratégias terapêuticas, muitas mulheres não recebem tratamento adequado devido a múltiplos fatores, incluindo avaliação, diagnóstico e manejo inconsistentes por parte dos profissionais de saúde.
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A IU pode ser avaliada e tratada por profissionais de diversas especialidades, desde a Atenção Primária até a Urologia e a Medicina Pélvica Feminina e Cirurgia Reconstrutiva (FPMRS). Esta diversidade de abordagens pode resultar em variações significativas na qualidade e abrangência da avaliação inicial, potencialmente comprometendo a individualização do cuidado.
+                </p>
+                <div class="highlight-box">
+                    <p class="text-blue-800 font-semibold mb-2">📊 Contexto Clínico:</p>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                        <li>Prevalência de 13-51% na população feminina adulta</li>
+                        <li>Condição subdiagnosticada e subtratada</li>
+                        <li>Avaliada por profissionais de múltiplas especialidades</li>
+                        <li>Necessidade de padronização para cuidado individualizado</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Objetivo -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Objetivo do Estudo</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Esta revisão sistemática teve como objetivo principal analisar criticamente as diretrizes de avaliação da incontinência urinária não complicada em mulheres adultas residentes na comunidade, examinando o nível de abrangência, detalhamento e clareza das recomendações disponíveis para a ampla gama de profissionais que tratam a IU.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Adicionalmente, buscou-se comparar as diretrizes desenvolvidas para diferentes especialidades médicas e identificar possíveis lacunas que possam contribuir para avaliações inconsistentes e oportunidades perdidas para cuidado individualizado.
+                </p>
+            </section>
+
+            <!-- Métodos -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Metodologia</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Foi realizada uma revisão sistemática abrangendo oito bases de dados bibliográficas, incluindo MEDLINE, Embase, Scopus, CINAHL e Cochrane Library. As buscas foram realizadas em maio de 2017, com atualizações em setembro de 2018 e dezembro de 2019.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">Critérios de Inclusão</h4>
+                        <ul class="list-disc pl-5 text-blue-700 space-y-1 text-sm">
+                            <li>Diretrizes publicadas após 1º de janeiro de 2008</li>
+                            <li>Diretrizes para avaliação de IU não complicada</li>
+                            <li>População: mulheres adultas residentes na comunidade</li>
+                            <li>Publicações em inglês</li>
+                            <li>Diretrizes de sociedades médicas reconhecidas</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-2">Critérios de Exclusão</h4>
+                        <ul class="list-disc pl-5 text-green-700 space-y-1 text-sm">
+                            <li>IU associada a condições neurológicas</li>
+                            <li>Pacientes no período peripartal</li>
+                            <li>Mulheres institucionalizadas</li>
+                            <li>Diretrizes focadas apenas em urodinâmica</li>
+                            <li>Opiniões de autores individuais</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Foi desenvolvido um sistema de pontuação quantitativo para avaliar três seções das diretrizes: anamnese, exame físico e avaliação diagnóstica. O sistema considerou os componentes incluídos e seu nível de recomendação e clareza.
+                </p>
+            </section>
+
+            <!-- Resultados -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Resultados Principais</h2>
+                
+                <div class="key-point">
+                    <h3 class="text-xl font-bold text-white mb-3">Síntese das Diretrizes Incluídas</h3>
+                    <p class="text-white mb-3">
+                        Foram identificadas 22 diretrizes que preencheram os critérios de inclusão. A maioria (86%) foi desenvolvida por ou para as especialidades de Urologia, Obstetrícia e Ginecologia (OBGYN) ou FPMRS, enquanto 14% foram desenvolvidas para médicos generalistas.
+                    </p>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Características das Diretrizes</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    As 22 diretrizes incluídas representavam organizações nacionais (73%), internacionais (18%) e regionais (9%). Apenas 59% das diretrizes incluíam declarações de conflitos de interesse na publicação. As diretrizes abordavam diferentes tipos de IU: IU geral (27%), IU não neurogênica (18%), IU de esforço (14%), IU de esforço pré-cirúrgica (14%), bexiga hiperativa não neurogênica (9%) e IU mista (5%).
+                </p>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Componentes da Avaliação</h3>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="evidence-table">
+                        <thead>
+                            <tr>
+                                <th>Componente de Avaliação</th>
+                                <th>Percentual de Diretrizes que Incluem</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Anamnese (≥1 componente)</td>
+                                <td>100%</td>
+                                <td>Componente universal</td>
+                            </tr>
+                            <tr>
+                                <td>Caracterização do tipo de IU</td>
+                                <td>100%</td>
+                                <td>Essencial para diagnóstico</td>
+                            </tr>
+                            <tr>
+                                <td>História médica e exclusão de outras doenças</td>
+                                <td>91%</td>
+                                <td>Alta frequência</td>
+                            </tr>
+                            <tr>
+                                <td>Impacto na qualidade de vida</td>
+                                <td>91%</td>
+                                <td>Componente importante para individualização</td>
+                            </tr>
+                            <tr>
+                                <td>Revisão de medicamentos</td>
+                                <td>86%</td>
+                                <td>Relevante para manejo</td>
+                            </tr>
+                            <tr>
+                                <td>História cirúrgica</td>
+                                <td>82%</td>
+                                <td>Frequentemente incluída</td>
+                            </tr>
+                            <tr>
+                                <td>Sintomas intestinais</td>
+                                <td>73%</td>
+                                <td>Avaliação importante para abordagem integral</td>
+                            </tr>
+                            <tr>
+                                <td>Ingestão de líquidos</td>
+                                <td>68%</td>
+                                <td>Componente comportamental relevante</td>
+                            </tr>
+                            <tr>
+                                <td>Expectativas e preferências do paciente</td>
+                                <td>55%</td>
+                                <td>Essencial para cuidado centrado no paciente</td>
+                            </tr>
+                            <tr>
+                                <td>História obstétrica</td>
+                                <td>50%</td>
+                                <td>Incluída em apenas metade das diretrizes</td>
+                            </tr>
+                            <tr>
+                                <td>Metas de tratamento do paciente</td>
+                                <td>32%</td>
+                                <td>Componente menos frequentemente incluído</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Exame Físico</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Todos os componentes do exame físico apresentaram variação significativa entre as diretrizes. O exame pélvico foi mencionado em 91% das diretrizes, a observação da IU de esforço em 86%, e o exame neurológico em 59%. A avaliação do índice de massa corporal (IMC)/obesidade foi incluída em 68% das diretrizes, mas apenas 23% a recomendaram explicitamente.
+                </p>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Avaliação Diagnóstica</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Todos as diretrizes incluíram a realização de urinálise como parte da avaliação diagnóstica. A avaliação do resíduo pós-miccional foi recomendada em 100% das diretrizes, enquanto o diário miccional foi incluído em 91%. Houve consenso de que urodinâmica complexa, cistoscopia e exames de imagem não devem ser utilizados rotineiramente na avaliação da IU não complicada.
+                </p>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Pontuação Geral</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A pontuação geral combinada (máximo 100 pontos) variou significativamente entre as diretrizes (mediana = 69, variação: 31-94). Apenas 32% das diretrizes receberam pontuação ≥75. As diretrizes para especialistas (Urologia, OBGYN, FPMRS) tenderam a escores mais altos (mediana = 71) em comparação com as para não especialistas (mediana = 64), embora esta diferença não tenha sido estatisticamente significativa (p = 0,20).
+                </p>
+            </section>
+
+            <!-- Discussão -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Discussão e Implicações Clínicas</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Esta revisão sistemática revelou variação substancial na abrangência, detalhamento e clareza das diretrizes de avaliação da incontinência urinária feminina. Embora componentes fundamentais da avaliação (anamnese, caracterização do tipo de IU, exame físico, urinálise e resíduo pós-miccional) tenham sido universalmente incluídos, muitos componentes importantes para a individualização do cuidado foram omitidos em uma proporção significativa das diretrizes.
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A omissão de componentes como avaliação de sintomas intestinais, ingestão de líquidos, IMC/obesidade e, especialmente, discussão das metas de tratamento do paciente (incluído em apenas 32% das diretrizes) pode limitar a capacidade dos clínicos de recomendar opções terapêuticas conservadoras efetivas e alinhadas com as preferências dos pacientes.
+                </p>
+                
+                <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+                    <h4 class="font-semibold text-yellow-800 mb-2">💡 Recomendações Práticas:</h4>
+                    <ul class="list-disc pl-5 text-yellow-700 space-y-2">
+                        <li>Implementar avaliação padronizada que inclua componentes essenciais para cuidado individualizado</li>
+                        <li>Incluir sistematicamente a discussão de metas de tratamento e preferências do paciente</li>
+                        <li>Avaliar fatores modificáveis (IMC, ingestão hídrica, sintomas intestinais) na avaliação inicial</li>
+                        <li>Utilizar diretrizes com maior abrangência e clareza para guiar a prática clínica</li>
+                        <li>Estabelecer critérios claros para encaminhamento a especialistas quando indicado</li>
+                    </ul>
+                </div>
+
+                <p class="text-gray-700 leading-relaxed">
+                    A ambiguidade e complexidade na redação de algumas diretrizes também foram identificadas como preocupações, com recomendações por vezes difíceis de interpretar ou inconsistentes em diferentes partes da mesma diretriz. Esta falta de clareza pode levar à omissão de componentes importantes de avaliação na prática clínica.
+                </p>
+            </section>
+
+            <!-- Conclusão -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Conclusão</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    As diretrizes de avaliação da incontinência urinária feminina variam significativamente em abrangência, detalhamento e clareza. Esta variabilidade pode contribuir para avaliações inconsistentes no diagnóstico e abordagem da IU, com potencial comprometimento da individualização do cuidado.
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Componentes críticos para o cuidado individualizado, particularmente a discussão das metas de tratamento do paciente, são frequentemente negligenciados nas diretrizes atuais. Melhorias na padronização, clareza e abrangência das diretrizes são necessárias para otimizar a avaliação e o manejo da IU feminina em todas as especialidades envolvidas no cuidado dessas pacientes.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Recomenda-se o desenvolvimento de diretrizes mais abrangentes e claras, com atenção específica aos componentes necessários para o cuidado individualizado, bem como a especificação dos usuários pretendidos e do escopo de prática apropriado para cada diretriz.
+                </p>
+            </section>
+
+            <!-- Referências -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Referências Bibliográficas</h2>
+                <ol class="reference-list text-gray-700">
+                    <li>Lenger SM, Chu CM, Ghetti C, Hardi AC, Lai HH, Pakpahan R, Lowder JL, Sutcliffe S. Adult female urinary incontinence guidelines: a systematic review of evaluation guidelines across clinical specialties. Int Urogynecol J. 2021;32:2671-2691.</li>
+                    <li>Irwin DE, Milsom I, Hunskaar S, et al. Population-based survey of urinary incontinence, overactive bladder, and other lower urinary tract symptoms in five countries: results of the EPIC study. Eur Urol. 2006;50(6):1306-14.</li>
+                    <li>Markland AD, Richter HE, Fwu CW, Eggers P, Kusek JW. Prevalence and trends of urinary incontinence in adults in the United States, 2001 to 2008. J Urol. 2011;186(2):589-93.</li>
+                    <li>Norton JM, Bradley CS, Brady SS, et al. Individualizing urinary incontinence treatment: research needs identified at NIDDK workshop. J Urol. 2018;199(6):1405-7.</li>
+                    <li>Clinical Practice Guidelines We Can Trust. Institute of Medicine (US) Committee on Standards for Developing Trustworthy Clinical Practice Guidelines. Washington, DC: National Academies Press; 2011.</li>
+                    <li>Abrams P, Andersson KE, Birder L, et al. Fourth international consultation on incontinence recommendations of the international scientific committee: evaluation and treatment of urinary incontinence, pelvic organ prolapse, and fecal incontinence. Neurourol Urodyn. 2010;29(1):213-40.</li>
+                </ol>
+            </section>
+
+            <!-- Nota Final -->
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-8 rounded-lg">
+                <p class="text-blue-700">
+                    <strong>Nota Importante:</strong> Este resumo foi elaborado pela Dra. Ana Paula de Oliveira Pinto com base no artigo original de Lenger et al. (2021) e destina-se exclusivamente a fins educacionais e de atualização profissional. Recomenda-se a consulta ao artigo completo para informações detalhadas sobre metodologia, análises estatísticas e resultados específicos. As opiniões expressas representam a interpretação da autora do resumo e não substituem o julgamento clínico individualizado.
+                </p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8">
+            <a href="/pages/artigos.html" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-colors w-full sm:w-auto text-center">
+                <i data-feather="arrow-left" class="w-4 h-4 inline mr-2"></i>
+                Voltar para Artigos Resumidos
+            </a>
+            <div class="flex gap-4 w-full sm:w-auto">
+                <button onclick="printArticle()" class="bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-lg font-medium transition-colors flex-1 sm:flex-none text-center">
+                    <i data-feather="printer" class="w-4 h-4 inline mr-2"></i>
+                    Imprimir
+                </button>
+                <button onclick="downloadPDF()" class="bg-blue-800 hover:bg-blue-900 text-white py-3 px-6 rounded-lg font-medium transition-colors flex-1 sm:flex-none text-center">
+                    <i data-feather="download" class="w-4 h-4 inline mr-2"></i>
+                    Baixar PDF
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Uroginecologia Em Dia</h3>
+                    <p class="mb-4 text-blue-200">Portal de referência em conhecimento uroginecológico para profissionais de saúde.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/uroginecologiaemdia" class="text-blue-200 hover:text-white transition-colors">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/uroginecologiaemdia" class="text-blue-200 hover:text-white transition-colors">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/uroginecologiaemdia" class="text-blue-200 hover:text-white transition-colors">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Entre em Contato</h4>
+                    <address class="not-italic text-blue-200">
+                        <p class="mb-2 flex items-center">
+                            <i data-feather="mail" class="mr-2 w-4 h-4"></i> 
+                            contato@uroginecologiaemdia.com.br
+                        </p>
+                        <p class="flex items-center">
+                            <i data-feather="phone" class="mr-2 w-4 h-4"></i> 
+                            (11) 99999-9999
+                        </p>
+                    </address>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2 text-blue-200">
+                        <li><a href="/index.html" class="hover:text-white transition-colors">Página Inicial</a></li>
+                        <li><a href="/pages/sobre.html" class="hover:text-white transition-colors">Sobre Nós</a></li>
+                        <li><a href="/pages/contato.html" class="hover:text-white transition-colors">Fale Conosco</a></li>
+                        <li><a href="/pages/privacidade.html" class="hover:text-white transition-colors">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Seções</h4>
+                    <ul class="space-y-2 text-blue-200">
+                        <li><a href="/pages/artigos.html" class="hover:text-white transition-colors">Artigos Resumidos</a></li>
+                        <li><a href="/pages/protocolos.html" class="hover:text-white transition-colors">Protocolos</a></li>
+                        <li><a href="/pages/noticias.html" class="hover:text-white transition-colors">Notícias</a></li>
+                        <li><a href="/pages/eventos.html" class="hover:text-white transition-colors">Eventos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-blue-700 mt-8 pt-8 text-sm text-center text-blue-300">
+                <p>© 2025 Uroginecologia Em Dia. Todos os direitos reservados. | Desenvolvido para profissionais de saúde</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile Menu Functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                document.querySelector('#mobileMenu > div:last-child').classList.remove('-translate-x-full');
+            }, 10);
+        }
+
+        function closeMobileMenuFunc() {
+            document.querySelector('#mobileMenu > div:last-child').classList.add('-translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+        }
+        if (closeMobileMenu) {
+            closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        }
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+        }
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenuFunc);
+        });
+
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                // Simulate search - in a real implementation, this would redirect to a search results page
+                alert(`Buscando por: ${searchTerm}\n\nEsta funcionalidade seria implementada em um ambiente de produção.`);
+                // window.location.href = `/pages/search.html?q=${encodeURIComponent(searchTerm)}`;
+            }
+        }
+        
+        if (searchButton) {
+            searchButton.addEventListener('click', performSearch);
+        }
+        
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        }
+
+        // Print Article Function
+        function printArticle() {
+            window.print();
+        }
+
+        // Download PDF Function
+        function downloadPDF() {
+            // In a real implementation, this would link to the actual PDF file
+            alert('Iniciando download do PDF do artigo...\n\nEm um ambiente de produção, este botão baixaria o arquivo PDF original.');
+            
+            // Simulate download (this would be replaced with actual file download)
+            // window.location.href = '/pdfs/diretrizes-incontinencia-urinaria-feminina.pdf';
+            
+            // For demonstration purposes, we'll create a temporary link to a sample PDF
+            const link = document.createElement('a');
+            link.href = 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
+            link.download = 'diretrizes-incontinencia-urinaria-feminina.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigo Resumido | Uroginecologia Em Dia</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        .article-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .reference-list {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+        }
+        
+        .reference-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 0.5rem;
+        }
+        
+        .key-point {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .evidence-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .evidence-table th,
+        .evidence-table td {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .evidence-table th {
+            background-color: #3b82f6;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                    <button class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors" id="mobileMenuButton">
+                        <i data-feather="menu" class="w-5 h-5"></i>
+                    </button>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/uroginecologiaemdia" class="text-blue-800 hover:text-blue-600 transition-colors">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/uroginecologiaemdia" class="text-blue-800 hover:text-blue-600 transition-colors">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/uroginecologiaemdia" class="text-blue-800 hover:text-blue-600 transition-colors">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i data-feather="activity" class="w-10 h-10 mr-3 text-blue-800"></i>
+                    <h1 class="text-2xl md:text-3xl font-bold text-blue-800 text-center">Uroginecologia Em Dia</h1>
+                </div>
+                
+                <div class="relative w-full md:w-64">
+                    <input type="text" id="searchInput" placeholder="Buscar artigos..." 
+                           class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800">
+                    <button class="absolute right-3 top-2 text-blue-800 hover:text-blue-600 transition-colors" id="searchButton">
+                        <i data-feather="search" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="border-b border-gray-200">
+                <div class="flex justify-center space-x-1 flex-wrap">
+                    <a href="/index.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                        Página Inicial
+                    </a>
+                    <a href="/pages/protocolos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                        Protocolos
+                    </a>
+                    <a href="/pages/artigos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-blue-600 transition-colors">
+                        Artigos Resumidos
+                    </a>
+                    <a href="/pages/eventos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                        Eventos
+                    </a>
+                    <a href="/pages/noticias.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                        Notícias
+                    </a>
+                    <a href="/pages/sobre.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                        Sobre Nós
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-50 hidden">
+        <div class="fixed inset-0 bg-black bg-opacity-50" id="mobileMenuOverlay"></div>
+        <div class="fixed left-0 top-0 h-full w-72 bg-white shadow-lg p-6 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-bold text-blue-800">Menu</h2>
+                <button id="closeMobileMenu" class="text-blue-800 hover:text-blue-600">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <nav>
+                <ul class="space-y-4">
+                    <li><a href="/index.html" class="block py-2 px-4 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">Página Inicial</a></li>
+                    <li><a href="/pages/artigos.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Artigos Resumidos</a></li>
+                    <li><a href="/pages/protocolos.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Protocolos</a></li>
+                    <li><a href="/pages/eventos.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Eventos</a></li>
+                    <li><a href="/pages/noticias.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Notícias</a></li>
+                    <li><a href="/pages/sobre.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Sobre Nós</a></li>
+                    <li><a href="/pages/contato.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Fale Conosco</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Breadcrumb -->
+        <nav class="mb-6 text-sm text-gray-600">
+            <a href="/index.html" class="text-blue-600 hover:text-blue-800 transition-colors">Página Inicial</a> &gt;
+            <a href="/pages/artigos.html" class="text-blue-600 hover:text-blue-800 transition-colors">Artigos Resumidos</a> &gt;
+            <span class="text-gray-800 font-medium">Análise Comparativa de Diretrizes Internacionais para Incontinência Urinária Feminina</span>
+        </nav>
+
+        <!-- Article Header -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-blue-600">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-6">
+                    <div class="flex-1">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="inline-block bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">Artigo Resumido</span>
+                            <span class="inline-block bg-green-600 text-white text-xs px-3 py-1 rounded-full font-medium">Uroginecologia</span>
+                            <span class="inline-block bg-purple-600 text-white text-xs px-3 py-1 rounded-full font-medium">Diretrizes Clínicas</span>
+                        </div>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-3 leading-tight">Análise Comparativa de Diretrizes Internacionais para Incontinência Urinária Feminina: Metodologia e Inconsistências</h1>
+                        <p class="text-gray-600 text-lg">Revisão sistemática da qualidade metodológica e consistência das recomendações de 17 sociedades médicas internacionais</p>
+                    </div>
+                    <div class="text-right bg-gray-50 p-4 rounded-lg min-w-[200px]">
+                        <p class="text-sm text-gray-500 mb-1">Resumo por</p>
+                        <p class="font-semibold text-blue-800 mb-3">Dra. Ana Paula de Oliveira Pinto</p>
+                        <p class="text-sm text-gray-500 mb-1">Publicado em</p>
+                        <p class="font-medium text-gray-700">Janeiro de 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Content -->
+        <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+            <!-- Introdução -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Introdução</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A incontinência urinária (IU) feminina é uma condição clínica de alta prevalência, com impacto significativo na qualidade de vida. Diversas sociedades médicas em todo o mundo publicaram diretrizes para auxiliar os profissionais de saúde no diagnóstico e tratamento desta condição, visando padronizar a prática clínica e melhorar os desfechos das pacientes.
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    No entanto, a metodologia de desenvolvimento dessas diretrizes, os sistemas de classificação de evidências e as próprias recomendações podem variar substancialmente entre as diferentes sociedades, criando desafios para os clínicos na implementação das melhores práticas baseadas em evidências.
+                </p>
+                <div class="highlight-box">
+                    <p class="text-blue-800 font-semibold mb-2">🎯 Objetivo do Estudo:</p>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                        <li>Comparar a qualidade metodológica de diretrizes internacionais utilizando o instrumento AGREE II</li>
+                        <li>Identificar inconsistências textuais e de grau de recomendação</li>
+                        <li>Analisar as causas das discrepâncias entre as diretrizes</li>
+                        <li>Fornecer insights para a prática clínica baseada em evidências</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Métodos -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Metodologia</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Foi realizada uma revisão sistemática incluindo diretrizes de 17 sociedades médicas publicadas em inglês, francês e alemão. As diretrizes foram identificadas através de busca abrangente utilizando termos-chave relacionados à incontinência urinária feminina.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">Critérios de Inclusão</h4>
+                        <ul class="list-disc pl-5 text-blue-700 space-y-1 text-sm">
+                            <li>Diretrizes de sociedades médicas reconhecidas</li>
+                            <li>Publicações em inglês, francês ou alemão</li>
+                            <li>Foco em incontinência urinária feminina</li>
+                            <li>Diretrizes completas ou opiniões de especialistas</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-2">Análise Realizada</h4>
+                        <ul class="list-disc pl-5 text-green-700 space-y-1 text-sm">
+                            <li>Avaliação metodológica com AGREE II</li>
+                            <li>Comparação de sistemas de classificação de evidências</li>
+                            <li>Análise de inconsistências textuais e de grau</li>
+                            <li>Identificação de causas das discrepâncias</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    As recomendações foram classificadas em 9 categorias: avaliação inicial da IU, tratamento geral da IU, tratamento não invasivo da IU de esforço, avaliação pré-operatória da IU de esforço, cirurgia com sling uretral, tratamento cirúrgico alternativo e de recidiva, tratamento não invasivo da IU de urgência, tratamento cirúrgico da IU de urgência, e IU em casos específicos.
+                </p>
+            </section>
+
+            <!-- Resultados -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Resultados Principais</h2>
+                
+                <div class="key-point">
+                    <h3 class="text-xl font-bold text-white mb-3">Síntese das Diretrizes Analisadas</h3>
+                    <p class="text-white mb-3">
+                        Foram incluídas diretrizes de 17 sociedades médicas de 7 países diferentes, representando uma ampla gama de abordagens e perspectivas sobre o manejo da incontinência urinária feminina.
+                    </p>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Variabilidade Metodológica</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Identificou-se significativa variabilidade na metodologia de desenvolvimento das diretrizes entre as diferentes sociedades médicas. Enquanto a maioria das sociedades (ACOG, CUA, EAU, DGG, DGGC) elabora suas diretrizes após revisão exaustiva da literatura, algumas sociedades (Gynécologie Suisse, RANZCOG e SOGC) não divulgam seus métodos completos.
+                </p>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="evidence-table">
+                        <thead>
+                            <tr>
+                                <th>Sociedade</th>
+                                <th>Última Diretriz</th>
+                                <th>Periodicidade</th>
+                                <th>Método Principal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ACOG/AUGS</td>
+                                <td>2016</td>
+                                <td>2-10 anos</td>
+                                <td>Revisão de literatura</td>
+                            </tr>
+                            <tr>
+                                <td>EAU</td>
+                                <td>2018</td>
+                                <td>1 ano</td>
+                                <td>Revisão de literatura</td>
+                            </tr>
+                            <tr>
+                                <td>NICE</td>
+                                <td>2019</td>
+                                <td>6 anos</td>
+                                <td>Revisão sistemática</td>
+                            </tr>
+                            <tr>
+                                <td>CNGOF</td>
+                                <td>2009</td>
+                                <td>Não definida</td>
+                                <td>Comitê organizador</td>
+                            </tr>
+                            <tr>
+                                <td>AUA/SUFU</td>
+                                <td>2017</td>
+                                <td>3-5 anos</td>
+                                <td>Meta-análise</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Qualidade com AGREE II</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A avaliação com o instrumento AGREE II revelou qualidade metodológica variável entre as diretrizes. A qualidade mediana geral foi de 66%, com as sociedades CNGOF, DGGC, EAU, ICUD e NICE apresentando escores ≥80% (terceiro quartil), enquanto ACOG/AUGS, AFU, GS, RANZCOG e SOGC apresentaram escores ≤55% (primeiro quartil).
+                </p>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="evidence-table">
+                        <thead>
+                            <tr>
+                                <th>Sociedade</th>
+                                <th>Escopo e Propósito</th>
+                                <th>Rigor de Desenvolvimento</th>
+                                <th>Aplicabilidade</th>
+                                <th>Pontuação Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>NICE</td>
+                                <td>100%</td>
+                                <td>100%</td>
+                                <td>83%</td>
+                                <td>94%</td>
+                            </tr>
+                            <tr>
+                                <td>ICUD</td>
+                                <td>100%</td>
+                                <td>92%</td>
+                                <td>46%</td>
+                                <td>84%</td>
+                            </tr>
+                            <tr>
+                                <td>EAU</td>
+                                <td>100%</td>
+                                <td>88%</td>
+                                <td>33%</td>
+                                <td>82%</td>
+                            </tr>
+                            <tr>
+                                <td>CNGOF</td>
+                                <td>100%</td>
+                                <td>90%</td>
+                                <td>38%</td>
+                                <td>80%</td>
+                            </tr>
+                            <tr>
+                                <td>ACOG/AUGS</td>
+                                <td>61%</td>
+                                <td>38%</td>
+                                <td>8%</td>
+                                <td>41%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Principais Inconsistências Identificadas</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Foram identificadas quatro áreas principais de discrepância entre as diretrizes analisadas:
+                </p>
+
+                <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+                    <h4 class="font-semibold text-yellow-800 mb-2">📋 Áreas de Divergência:</h4>
+                    <ul class="list-disc pl-5 text-yellow-700 space-y-2">
+                        <li><strong>Uso de imagem na avaliação inicial:</strong> A maioria não recomenda, exceto a DGG (sociedade geriátrica) que recomenda grau C para pacientes idosos frágeis</li>
+                        <li><strong>Testes urodinâmicos pré-cirúrgicos:</strong> CNGOF e IUGA recomendam apesar de não serem necessários; ICUD recomenda antes de qualquer cirurgia para IU</li>
+                        <li><strong>Procedimento de sling suburetral:</strong> Discrepâncias nas indicações e contraindicações entre sociedades</li>
+                        <li><strong>Reabilitação perineal pós-parto:</strong> BPAC, DGGC e ICUD recomendam (Grau A) enquanto CNGOF não recomenda para mulheres assintomáticas</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Causas das Discrepâncias de Grau</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    As diferenças nos graus de recomendação foram atribuídas a quatro fatores principais:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-red-800 mb-2">1. Senso Comum vs Medicina Baseada em Evidências</h4>
+                        <p class="text-red-700 text-sm">Recomendações baseadas em prática clínica quando há escassez de literatura científica</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">2. Cronologia de Publicação</h4>
+                        <p class="text-blue-700 text-sm">Diretrizes mais recentes incorporam evidências mais atualizadas</p>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-2">3. Semântica do Grau</h4>
+                        <p class="text-green-700 text-sm">Diferenças nos sistemas de classificação entre sociedades</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-purple-800 mb-2">4. Discrepâncias entre Grau e Nível de Evidência</h4>
+                        <p class="text-purple-700 text-sm">Inconsistências na aplicação dos sistemas de graduação</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Discussão -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Discussão e Implicações Clínicas</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Esta análise comparativa revela significativa heterogeneidade na qualidade metodológica e nas recomendações das diretrizes para incontinência urinária feminina. As sociedades com maiores escores no AGREE II (CNGOF, DGGC, EAU, ICUD e NICE) demonstraram metodologias mais robustas e transparentes, com destaque para o NICE, cuja diretriz de 2019 seguiu rigorosamente todos os critérios do instrumento.
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Apesar das variações metodológicas, o conteúdo das recomendações mostrou-se geralmente consistente entre as sociedades. As principais discrepâncias ocorreram nos graus de recomendação, frequentemente explicáveis por diferenças temporais na publicação, sistemas de classificação distintos ou ênfase variável entre medicina baseada em evidências e prática clínica consagrada.
+                </p>
+                
+                <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+                    <h4 class="font-semibold text-yellow-800 mb-2">💡 Recomendações para Prática Clínica:</h4>
+                    <ul class="list-disc pl-5 text-yellow-700 space-y-2">
+                        <li>Priorizar diretrizes com maior qualidade metodológica (escore AGREE II ≥80%)</li>
+                        <li>Considerar a data de publicação e atualização das diretrizes</li>
+                        <li>Entender os sistemas de classificação de evidências de cada sociedade</li>
+                        <li>Reconhecer que discrepâncias podem refletir diferenças culturais e de prática</li>
+                        <li>Utilizar diretrizes como guias, adaptando-as ao contexto clínico individual</li>
+                    </ul>
+                </div>
+
+                <p class="text-gray-700 leading-relaxed">
+                    A análise em três idiomas (inglês, francês e alemão) permitiu identificar diferenças culturais e de abordagem que podem influenciar as recomendações, destacando a importância de considerar o contexto local na implementação de diretrizes internacionais.
+                </p>
+            </section>
+
+            <!-- Conclusão -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Conclusão</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    As diretrizes para incontinência urinária feminina apresentam variabilidade significativa em sua qualidade metodológica, com escores AGREE II variando de 38% a 94%. As sociedades CNGOF, DGGC, EAU, ICUD e NICE demonstraram as metodologias mais robustas e transparentes.
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Embora o conteúdo das recomendações seja geralmente consistente, as discrepâncias nos graus de recomendação são frequentes e atribuíveis a diferenças temporais, sistemas de classificação distintos, ênfase variável entre evidências e prática clínica, e particularidades semânticas.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Os clínicos devem considerar a qualidade metodológica, a atualidade e o contexto de desenvolvimento das diretrizes ao implementar recomendações em sua prática, adaptando-as às necessidades individuais das pacientes e aos recursos disponíveis. A padronização dos métodos de desenvolvimento de diretrizes poderia melhorar a consistência e a aplicabilidade das recomendações futuras.
+                </p>
+            </section>
+
+            <!-- Referências -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Referências Bibliográficas</h2>
+                <ol class="reference-list text-gray-700">
+                    <li>Favre-Inhofer A, Dewaele P, Millet P, Deffieux X. Systematic review of guidelines for urinary incontinence in women. J Gynecol Obstet Hum Reprod. 2020;49(8):101842.</li>
+                    <li>The AGREE Next Steps Consortium. Appraisal of Guidelines for Research & Evaluation II Instrument. 2009.</li>
+                    <li>Syan R, Brucker BM. Guideline of guidelines: urinary incontinence. BJU Int. 2016;117(1):20-33.</li>
+                    <li>Nager CW, et al. A randomized trial of urodynamic testing before stress-incontinence surgery. N Engl J Med. 2012;366:1987-97.</li>
+                    <li>Boyle R, Hay-Smith EJC, Cody JD, Markved S. Pelvic floor muscle training for prevention and treatment of urinary and faecal incontinence in antenatal and postnatal women. Cochrane Database Syst Rev. 2012;10:CD007471.</li>
+                    <li>Kirchin V, et al. Urethral injection therapy for urinary incontinence in women. Cochrane Database Syst Rev. 2012;CD003881.</li>
+                </ol>
+            </section>
+
+            <!-- Nota Final -->
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-8 rounded-lg">
+                <p class="text-blue-700">
+                    <strong>Nota Importante:</strong> Este resumo foi elaborado pela Dra. Ana Paula de Oliveira Pinto com base no artigo original de Favre-Inhofer et al. (2020) e destina-se exclusivamente a fins educacionais e de atualização profissional. Recomenda-se a consulta ao artigo completo para informações detalhadas sobre metodologia, análises específicas e resultados completos. As opiniões expressas representam a interpretação da autora do resumo e não substituem o julgamento clínico individualizado.
+                </p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8">
+            <a href="/pages/artigos.html" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-colors w-full sm:w-auto text-center">
+                <i data-feather="arrow-left" class="w-4 h-4 inline mr-2"></i>
+                Voltar para Artigos Resumidos
+            </a>
+            <div class="flex gap-4 w-full sm:w-auto">
+                <button onclick="printArticle()" class="bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-lg font-medium transition-colors flex-1 sm:flex-none text-center">
+                    <i data-feather="printer" class="w-4 h-4 inline mr-2"></i>
+                    Imprimir
+                </button>
+                <button onclick="downloadPDF()" class="bg-blue-800 hover:bg-blue-900 text-white py-3 px-6 rounded-lg font-medium transition-colors flex-1 sm:flex-none text-center">
+                    <i data-feather="download" class="w-4 h-4 inline mr-2"></i>
+                    Baixar PDF
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Uroginecologia Em Dia</h3>
+                    <p class="mb-4 text-blue-200">Portal de referência em conhecimento uroginecológico para profissionais de saúde.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/uroginecologiaemdia" class="text-blue-200 hover:text-white transition-colors">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/uroginecologiaemdia" class="text-blue-200 hover:text-white transition-colors">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/uroginecologiaemdia" class="text-blue-200 hover:text-white transition-colors">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Entre em Contato</h4>
+                    <address class="not-italic text-blue-200">
+                        <p class="mb-2 flex items-center">
+                            <i data-feather="mail" class="mr-2 w-4 h-4"></i> 
+                            contato@uroginecologiaemdia.com.br
+                        </p>
+                        <p class="flex items-center">
+                            <i data-feather="phone" class="mr-2 w-4 h-4"></i> 
+                            (11) 99999-9999
+                        </p>
+                    </address>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2 text-blue-200">
+                        <li><a href="/index.html" class="hover:text-white transition-colors">Página Inicial</a></li>
+                        <li><a href="/pages/sobre.html" class="hover:text-white transition-colors">Sobre Nós</a></li>
+                        <li><a href="/pages/contato.html" class="hover:text-white transition-colors">Fale Conosco</a></li>
+                        <li><a href="/pages/privacidade.html" class="hover:text-white transition-colors">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Seções</h4>
+                    <ul class="space-y-2 text-blue-200">
+                        <li><a href="/pages/artigos.html" class="hover:text-white transition-colors">Artigos Resumidos</a></li>
+                        <li><a href="/pages/protocolos.html" class="hover:text-white transition-colors">Protocolos</a></li>
+                        <li><a href="/pages/noticias.html" class="hover:text-white transition-colors">Notícias</a></li>
+                        <li><a href="/pages/eventos.html" class="hover:text-white transition-colors">Eventos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-blue-700 mt-8 pt-8 text-sm text-center text-blue-300">
+                <p>© 2025 Uroginecologia Em Dia. Todos os direitos reservados. | Desenvolvido para profissionais de saúde</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile Menu Functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                document.querySelector('#mobileMenu > div:last-child').classList.remove('-translate-x-full');
+            }, 10);
+        }
+
+        function closeMobileMenuFunc() {
+            document.querySelector('#mobileMenu > div:last-child').classList.add('-translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+        }
+        if (closeMobileMenu) {
+            closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        }
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+        }
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenuFunc);
+        });
+
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                // Simulate search - in a real implementation, this would redirect to a search results page
+                alert(`Buscando por: ${searchTerm}\n\nEsta funcionalidade seria implementada em um ambiente de produção.`);
+                // window.location.href = `/pages/search.html?q=${encodeURIComponent(searchTerm)}`;
+            }
+        }
+        
+        if (searchButton) {
+            searchButton.addEventListener('click', performSearch);
+        }
+        
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        }
+
+        // Print Article Function
+        function printArticle() {
+            window.print();
+        }
+
+        // Download PDF Function
+        function downloadPDF() {
+            // In a real implementation, this would link to the actual PDF file
+            alert('Iniciando download do PDF do artigo...\n\nEm um ambiente de produção, este botão baixaria o arquivo PDF original.');
+            
+            // Simulate download (this would be replaced with actual file download)
+            // window.location.href = '/pdfs/analise-diretrizes-internacionais-incontinencia-urinaria.pdf';
+            
+            // For demonstration purposes, we'll create a temporary link to a sample PDF
+            const link = document.createElement('a');
+            link.href = 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
+            link.download = 'analise-diretrizes-internacionais-incontinencia-urinaria.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>

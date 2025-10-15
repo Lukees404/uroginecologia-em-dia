@@ -1,0 +1,85 @@
+<!-- Header Component -->
+<header class="bg-uro-branco shadow-md">
+    <div class="container mx-auto px-4 py-4">
+        <!-- Top Bar with Logo, Social and Search -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+            <!-- Social Media and Menu Button -->
+            <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                <!-- Mobile Menu Button -->
+                <button class="bg-uro-azul text-white p-2 rounded-lg" id="mobileMenuButton">
+                    <i data-feather="menu" class="w-5 h-5"></i>
+                </button>
+                
+                <!-- Social Media -->
+                <div class="flex space-x-4">
+                    <a href="https://instagram.com/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="instagram"></i></a>
+                    <a href="https://facebook.com/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="facebook"></i></a>
+                    <a href="https://linkedin.com/company/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="linkedin"></i></a>
+                </div>
+            </div>
+            
+            <!-- Logo - Centralizado -->
+            <div class="flex items-center mb-4 md:mb-0">
+                <i data-feather="activity" class="w-10 h-10 mr-3 text-uro-azul_escuro"></i>
+                <h1 class="text-2xl md:text-3xl font-bold text-uro-azul_escuro text-center">Uroginecologia Em Dia</h1>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="relative w-full md:w-64">
+                <input type="text" id="searchInput" placeholder="Buscar..." 
+                    class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-uro-azul text-gray-800">
+                <button class="absolute right-3 top-2 text-uro-azul_escuro" id="searchButton">
+                    <i data-feather="search" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Navigation Tabs - Centralizados -->
+        <div class="border-b border-gray-200">
+            <div class="flex justify-center space-x-1">
+                <a href="/index.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-uro-azul transition-colors">
+                    Página Inicial
+                </a>
+                <a href="/pages/protocolos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                    Protocolos
+                </a>
+                <a href="/pages/artigos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                    Artigos Resumidos
+                </a>
+                <a href="/pages/eventos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                    Eventos
+                </a>
+                <a href="/pages/noticias.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                    Notícias
+                </a>
+                <a href="/pages/sobre.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                    Sobre Nós
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Menu Component -->
+<div id="mobileMenu" class="fixed inset-0 z-50 hidden">
+    <div class="fixed inset-0 bg-black bg-opacity-50" id="mobileMenuOverlay"></div>
+    <div class="fixed left-0 top-0 h-full w-72 bg-uro-branco shadow-lg p-6 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-xl font-bold text-uro-azul_escuro">Menu</h2>
+            <button id="closeMobileMenu" class="text-uro-azul_escuro">
+                <i data-feather="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <nav>
+            <ul class="space-y-4">
+                <li><a href="/index.html" class="block py-2 px-4 bg-uro-azul text-white rounded-lg font-medium">Página Inicial</a></li>
+                <li><a href="/pages/artigos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Artigos Resumidos</a></li>
+                <li><a href="/pages/protocolos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Protocolos</a></li>
+                <li><a href="/pages/eventos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Eventos</a></li>
+                <li><a href="/pages/noticias.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Notícias</a></li>
+                <li><a href="/pages/sobre.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Sobre Nós</a></li>
+                <li><a href="/pages/contatos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Fale Conosco</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

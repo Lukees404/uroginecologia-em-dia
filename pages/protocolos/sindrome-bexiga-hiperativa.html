@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo de Bexiga Hiperativa | Uroginecologia Em Dia</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        uro: {
+                            azul_escuro: '#1e40af',
+                            azul: '#3b82f6',
+                            azul_claro: '#60a5fa',
+                            branco: '#ffffff',
+                            cinza: '#f3f4f6',
+                            cinza_escuro: '#6b7280'
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Inicializar Mermaid
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({ 
+                startOnLoad: true,
+                theme: 'default',
+                securityLevel: 'loose'
+            });
+        });
+    </script>
+    <style>
+        .protocol-section {
+            margin-bottom: 3rem;
+        }
+        
+        .recommendation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .recommendation-table th,
+        .recommendation-table td {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .recommendation-table th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+        }
+        
+        .grade-A { background-color: #dcfce7; color: #166534; }
+        .grade-B { background-color: #fef3c7; color: #92400e; }
+        .grade-C { background-color: #fef3c7; color: #92400e; }
+        
+        .flowchart-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-button {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            background-color: #3b82f6;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-uro-cinza font-sans">
+    <!-- Header -->
+    <header class="bg-uro-branco shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                    <button class="bg-uro-azul text-white p-2 rounded-lg" id="mobileMenuButton">
+                        <i data-feather="menu" class="w-5 h-5"></i>
+                    </button>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="instagram"></i></a>
+                        <a href="https://facebook.com/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="facebook"></i></a>
+                        <a href="https://linkedin.com/company/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i data-feather="activity" class="w-10 h-10 mr-3 text-uro-azul_escuro"></i>
+                    <h1 class="text-2xl md:text-3xl font-bold text-uro-azul_escuro text-center">Uroginecologia Em Dia</h1>
+                </div>
+                
+                <div class="relative w-full md:w-64">
+                    <input type="text" id="searchInput" placeholder="Buscar..." 
+                           class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-uro-azul text-gray-800">
+                    <button class="absolute right-3 top-2 text-uro-azul_escuro" id="searchButton">
+                        <i data-feather="search" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="border-b border-gray-200">
+                <div class="flex justify-center space-x-1">
+                    <a href="/index.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Página Inicial
+                    </a>
+                    <a href="/pages/protocolos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-uro-azul transition-colors">
+                        Protocolos
+                    </a>
+                    <a href="/pages/artigos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Artigos Resumidos
+                    </a>
+                    <a href="/pages/eventos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Eventos
+                    </a>
+                    <a href="/pages/noticias.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Notícias
+                    </a>
+                    <a href="/pages/sobre.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Sobre Nós
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-50 hidden">
+        <div class="fixed inset-0 bg-black bg-opacity-50" id="mobileMenuOverlay"></div>
+        <div class="fixed left-0 top-0 h-full w-72 bg-uro-branco shadow-lg p-6 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-bold text-uro-azul_escuro">Menu</h2>
+                <button id="closeMobileMenu" class="text-uro-azul_escuro">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <nav>
+                <ul class="space-y-4">
+                    <li><a href="/index.html" class="block py-2 px-4 bg-uro-azul text-white rounded-lg font-medium">Página Inicial</a></li>
+                    <li><a href="/pages/artigos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Artigos Resumidos</a></li>
+                    <li><a href="/pages/protocolos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Protocolos</a></li>
+                    <li><a href="/pages/eventos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Eventos</a></li>
+                    <li><a href="/pages/noticias.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Notícias</a></li>
+                    <li><a href="/pages/sobre.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Sobre Nós</a></li>
+                    <li><a href="/pages/contato.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Fale Conosco</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Breadcrumb -->
+        <nav class="mb-6 text-sm">
+            <a href="/index.html" class="text-uro-azul hover:text-uro-azul_escuro">Página Inicial</a> &gt;
+            <a href="protocolos.html" class="text-uro-azul hover:text-uro-azul_escuro">Protocolos</a> &gt;
+            <span class="text-gray-600">Protocolo de Bexiga Hiperativa</span>
+        </nav>
+
+        <!-- Protocol Header -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <div class="flex flex-col md:flex-row justify-between items-start">
+                    <div class="mb-4 md:mb-0">
+                        <span class="inline-block bg-uro-azul text-white text-xs px-3 py-1 rounded-full mb-2">Uroginecológico</span>
+                        <h1 class="text-3xl font-bold text-uro-azul_escuro mb-2">Protocolo de Manejo da Síndrome da Bexiga Hiperativa em Mulheres</h1>
+                        <p class="text-gray-600">Baseado nas Diretrizes da FEBRASGO e Sociedades Internacionais</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-sm text-gray-500">Atualizado: Jan/2025</p>
+                        <p class="text-sm text-gray-500">Fonte: FEBRASGO Protocolo nº 51</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Protocol Content -->
+        <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+            <!-- Introdução -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Introdução</h2>
+                <p class="text-gray-700 mb-4">
+                    A <strong>Síndrome da Bexiga Hiperativa (BH)</strong> é caracterizada pela urgência miccional - desejo súbito, não adiável e imperioso de urinar - geralmente acompanhada de aumento da frequência urinária e noctúria, na ausência de infecção ou outras patologias.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    A incontinência urinária de urgência (urgeincontinência) está presente em cerca de um terço a metade das pacientes, caracterizando a <strong>BH molhada</strong>. Quando não há perda urinária, denomina-se <strong>BH seca</strong>.
+                </p>
+                <p class="text-gray-700">
+                    A condição compromete significativamente a qualidade de vida, causando isolamento social, queda de produtividade, vergonha, frustração, ansiedade e baixa autoestima. Estudos brasileiros mostram que 25% das mulheres acima de 40 anos têm ou terão sintomas de BH, sendo que 80% não procuram ajuda especializada.
+                </p>
+            </section>
+
+            <!-- Fisiopatologia -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Fisiopatologia e Fenótipos</h2>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <p class="text-gray-700 mb-4">A BH é uma afecção crônica com fisiopatologia multifatorial. O reconhecimento dos diferentes fenótipos auxilia no tratamento individualizado:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-uro-azul mb-3">Teorias Fisiopatológicas</h3>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                                <li><strong>Miogênica:</strong> Contrações involuntárias do detrusor</li>
+                                <li><strong>Uroteliogênica:</strong> Alterações na aferência do urotélio</li>
+                                <li><strong>Uretrogênica:</strong> Ativação aferente pela presença de líquido na uretra</li>
+                                <li><strong>Supraespinhal:</strong> Inibição cortical deficiente</li>
+                                <li><strong>Hipoatividade detrusora:</strong> Redução da capacidade vesical funcional</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-uro-azul mb-3">Cofatores Associados</h3>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                                <li>Síndrome metabólica</li>
+                                <li>Desordens afetivas (ansiedade/depressão)</li>
+                                <li>Deficiência de esteroides sexuais</li>
+                                <li>Alterações no microbioma vesical</li>
+                                <li>Desordens gastrintestinais funcionais</li>
+                                <li>Disfunção do sistema nervoso autônomo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diagnóstico -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Diagnóstico</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Avaliação Clínica</h3>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>Anamnese detalhada:</strong> Sintomas de urgência miccional (obrigatório), frequência, noctúria, urgeincontinência</li>
+                        <li><strong>Histórico:</strong> Doenças neurológicas, cirurgias prévias, medicamentos em uso</li>
+                        <li><strong>Exame físico:</strong> Avaliação neurológica do assoalho pélvico, distopias urogenitais, atrofia vaginal</li>
+                        <li><strong>Diário miccional:</strong> 1 a 3 dias - ferramenta fundamental para diagnóstico e acompanhamento</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Investigação Complementar</h3>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="font-semibold text-uro-azul_escuro mb-2">Exames obrigatórios:</p>
+                        <ul class="list-disc pl-5 text-gray-700 mb-3">
+                            <li>Urina tipo 1 e urocultura (para excluir infecção)</li>
+                        </ul>
+                        
+                        <p class="font-semibold text-uro-azul_escuro mb-2">Exames conforme indicação:</p>
+                        <ul class="list-disc pl-5 text-gray-700 mb-3">
+                            <li>Ultrassom do trato urinário e pelve</li>
+                            <li>Citologia urinária (casos refratários ou hematúria)</li>
+                        </ul>
+                        
+                        <p class="font-semibold text-uro-azul_escuro mb-2">Estudo urodinâmico (NÃO de rotina):</p>
+                        <ul class="list-disc pl-5 text-gray-700">
+                            <li>Sintomas mistos com dúvida diagnóstica</li>
+                            <li>Casos neurogênicos</li>
+                            <li>Pacientes refratárias ao tratamento convencional</li>
+                            <li>BH após correção cirúrgica de IUE</li>
+                            <li>Queixas relacionadas ao esvaziamento vesical</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tratamento -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Tratamento</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">1. Tratamento Comportamental e Fisioterapêutico</h3>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="font-semibold text-uro-azul_escuro mb-2">Primeira linha de tratamento:</p>
+                        <ul class="list-disc pl-5 text-gray-700 mb-3">
+                            <li><strong>Orientações gerais:</strong> Ingesta hídrica adequada (1-2L/dia), redução de líquidos antes do sono</li>
+                            <li><strong>Modificações dietéticas:</strong> Redução de cafeína, bebidas gaseificadas, frutas cítricas, álcool</li>
+                            <li><strong>Treinamento vesical:</strong> Aumento gradual do intervalo entre micções (atingir 2-4 horas)</li>
+                            <li><strong>Exercícios perineais:</strong> Ensino de contração da musculatura do assoalho pélvico</li>
+                            <li><strong>Eletroestimulação:</strong> Eficácia variável, incluindo estimulação do nervo tibial posterior</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">2. Tratamento Farmacológico</h3>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="font-semibold text-uro-azul_escuro mb-2">Anticolinérgicos (Grau A):</p>
+                        <ul class="list-disc pl-5 text-gray-700 mb-3">
+                            <li>Oxibutinina, Tolterodina, Darifenacina, Solifenacina, Cloreto de tróspio</li>
+                            <li>Eficácia similar entre os diferentes agentes</li>
+                            <li>Escolha baseada no perfil de efeitos colaterais</li>
+                            <li>Cuidado especial em idosos (risco cognitivo)</li>
+                        </ul>
+                        
+                        <p class="font-semibold text-uro-azul_escuro mb-2">Agonistas β3-adrenérgicos:</p>
+                        <ul class="list-disc pl-5 text-gray-700 mb-3">
+                            <li>Mirabegrona 50 mg/dia</li>
+                            <li>Eficácia similar aos anticolinérgicos com menos boca seca</li>
+                            <li>Efeitos colaterais: boca seca (12%), hipertensão (5,5%)</li>
+                        </ul>
+                        
+                        <p class="font-semibold text-uro-azul_escuro mb-2">Estrogênios vaginais:</p>
+                        <ul class="list-disc pl-5 text-gray-700">
+                            <li>Melhora significativa dos sintomas na pós-menopausa</li>
+                            <li>Parte do manejo da síndrome urogenital da menopausa</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">3. Terapias de Terceira Linha</h3>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="font-semibold text-uro-azul_escuro mb-2">Toxina botulínica A (Grau A):</p>
+                        <ul class="list-disc pl-5 text-gray-700 mb-3">
+                            <li>Indicada para casos refratários (falha de ≥2 esquemas farmacológicos)</li>
+                            <li>Aplicação intraderusoriana com cistoscópio</li>
+                            <li>Duração: 6-9 meses (necessidade de reinjeções)</li>
+                            <li>Efeitos colaterais: infecção urinária (13-15%), retenção urinária (4-10%)</li>
+                        </ul>
+                        
+                        <p class="font-semibold text-uro-azul_escuro mb-2">Neuromodulação sacral:</p>
+                        <ul class="list-disc pl-5 text-gray-700">
+                            <li>Implante de eletrodos na raiz nervosa S3</li>
+                            <li>Reservado para casos graves refratários</li>
+                            <li>Taxas de sucesso: 60-75%</li>
+                            <li>Complicações: dor no implante, migração do eletrodo, infecção</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">4. Terapias Alternativas e Cirúrgicas</h3>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="text-gray-700 mb-2"><strong>Terapias alternativas:</strong> Acupuntura, mindfulness, ioga, tai chi chuan - evidências limitadas, necessitam de mais estudos.</p>
+                        <p class="text-gray-700"><strong>Tratamento cirúrgico:</strong> Opção de exceção (ampliações vesicais, derivações urinárias) para casos intratáveis.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fluxograma -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Fluxograma de Conduta</h2>
+                <div class="flowchart-container">
+                    <div class="mermaid">
+                        flowchart TD
+                            A[Paciente com sintomas de BH] --> B{Avaliação inicial<br>e diário miccional}
+                            B --> C[Excluir infecção urinária]
+                            C --> D[Tratamento comportamental<br>e fisioterapêutico]
+                            D --> E{Melhora adequada?}
+                            E -->|Sim| F[Manutenção]
+                            E -->|Não| G[+ Tratamento farmacológico<br>Anticolinérgico ou β3-agonista]
+                            G --> H{Resposta satisfatória?}
+                            H -->|Sim| I[Manutenção por ≥6 meses]
+                            H -->|Não| J[Terapia combinada<br>ou troca de classe]
+                            J --> K{Controle adequado?}
+                            K -->|Sim| L[Manutenção]
+                            K -->|Não| M[Terapias de 3ª linha<br>Toxina botulínica ou neuromodulação]
+                            M --> N{Ainda refratária?}
+                            N -->|Sim| O[Avaliação para tratamento<br>cirúrgico excepcional]
+                            N -->|Não| P[Controle dos sintomas]
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tabela de Medicamentos -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Medicamentos Disponíveis no Brasil</h2>
+                <div class="overflow-x-auto">
+                    <table class="recommendation-table">
+                        <thead>
+                            <tr>
+                                <th>Medicamento</th>
+                                <th>Apresentação</th>
+                                <th>Dose Diária</th>
+                                <th>Posologia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Oxibutinina</td>
+                                <td>5 mg</td>
+                                <td>5-20 mg</td>
+                                <td>1-4 comprimidos/dia</td>
+                            </tr>
+                            <tr>
+                                <td>Tolterodina</td>
+                                <td>4 mg</td>
+                                <td>4 mg</td>
+                                <td>1 comprimido/dia</td>
+                            </tr>
+                            <tr>
+                                <td>Darifenacina</td>
+                                <td>7,5 mg / 15 mg</td>
+                                <td>7,5-15 mg</td>
+                                <td>1 comprimido/dia</td>
+                            </tr>
+                            <tr>
+                                <td>Solifenacina</td>
+                                <td>5 mg / 10 mg</td>
+                                <td>5-10 mg</td>
+                                <td>1 comprimido/dia</td>
+                            </tr>
+                            <tr>
+                                <td>Cloreto de tróspio</td>
+                                <td>30 mg</td>
+                                <td>30-45 mg</td>
+                                <td>1 comp pela manhã + ½ à noite</td>
+                            </tr>
+                            <tr>
+                                <td>Mirabegrona</td>
+                                <td>50 mg</td>
+                                <td>50 mg</td>
+                                <td>1 comprimido/dia</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Recomendações Finais -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Recomendações Finais</h2>
+                <div class="overflow-x-auto">
+                    <table class="recommendation-table">
+                        <thead>
+                            <tr>
+                                <th>Conduta</th>
+                                <th>Recomendação</th>
+                                <th>Grau</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Diagnóstico de BH</td>
+                                <td>Clínico, baseado em sintomas de urgência + frequência/noctúria</td>
+                                <td><span class="grade-A px-2 py-1 rounded-full">A</span></td>
+                            </tr>
+                            <tr>
+                                <td>Primeira linha de tratamento</td>
+                                <td>Terapia comportamental e fisioterapêutica</td>
+                                <td><span class="grade-A px-2 py-1 rounded-full">A</span></td>
+                            </tr>
+                            <tr>
+                                <td>Estudo urodinâmico</td>
+                                <td>Não indicado de rotina, apenas em casos específicos</td>
+                                <td><span class="grade-A px-2 py-1 rounded-full">A</span></td>
+                            </tr>
+                            <tr>
+                                <td>Anticolinérgicos</td>
+                                <td>Segunda linha, escolha baseada no perfil de efeitos colaterais</td>
+                                <td><span class="grade-A px-2 py-1 rounded-full">A</span></td>
+                            </tr>
+                            <tr>
+                                <td>Mirabegrona</td>
+                                <td>Alternativa com menos efeitos anticolinérgicos</td>
+                                <td><span class="grade-A px-2 py-1 rounded-full">A</span></td>
+                            </tr>
+                            <tr>
+                                <td>Terapia combinada</td>
+                                <td>Indicada quando resposta inadequada à monoterapia</td>
+                                <td><span class="grade-B px-2 py-1 rounded-full">B</span></td>
+                            </tr>
+                            <tr>
+                                <td>Toxina botulínica</td>
+                                <td>Terapia de terceira linha para casos refratários</td>
+                                <td><span class="grade-A px-2 py-1 rounded-full">A</span></td>
+                            </tr>
+                            <tr>
+                                <td>Estrogênios vaginais</td>
+                                <td>Recomendados na BH associada à atrofia urogenital</td>
+                                <td><span class="grade-A px-2 py-1 rounded-full">A</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Referências -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Referências</h2>
+                <ol class="list-decimal pl-5 text-gray-700 space-y-2 text-sm">
+                    <li>Haylen BT, et al. An International Urogynecological Association (IUGA)/International Continence Society (ICS) joint report on the terminology for female pelvic floor dysfunction. <em>Int Urogynecol J</em>. 2010.</li>
+                    <li>Peyronnet B, et al. A comprehensive review of overactive bladder pathophysiology: on the way to tailored treatment. <em>Eur Urol</em>. 2019.</li>
+                    <li>Davila GW, Neimark M. The overactive bladder: prevalence and effects on quality of life. <em>Clin Obstet Gynecol</em>. 2002.</li>
+                    <li>Soler R, et al. The prevalence of lower urinary tract symptoms (LUTS) in Brazil: results from the epidemiology of LUTS (Brazil LUTS) study. <em>Neurourol Urodyn</em>. 2018.</li>
+                    <li>Abrams P, et al. Seventh International Consultation on Incontinence-Research Society 2023. <em>Neurourol Urodyn</em>. 2018.</li>
+                    <li>Federação Brasileira das Associações de Ginecologia e Obstetrícia (FEBRASGO). Síndrome da bexiga hiperativa. 3ª ed. São Paulo: FEBRASGO; 2025.</li>
+                </ol>
+            </section>
+
+            <!-- Nota Final -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-8">
+                <p class="text-yellow-700">
+                    <strong>Nota:</strong> Este protocolo é um resumo baseado nas diretrizes da FEBRASGO e deve ser adaptado ao contexto clínico individual. A síndrome da bexiga hiperativa é uma condição crônica onde o objetivo principal é o controle dos sintomas e melhora da qualidade de vida.
+                </p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between mt-8">
+            <a href="protocolos.html" class="bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                <i data-feather="arrow-left" class="w-4 h-4 inline mr-2"></i>
+                Voltar para Protocolos
+            </a>
+            <button onclick="downloadPDF()" class="bg-uro-azul_escuro hover:bg-blue-900 text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                <i data-feather="download" class="w-4 h-4 inline mr-2"></i>
+                Baixar PDF
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-uro-azul_escuro text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Uroginecologia Em Dia</h3>
+                    <p class="mb-4">Portal de referência em conhecimento uroginecológico para profissionais de saúde.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/uroginecologiaemdia" class="hover:text-uro-azul_claro"><i data-feather="instagram"></i></a>
+                        <a href="https://facebook.com/uroginecologiaemdia" class="hover:text-uro-azul_claro"><i data-feather="facebook"></i></a>
+                        <a href="https://linkedin.com/company/uroginecologiaemdia" class="hover:text-uro-azul_claro"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Entre em Contato</h4>
+                    <address class="not-italic">
+                        <p class="mb-2"><i data-feather="mail" class="inline mr-2 w-4 h-4"></i> contato@uroginecologiaemdia.com.br</p>
+                        <p><i data-feather="phone" class="inline mr-2 w-4 h-4"></i> (11) 99999-9999</p>
+                    </address>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/index.html" class="hover:text-uro-azul_claro">Página Inicial</a></li>
+                        <li><a href="/pages/sobre.html" class="hover:text-uro-azul_claro">Sobre Nós</a></li>
+                        <li><a href="/pages/contato.html" class="hover:text-uro-azul_claro">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Seções</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/pages/artigos.html" class="hover:text-uro-azul_claro">Artigos Resumidos</a></li>
+                        <li><a href="/pages/protocolos.html" class="hover:text-uro-azul_claro">Protocolos</a></li>
+                        <li><a href="/pages/noticias.html" class="hover:text-uro-azul_claro">Notícias</a></li>
+                        <li><a href="/pages/eventos.html" class="hover:text-uro-azul_claro">Eventos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-uro-azul mt-8 pt-8 text-sm text-center">
+                <p>© 2025 Uroginecologia Em Dia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile Menu Functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                document.querySelector('#mobileMenu > div:last-child').classList.remove('-translate-x-full');
+            }, 10);
+        }
+
+        function closeMobileMenuFunc() {
+            document.querySelector('#mobileMenu > div:last-child').classList.add('-translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+        }
+        if (closeMobileMenu) {
+            closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        }
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+        }
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenuFunc);
+        });
+
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                alert(`Buscando por: ${searchTerm}`);
+            }
+        }
+        
+        if (searchButton) {
+            searchButton.addEventListener('click', performSearch);
+        }
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        }
+
+        // PDF Download Function
+        function downloadPDF() {
+            // Em um ambiente real, isso baixaria o PDF real
+            // Por enquanto, simula o download
+            const link = document.createElement('a');
+            link.href = '/static/protocolos/protocolo-bexiga-hiperativa-febrasgo-2025.pdf';
+            link.download = 'Protocolo_Bexiga_Hiperativa_FEBRASGO_2025.pdf';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Mensagem de confirmação
+            alert('Download do protocolo de Bexiga Hiperativa iniciado. O arquivo será salvo como "Protocolo_Bexiga_Hiperativa_FEBRASGO_2025.pdf"');
+        }
+
+        // Garantir que o menu comece fechado
+        document.addEventListener('DOMContentLoaded', function() {
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

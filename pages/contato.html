@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Conosco | Uroginecologia Em Dia</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        uro: {
+                            azul_escuro: '#1e40af',
+                            azul: '#3b82f6',
+                            azul_claro: '#60a5fa',
+                            branco: '#ffffff',
+                            cinza: '#f3f4f6',
+                            cinza_escuro: '#6b7280'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .nav-button {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff" fill-opacity="0.03" points="0,1000 1000,0 1000,1000"/></svg>');
+        }
+    </style>
+</head>
+<body class="bg-uro-cinza font-sans">
+    <!-- Header -->
+    <header class="bg-uro-branco shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <!-- Top Bar with Logo, Social and Search -->
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <!-- Social Media and Menu Button -->
+                <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                    <!-- Mobile Menu Button -->
+                    <button class="bg-uro-azul text-white p-2 rounded-lg" id="mobileMenuButton">
+                        <i data-feather="menu" class="w-5 h-5"></i>
+                    </button>
+                    
+                    <!-- Social Media -->
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="instagram"></i></a>
+                        <a href="#" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="facebook"></i></a>
+                        <a href="#" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Logo - Centralizado -->
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i data-feather="activity" class="w-10 h-10 mr-3 text-uro-azul_escuro"></i>
+                    <h1 class="text-2xl md:text-3xl font-bold text-uro-azul_escuro text-center">Uroginecologia Em Dia</h1>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="relative w-full md:w-64">
+                    <input type="text" id="searchInput" placeholder="Buscar..." 
+                           class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-uro-azul text-gray-800">
+                    <button class="absolute right-3 top-2 text-uro-azul_escuro" id="searchButton">
+                        <i data-feather="search" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Navigation Tabs - Centralizados -->
+            <div class="border-b border-gray-200">
+                <div class="flex justify-center space-x-1">
+                    <a href="/index.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Página Inicial
+                    </a>
+                    <a href="/pages/protocolos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Protocolos
+                    </a>
+                    <a href="/pages/artigos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Artigos Resumidos
+                    </a>
+                    <a href="/pages/eventos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Eventos
+                    </a>
+                    <a href="/pages/noticias.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Notícias
+                    </a>
+                    <a href="/pages/sobre.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Sobre Nós
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-50 hidden">
+        <div class="fixed inset-0 bg-black bg-opacity-50" id="mobileMenuOverlay"></div>
+        <div class="fixed left-0 top-0 h-full w-72 bg-uro-branco shadow-lg p-6 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-bold text-uro-azul_escuro">Menu</h2>
+                <button id="closeMobileMenu" class="text-uro-azul_escuro">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <nav>
+                <ul class="space-y-4">
+                    <li><a href="/index.html" class="block py-2 px-4 bg-uro-azul text-white rounded-lg font-medium">Página Inicial</a></li>
+                    <li><a href="/pages/artigos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Artigos Resumidos</a></li>
+                    <li><a href="/pages/protocolos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Protocolos</a></li>
+                    <li><a href="/pages/eventos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Eventos</a></li>
+                    <li><a href="/pages/noticias.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Notícias</a></li>
+                    <li><a href="/pages/sobre.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Sobre Nós</a></li>
+                    <li><a href="/pages/contato.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Fale Conosco</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Banner -->
+        <section class="mb-12 fade-in">
+            <div class="hero-banner text-white rounded-2xl p-8 md:p-12">
+                <div class="relative z-10 max-w-4xl mx-auto">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center">Fale Conosco</h1>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-white border-opacity-20">
+                        <p class="text-xl md:text-2xl leading-relaxed text-center mb-6">
+                            <span class="font-semibold">Sua conexão direta com a excelência em Uroginecologia</span>. Estamos aqui para ouvir suas dúvidas, sugestões e propostas de colaboração.
+                        </p>
+                        <p class="text-lg md:text-xl leading-relaxed text-center text-blue-100">
+                            Valorizamos cada mensagem e nos comprometemos a responder todas as consultas dentro de 24 horas úteis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12 fade-in">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Contact Info -->
+                <div class="card-hover bg-white rounded-xl shadow-md p-8">
+                    <h2 class="text-2xl font-bold text-uro-azul_escuro mb-6 border-b-2 border-uro-azul pb-2">Informações de Contato</h2>
+                    
+                    <div class="space-y-6">
+                        <!-- ALTERE AQUI: Email de contato -->
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-uro-azul text-white p-3 rounded-full">
+                                <i data-feather="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Email</h3>
+                                <p class="text-gray-600">contato@uroginecologiaemdia.com.br</p>
+                                <p class="text-sm text-gray-500 mt-1">Respondemos em até 24 horas</p>
+                            </div>
+                        </div>
+                        
+                        <!-- ALTERE AQUI: Telefone para contato -->
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-uro-azul text-white p-3 rounded-full">
+                                <i data-feather="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Telefone/WhatsApp</h3>
+                                <p class="text-gray-600">(11) 99999-9999</p>
+                                <p class="text-sm text-gray-500 mt-1">Atendimento preferencial por mensagem</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tipos de Contato -->
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Como Podemos Ajudar?</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <i data-feather="help-circle" class="w-5 h-5 text-uro-azul mt-0.5 mr-3"></i>
+                                <div>
+                                    <p class="text-gray-700 font-medium">Dúvidas Técnicas</p>
+                                    <p class="text-sm text-gray-600">Esclarecimentos sobre protocolos e artigos</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="users" class="w-5 h-5 text-uro-azul mt-0.5 mr-3"></i>
+                                <div>
+                                    <p class="text-gray-700 font-medium">Colaborações</p>
+                                    <p class="text-sm text-gray-600">Propostas de parceria e conteúdo</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="message-square" class="w-5 h-5 text-uro-azul mt-0.5 mr-3"></i>
+                                <div>
+                                    <p class="text-gray-700 font-medium">Feedback</p>
+                                    <p class="text-sm text-gray-600">Sugestões para melhorar nosso portal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="card-hover bg-white rounded-xl shadow-md p-8">
+                    <h2 class="text-2xl font-bold text-uro-azul_escuro mb-6 border-b-2 border-uro-azul pb-2">Envie uma Mensagem</h2>
+                    
+                    <form id="contactForm">
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo *</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-uro-azul">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-uro-azul">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
+                            <input type="tel" id="phone" name="phone" 
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-uro-azul"
+                                   placeholder="(00) 00000-0000">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Assunto *</label>
+                            <select id="subject" name="subject" required 
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-uro-azul">
+                                <option value="" disabled selected>Selecione um assunto</option>
+                                <option value="duvida">Dúvida sobre conteúdo</option>
+                                <option value="sugestao">Sugestão de tema</option>
+                                <option value="colaboracao">Interesse em colaborar</option>
+                                <option value="eventos">Informações sobre eventos</option>
+                                <option value="tecnico">Problema técnico no site</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem *</label>
+                            <textarea id="message" name="message" rows="4" required 
+                                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-uro-azul"
+                                      placeholder="Descreva sua dúvida, sugestão ou proposta de colaboração..."></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-uro-azul hover:bg-uro-azul_escuro text-white py-3 px-4 rounded-md font-medium transition-colors transform hover:scale-105">
+                            <i data-feather="send" class="w-4 h-4 inline mr-2"></i>
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                    
+                    <div id="formMessage" class="mt-4 hidden p-4 rounded"></div>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="card-hover bg-white rounded-xl shadow-md p-8">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-6 border-b-2 border-uro-azul pb-2">Perguntas Frequentes</h2>
+                
+                <div class="space-y-4">
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex justify-between items-center w-full text-left" onclick="toggleFAQ(1)">
+                            <span class="text-lg font-medium text-gray-900">Como posso contribuir com artigos para o portal?</span>
+                            <i data-feather="chevron-down" class="w-5 h-5 text-uro-azul" id="faqIcon1"></i>
+                        </button>
+                        <div id="faqContent1" class="hidden mt-2 text-gray-600">
+                            <p>Profissionais interessados em contribuir com conteúdo podem entrar em contato através do formulário acima, selecionando a opção "Interesse em colaborar". Nossa equipe editorial entrará em contato com diretrizes para submissão e avaliação de artigos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex justify-between items-center w-full text-left" onclick="toggleFAQ(2)">
+                            <span class="text-lg font-medium text-gray-900">Quanto tempo leva para receber uma resposta?</span>
+                            <i data-feather="chevron-down" class="w-5 h-5 text-uro-azul" id="faqIcon2"></i>
+                        </button>
+                        <div id="faqContent2" class="hidden mt-2 text-gray-600">
+                            <p>Nos comprometemos a responder todas as mensagens dentro de 24 horas úteis. Para questões urgentes, recomendamos o contato via telefone/WhatsApp.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex justify-between items-center w-full text-left" onclick="toggleFAQ(3)">
+                            <span class="text-lg font-medium text-gray-900">O portal oferece consultas médicas?</span>
+                            <i data-feather="chevron-down" class="w-5 h-5 text-uro-azul" id="faqIcon3"></i>
+                        </button>
+                        <div id="faqContent3" class="hidden mt-2 text-gray-600">
+                            <p>Não, somos um portal educacional voltado para profissionais de saúde. Todo conteúdo é de caráter informativo e educativo, não substituindo a consulta médica presencial.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex justify-between items-center w-full text-left" onclick="toggleFAQ(4)">
+                            <span class="text-lg font-medium text-gray-900">Posso sugerir temas para novos artigos?</span>
+                            <i data-feather="chevron-down" class="w-5 h-5 text-uro-azul" id="faqIcon4"></i>
+                        </button>
+                        <div id="faqContent4" class="hidden mt-2 text-gray-600">
+                            <p>Sim! Valorizamos muito as sugestões da nossa comunidade. Utilize o formulário de contato selecionando "Sugestão de tema" e nossa equipe avaliará a proposta.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-uro-azul_escuro text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Uroginecologia Em Dia</h3>
+                    <p class="mb-4">Portal de referência em conhecimento uroginecológico para profissionais de saúde.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-uro-azul_claro"><i data-feather="instagram"></i></a>
+                        <a href="#" class="hover:text-uro-azul_claro"><i data-feather="facebook"></i></a>
+                        <a href="#" class="hover:text-uro-azul_claro"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Entre em Contato</h4>
+                    <address class="not-italic">
+                        <!-- ALTERE AQUI: Email no footer -->
+                        <p class="mb-2"><i data-feather="mail" class="inline mr-2 w-4 h-4"></i> contato@uroginecologiaemdia.com.br</p>
+                        <!-- ALTERE AQUI: Telefone no footer -->
+                        <p><i data-feather="phone" class="inline mr-2 w-4 h-4"></i> (11) 99999-9999</p>
+                    </address>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/index.html" class="hover:text-uro-azul_claro">Página Inicial</a></li>
+                        <li><a href="/pages/sobre.html" class="hover:text-uro-azul_claro">Sobre Nós</a></li>
+                        <li><a href="/pages/contato.html" class="hover:text-uro-azul_claro">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Seções</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/pages/artigos.html" class="hover:text-uro-azul_claro">Artigos Resumidos</a></li>
+                        <li><a href="/pages/protocolos.html" class="hover:text-uro-azul_claro">Protocolos</a></li>
+                        <li><a href="/pages/noticias.html" class="hover:text-uro-azul_claro">Notícias</a></li>
+                        <li><a href="/pages/eventos.html" class="hover:text-uro-azul_claro">Eventos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-uro-azul mt-8 pt-8 text-sm text-center">
+                <p>© 2025 Uroginecologia Em Dia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Garantir que o menu comece fechado
+        document.getElementById('mobileMenu').classList.add('hidden');
+        
+        // Mobile Menu Functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                document.querySelector('#mobileMenu > div:last-child').classList.remove('-translate-x-full');
+            }, 10);
+        }
+
+        function closeMobileMenuFunc() {
+            document.querySelector('#mobileMenu > div:last-child').classList.add('-translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
+
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+        closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenuFunc);
+        });
+        
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                alert(`Buscando por: ${searchTerm}`);
+            }
+        }
+        
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            formMessage.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
+            formMessage.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+            formMessage.classList.add('bg-green-100', 'text-green-700');
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.classList.add('hidden');
+            }, 5000);
+        });
+
+        // FAQ Toggle Function
+        function toggleFAQ(number) {
+            const content = document.getElementById(`faqContent${number}`);
+            const icon = document.getElementById(`faqIcon${number}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.setAttribute('data-feather', 'chevron-up');
+            } else {
+                content.classList.add('hidden');
+                icon.setAttribute('data-feather', 'chevron-down');
+            }
+            feather.replace();
+        }
+
+        // Add animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

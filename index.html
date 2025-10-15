@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uroginecologia Em Dia - Portal para Profissionais de Saúde</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        uro: {
+                            azul_escuro: '#1e40af',
+                            azul: '#3b82f6',
+                            azul_claro: '#60a5fa',
+                            branco: '#ffffff',
+                            cinza: '#f3f4f6',
+                            cinza_escuro: '#6b7280'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .carousel-container {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .carousel-item {
+            flex: 0 0 calc(33.333% - 1rem);
+            min-width: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-item {
+                flex: 0 0 100%;
+            }
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-uro-cinza font-sans">
+    <!-- Header (mantido igual) -->
+    <header class="bg-uro-branco shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                    <button class="bg-uro-azul text-white p-2 rounded-lg" id="mobileMenuButton">
+                        <i data-feather="menu" class="w-5 h-5"></i>
+                    </button>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="instagram"></i></a>
+                        <a href="#" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="facebook"></i></a>
+                        <a href="#" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i data-feather="activity" class="w-10 h-10 mr-3 text-uro-azul_escuro"></i>
+                    <h1 class="text-2xl md:text-3xl font-bold text-uro-azul_escuro text-center">Uroginecologia Em Dia</h1>
+                </div>
+                <div class="relative w-full md:w-64">
+                    <input type="text" id="searchInput" placeholder="Buscar..." 
+                        class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-uro-azul text-gray-800">
+                    <button class="absolute right-3 top-2 text-uro-azul_escuro" id="searchButton">
+                        <i data-feather="search" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="border-b border-gray-200">
+                <div class="flex justify-center space-x-1">
+                    <a href="/index.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-uro-azul transition-colors">Página Inicial</a>
+                    <a href="/pages/protocolos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">Protocolos</a>
+                    <a href="/pages/artigos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">Artigos Resumidos</a>
+                    <a href="/pages/eventos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">Eventos</a>
+                    <a href="/pages/noticias.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">Notícias</a>
+                    <a href="/pages/sobre.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">Sobre Nós</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu (mantido igual) -->
+    <div id="mobileMenu" class="fixed inset-0 z-50 hidden">
+        <div class="fixed inset-0 bg-black bg-opacity-50" id="mobileMenuOverlay"></div>
+        <div class="fixed left-0 top-0 h-full w-72 bg-uro-branco shadow-lg p-6 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-bold text-uro-azul_escuro">Menu</h2>
+                <button id="closeMobileMenu" class="text-uro-azul_escuro">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <nav>
+                <ul class="space-y-4">
+                    <li><a href="/index.html" class="block py-2 px-4 bg-uro-azul text-white rounded-lg font-medium">Página Inicial</a></li>
+                    <li><a href="/pages/artigos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Artigos Resumidos</a></li>
+                    <li><a href="/pages/protocolos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Protocolos</a></li>
+                    <li><a href="/pages/eventos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Eventos</a></li>
+                    <li><a href="/pages/noticias.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Notícias</a></li>
+                    <li><a href="/pages/sobre.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Sobre Nós</a></li>
+                    <li><a href="/pages/contatos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Fale Conosco</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Banner -->
+        <section class="mb-12 fade-in">
+            <div class="bg-gradient-to-r from-uro-azul_escuro to-uro-azul text-white rounded-2xl p-8 md:p-12 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Portal de Referência em Uroginecologia</h2>
+                <p class="text-xl max-w-3xl mx-auto">Conteúdo especializado para médicos e estudantes de medicina, com as últimas evidências científicas e protocolos clínicos.</p>
+            </div>
+        </section>
+
+        <!-- Protocolos Section -->
+        <section class="mb-16 fade-in">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro border-b-2 border-uro-azul pb-2">Protocolos em Destaque</h2>
+                <a href="/pages/protocolos.html" class="text-uro-azul hover:text-uro-azul_escuro font-medium flex items-center">
+                    Ver Todos <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                </a>
+            </div>
+
+            <div class="relative">
+                <button id="prevProtocol" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-uro-azul bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full z-10 shadow-lg transition-all">
+                    <i data-feather="chevron-left" class="w-5 h-5"></i>
+                </button>
+
+                <div class="overflow-hidden">
+                    <div id="protocolsCarousel" class="flex gap-6 transition-transform duration-300 ease-in-out">
+                        <!-- Protocolos carregados via JavaScript -->
+                    </div>
+                </div>
+
+                <button id="nextProtocol" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-uro-azul bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full z-10 shadow-lg transition-all">
+                    <i data-feather="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Artigos Section -->
+        <section class="mb-16 fade-in">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro border-b-2 border-uro-azul pb-2">Artigos em Destaque</h2>
+                <a href="/pages/artigos.html" class="text-uro-azul hover:text-uro-azul_escuro font-medium flex items-center">
+                    Ver Todos <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                </a>
+            </div>
+
+            <div class="relative">
+                <button id="prevArticle" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-uro-azul bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full z-10 shadow-lg transition-all">
+                    <i data-feather="chevron-left" class="w-5 h-5"></i>
+                </button>
+
+                <div class="overflow-hidden">
+                    <div id="articlesCarousel" class="flex gap-6 transition-transform duration-300 ease-in-out">
+                        <!-- Artigos serão inseridos aqui via JavaScript -->
+                    </div>
+                </div>
+
+                <button id="nextArticle" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-uro-azul bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full z-10 shadow-lg transition-all">
+                    <i data-feather="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Notícias Section -->
+        <section class="mb-16 fade-in">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro border-b-2 border-uro-azul pb-2">Últimas Notícias</h2>
+                <a href="/pages/noticias.html" class="text-uro-azul hover:text-uro-azul_escuro font-medium flex items-center">
+                    Ver Todas <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Notícia 1 -->
+                <div class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-40 bg-gradient-to-r from-uro-azul to-uro-azul_claro flex items-center justify-center">
+                        <i data-feather="book-open" class="w-12 h-12 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-uro-azul text-white rounded-full px-2 py-1 text-xs font-semibold mb-3">Pesquisa</span>
+                        <h3 class="text-lg font-bold text-uro-azul_escuro mb-3 line-clamp-2">Toxina botulínica mostra eficácia para bexiga hiperativa</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">Estudo multicêntrico publicado no New England Journal confirma eficácia da aplicação de toxina botulínica na bexiga para tratamento da bexiga hiperativa refratária.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-500">10/03/2024</span>
+                            <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa1208312" target="_blank" class="text-uro-azul font-medium hover:text-uro-azul_escuro transition-colors text-sm">
+                                Ler Mais
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notícia 2 -->
+                <div class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-40 bg-gradient-to-r from-uro-azul to-uro-azul_claro flex items-center justify-center">
+                        <i data-feather="book-open" class="w-12 h-12 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-green-500 text-white rounded-full px-2 py-1 text-xs font-semibold mb-3">Inovação</span>
+                        <h3 class="text-lg font-bold text-uro-azul_escuro mb-3 line-clamp-2">Dispositivo intravaginal para tratamento do prolapso</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">Pesquisadores desenvolvem novo dispositivo intravaginal que oferece alternativa não cirúrgica para mulheres com prolapso de órgãos pélvicos.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-500">28/02/2024</span>
+                            <a href="https://journals.lww.com/fpmrs/Abstract/9900/Novel_Intravaginal_Device_for_Pelvic_Organ.209.aspx" target="_blank" class="text-uro-azul font-medium hover:text-uro-azul_escuro transition-colors text-sm">
+                                Ler Mais
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notícia 3 -->
+                <div class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-40 bg-gradient-to-r from-uro-azul to-uro-azul_claro flex items-center justify-center">
+                        <i data-feather="book-open" class="w-12 h-12 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-purple-500 text-white rounded-full px-2 py-1 text-xs font-semibold mb-3">Evento</span>
+                        <h3 class="text-lg font-bold text-uro-azul_escuro mb-3 line-clamp-2">Congresso Internacional de Uroginecologia 2024</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">Evento reúne especialistas mundiais para discutir avanços no diagnóstico e tratamento das disfunções do assoalho pélvico feminino.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-500">15/02/2024</span>
+                            <a href="https://www.ics.org/2024" target="_blank" class="text-uro-azul font-medium hover:text-uro-azul_escuro transition-colors text-sm">
+                                Ler Mais
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section class="mb-16 fade-in">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro border-b-2 border-uro-azul pb-2">Próximos Eventos</h2>
+                <a href="/pages/eventos.html" class="text-uro-azul hover:text-uro-azul_escuro font-medium flex items-center">
+                    Ver Todos <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Event Card 1 -->
+                <div class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-gradient-to-r from-uro-azul to-uro-azul_claro text-white p-4 flex justify-between items-center">
+                        <span class="font-bold">25 OUT</span>
+                        <span class="text-sm">2025</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-uro-azul_escuro mb-3">Webinar Internacional: Novas Diretrizes IUGA sobre Bexiga Hiperativa</h3>
+                        <p class="text-gray-600 mb-2"><i data-feather="map-pin" class="inline w-4 h-4 mr-2"></i>Online - Transmissão ao vivo</p>
+                        <p class="text-gray-600 mb-4 line-clamp-2">Atualização das diretrizes internacionais com especialistas da International Urogynecological Association (IUGA).</p>
+                        <a href="https://www.iuga.org" target="_blank" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                            Site da IUGA
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Event Card 2 -->
+                <div class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-gradient-to-r from-uro-azul to-uro-azul_claro text-white p-4 flex justify-between items-center">
+                        <span class="font-bold">15 NOV</span>
+                        <span class="text-sm">2025</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-uro-azul_escuro mb-3">Curso Prático de Urodinâmica - FEBRASGO</h3>
+                        <p class="text-gray-600 mb-2"><i data-feather="map-pin" class="inline w-4 h-4 mr-2"></i>Rio de Janeiro, RJ</p>
+                        <p class="text-gray-600 mb-4 line-clamp-2">Curso hands-on com estações práticas de interpretação de exames urodinâmicos e casos clínicos complexos.</p>
+                        <a href="https://www.febrasgo.org.br/cursos" target="_blank" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                            Cursos FEBRASGO
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="mb-16 fade-in">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-6 text-center">Sobre Nós</h2>
+                <div class="max-w-3xl mx-auto">
+                    <p class="text-gray-700 text-lg mb-6 text-center">
+                        Saiba mais sobre o portal Uroginecologia Em Dia, sua plataforma de referência em conhecimento uroginecológico. 
+                        Nosso objetivo é conectar profissionais de saúde, pesquisadores e estudantes com as últimas descobertas e 
+                        tendências para melhorar os cuidados e resultados para os pacientes.
+                    </p>
+                    <div class="text-center">
+                        <a href="sobre.html" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-3 px-6 rounded-lg font-medium transition-colors">
+                            Conheça Mais
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="mb-16 fade-in">
+            <div class="bg-gradient-to-r from-uro-azul_escuro to-uro-azul text-white rounded-2xl p-8 text-center">
+                <h2 class="text-2xl font-bold mb-4">Assine Nossa Newsletter</h2>
+                <p class="max-w-2xl mx-auto mb-6">Receba os artigos mais recentes sobre saúde uroginecológica diretamente no seu email.</p>
+                <form id="newsletterForm" class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+                    <input type="email" id="newsletterEmail" placeholder="Seu endereço de email" 
+                        class="flex-grow py-3 px-4 rounded-lg focus:outline-none text-gray-800" required>
+                    <button type="submit" class="bg-white text-uro-azul_escuro hover:bg-gray-100 py-3 px-6 rounded-lg font-medium transition-colors whitespace-nowrap">
+                        Assinar
+                    </button>
+                </form>
+                <p id="newsletterMessage" class="mt-4 text-sm hidden"></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-uro-azul_escuro text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Uroginecologia Em Dia</h3>
+                    <p class="mb-4">Portal de referência em conhecimento uroginecológico para profissionais de saúde.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-uro-azul_claro"><i data-feather="instagram"></i></a>
+                        <a href="#" class="hover:text-uro-azul_claro"><i data-feather="facebook"></i></a>
+                        <a href="#" class="hover:text-uro-azul_claro"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Entre em Contato</h4>
+                    <address class="not-italic">
+                        <p class="mb-2"><i data-feather="mail" class="inline mr-2 w-4 h-4"></i> contato@uroginecologiaemdia.com.br</p>
+                        <p><i data-feather="phone" class="inline mr-2 w-4 h-4"></i> (11) 99999-9999</p>
+                    </address>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/index.html" class="hover:text-uro-azul_claro">Página Inicial</a></li>
+                        <li><a href="/pages/sobre.html" class="hover:text-uro-azul_claro">Sobre Nós</a></li>
+                        <li><a href="/pages/contatos.html" class="hover:text-uro-azul_claro">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Seções</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/pages/artigos.html" class="hover:text-uro-azul_claro">Artigos Resumidos</a></li>
+                        <li><a href="/pages/protocolos.html" class="hover:text-uro-azul_claro">Protocolos</a></li>
+                        <li><a href="/pages/noticias.html" class="hover:text-uro-azul_claro">Notícias</a></li>
+                        <li><a href="/pages/eventos.html" class="hover:text-uro-azul_claro">Eventos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-uro-azul mt-8 pt-8 text-sm text-center">
+                <p>© 2025 Uroginecologia Em Dia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile Menu Functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                document.querySelector('#mobileMenu > div:last-child').classList.remove('-translate-x-full');
+            }, 10);
+        }
+
+        function closeMobileMenuFunc() {
+            document.querySelector('#mobileMenu > div:last-child').classList.add('-translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
+
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+        closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenuFunc);
+        });
+        
+        // Newsletter Form
+        const newsletterForm = document.getElementById('newsletterForm');
+        const newsletterMessage = document.getElementById('newsletterMessage');
+        
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailRegex.test(email)) {
+                newsletterMessage.textContent = 'Por favor, insira um email válido.';
+                newsletterMessage.classList.remove('hidden');
+                newsletterMessage.classList.remove('text-green-300');
+                newsletterMessage.classList.add('text-red-300');
+                return;
+            }
+            
+            newsletterMessage.textContent = 'Obrigado por assinar nossa newsletter!';
+            newsletterMessage.classList.remove('hidden');
+            newsletterMessage.classList.remove('text-red-300');
+            newsletterMessage.classList.add('text-green-300');
+            newsletterForm.reset();
+            
+            setTimeout(() => {
+                newsletterMessage.classList.add('hidden');
+            }, 5000);
+        });
+        
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm) {
+                alert(`Buscando por: ${searchTerm}`);
+            }
+        }
+        
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Sistema de Carrossel para Protocolos e Artigos
+        class SimpleCarousel {
+            constructor(containerId, items, itemsPerView = 3) {
+                this.container = document.getElementById(containerId);
+                this.items = items;
+                this.itemsPerView = itemsPerView;
+                this.currentIndex = 0;
+                this.init();
+            }
+
+            init() {
+                this.render();
+                this.setupNavigation();
+                if (this.items.length > this.itemsPerView) {
+                    this.setupAutoRotate();
+                }
+            }
+
+            render() {
+                this.container.innerHTML = '';
+                this.items.forEach(item => {
+                    const element = this.createItemElement(item);
+                    this.container.appendChild(element);
+                });
+                this.updatePosition();
+                feather.replace();
+            }
+
+            createItemElement(item) {
+                const div = document.createElement('div');
+                div.className = 'flex-shrink-0 w-full md:w-1/3 px-2';
+                
+                if (item.type === 'protocol') {
+                    div.innerHTML = `
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer h-full">
+                            <div class="h-40 bg-gradient-to-r from-uro-azul to-uro-azul_claro flex items-center justify-center">
+                                <i data-feather="file-text" class="w-12 h-12 text-white"></i>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-uro-azul_escuro mb-3 line-clamp-2">${item.title}</h3>
+                                <p class="text-gray-600 text-sm mb-4 line-clamp-2">${item.description}</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs text-gray-500">${item.date}</span>
+                                    <a href="${item.url}" class="text-uro-azul font-medium hover:text-uro-azul_escuro transition-colors">
+                                        Ver Protocolo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (item.type === 'article') {
+                    div.innerHTML = `
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer h-full">
+                            <div class="h-40 bg-gradient-to-r from-uro-azul_escuro to-uro-azul flex items-center justify-center">
+                                <i data-feather="book-open" class="w-12 h-12 text-white"></i>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-uro-azul_escuro mb-3 line-clamp-2">${item.title}</h3>
+                                <p class="text-gray-600 text-sm mb-4 line-clamp-3">${item.description}</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xs text-gray-500">${item.date}</span>
+                                    <a href="${item.url}" class="text-uro-azul font-medium hover:text-uro-azul_escuro transition-colors">
+                                        Ler Artigo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+                return div;
+            }
+
+            setupNavigation() {
+                // Corrigido: usar o ID correto baseado no container
+                const containerName = this.container.id.replace('Carousel', '');
+                const prevBtn = document.getElementById(`prev${containerName.charAt(0).toUpperCase() + containerName.slice(1)}`);
+                const nextBtn = document.getElementById(`next${containerName.charAt(0).toUpperCase() + containerName.slice(1)}`);
+
+                if (prevBtn && nextBtn) {
+                    if (this.items.length > this.itemsPerView) {
+                        prevBtn.addEventListener('click', () => this.prev());
+                        nextBtn.addEventListener('click', () => this.next());
+                    } else {
+                        prevBtn.style.display = 'none';
+                        nextBtn.style.display = 'none';
+                    }
+                }
+            }
+
+            prev() {
+                if (this.items.length <= this.itemsPerView) return;
+                this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
+                this.updatePosition();
+            }
+
+            next() {
+                if (this.items.length <= this.itemsPerView) return;
+                this.currentIndex = (this.currentIndex + 1) % this.items.length;
+                this.updatePosition();
+            }
+
+            updatePosition() {
+                const translateX = -this.currentIndex * (100 / this.itemsPerView);
+                this.container.style.transform = `translateX(${translateX}%)`;
+            }
+
+            setupAutoRotate() {
+                if (this.items.length > this.itemsPerView) {
+                    setInterval(() => {
+                        this.next();
+                    }, 5000);
+                }
+            }
+        }
+
+        // Dados dos Protocolos
+        const protocolos = [
+            {
+                type: 'protocol',
+                title: 'Infecção do Trato Urinário',
+                description: 'Diretrizes atualizadas baseadas no Protocolo FEBRASGO nº 48 para diagnóstico e tratamento da ITU em mulheres.',
+                date: 'Atualizado: Jan/2025',
+                url: 'pages/protocolos/infeccao-do-trato-urinario.html'
+            },
+            {
+                type: 'protocol',
+                title: 'Incontinência Urinária de Esforço',
+                description: 'Abordagem baseada em evidências para diagnóstico e tratamento da incontinência urinária de esforço.',
+                date: 'Atualizado: Jan/2025',
+                url: 'pages/protocolos/incontinencia-urinaria-esforco.html'
+            },
+            {
+                type: 'protocol',
+                title: 'Síndrome Bexiga Hiperativa',
+                description: 'Protocolo completo para diagnóstico e tratamento da bexiga hiperativa em mulheres.',
+                date: 'Atualizado: Jan/2025',
+                url: 'pages/protocolos/sindrome-bexiga-hiperativa.html'
+            },
+            {
+                type: 'protocol',
+                title: 'Incontinência Urinária Não Especificada',
+                description: 'Protocolo para abordagem de casos complexos de incontinência urinária.',
+                date: 'Atualizado: Fev/2025',
+                url: 'pages/protocolos/incontinencia-urinaria-nao.html'
+            }
+        ];
+
+        // Dados dos Artigos
+        const artigos = [
+            {
+                type: 'article',
+                title: 'Eficácia da Toxina Botulínica na Bexiga Hiperativa',
+                description: 'Meta-análise de ensaios clínicos randomizados avaliando a eficácia e segurança da toxina botulínica no tratamento da bexiga hiperativa refratária.',
+                date: 'Publicado: 15/01/2025',
+                url: 'pages/artigos/acupuntura-urinaria-feminina.html'
+            },
+            {
+                type: 'article',
+                title: 'Impacto da Menopausa na Função do Assoalho Pélvico',
+                description: 'Estudo longitudinal avaliando alterações na função do assoalho pélvico durante a transição menopausal e estratégias de prevenção.',
+                date: 'Publicado: 10/01/2025',
+                url: 'pages/artigos/cirurgias-incontinencia.html'
+            },
+            {
+                type: 'article',
+                title: 'Terapias Comportamentais para Incontinência Urinária',
+                description: 'Revisão sistemática sobre a eficácia de intervenções comportamentais no tratamento da incontinência urinária de esforço.',
+                date: 'Publicado: 08/01/2025',
+                url: 'pages/artigos/revi-literaria-artigo.html'
+            },
+            {
+                type: 'article',
+                title: 'Novos Fármacos para Bexiga Hiperativa',
+                description: 'Revisão sistemática avaliando a eficácia e segurança de novos agentes farmacológicos no tratamento da síndrome da bexiga hiperativa.',
+                date: 'Publicado: 05/01/2025',
+                url: 'pages/artigos/revisao-ssistematica.html'
+            },
+            {
+                type: 'article',
+                title: 'Cirurgia Robótica em Prolapso Genital',
+                description: 'Análise comparativa entre abordagens robóticas e tradicionais no tratamento do prolapso genital avançado.',
+                date: 'Publicado: 03/01/2025',
+                url: 'pages/artigos/urinaria-atencao-basica.html'
+            }
+        ];
+
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Inicializando carrosseis...');
+            
+            // Inicializa o carrossel de protocolos
+            const protocolCarousel = new SimpleCarousel('protocolsCarousel', protocolos);
+            console.log('Carrossel de protocolos inicializado:', protocolCarousel);
+            
+            // Inicializa o carrossel de artigos
+            const articleCarousel = new SimpleCarousel('articlesCarousel', artigos);
+            console.log('Carrossel de artigos inicializado:', articleCarousel);
+            
+            // Atualiza os ícones
+            feather.replace();
+        });
+    </script>
+</body>
+</html>

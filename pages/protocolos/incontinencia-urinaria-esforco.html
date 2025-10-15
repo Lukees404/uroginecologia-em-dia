@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo de Incontinência Urinária de Esforço | Uroginecologia Em Dia</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        uro: {
+                            azul_escuro: '#1e40af',
+                            azul: '#3b82f6',
+                            azul_claro: '#60a5fa',
+                            branco: '#ffffff',
+                            cinza: '#f3f4f6',
+                            cinza_escuro: '#6b7280'
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Inicializar Mermaid
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({ 
+                startOnLoad: true,
+                theme: 'default',
+                securityLevel: 'loose'
+            });
+        });
+    </script>
+    <style>
+        .protocol-section {
+            margin-bottom: 3rem;
+        }
+        
+        .recommendation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .recommendation-table th,
+        .recommendation-table td {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .recommendation-table th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+        }
+        
+        .grade-A { background-color: #dcfce7; color: #166534; }
+        .grade-B { background-color: #fef3c7; color: #92400e; }
+        .grade-C { background-color: #fee2e2; color: #991b1b; }
+        
+        .flowchart-container {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+        
+        .pathophysiology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .theory-card {
+            background: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+        
+        .treatment-comparison {
+            background: #f0f9ff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body class="bg-uro-cinza font-sans">
+    <!-- Header -->
+    <header class="bg-uro-branco shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                    <button class="bg-uro-azul text-white p-2 rounded-lg" id="mobileMenuButton">
+                        <i data-feather="menu" class="w-5 h-5"></i>
+                    </button>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="instagram"></i></a>
+                        <a href="https://facebook.com/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="facebook"></i></a>
+                        <a href="https://linkedin.com/company/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i data-feather="activity" class="w-10 h-10 mr-3 text-uro-azul_escuro"></i>
+                    <h1 class="text-2xl md:text-3xl font-bold text-uro-azul_escuro text-center">Uroginecologia Em Dia</h1>
+                </div>
+                
+                <div class="relative w-full md:w-64">
+                    <input type="text" id="searchInput" placeholder="Buscar..." 
+                           class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-uro-azul text-gray-800">
+                    <button class="absolute right-3 top-2 text-uro-azul_escuro" id="searchButton">
+                        <i data-feather="search" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="border-b border-gray-200">
+                <div class="flex justify-center space-x-1">
+                    <a href="/index.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Página Inicial
+                    </a>
+                    <a href="/pages/protocolos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-uro-azul transition-colors">
+                        Protocolos
+                    </a>
+                    <a href="/pages/artigos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Artigos Resumidos
+                    </a>
+                    <a href="/pages/eventos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Eventos
+                    </a>
+                    <a href="/pages/noticias.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Notícias
+                    </a>
+                    <a href="/pages/sobre.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Sobre Nós
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-50 hidden">
+        <div class="fixed inset-0 bg-black bg-opacity-50" id="mobileMenuOverlay"></div>
+        <div class="fixed left-0 top-0 h-full w-72 bg-uro-branco shadow-lg p-6 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-bold text-uro-azul_escuro">Menu</h2>
+                <button id="closeMobileMenu" class="text-uro-azul_escuro">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <nav>
+                <ul class="space-y-4">
+                    <li><a href="/index.html" class="block py-2 px-4 bg-uro-azul text-white rounded-lg font-medium">Página Inicial</a></li>
+                    <li><a href="/pages/artigos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Artigos Resumidos</a></li>
+                    <li><a href="/pages/protocolos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Protocolos</a></li>
+                    <li><a href="/pages/eventos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Eventos</a></li>
+                    <li><a href="/pages/noticias.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Notícias</a></li>
+                    <li><a href="/pages/sobre.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Sobre Nós</a></li>
+                    <li><a href="/pages/contato.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Fale Conosco</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Breadcrumb -->
+        <nav class="mb-6 text-sm">
+            <a href="/index.html" class="text-uro-azul hover:text-uro-azul_escuro">Página Inicial</a> &gt;
+            <a href="protocolos.html" class="text-uro-azul hover:text-uro-azul_escuro">Protocolos</a> &gt;
+            <span class="text-gray-600">Incontinência Urinária de Esforço</span>
+        </nav>
+
+        <!-- Protocol Header -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <div class="flex flex-col md:flex-row justify-between items-start">
+                    <div class="mb-4 md:mb-0">
+                        <span class="inline-block bg-uro-azul text-white text-xs px-3 py-1 rounded-full mb-2">Uroginecologia</span>
+                        <h1 class="text-3xl font-bold text-uro-azul_escuro mb-2">Protocolo de Incontinência Urinária de Esforço</h1>
+                        <p class="text-gray-600">Abordagem Baseada em Evidências para a Prática Clínica</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-sm text-gray-500">Atualizado: Jan/2025</p>
+                        <p class="text-sm text-gray-500">Baseado nas Diretrizes Internacionais</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Protocol Content -->
+        <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+            <!-- Introdução -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Introdução e Definição</h2>
+                <p class="text-gray-700 mb-4">
+                    A <strong>Incontinência Urinária de Esforço (IUE)</strong> constitui a manifestação mais prevalente de perda urinária involuntária na população feminina, caracterizando-se pela ocorrência de escape urinário durante atividades que determinam elevação da pressão intra-abdominal.
+                </p>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <p class="text-blue-800 font-semibold mb-2">📊 Dados Epidemiológicos:</p>
+                    <ul class="list-disc pl-5 text-blue-700 space-y-1">
+                        <li>10-15% das mulheres antes da terceira década</li>
+                        <li>≈30% na sexta década de vida</li>
+                        <li>Até 40% entre a oitava e nona décadas</li>
+                        <li>1 em cada 3 mulheres acima de 45 anos (dados norte-americanos)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Fisiopatologia -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Bases Fisiopatológicas</h2>
+                
+                <div class="pathophysiology-grid">
+                    <div class="theory-card">
+                        <h3 class="text-xl font-semibold text-uro-azul_escuro mb-2">Teoria da Equalização Pressórica</h3>
+                        <p class="text-gray-700">Baseia-se no princípio de que a localização intra-abdominal do colo vesical é crucial para a continência. Quando comprometida, ocorre transmissão desigual de pressão durante esforços.</p>
+                    </div>
+                    
+                    <div class="theory-card">
+                        <h3 class="text-xl font-semibold text-uro-azul_escuro mb-2">Deficiência Esfincteriana Intrínseca</h3>
+                        <p class="text-gray-700">Envolve o comprometimento das estruturas uretrais responsáveis pelo fechamento luminal, incluindo mucosa, musculatura e coxim vascular periuretral.</p>
+                    </div>
+                    
+                    <div class="theory-card">
+                        <h3 class="text-xl font-semibold text-uro-azul_escuro mb-2">Teoria Integral</h3>
+                        <p class="text-gray-700">Propõe que a continência depende do equilíbrio entre forças de tração anterior sobre a uretra e posterior sobre a bexiga.</p>
+                    </div>
+                    
+                    <div class="theory-card">
+                        <h3 class="text-xl font-semibold text-uro-azul_escuro mb-2">Teoria do Sistema em Rede</h3>
+                        <p class="text-gray-700">Descreve a uretra sustentada por estrutura composta pela fáscia endopélvica e parede vaginal anterior, funcionando como base de apoio.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diagnóstico -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Abordagem Diagnóstica</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Avaliação Clínica Inicial</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-uro-azul_escuro mb-2">Anamnese Direcionada</h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                <li>Caracterização temporal dos episódios</li>
+                                <li>Fatores agravantes e atenuantes</li>
+                                <li>Histórico de tratamentos prévios</li>
+                                <li>Impacto na qualidade de vida</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-uro-azul_escuro mb-2">Exame Físico Especializado</h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                <li>Teste de esforço em diferentes posições</li>
+                                <li>Pesquisa de incontinência oculta</li>
+                                <li>Avaliação de prolapsos associados</li>
+                                <li>Exame neurológico básico</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fluxograma -->
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Fluxograma Diagnóstico-Terapêutico</h3>
+                    <div class="flowchart-container">
+                        <div class="mermaid">
+                            flowchart TD
+                                A[Paciente com IUE Suspeita] --> B[Anamnese + Exame Físico<br>+ Sedimento Urinário]
+                                B --> C{Diagnóstico Confirmado?}
+                                C -->|Sim| D[Iniciar Tratamento Conservador<br>Fisioterapia Pélvica]
+                                C -->|Não| E[Investigação Complementar<br>Pad-test/Estudo Urodinâmico]
+                                E --> F{IUE Confirmada?}
+                                F -->|Sim| D
+                                F -->|Não| G[Diagnóstico Diferencial]
+                                
+                                D --> H{Resposta Satisfatória?}
+                                H -->|Sim| I[Manutenção do Tratamento]
+                                H -->|Não| J[Abordagem Cirúrgica<br>Sling de Uretra Média]
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Exames Complementares</h3>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="font-semibold text-uro-azul_escuro mb-2">Avaliação Laboratorial:</p>
+                                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                    <li>Sedimento urinário e urocultura</li>
+                                    <li>Resíduo pós-miccional</li>
+                                    <li>Teste do absorvente (pad-test)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-uro-azul_escuro mb-2">Avaliação Funcional:</p>
+                                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                    <li>Estudo urodinâmico completo</li>
+                                    <li>Avaliação da mobilidade uretral</li>
+                                    <li>Ultrassonografia pélvica</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tratamento Conservador -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Tratamento Conservador</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Fisioterapia Pélvica Especializada</h3>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <p class="text-green-800 font-semibold mb-2">Treinamento Muscular do Assoalho Pélvico (TMAP):</p>
+                        <ul class="list-disc pl-5 text-green-700 space-y-2">
+                            <li><strong>Eficácia:</strong> Melhora em ≈74% das mulheres</li>
+                            <li><strong>Protocolo:</strong> Sessões supervisionadas com melhor resultado</li>
+                            <li><strong>Duração:</strong> Programas de 12-16 semanas usualmente</li>
+                            <li><strong>Adjuvantes:</strong> Biofeedback pode potencializar resultados</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-yellow-800 mb-2">Intervenções Comportamentais</h4>
+                        <ul class="list-disc pl-5 text-yellow-700 text-sm space-y-1">
+                            <li>Controle ponderal</li>
+                            <li>Manejo de comorbidades</li>
+                            <li>Adequação de hábitos</li>
+                        </ul>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-purple-800 mb-2">Pessários Vaginais</h4>
+                        <ul class="list-disc pl-5 text-purple-700 text-sm space-y-1">
+                            <li>Melhora em ≈40% dos casos</li>
+                            <li>Suporte mecânico</li>
+                            <li>Alternativa não cirúrgica</li>
+                        </ul>
+                    </div>
+                    <div class="bg-pink-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-pink-800 mb-2">Estrogênios Tópicos</h4>
+                        <ul class="list-disc pl-5 text-pink-700 text-sm space-y-1">
+                            <li>Benéficos na pós-menopausa</li>
+                            <li>Sintomas urogenitais associados</li>
+                            <li>Não como tratamento isolado</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tratamento Cirúrgico -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Abordagem Cirúrgica</h2>
+                
+                <div class="treatment-comparison">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-4 text-center">Comparativo das Principais Técnicas Cirúrgicas</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="recommendation-table">
+                            <thead>
+                                <tr>
+                                    <th>Técnica</th>
+                                    <th>Taxa de Cura</th>
+                                    <th>Complicações Principais</th>
+                                    <th>Indicações Preferenciais</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Sling Retropúbico</strong></td>
+                                    <td>90% (17 anos)</td>
+                                    <td>Perfuração vesical, retenção urinária</td>
+                                    <td>Casos graves, recidivados</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sling Transobturador</strong></td>
+                                    <td>90% (36 meses)</td>
+                                    <td>Dor em coxa, urgência miccional</td>
+                                    <td>Primeira escolha geral</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Mini-slings</strong></td>
+                                    <td>Evidências limitadas</td>
+                                    <td>Dados insuficientes</td>
+                                    <td>Casos selecionados</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cirurgia de Burch</strong></td>
+                                    <td>Boa eficácia</td>
+                                    <td>Risco em obesas</td>
+                                    <td>Associação com prolapso</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-red-800 mb-2">Complicações Intraoperatórias</h4>
+                        <ul class="list-disc pl-5 text-red-700 space-y-1 text-sm">
+                            <li>Perfuração vesical: 0,7-24%</li>
+                            <li>Sangramento >500mL: 0,7-2,5%</li>
+                            <li>Lesão uretral: 0,02%</li>
+                            <li>Lesões nervosas: 0,04%</li>
+                        </ul>
+                    </div>
+                    <div class="bg-orange-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-orange-800 mb-2">Complicações Pós-Operatórias</h4>
+                        <ul class="list-disc pl-5 text-orange-700 space-y-1 text-sm">
+                            <li>Retenção urinária: 1,9-19,7%</li>
+                            <li>Urgência de novo: 5,9-25%</li>
+                            <li>Infecção urinária: 4,1-13%</li>
+                            <li>Dor em coxa: 16% (transobturador)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recomendações -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Recomendações Baseadas em Evidências</h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="recommendation-table">
+                        <thead>
+                            <tr>
+                                <th>Recomendação</th>
+                                <th>Grau</th>
+                                <th>Fundamentação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Diagnóstico baseado em anamnese e exame físico</td>
+                                <td><span class="grade-A px-2 py-1 rounded-full">A</span></td>
+                                <td>Evidências robustas de acurácia diagnóstica</td>
+                            </tr>
+                            <tr>
+                                <td>TMAP como primeira linha terapêutica</td>
+                                <td><span class="grade-A px-2 py-1 rounded-full">A</span></td>
+                                <td>Eficácia demonstrada em múltiplos estudos</td>
+                            </tr>
+                            <tr>
+                                <td>Slings de uretra média como primeira escolha cirúrgica</td>
+                                <td><span class="grade-A px-2 py-1 rounded-full">A</span></td>
+                                <td>Altas taxas de cura e seguimento de longo prazo</td>
+                            </tr>
+                            <tr>
+                                <td>Estrogênio tópico não como tratamento isolado</td>
+                                <td><span class="grade-A px-2 py-1 rounded-full">A</span></td>
+                                <td>Evidências de benefício limitado para IUE isolada</td>
+                            </tr>
+                            <tr>
+                                <td>Estudo urodinâmico pré-cirúrgico em situações específicas</td>
+                                <td><span class="grade-C px-2 py-1 rounded-full">C</span></td>
+                                <td>Consenso de especialistas, evidências limitadas</td>
+                            </tr>
+                            <tr>
+                                <td>Terapias com energia para IUE leve com reservas</td>
+                                <td><span class="grade-C px-2 py-1 rounded-full">C</span></td>
+                                <td>Evidências limitadas e heterogeneidade metodológica</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Considerações Finais -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Condutas Práticas</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold text-uro-azul_escuro mb-3">Abordagem em Etapas</h3>
+                        <ol class="list-decimal pl-5 text-gray-700 space-y-2">
+                            <li><strong>Avaliação Inicial Completa</strong> - Anamnese, exame físico e exames básicos</li>
+                            <li><strong>Tratamento Conservador</strong> - TMAP como primeira intervenção</li>
+                            <li><strong>Reavaliação em 3-6 meses</strong> - Verificar resposta ao tratamento</li>
+                            <li><strong>Abordagem Cirúrgica</strong> - Quando conservador insuficiente</li>
+                            <li><strong>Acompanhamento</strong> - Monitorização a longo prazo</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold text-uro-azul_escuro mb-3">Aspectos Essenciais</h3>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                            <li><strong>Individualização</strong> - Considerar características específicas de cada paciente</li>
+                            <li><strong>Discussão de Riscos</strong> - Esclarecer complicações potenciais das opções</li>
+                            <li><strong>Participação da Paciente</strong> - Incluir no processo decisório terapêutico</li>
+                            <li><strong>Expectativas Realistas</strong> - Estabelecer objetivos alcançáveis</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nota Final -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-8">
+                <p class="text-yellow-700">
+                    <strong>Nota Importante:</strong> Este protocolo representa uma síntese baseada em evidências científicas atuais e deve ser adaptado ao contexto clínico individual. Recomenda-se a consulta às diretrizes oficiais e avaliação personalizada de cada caso.
+                </p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between mt-8">
+            <a href="protocolos.html" class="bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                <i data-feather="arrow-left" class="w-4 h-4 inline mr-2"></i>
+                Voltar para Protocolos
+            </a>
+            <button onclick="downloadPDF()" class="bg-uro-azul_escuro hover:bg-blue-900 text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                <i data-feather="download" class="w-4 h-4 inline mr-2"></i>
+                Baixar PDF
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-uro-azul_escuro text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Uroginecologia Em Dia</h3>
+                    <p class="mb-4">Portal de referência em conhecimento uroginecológico para profissionais de saúde.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/uroginecologiaemdia" class="hover:text-uro-azul_claro"><i data-feather="instagram"></i></a>
+                        <a href="https://facebook.com/uroginecologiaemdia" class="hover:text-uro-azul_claro"><i data-feather="facebook"></i></a>
+                        <a href="https://linkedin.com/company/uroginecologiaemdia" class="hover:text-uro-azul_claro"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Entre em Contato</h4>
+                    <address class="not-italic">
+                        <p class="mb-2"><i data-feather="mail" class="inline mr-2 w-4 h-4"></i> contato@uroginecologiaemdia.com.br</p>
+                        <p><i data-feather="phone" class="inline mr-2 w-4 h-4"></i> (11) 99999-9999</p>
+                    </address>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/index.html" class="hover:text-uro-azul_claro">Página Inicial</a></li>
+                        <li><a href="/pages/sobre.html" class="hover:text-uro-azul_claro">Sobre Nós</a></li>
+                        <li><a href="/pages/contato.html" class="hover:text-uro-azul_claro">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Seções</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/pages/artigos.html" class="hover:text-uro-azul_claro">Artigos Resumidos</a></li>
+                        <li><a href="/pages/protocolos.html" class="hover:text-uro-azul_claro">Protocolos</a></li>
+                        <li><a href="/pages/noticias.html" class="hover:text-uro-azul_claro">Notícias</a></li>
+                        <li><a href="/pages/eventos.html" class="hover:text-uro-azul_claro">Eventos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-uro-azul mt-8 pt-8 text-sm text-center">
+                <p>© 2025 Uroginecologia Em Dia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile Menu Functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                document.querySelector('#mobileMenu > div:last-child').classList.remove('-translate-x-full');
+            }, 10);
+        }
+
+        function closeMobileMenuFunc() {
+            document.querySelector('#mobileMenu > div:last-child').classList.add('-translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+        }
+        if (closeMobileMenu) {
+            closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        }
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+        }
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenuFunc);
+        });
+
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                alert(`Buscando por: ${searchTerm}`);
+            }
+        }
+        
+        if (searchButton) {
+            searchButton.addEventListener('click', performSearch);
+        }
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        }
+
+        // PDF Download Function
+        function downloadPDF() {
+            // Em um ambiente real, isso baixaria o PDF real
+            // Por enquanto, simula o download
+            const link = document.createElement('a');
+            link.href = '/static/protocolos/protocolo-incontinencia-urinaria-esforco.pdf';
+            link.download = 'Protocolo_Incontinencia_Urinaria_Esforco_2025.pdf';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Mensagem de confirmação
+            alert('Download do protocolo de Incontinência Urinária de Esforço iniciado. O arquivo será salvo como "Protocolo_Incontinencia_Urinaria_Esforco_2025.pdf"');
+        }
+
+        // Garantir que o menu comece fechado
+        document.addEventListener('DOMContentLoaded', function() {
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

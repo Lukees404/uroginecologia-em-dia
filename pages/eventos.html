@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos | Uroginecologia Em Dia</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        uro: {
+                            azul_escuro: '#1e40af',
+                            azul: '#3b82f6',
+                            azul_claro: '#60a5fa',
+                            branco: '#ffffff',
+                            cinza: '#f3f4f6',
+                            cinza_escuro: '#6b7280'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .nav-button {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            background-color: #3b82f6;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-uro-cinza font-sans">
+    <!-- Header -->
+    <header class="bg-uro-branco shadow-md">
+        <div class="container mx-auto px-4 py-4">
+            <!-- Top Bar with Logo, Social and Search -->
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <!-- Social Media and Menu Button -->
+                <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                    <!-- Mobile Menu Button -->
+                    <button class="bg-uro-azul text-white p-2 rounded-lg" id="mobileMenuButton">
+                        <i data-feather="menu" class="w-5 h-5"></i>
+                    </button>
+                    
+                    <!-- Social Media -->
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="instagram"></i></a>
+                        <a href="#" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="facebook"></i></a>
+                        <a href="#" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Logo - Centralizado -->
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i data-feather="activity" class="w-10 h-10 mr-3 text-uro-azul_escuro"></i>
+                    <h1 class="text-2xl md:text-3xl font-bold text-uro-azul_escuro text-center">Uroginecologia Em Dia</h1>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="relative w-full md:w-64">
+                    <input type="text" id="searchInput" placeholder="Buscar..." 
+                           class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-uro-azul text-gray-800">
+                    <button class="absolute right-3 top-2 text-uro-azul_escuro" id="searchButton">
+                        <i data-feather="search" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Navigation Tabs - Centralizados -->
+            <div class="border-b border-gray-200">
+                <div class="flex justify-center space-x-1">
+                    <a href="/index.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Página Inicial
+                    </a>
+                    <a href="/pages/protocolos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Protocolos
+                    </a>
+                    <a href="/pages/artigos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Artigos Resumidos
+                    </a>
+                    <a href="/pages/eventos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-uro-azul transition-colors">
+                        Eventos
+                    </a>
+                    <a href="/pages/noticias.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Notícias
+                    </a>
+                    <a href="/pages/sobre.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                        Sobre Nós
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-50 hidden">
+        <div class="fixed inset-0 bg-black bg-opacity-50" id="mobileMenuOverlay"></div>
+        <div class="fixed left-0 top-0 h-full w-72 bg-uro-branco shadow-lg p-6 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-bold text-uro-azul_escuro">Menu</h2>
+                <button id="closeMobileMenu" class="text-uro-azul_escuro">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <nav>
+                <ul class="space-y-4">
+                    <li><a href="/index.html" class="block py-2 px-4 bg-uro-azul text-white rounded-lg font-medium">Página Inicial</a></li>
+                    <li><a href="/pages/artigos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Artigos Resumidos</a></li>
+                    <li><a href="/pages/protocolos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Protocolos</a></li>
+                    <li><a href="/pages/eventos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Eventos</a></li>
+                    <li><a href="/pages/noticias.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Notícias</a></li>
+                    <li><a href="/pages/sobre.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Sobre Nós</a></li>
+                    <li><a href="/pages/contato.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Fale Conosco</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="mb-12 fade-in">
+            <div class="bg-gradient-to-r from-uro-azul_escuro to-uro-azul text-white rounded-2xl p-8 md:p-12 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Eventos em Uroginecologia</h2>
+                <p class="text-xl max-w-3xl mx-auto">Fique por dentro dos principais congressos, cursos e workshops na área de uroginecologia.</p>
+            </div>
+        </section>
+
+        <section class="mb-12 fade-in">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro border-b-2 border-uro-azul pb-2">Próximos Eventos</h2>
+                <div class="relative">
+                    <select class="bg-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-uro-azul">
+                        <option>Todos os Eventos</option>
+                        <option>Congressos</option>
+                        <option>Workshops</option>
+                        <option>Cursos</option>
+                        <option>Online</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Featured Event -->
+            <div class="mb-12">
+                <div class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-2/3 p-6">
+                            <span class="inline-block bg-uro-azul text-white rounded-full px-3 py-1 text-xs font-semibold mb-2">Destaque</span>
+                            <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4">47º Congresso Brasileiro de Uroginecologia e Cirurgia Vaginal</h2>
+                            <p class="text-gray-600 mb-4">O principal evento nacional da especialidade, reunindo os maiores especialistas do país para discutir os avanços mais recentes em disfunções do assoalho pélvico, técnicas cirúrgicas e tratamentos conservadores.</p>
+                            <div class="flex items-center mb-4">
+                                <i data-feather="calendar" class="w-4 h-4 mr-2 text-uro-azul"></i>
+                                <span class="text-sm text-gray-600 mr-6">06-08 de Novembro, 2025</span>
+                                <i data-feather="map-pin" class="w-4 h-4 mr-2 text-uro-azul"></i>
+                                <span class="text-sm text-gray-600">Centro de Convenções Frei Caneca, São Paulo - SP</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-sm text-green-600 font-semibold mr-4">Inscrições Abertas</span>
+                                <a href="https://www.febrasgo.org.br" target="_blank" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                                    Site Oficial
+                                </a>
+                            </div>
+                        </div>
+                        <div class="md:w-1/3">
+                            <img src="/static/images/congresso-brasileiro-uroginecologia.jpg" alt="47º Congresso Brasileiro de Uroginecologia" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Events Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <!-- Event Card 1 -->
+                <div class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-gradient-to-r from-uro-azul to-uro-azul_claro text-white p-4 flex justify-between items-center">
+                        <span class="font-bold">25 OUT</span>
+                        <span class="text-sm">2025</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-uro-azul_escuro mb-3">Webinar Internacional: Novas Diretrizes IUGA sobre Bexiga Hiperativa</h3>
+                        <p class="text-gray-600 mb-2"><i data-feather="map-pin" class="inline w-4 h-4 mr-2"></i>Online - Transmissão ao vivo</p>
+                        <p class="text-gray-600 mb-4">Atualização das diretrizes internacionais com especialistas da International Urogynecological Association (IUGA).</p>
+                        <a href="https://www.iuga.org" target="_blank" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                            Site da IUGA
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Event Card 2 -->
+                <div class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-gradient-to-r from-uro-azul to-uro-azul_claro text-white p-4 flex justify-between items-center">
+                        <span class="font-bold">15 NOV</span>
+                        <span class="text-sm">2025</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-uro-azul_escuro mb-3">Curso Prático de Urodinâmica - FEBRASGO</h3>
+                        <p class="text-gray-600 mb-2"><i data-feather="map-pin" class="inline w-4 h-4 mr-2"></i>Rio de Janeiro, RJ</p>
+                        <p class="text-gray-600 mb-4">Curso hands-on com estações práticas de interpretação de exames urodinâmicos e casos clínicos complexos.</p>
+                        <a href="https://www.febrasgo.org.br/cursos" target="_blank" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                            Cursos FEBRASGO
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Event Card 3 -->
+                <div class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-gradient-to-r from-uro-azul to-uro-azul_claro text-white p-4 flex justify-between items-center">
+                        <span class="font-bold">05 DEZ</span>
+                        <span class="text-sm">2025</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-uro-azul_escuro mb-3">Simpósio de Fisioterapia Pélvica e Reabilitação</h3>
+                        <p class="text-gray-600 mb-2"><i data-feather="map-pin" class="inline w-4 h-4 mr-2"></i>Belo Horizonte, MG</p>
+                        <p class="text-gray-600 mb-4">Abordagem multidisciplinar com ênfase em técnicas conservadoras para incontinência e prolapso.</p>
+                        <a href="https://www.sofisp.com.br" target="_blank" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                            Site SOFISP
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Event Card 4 -->
+                <div class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-gradient-to-r from-uro-azul to-uro-azul_claro text-white p-4 flex justify-between items-center">
+                        <span class="font-bold">20 JAN</span>
+                        <span class="text-sm">2026</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-uro-azul_escuro mb-3">Workshop de Cirurgia Robótica em Uroginecologia</h3>
+                        <p class="text-gray-600 mb-2"><i data-feather="map-pin" class="inline w-4 h-4 mr-2"></i>Hospital Sírio-Libanês, São Paulo - SP</p>
+                        <p class="text-gray-600 mb-4">Treinamento avançado com simuladores e wet lab para procedimentos robóticos em prolapso genital.</p>
+                        <a href="https://www.hsl.org.br" target="_blank" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                            Site do Hospital
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Event Card 5 -->
+                <div class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-gradient-to-r from-uro-azul to-uro-azul_claro text-white p-4 flex justify-between items-center">
+                        <span class="font-bold">15 FEV</span>
+                        <span class="text-sm">2026</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-uro-azul_escuro mb-3">Jornada de Uroginecologia Pediátrica e do Adolescente</h3>
+                        <p class="text-gray-600 mb-2"><i data-feather="map-pin" class="inline w-4 h-4 mr-2"></i>Porto Alegre, RS</p>
+                        <p class="text-gray-600 mb-4">Abordagem especializada para disfunções miccionais em crianças e adolescentes.</p>
+                        <a href="https://www.sbp.com.br" target="_blank" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                            Site SBP
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Event Card 6 -->
+                <div class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-gradient-to-r from-uro-azul to-uro-azul_claro text-white p-4 flex justify-between items-center">
+                        <span class="font-bold">10 MAR</span>
+                        <span class="text-sm">2026</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-uro-azul_escuro mb-3">International Meeting on Pelvic Floor Dysfunction - IUGA Regional</h3>
+                        <p class="text-gray-600 mb-2"><i data-feather="map-pin" class="inline w-4 h-4 mr-2"></i>Buenos Aires, Argentina</p>
+                        <p class="text-gray-600 mb-4">Evento regional da IUGA com participação internacional e apresentação de trabalhos científicos.</p>
+                        <a href="https://www.iuga.org/events" target="_blank" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                            Eventos IUGA
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past Events Section -->
+            <div class="mt-16">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-6 border-b-2 border-uro-azul pb-2">Eventos Realizados</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Past Event 1 -->
+                    <div class="card-hover bg-white rounded-lg shadow-md overflow-hidden opacity-70">
+                        <div class="bg-gray-400 text-white p-4 flex justify-between items-center">
+                            <span class="font-bold">08 OUT</span>
+                            <span class="text-sm">2025</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-600 mb-3">Simpósio de Dor Pélvica Crônica e Endometriose</h3>
+                            <p class="text-gray-500 mb-2"><i data-feather="map-pin" class="inline w-4 h-4 mr-2"></i>São Paulo, SP</p>
+                            <p class="text-gray-500 mb-4">Evento realizado com sucesso, abordando abordagem multidisciplinar da dor pélvica.</p>
+                            <button class="inline-block bg-gray-400 text-white py-2 px-4 rounded-lg font-medium cursor-not-allowed">
+                                Evento Realizado
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Past Event 2 -->
+                    <div class="card-hover bg-white rounded-lg shadow-md overflow-hidden opacity-70">
+                        <div class="bg-gray-400 text-white p-4 flex justify-between items-center">
+                            <span class="font-bold">25 SET</span>
+                            <span class="text-sm">2025</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-600 mb-3">Workshop de Toxina Botulínica na Bexiga Hiperativa</h3>
+                            <p class="text-gray-500 mb-2"><i data-feather="map-pin" class="inline w-4 h-4 mr-2"></i>Online</p>
+                            <p class="text-gray-500 mb-4">Workshop online com técnica de aplicação e discussão de casos complexos.</p>
+                            <button class="inline-block bg-gray-400 text-white py-2 px-4 rounded-lg font-medium cursor-not-allowed">
+                                Evento Realizado
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12">
+                <nav class="inline-flex rounded-md shadow">
+                    <a href="#" class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-uro-azul_escuro font-medium hover:bg-gray-50">
+                        Anterior
+                    </a>
+                    <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-uro-azul text-white font-medium">
+                        1
+                    </a>
+                    <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-white text-uro-azul_escuro font-medium hover:bg-gray-50">
+                        2
+                    </a>
+                    <a href="#" class="px-3 py-2 border-t border-b border-gray-300 bg-white text-uro-azul_escuro font-medium hover:bg-gray-50">
+                        3
+                    </a>
+                    <a href="#" class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-uro-azul_escuro font-medium hover:bg-gray-50">
+                        Próxima
+                    </a>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="mb-16 fade-in">
+            <div class="bg-gradient-to-r from-uro-azul_escuro to-uro-azul text-white rounded-2xl p-8 text-center">
+                <h2 class="text-2xl font-bold mb-4">Receba Notificações de Eventos</h2>
+                <p class="max-w-2xl mx-auto mb-6">Cadastre-se para receber informações sobre novos eventos, prazos de inscrição e oportunidades na área de uroginecologia.</p>
+                <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Seu endereço de email" 
+                           class="flex-grow py-3 px-4 rounded-lg focus:outline-none text-gray-800">
+                    <button type="submit" class="bg-white text-uro-azul_escuro hover:bg-gray-100 py-3 px-6 rounded-lg font-medium transition-colors whitespace-nowrap">
+                        Cadastrar
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-uro-azul_escuro text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Uroginecologia Em Dia</h3>
+                    <p class="mb-4">Portal de referência em conhecimento uroginecológico para profissionais de saúde.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-uro-azul_claro"><i data-feather="instagram"></i></a>
+                        <a href="#" class="hover:text-uro-azul_claro"><i data-feather="facebook"></i></a>
+                        <a href="#" class="hover:text-uro-azul_claro"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Entre em Contato</h4>
+                    <address class="not-italic">
+                        <p class="mb-2"><i data-feather="mail" class="inline mr-2 w-4 h-4"></i> contato@uroginecologiaemdia.com.br</p>
+                        <p><i data-feather="phone" class="inline mr-2 w-4 h-4"></i> (11) 99999-9999</p>
+                    </address>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/index.html" class="hover:text-uro-azul_claro">Página Inicial</a></li>
+                        <li><a href="/pages/sobre.html" class="hover:text-uro-azul_claro">Sobre Nós</a></li>
+                        <li><a href="/pages/contato.html" class="hover:text-uro-azul_claro">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Seções</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/pages/artigos.html" class="hover:text-uro-azul_claro">Artigos Resumidos</a></li>
+                        <li><a href="/pages/protocolos.html" class="hover:text-uro-azul_claro">Protocolos</a></li>
+                        <li><a href="/pages/noticias.html" class="hover:text-uro-azul_claro">Notícias</a></li>
+                        <li><a href="/pages/eventos.html" class="hover:text-uro-azul_claro">Eventos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-uro-azul mt-8 pt-8 text-sm text-center">
+                <p>© 2025 Uroginecologia Em Dia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Garantir que o menu comece fechado
+        document.getElementById('mobileMenu').classList.add('hidden');
+        
+        // Mobile Menu Functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                document.querySelector('#mobileMenu > div:last-child').classList.remove('-translate-x-full');
+            }, 10);
+        }
+
+        function closeMobileMenuFunc() {
+            document.querySelector('#mobileMenu > div:last-child').classList.add('-translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
+
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+        closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenuFunc);
+        });
+        
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                alert(`Buscando por: ${searchTerm}`);
+            }
+        }
+        
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Add animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

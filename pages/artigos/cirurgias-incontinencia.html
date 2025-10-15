@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigo Resumido | Uroginecologia Em Dia</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        .article-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .reference-list {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+        }
+        
+        .reference-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 0.5rem;
+        }
+        
+        .key-point {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .evidence-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .evidence-table th,
+        .evidence-table td {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .evidence-table th {
+            background-color: #3b82f6;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .technique-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+                <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                    <button class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors" id="mobileMenuButton">
+                        <i data-feather="menu" class="w-5 h-5"></i>
+                    </button>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/uroginecologiaemdia" class="text-blue-800 hover:text-blue-600 transition-colors">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/uroginecologiaemdia" class="text-blue-800 hover:text-blue-600 transition-colors">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/uroginecologiaemdia" class="text-blue-800 hover:text-blue-600 transition-colors">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i data-feather="activity" class="w-10 h-10 mr-3 text-blue-800"></i>
+                    <h1 class="text-2xl md:text-3xl font-bold text-blue-800 text-center">Uroginecologia Em Dia</h1>
+                </div>
+                
+                <div class="relative w-full md:w-64">
+                    <input type="text" id="searchInput" placeholder="Buscar artigos..." 
+                           class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800">
+                    <button class="absolute right-3 top-2 text-blue-800 hover:text-blue-600 transition-colors" id="searchButton">
+                        <i data-feather="search" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="border-b border-gray-200">
+                <div class="flex justify-center space-x-1 flex-wrap">
+                    <a href="/index.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                        Página Inicial
+                    </a>
+                    <a href="/pages/protocolos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                        Protocolos
+                    </a>
+                    <a href="/pages/artigos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-blue-600 transition-colors">
+                        Artigos Resumidos
+                    </a>
+                    <a href="/pages/eventos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                        Eventos
+                    </a>
+                    <a href="/pages/noticias.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                        Notícias
+                    </a>
+                    <a href="/pages/sobre.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
+                        Sobre Nós
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-50 hidden">
+        <div class="fixed inset-0 bg-black bg-opacity-50" id="mobileMenuOverlay"></div>
+        <div class="fixed left-0 top-0 h-full w-72 bg-white shadow-lg p-6 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-xl font-bold text-blue-800">Menu</h2>
+                <button id="closeMobileMenu" class="text-blue-800 hover:text-blue-600">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <nav>
+                <ul class="space-y-4">
+                    <li><a href="/index.html" class="block py-2 px-4 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">Página Inicial</a></li>
+                    <li><a href="/pages/artigos.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Artigos Resumidos</a></li>
+                    <li><a href="/pages/protocolos.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Protocolos</a></li>
+                    <li><a href="/pages/eventos.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Eventos</a></li>
+                    <li><a href="/pages/noticias.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Notícias</a></li>
+                    <li><a href="/pages/sobre.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Sobre Nós</a></li>
+                    <li><a href="/pages/contato.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Fale Conosco</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Breadcrumb -->
+        <nav class="mb-6 text-sm text-gray-600">
+            <a href="/index.html" class="text-blue-600 hover:text-blue-800 transition-colors">Página Inicial</a> &gt;
+            <a href="/pages/artigos.html" class="text-blue-600 hover:text-blue-800 transition-colors">Artigos Resumidos</a> &gt;
+            <span class="text-gray-800 font-medium">Resultados de Longo Prazo das Cirurgias para Incontinência Urinária</span>
+        </nav>
+
+        <!-- Article Header -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-blue-600">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-6">
+                    <div class="flex-1">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="inline-block bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">Artigo Resumido</span>
+                            <span class="inline-block bg-green-600 text-white text-xs px-3 py-1 rounded-full font-medium">Uroginecologia</span>
+                            <span class="inline-block bg-purple-600 text-white text-xs px-3 py-1 rounded-full font-medium">Cirurgia</span>
+                            <span class="inline-block bg-orange-600 text-white text-xs px-3 py-1 rounded-full font-medium">Meta-análise</span>
+                        </div>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-3 leading-tight">Resultados de Longo Prazo das Cirurgias para Incontinência Urinária de Esforço: Uma Síntese Baseada em Meta-Análise de Rede</h1>
+                        <p class="text-gray-600 text-lg">Análise comparativa da eficácia e segurança em longo prazo das principais técnicas cirúrgicas para tratamento da incontinência urinária de esforço feminina</p>
+                    </div>
+                    <div class="text-right bg-gray-50 p-4 rounded-lg min-w-[200px]">
+                        <p class="text-sm text-gray-500 mb-1">Resumo por</p>
+                        <p class="font-semibold text-blue-800 mb-3">Dra. Ana Paula de Oliveira Pinto</p>
+                        <p class="text-sm text-gray-500 mb-1">Publicado em</p>
+                        <p class="font-medium text-gray-700">Janeiro de 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Content -->
+        <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+            <!-- Introdução -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Introdução</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A incontinência urinária de esforço (IUE) constitui um distúrbio urológico de significativa prevalência na população feminina, afetando aproximadamente 40% das mulheres, com pico de incidência em torno de 65% na faixa etária de 45 a 49 anos. Esta condição caracteriza-se pela perda involuntária de urina durante atividades que elevam a pressão intra-abdominal, como tosse, espirros ou exercícios físicos, impactando substancialmente a qualidade de vida e o bem-estar psicossocial das pacientes.
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    O tratamento cirúrgico da IUE experimentou notável evolução nas últimas três décadas, com o desenvolvimento de diversas técnicas que variam desde procedimentos tradicionais como a colpossuspensão de Burch até as modernas técnicas de slings uretrais médios. Apesar da disponibilidade de múltiplas opções cirúrgicas, evidências robustas sobre sua eficácia e segurança em longo prazo permaneciam escassas na literatura médica.
+                </p>
+                <div class="highlight-box">
+                    <p class="text-blue-800 font-semibold mb-2">📊 Contexto Epidemiológico:</p>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                        <li>Prevalência de aproximadamente 40% na população feminina geral</li>
+                        <li>Pico de incidência de 65% entre 45-49 anos</li>
+                        <li>Impacto significativo na qualidade de vida e atividades sociais</li>
+                        <li>Custos substanciais para o sistema de saúde</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Objetivo -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Objetivo do Estudo</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Esta meta-análise de rede teve como objetivo principal realizar uma avaliação abrangente e comparativa da eficácia e segurança em longo prazo das principais técnicas cirúrgicas disponíveis para o tratamento da incontinência urinária de esforço feminina.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Especificamente, buscou-se hierarquizar as intervenções cirúrgicas com base em seus perfis de eficácia (taxas de sucesso objetivo e subjetivo) e segurança (complicações e reoperações), fornecendo assim evidências robustas para a tomada de decisão clínica fundamentada.
+                </p>
+            </section>
+
+            <!-- Métodos -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Metodologia da Meta-Análise</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Foi conduzida uma revisão sistemática abrangente seguida de meta-análise de rede, incluindo 37 ensaios clínicos randomizados publicados até maio de 2023. O estudo seguiu rigorosamente as diretrizes PRISMA para revisões sistemáticas e meta-análises, com protocolo registrado no PROSPERO.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">Critérios de Inclusão</h4>
+                        <ul class="list-disc pl-5 text-blue-700 space-y-1 text-sm">
+                            <li>Ensaios clínicos randomizados</li>
+                            <li>Pacientes do sexo feminino com diagnóstico de IUE</li>
+                            <li>Seguimento mínimo de 24 meses</li>
+                            <li>Intervenções cirúrgicas para IUE</li>
+                            <li>Dados de eficácia e segurança reportados</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-2">Técnicas Avaliadas</h4>
+                        <ul class="list-disc pl-5 text-green-700 space-y-1 text-sm">
+                            <li>TVT retropúbico (TVT-RP)</li>
+                            <li>TVT transobturador (TVT-O)</li>
+                            <li>Fita transobturadora (TOT)</li>
+                            <li>Sling de incisão única (SIS)</li>
+                            <li>Colpossuspensão de Burch</li>
+                            <li>Sling pubovaginal (PVS)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A análise incluiu 5.720 pacientes com idade mediana de 56,6 anos e período mediano de acompanhamento de 48 meses. A avaliação estatística utilizou o sistema SUCRA (Surface Under the Cumulative Ranking Curve) para hierarquização dos tratamentos, considerando tanto desfechos de eficácia quanto de segurança.
+                </p>
+            </section>
+
+            <!-- Resultados -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Resultados Principais</h2>
+                
+                <div class="key-point">
+                    <h3 class="text-xl font-bold text-white mb-3">Síntese das Evidências</h3>
+                    <p class="text-white mb-3">
+                        A análise demonstrou que diferentes técnicas cirúrgicas apresentam perfis distintos de eficácia e segurança em longo prazo, permitindo uma seleção personalizada baseada nas características e preferências de cada paciente.
+                    </p>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Eficácia em Longo Prazo</h3>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="evidence-table">
+                        <thead>
+                            <tr>
+                                <th>Técnica Cirúrgica</th>
+                                <th>Sucesso Objetivo (SUCRA)</th>
+                                <th>Sucesso Subjetivo (SUCRA)</th>
+                                <th>Classificação Geral</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Sling Pubovaginal (PVS)</strong></td>
+                                <td>93,1</td>
+                                <td>80,1</td>
+                                <td>Excelente</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TVT Retropúbico (TVT-RP)</strong></td>
+                                <td>53,6</td>
+                                <td>75,6</td>
+                                <td>Muito Bom</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TVT Transobturador (TVT-O)</strong></td>
+                                <td>56,8</td>
+                                <td>73,8</td>
+                                <td>Muito Bom</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fita Transobturadora (TOT)</strong></td>
+                                <td>60,1</td>
+                                <td>29,0</td>
+                                <td>Bom</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Colpossuspensão de Burch</strong></td>
+                                <td>25,1</td>
+                                <td>32,8</td>
+                                <td>Regular</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sling Incisão Única (SIS)</strong></td>
+                                <td>13,1</td>
+                                <td>8,7</td>
+                                <td>Limitado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Perfil de Segurança</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Em relação às complicações pós-operatórias, o estudo revelou diferenças significativas entre as técnicas avaliadas:
+                </p>
+
+                <div class="comparison-grid">
+                    <div class="technique-card">
+                        <h4 class="font-semibold text-green-600 mb-2">Menor Taxa de Complicações</h4>
+                        <p class="text-gray-700 text-sm">Sling de Incisão Única (SIS) apresentou as menores taxas gerais de complicações e dor pós-operatória, com significância estatística.</p>
+                    </div>
+                    <div class="technique-card">
+                        <h4 class="font-semibold text-blue-600 mb-2">Complicações Similares</h4>
+                        <p class="text-gray-700 text-sm">Não houve diferenças significativas entre as técnicas em relação a taxas de reoperação, exposição do sling e infecções do trato urinário.</p>
+                    </div>
+                    <div class="technique-card">
+                        <h4 class="font-semibold text-orange-600 mb-2">Risco Intermediário</h4>
+                        <p class="text-gray-700 text-sm">PVS e colpossuspensão de Burch apresentaram taxas de eventos adversos ligeiramente menores que outras técnicas.</p>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+                    <h4 class="font-semibold text-yellow-800 mb-2">📈 Achados Significativos:</h4>
+                    <ul class="list-disc pl-5 text-yellow-700 space-y-2">
+                        <li>TVT-RP demonstrou superioridade sobre TOT e SIS em sucesso subjetivo</li>
+                        <li>TVT-O mostrou vantagem marginal sobre SIS</li>
+                        <li>PVS apresentou melhor desempenho em sucesso objetivo</li>
+                        <li>SIS teve menor taxa de complicações, mas eficácia limitada</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Discussão -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Discussão e Implicações Clínicas</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Os resultados desta meta-análise de rede fornecem evidências robustas para a tomada de decisão clínica no tratamento cirúrgico da incontinência urinária de esforço feminina. A hierarquização das técnicas baseada no sistema SUCRA permite uma seleção mais fundamentada das intervenções, considerando tanto a eficácia quanto o perfil de segurança em longo prazo.
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A superioridade do sling pubovaginal (PVS) em termos de sucesso objetivo pode ser atribuída às suas características técnicas e ao uso de tecido autólogo, que proporciona suporte anatômico mais fisiológico. No entanto, é importante considerar que esta técnica apresenta maior complexidade cirúrgica e tempo operatório quando comparada aos slings sintéticos.
+                </p>
+                
+                <div class="bg-green-50 p-4 rounded-lg mb-4">
+                    <h4 class="font-semibold text-green-800 mb-2">💡 Recomendações Práticas:</h4>
+                    <ul class="list-disc pl-5 text-green-700 space-y-2">
+                        <li><strong>TVT-RP e TVT-O</strong> como primeira escolha para pacientes que optam por slings sintéticos</li>
+                        <li><strong>PVS autólogo</strong> para pacientes que preferem slings não sintéticos ou com falha prévia em cirurgia sintética</li>
+                        <li><strong>SIS</strong> pode ser considerado quando a minimização de complicações é prioridade, apesar da eficácia limitada</li>
+                        <li>Discussão compartilhada com a paciente sobre riscos, benefícios e preferências pessoais</li>
+                    </ul>
+                </div>
+
+                <p class="text-gray-700 leading-relaxed">
+                    É fundamental reconhecer que a escolha da técnica cirúrgica deve ser individualizada, considerando fatores como experiência do cirurgião, características anatômicas da paciente, presença de comorbidades e preferências pessoais quanto ao uso de materiais sintéticos versus autólogos. A discussão transparente sobre expectativas e possíveis complicações é essencial para o sucesso do tratamento.
+                </p>
+            </section>
+
+            <!-- Conclusão -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Conclusão</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Esta meta-análise de rede demonstra que, em acompanhamento de longo prazo (mediana de 48 meses), as técnicas cirúrgicas para incontinência urinária de esforço feminina apresentam perfis distintos de eficácia e segurança. TVT-RP, TVT-O e PVS emergem como as opções com melhor relação eficácia-segurança, enquanto SIS apresenta menor perfil de complicações, porém com eficácia mais limitada.
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A escolha entre slings sintéticos (TVT-RP, TVT-O) e não sintéticos (PVS) deve considerar as preferências da paciente, experiência do cirurgião e características clínicas individuais. A decisão compartilhada baseada em evidências robustas representa a abordagem mais adequada para o sucesso terapêutico em longo prazo.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Futuras pesquisas devem focar na padronização de critérios de avaliação, acompanhamento de muito longo prazo (>10 anos) e desenvolvimento de algoritmos de decisão clínica que incorporem tanto evidências científicas quanto preferências dos pacientes.
+                </p>
+            </section>
+
+            <!-- Referências -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Referências Bibliográficas</h2>
+                <ol class="reference-list text-gray-700">
+                    <li>Chen Y, Zhang C, Yang S, Chen J, Peng L, Chen J, et al. Long-term outcomes of surgical interventions for stress urinary incontinence: a systematic review and network meta-analysis. Int J Surg. 2024;110:520-528.</li>
+                    <li>Fusco F, Abdel-Fattah M, Chapple CR, Creta M, La Falce S, Waltregny D, et al. Updated Systematic Review and Meta-analysis of Comparative Data on Colposuspensions, Pubovaginal Slings, and Midurethral Tapes in the Surgical Treatment of Female Stress Urinary Incontinence. Eur Urol. 2017;72:567-591.</li>
+                    <li>Nambiar AK, Arlandis S, Bø K, Cobussen-Boekhorst H, Costantini E, de Heide M, et al. European Association of Urology Guidelines on the Diagnosis and Management of Female Non-neurogenic Lower Urinary Tract Symptoms. Part 1: Diagnostics, Overactive Bladder, Stress Urinary Incontinence, and Mixed Urinary Incontinence. Eur Urol. 2022;82:49-59.</li>
+                    <li>Ford AA, Ogah JA. Retropubic or transobturator mid-urethral slings for intrinsic sphincter deficiency-related stress urinary incontinence in women: a systematic review and meta-analysis. Int Urogynecol J. 2016;27:19-28.</li>
+                    <li>Novara G, Ficarra V, Boscolo-Berto R, Secco S, Cavalleri S, Artibani W. Tension-free midurethral slings in the treatment of female stress urinary incontinence: a systematic review and meta-analysis of randomized controlled trials of effectiveness. Eur Urol. 2007;52:663-678.</li>
+                    <li>Albo ME, Richter HE, Brubaker L, Norton P, Kraus SR, Zimmern PE, et al. Burch colposuspension versus fascial sling to reduce urinary stress incontinence. N Engl J Med. 2007;356:2143-2155.</li>
+                </ol>
+            </section>
+
+            <!-- Nota Final -->
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-8 rounded-lg">
+                <p class="text-blue-700">
+                    <strong>Nota Importante:</strong> Este resumo foi elaborado pela Dra. Ana Paula de Oliveira Pinto com base no artigo original de Chen et al. (2024) e destina-se exclusivamente a fins educacionais e de atualização profissional. Recomenda-se a consulta ao artigo completo para informações detalhadas sobre metodologia, análises estatísticas e resultados específicos. As opiniões expressas representam a interpretação da autora do resumo e não substituem o julgamento clínico individualizado.
+                </p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8">
+            <a href="/pages/artigos.html" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-colors w-full sm:w-auto text-center">
+                <i data-feather="arrow-left" class="w-4 h-4 inline mr-2"></i>
+                Voltar para Artigos Resumidos
+            </a>
+            <div class="flex gap-4 w-full sm:w-auto">
+                <button onclick="printArticle()" class="bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-lg font-medium transition-colors flex-1 sm:flex-none text-center">
+                    <i data-feather="printer" class="w-4 h-4 inline mr-2"></i>
+                    Imprimir
+                </button>
+                <button onclick="downloadPDF()" class="bg-blue-800 hover:bg-blue-900 text-white py-3 px-6 rounded-lg font-medium transition-colors flex-1 sm:flex-none text-center">
+                    <i data-feather="download" class="w-4 h-4 inline mr-2"></i>
+                    Baixar PDF
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Uroginecologia Em Dia</h3>
+                    <p class="mb-4 text-blue-200">Portal de referência em conhecimento uroginecológico para profissionais de saúde.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/uroginecologiaemdia" class="text-blue-200 hover:text-white transition-colors">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/uroginecologiaemdia" class="text-blue-200 hover:text-white transition-colors">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/uroginecologiaemdia" class="text-blue-200 hover:text-white transition-colors">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Entre em Contato</h4>
+                    <address class="not-italic text-blue-200">
+                        <p class="mb-2 flex items-center">
+                            <i data-feather="mail" class="mr-2 w-4 h-4"></i> 
+                            contato@uroginecologiaemdia.com.br
+                        </p>
+                        <p class="flex items-center">
+                            <i data-feather="phone" class="mr-2 w-4 h-4"></i> 
+                            (11) 99999-9999
+                        </p>
+                    </address>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2 text-blue-200">
+                        <li><a href="/index.html" class="hover:text-white transition-colors">Página Inicial</a></li>
+                        <li><a href="/pages/sobre.html" class="hover:text-white transition-colors">Sobre Nós</a></li>
+                        <li><a href="/pages/contato.html" class="hover:text-white transition-colors">Fale Conosco</a></li>
+                        <li><a href="/pages/privacidade.html" class="hover:text-white transition-colors">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-md font-bold mb-4">Seções</h4>
+                    <ul class="space-y-2 text-blue-200">
+                        <li><a href="/pages/artigos.html" class="hover:text-white transition-colors">Artigos Resumidos</a></li>
+                        <li><a href="/pages/protocolos.html" class="hover:text-white transition-colors">Protocolos</a></li>
+                        <li><a href="/pages/noticias.html" class="hover:text-white transition-colors">Notícias</a></li>
+                        <li><a href="/pages/eventos.html" class="hover:text-white transition-colors">Eventos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-blue-700 mt-8 pt-8 text-sm text-center text-blue-300">
+                <p>© 2025 Uroginecologia Em Dia. Todos os direitos reservados. | Desenvolvido para profissionais de saúde</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile Menu Functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                document.querySelector('#mobileMenu > div:last-child').classList.remove('-translate-x-full');
+            }, 10);
+        }
+
+        function closeMobileMenuFunc() {
+            document.querySelector('#mobileMenu > div:last-child').classList.add('-translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+        }
+        if (closeMobileMenu) {
+            closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        }
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+        }
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenuFunc);
+        });
+
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                // Em ambiente real, redirecionaria para página de busca
+                window.location.href = `/pages/busca.html?q=${encodeURIComponent(searchTerm)}`;
+            }
+        }
+        
+        if (searchButton) {
+            searchButton.addEventListener('click', performSearch);
+        }
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        }
+
+        // PDF Download Function
+        function downloadPDF() {
+            // Em um ambiente real, isso baixaria o PDF real do artigo
+            const link = document.createElement('a');
+            link.href = '/static/artigos/cirurgias-incontinencia-urinaria.pdf';
+            link.download = 'Cirurgias_Incontinencia_Urinaria_Resumo_2025.pdf';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Mensagem de confirmação
+            alert('Download do artigo "Resultados de Longo Prazo das Cirurgias para Incontinência Urinária" iniciado. O arquivo será salvo como "Cirurgias_Incontinencia_Urinaria_Resumo_2025.pdf"');
+        }
+
+        // Print Function
+        function printArticle() {
+            window.print();
+        }
+
+        // Garantir que o menu comece fechado
+        document.addEventListener('DOMContentLoaded', function() {
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
