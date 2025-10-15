@@ -30,41 +30,33 @@
         .card-hover {
             transition: all 0.3s ease;
         }
-        
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
-        
         .fade-in {
             animation: fadeIn 0.6s ease-in;
         }
-        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
         .nav-button {
             transition: all 0.3s ease;
         }
-        
         .nav-button:hover {
             background-color: #3b82f6;
             color: white;
         }
-        
         .artigo-image {
             background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
         }
-        
         .categoria-badge {
             font-size: 0.75rem;
             padding: 0.25rem 0.75rem;
             border-radius: 1rem;
             font-weight: 600;
         }
-        
         .categoria-pesquisa { background-color: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
         .categoria-estudo { background-color: #eff6ff; color: #1d4ed8; border: 1px solid #dbeafe; }
         .categoria-revisao { background-color: #f0fdf4; color: #16a34a; border: 1px solid #dcfce7; }
@@ -75,40 +67,29 @@
     <!-- Header -->
     <header class="bg-uro-branco shadow-md">
         <div class="container mx-auto px-4 py-4">
-            <!-- Top Bar with Logo, Social and Search -->
             <div class="flex flex-col md:flex-row justify-between items-center mb-4">
-                <!-- Social Media and Menu Button -->
                 <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                    <!-- Mobile Menu Button -->
                     <button class="bg-uro-azul text-white p-2 rounded-lg" id="mobileMenuButton">
                         <i data-feather="menu" class="w-5 h-5"></i>
                     </button>
-                    
-                    <!-- Social Media -->
                     <div class="flex space-x-4">
                         <a href="https://instagram.com/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="instagram"></i></a>
                         <a href="https://facebook.com/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="facebook"></i></a>
                         <a href="https://linkedin.com/company/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="linkedin"></i></a>
                     </div>
                 </div>
-                
-                <!-- Logo - Centralizado -->
                 <div class="flex items-center mb-4 md:mb-0">
                     <i data-feather="activity" class="w-10 h-10 mr-3 text-uro-azul_escuro"></i>
                     <h1 class="text-2xl md:text-3xl font-bold text-uro-azul_escuro text-center">Uroginecologia Em Dia</h1>
                 </div>
-                
-                <!-- Search Bar -->
                 <div class="relative w-full md:w-64">
                     <input type="text" id="searchInput" placeholder="Buscar..." 
-                           class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-uro-azul text-gray-800">
+                        class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-uro-azul text-gray-800">
                     <button class="absolute right-3 top-2 text-uro-azul_escuro" id="searchButton">
                         <i data-feather="search" class="w-4 h-4"></i>
                     </button>
                 </div>
             </div>
-            
-            <!-- Navigation Tabs - Centralizados -->
             <div class="border-b border-gray-200">
                 <div class="flex justify-center space-x-1">
                     <a href="index.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
@@ -186,9 +167,7 @@
             </div>
 
             <!-- Container dos cards - AGORA AUTOMÁTICO -->
-            <div id="artigos-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Os cards serão gerados automaticamente aqui -->
-            </div>
+            <div id="artigos-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
 
             <!-- Mensagem quando não há artigos -->
             <div id="mensagem-vazio" class="hidden text-center py-12">
@@ -254,18 +233,15 @@
     </footer>
 
     <script>
-        // Initialize Feather Icons
         feather.replace();
 
-        // =============================================
-        // SISTEMA AUTOMÁTICO DE ARTIGOS
-        // =============================================
-        
-        // LISTA DE ARTIGOS - SÓ ADICIONE AQUI!
+        // ================================
+        // LISTA DE ARTIGOS - CORRIGIDO!
+        // ================================
         const artigos = [
             {
-                titulo: "Eficácia e Segurança da Acupuntura na Incontinência Urinária Feminina: Uma Síntese Baseada em Revisões Sistemáticas Análise crítica da qualidade metodológica e força das evidências sobre intervenções de acupuntura para tratamento da incontinência urinária em mulheres",
-                arquivo:  <a href="pages/artigo/acupuntura-urinaria-feminina.html"> </a>,
+                titulo: "Eficácia e Segurança da Acupuntura na Incontinência Urinária Feminina: Uma Síntese Baseada em Revisões Sistemáticas...",
+                arquivo: "acupuntura-urinaria-feminina.html",
                 categoria: "pesquisa",
                 descricao: "Análise crítica da qualidade metodológica e força das evidências sobre intervenções de acupuntura para tratamento da incontinência urinária em mulheres",
                 data: "Jan 2025",
@@ -273,16 +249,15 @@
             },
             {
                 titulo: "Resultados de Longo Prazo das Cirurgias para Incontinência Urinária de Esforço: Uma Síntese Baseada em Meta-Análise de Rede", 
-                arquivo: "/artigos/cirurgias-incontinencia.html",
+                arquivo: "cirurgias-incontinencia.html",
                 categoria: "meta",
                 descricao: "Análise comparativa da eficácia e segurança em longo prazo das principais técnicas cirúrgicas para tratamento da incontinência urinária de esforço feminina",
                 data: "Jan 2025",
                 icone: "📊"
             },
-            // PARA ADICIONAR NOVOS ARTIGOS, COLE AQUI:
             {
                 titulo: "Análise Comparativa de Diretrizes Internacionais para Incontinência Urinária Feminina: Metodologia e Inconsistências",
-                arquivo: "/uroginecologia-em-dia/pages/artigos/revi-literaria-artigo.html",
+                arquivo: "revi-literaria-artigo.html",
                 categoria: "revisao",
                 descricao: "Revisão sistemática da qualidade metodológica e consistência das recomendações de 17 sociedades médicas internacionais.",
                 data: "Jan 2025",
@@ -290,7 +265,7 @@
             },
             {
                 titulo: "Diretrizes de Avaliação da Incontinência Urinária Feminina: Revisão Sistemática das Recomendações entre Especialidades Clínicas",
-                arquivo: "/uroginecologia-em-dia/pages/artigos/revisao-ssistematica.html",
+                arquivo: "revisao-ssistematica.html",
                 categoria: "revisao",
                 descricao: "Análise crítica da qualidade metodológica, abrangência e clareza das diretrizes de avaliação da incontinência urinária não complicada em mulheres adultas",
                 data: "Jan 2025",
@@ -298,13 +273,12 @@
             },
             {
                 titulo: "Cuidados de Enfermagem às Mulheres com Incontinência Urinária na Atenção Básica: Síntese Baseada em Evidências",
-                arquivo: "/uroginecologia-em-dia/pages/artigos/urinaria-atencao-basica.html",
+                arquivo: "urinaria-atencao-basica.html",
                 categoria: "estudo",
                 descricao: "Análise crítica dos cuidados prioritários e fatores intervenientes na implementação da assistência de enfermagem à mulher com incontinência urinária na atenção primária.",
                 data: "Jan 2025",
                 icone: "📈"
-            },
-
+            }
         ];
 
         function gerarCardsArtigos(filtro = 'todos') {
@@ -312,18 +286,13 @@
             const mensagemVazio = document.getElementById('mensagem-vazio');
             const contador = document.getElementById('contador-artigos');
             
-            // Filtrar artigos
             const artigosFiltrados = filtro === 'todos' 
                 ? artigos 
                 : artigos.filter(a => a.categoria === filtro);
             
-            // Atualizar contador
             contador.textContent = `(${artigosFiltrados.length} artigo${artigosFiltrados.length !== 1 ? 's' : ''})`;
-            
-            // Limpar container
             container.innerHTML = '';
             
-            // Mostrar mensagem se não houver artigos
             if (artigosFiltrados.length === 0) {
                 mensagemVazio.classList.remove('hidden');
                 return;
@@ -331,7 +300,6 @@
                 mensagemVazio.classList.add('hidden');
             }
             
-            // Gerar cards
             artigosFiltrados.forEach(artigo => {
                 const card = document.createElement('div');
                 card.className = 'card-hover bg-white rounded-lg shadow-md overflow-hidden fade-in';
@@ -354,7 +322,7 @@
                         <p class="text-gray-600 mb-4">${artigo.descricao}</p>
                         <div class="flex justify-between items-center">
                             <span class="text-sm text-gray-500">Publicado: ${artigo.data}</span>
-                            <a href="artigos/${artigo.arquivo}" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                            <a href="artigo/${artigo.arquivo}" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
                                 Ler Artigo
                             </a>
                         </div>
@@ -362,61 +330,43 @@
                 `;
                 container.appendChild(card);
             });
-            
-            // Re-inicializar feather icons nos novos cards
             feather.replace();
         }
 
-        // =============================================
-        // FUNCIONALIDADES EXISTENTES
-        // =============================================
-
-        // Garantir que o menu comece fechado
-        document.getElementById('mobileMenu').classList.add('hidden');
-        
         // Mobile Menu Functionality
+        document.getElementById('mobileMenu').classList.add('hidden');
         const mobileMenuButton = document.getElementById('mobileMenuButton');
         const closeMobileMenu = document.getElementById('closeMobileMenu');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        
         function openMobileMenu() {
             mobileMenu.classList.remove('hidden');
             setTimeout(() => {
                 document.querySelector('#mobileMenu > div:last-child').classList.remove('-translate-x-full');
             }, 10);
         }
-
         function closeMobileMenuFunc() {
             document.querySelector('#mobileMenu > div:last-child').classList.add('-translate-x-full');
             setTimeout(() => {
                 mobileMenu.classList.add('hidden');
             }, 300);
         }
-
         mobileMenuButton.addEventListener('click', openMobileMenu);
         closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
         mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
-
-        // Fechar menu ao clicar em um link
         document.querySelectorAll('#mobileMenu a').forEach(link => {
             link.addEventListener('click', closeMobileMenuFunc);
         });
-        
+
         // Search Functionality
         const searchInput = document.getElementById('searchInput');
         const searchButton = document.getElementById('searchButton');
-        
         function performSearch() {
             const searchTerm = searchInput.value.trim();
-            
             if (searchTerm) {
                 alert(`Buscando por: ${searchTerm}`);
-                // Em uma implementação real, redirecionaria para página de busca
-                // window.location.href = `busca.html?q=${encodeURIComponent(searchTerm)}`;
             }
         }
-        
         searchButton.addEventListener('click', performSearch);
         searchInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
@@ -429,21 +379,7 @@
             gerarCardsArtigos(e.target.value);
         });
 
-        // Add animation on scroll
         document.addEventListener('DOMContentLoaded', function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            document.querySelectorAll('section').forEach(section => {
-                observer.observe(section);
-            });
-            
-            // Gerar cards automaticamente quando a página carregar
             gerarCardsArtigos();
         });
     </script>
