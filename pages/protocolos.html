@@ -300,64 +300,56 @@
         ];
 
         function gerarCardsProtocolos(filtro = 'todos') {
-            const container = document.getElementById('protocolos-container');
-            const mensagemVazio = document.getElementById('mensagem-vazio');
-            const contador = document.getElementById('contador-protocolos');
-            
-            // Filtrar protocolos
-            const protocolosFiltrados = filtro === 'todos' 
-                ? protocolos 
-                : protocolos.filter(p => p.categoria === filtro);
-            
-            // Atualizar contador
-            contador.textContent = `(${protocolosFiltrados.length} protocolo${protocolosFiltrados.length !== 1 ? 's' : ''})`;
-            
-            // Limpar container
-            container.innerHTML = '';
-            
-            // Mostrar mensagem se não houver protocolos
-            if (protocolosFiltrados.length === 0) {
-                mensagemVazio.classList.remove('hidden');
-                return;
-            } else {
-                mensagemVazio.classList.add('hidden');
-            }
-            
-            // Gerar cards
-            protocolosFiltrados.forEach(protocolo => {
-                const card = document.createElement('div');
-                card.className = 'card-hover bg-white rounded-lg shadow-md overflow-hidden fade-in';
-                card.innerHTML = `
-                    <div class="w-full h-48 protocol-image overflow-hidden relative">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i data-feather="file-text" class="w-16 h-16 text-white opacity-80"></i>
-                        </div>
-                        <div class="absolute top-2 right-2">
-                            <span class="categoria-badge categoria-${protocolo.categoria}">
-                                ${protocolo.icone} ${protocolo.categoria.charAt(0).toUpperCase() + protocolo.categoria.slice(1)}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mb-2">
-                            ${protocolo.categoria.toUpperCase()}
-                        </span>
-                        <h3 class="text-xl font-bold text-uro-azul_escuro mb-3">${protocolo.titulo}</h3>
-                        <p class="text-gray-600 mb-4">${protocolo.descricao}</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">Atualizado: ${protocolo.data}</span>
-                            <a href="pages/protocolo/${protocolo.arquivo}" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
-                                Ver Protocolo
-                            </a>
-                        </div>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-            
-            // Re-inicializar feather icons nos novos cards
-            feather.replace();
-        }
+    const container = document.getElementById('protocolos-container');
+    const mensagemVazio = document.getElementById('mensagem-vazio');
+    const contador = document.getElementById('contador-protocolos');
+    
+    const protocolosFiltrados = filtro === 'todos' 
+        ? protocolos 
+        : protocolos.filter(p => p.categoria === filtro);
+    
+    contador.textContent = `(${protocolosFiltrados.length} protocolo${protocolosFiltrados.length !== 1 ? 's' : ''})`;
+    container.innerHTML = '';
+    
+    if (protocolosFiltrados.length === 0) {
+        mensagemVazio.classList.remove('hidden');
+        return;
+    } else {
+        mensagemVazio.classList.add('hidden');
+    }
+    
+    protocolosFiltrados.forEach(protocolo => {
+        const card = document.createElement('div');
+        card.className = 'card-hover bg-white rounded-lg shadow-md overflow-hidden fade-in';
+        card.innerHTML = `
+            <div class="w-full h-48 bg-gradient-to-r from-uro-azul to-uro-azul_claro overflow-hidden relative">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <i data-feather="file-text" class="w-16 h-16 text-white opacity-80"></i>
+                </div>
+                <div class="absolute top-2 right-2">
+                    <span class="inline-block bg-white bg-opacity-20 text-white rounded-full px-3 py-1 text-xs font-semibold">
+                        ${protocolo.categoria.toUpperCase()}
+                    </span>
+                </div>
+            </div>
+            <div class="p-6">
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mb-2">
+                    ${protocolo.categoria.toUpperCase()}
+                </span>
+                <h3 class="text-xl font-bold text-uro-azul_escuro mb-3">${protocolo.titulo}</h3>
+                <p class="text-gray-600 mb-4">${protocolo.descricao}</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-sm text-gray-500">Atualizado: ${protocolo.data}</span>
+                    <a href="protocolo/${protocolo.arquivo}" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                        Ver Protocolo
+                    </a>
+                </div>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+    feather.replace();
+}
 
         // =============================================
         // FUNCIONALIDADES EXISTENTES
