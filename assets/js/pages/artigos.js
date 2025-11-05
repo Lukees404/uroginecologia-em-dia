@@ -130,7 +130,7 @@ function gerarCardsArtigos(filtro = 'todos') {
                 <p class="text-gray-600 mb-4">${artigo.descricao}</p>
                 <div class="flex justify-between items-center">
                     <span class="text-sm text-gray-500">Publicado: ${artigo.data}</span>
-                    <a href="artigo/${artigo.arquivo}" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                    <a href="pages/artigo/${artigo.arquivo}" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
                         Ler Artigo
                     </a>
                 </div>

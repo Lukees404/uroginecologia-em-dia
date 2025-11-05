@@ -122,7 +122,7 @@ function gerarCardsProtocolos(filtro = 'todos') {
                 <p class="text-gray-600 mb-4">${protocolo.descricao}</p>
                 <div class="flex justify-between items-center">
                     <span class="text-sm text-gray-500">Atualizado: ${protocolo.data}</span>
-                    <a href="protocolo/${protocolo.arquivo}" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                    <a href="pages/protocolo/${protocolo.arquivo}" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
                         Ver Protocolo
                     </a>
                 </div>
