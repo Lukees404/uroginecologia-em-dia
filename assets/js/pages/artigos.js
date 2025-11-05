@@ -4,49 +4,69 @@
  * Descrição: Geração dinâmica de cards de artigos e filtros
  */
 
-// LISTA DE ARTIGOS - Adicione novos artigos aqui
-const artigos = [
-    {
-        titulo: "Eficácia e Segurança da Acupuntura na Incontinência Urinária Feminina: Uma Síntese Baseada em Revisões Sistemáticas",
-        arquivo: 'acupuntura-urinaria-feminina.html',
-        categoria: "pesquisa",
-        descricao: "Análise crítica da qualidade metodológica e força das evidências sobre intervenções de acupuntura para tratamento da incontinência urinária em mulheres",
-        data: "Jan 2025",
-        icone: "🔬"
-    },
-    {
-        titulo: "Resultados de Longo Prazo das Cirurgias para Incontinência Urinária de Esforço: Uma Síntese Baseada em Meta-Análise de Rede",
-        arquivo: "cirurgias-incontinencia.html",
-        categoria: "meta",
-        descricao: "Análise comparativa da eficácia e segurança em longo prazo das principais técnicas cirúrgicas para tratamento da incontinência urinária de esforço feminina",
-        data: "Jan 2025",
-        icone: "📊"
-    },
-    {
-        titulo: "Análise Comparativa de Diretrizes Internacionais para Incontinência Urinária Feminina: Metodologia e Inconsistências",
-        arquivo: "revi-literaria-artigo.html",
-        categoria: "revisao",
-        descricao: "Revisão sistemática da qualidade metodológica e consistência das recomendações de 17 sociedades médicas internacionais.",
-        data: "Jan 2025",
-        icone: "📋"
-    },
-    {
-        titulo: "Diretrizes de Avaliação da Incontinência Urinária Feminina: Revisão Sistemática das Recomendações entre Especialidades Clínicas",
-        arquivo: "revisao-ssistematica.html",
-        categoria: "revisao",
-        descricao: "Análise crítica da qualidade metodológica, abrangência e clareza das diretrizes de avaliação da incontinência urinária não complicada em mulheres adultas",
-        data: "Jan 2025",
-        icone: "📋"
-    },
-    {
-        titulo: "Cuidados de Enfermagem às Mulheres com Incontinência Urinária na Atenção Básica: Síntese Baseada em Evidências",
-        arquivo: "urinaria-atencao-basica.html",
-        categoria: "estudo",
-        descricao: "Análise crítica dos cuidados prioritários e fatores intervenientes na implementação da assistência de enfermagem à mulher com incontinência urinária na atenção primária.",
-        data: "Jan 2025",
-        icone: "📈"
+// Cache de artigos
+let artigos = [];
+
+/**
+ * Carrega artigos do arquivo JSON
+ * @returns {Promise<Array>} Array de artigos
+ */
+async function carregarArtigos() {
+    try {
+        const response = await fetch('assets/data/artigos.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        artigos = await response.json();
+        return artigos;
+    } catch (error) {
+        console.error('Erro ao carregar artigos:', error);
+        // Fallback para dados hardcoded em caso de erro
+        artigos = [
+            {
+                titulo: "Eficácia e Segurança da Acupuntura na Incontinência Urinária Feminina: Uma Síntese Baseada em Revisões Sistemáticas",
+                arquivo: 'acupuntura-urinaria-feminina.html',
+                categoria: "pesquisa",
+                descricao: "Análise crítica da qualidade metodológica e força das evidências sobre intervenções de acupuntura para tratamento da incontinência urinária em mulheres",
+                data: "Jan 2025",
+                icone: "🔬"
+            },
+            {
+                titulo: "Resultados de Longo Prazo das Cirurgias para Incontinência Urinária de Esforço: Uma Síntese Baseada em Meta-Análise de Rede",
+                arquivo: "cirurgias-incontinencia.html",
+                categoria: "meta",
+                descricao: "Análise comparativa da eficácia e segurança em longo prazo das principais técnicas cirúrgicas para tratamento da incontinência urinária de esforço feminina",
+                data: "Jan 2025",
+                icone: "📊"
+            },
+            {
+                titulo: "Análise Comparativa de Diretrizes Internacionais para Incontinência Urinária Feminina: Metodologia e Inconsistências",
+                arquivo: "revi-literaria-artigo.html",
+                categoria: "revisao",
+                descricao: "Revisão sistemática da qualidade metodológica e consistência das recomendações de 17 sociedades médicas internacionais.",
+                data: "Jan 2025",
+                icone: "📋"
+            },
+            {
+                titulo: "Diretrizes de Avaliação da Incontinência Urinária Feminina: Revisão Sistemática das Recomendações entre Especialidades Clínicas",
+                arquivo: "revisao-ssistematica.html",
+                categoria: "revisao",
+                descricao: "Análise crítica da qualidade metodológica, abrangência e clareza das diretrizes de avaliação da incontinência urinária não complicada em mulheres adultas",
+                data: "Jan 2025",
+                icone: "📋"
+            },
+            {
+                titulo: "Cuidados de Enfermagem às Mulheres com Incontinência Urinária na Atenção Básica: Síntese Baseada em Evidências",
+                arquivo: "urinaria-atencao-basica.html",
+                categoria: "estudo",
+                descricao: "Análise crítica dos cuidados prioritários e fatores intervenientes na implementação da assistência de enfermagem à mulher com incontinência urinária na atenção primária.",
+                data: "Jan 2025",
+                icone: "📈"
+            }
+        ];
+        return artigos;
     }
-];
+}
 
 /**
  * Gera os cards de artigos dinamicamente
@@ -126,8 +146,11 @@ function gerarCardsArtigos(filtro = 'todos') {
 }
 
 // Inicializar quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     console.log('Inicializando página de artigos...');
+
+    // Carregar artigos do JSON
+    await carregarArtigos();
 
     // Gerar cards inicialmente
     gerarCardsArtigos();
