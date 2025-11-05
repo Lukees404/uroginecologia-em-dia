@@ -455,16 +455,10 @@
                 <i data-feather="arrow-left" class="w-4 h-4 inline mr-2"></i>
                 Voltar para Artigos Resumidos
             </a>
-            <div class="flex gap-4 w-full sm:w-auto">
-                <button onclick="printArticle()" class="bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-lg font-medium transition-colors flex-1 sm:flex-none text-center">
-                    <i data-feather="printer" class="w-4 h-4 inline mr-2"></i>
-                    Imprimir
-                </button>
-                <button onclick="downloadPDF()" class="bg-blue-800 hover:bg-blue-900 text-white py-3 px-6 rounded-lg font-medium transition-colors flex-1 sm:flex-none text-center">
-                    <i data-feather="download" class="w-4 h-4 inline mr-2"></i>
-                    Baixar PDF
-                </button>
-            </div>
+            <button onclick="downloadPDF()" class="bg-blue-800 hover:bg-blue-900 text-white py-3 px-6 rounded-lg font-medium transition-colors w-full sm:w-auto text-center">
+                <i data-feather="download" class="w-4 h-4 inline mr-2"></i>
+                Baixar PDF
+            </button>
         </div>
     </main>
 
@@ -524,6 +518,9 @@
             </div>
         </div>
     </footer>
+
+    <!-- PDF Generator -->
+    <script src="../../assets/js/pdf-generator.js"></script>
 
     <script>
         // Initialize Feather Icons
@@ -590,26 +587,16 @@
             });
         }
 
-        // Print Article Function
-        function printArticle() {
-            window.print();
-        }
-
         // Download PDF Function
         function downloadPDF() {
-            // In a real implementation, this would link to the actual PDF file
-            alert('Iniciando download do PDF do artigo...\n\nEm um ambiente de produção, este botão baixaria o arquivo PDF original.');
-            
-            // Simulate download (this would be replaced with actual file download)
-            // window.location.href = '/pdfs/analise-diretrizes-internacionais-incontinencia-urinaria.pdf';
-            
-            // For demonstration purposes, we'll create a temporary link to a sample PDF
-            const link = document.createElement('a');
-            link.href = 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
-            link.download = 'analise-diretrizes-internacionais-incontinencia-urinaria.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            window.PDFGenerator.generatePDF({
+                contentSelector: 'main',
+                filename: 'Diretrizes_Internacionais_IU_Feminina_Analise_2025.pdf',
+                title: 'Análise Comparativa de Diretrizes Internacionais para IU Feminina',
+                subtitle: 'Metodologia e Inconsistências',
+                author: 'Ana Paula de Oliveira Pinto',
+                date: 'Janeiro de 2025'
+            });
         }
     </script>
 </body>
