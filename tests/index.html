@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testes Automatizados | Uroginecologia Em Dia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .test-pass { color: #10b981; }
+        .test-fail { color: #ef4444; }
+        .test-pending { color: #f59e0b; }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6">Suite de Testes Automatizados</h1>
+
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">Estatísticas</h2>
+            <div class="grid grid-cols-3 gap-4">
+                <div class="text-center">
+                    <p class="text-3xl font-bold test-pass" id="passed-count">0</p>
+                    <p class="text-sm text-gray-600">Passaram</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-3xl font-bold test-fail" id="failed-count">0</p>
+                    <p class="text-sm text-gray-600">Falharam</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-3xl font-bold text-gray-600" id="total-count">0</p>
+                    <p class="text-sm text-gray-600">Total</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="test-results" class="space-y-4"></div>
+
+        <div class="mt-6">
+            <button id="run-tests" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg">
+                Executar Testes
+            </button>
+        </div>
+    </div>
+
+    <script src="../assets/js/pages/busca.js"></script>
+    <script src="runner.js"></script>
+</body>
+</html>
