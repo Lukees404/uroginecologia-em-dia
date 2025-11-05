@@ -4,41 +4,61 @@
  * Descrição: Geração dinâmica de cards de protocolos e filtros
  */
 
-// LISTA DE PROTOCOLOS - Adicione novos protocolos aqui
-const protocolos = [
-    {
-        titulo: "Infecção do Trato Urinário",
-        arquivo: "infeccao-do-trato-urinario.html",
-        categoria: "infeccioso",
-        descricao: "Diretrizes atualizadas baseadas no Protocolo FEBRASGO nº 48 para diagnóstico e tratamento da ITU em mulheres.",
-        data: "Jan/2025",
-        icone: "🦠"
-    },
-    {
-        titulo: "Incontinência Urinária de Esforço",
-        arquivo: "incontinencia-urinaria-esforco.html",
-        categoria: "urodinamico",
-        descricao: "Abordagem baseada em evidências para diagnóstico e tratamento da incontinência urinária de esforço.",
-        data: "Jan/2025",
-        icone: "💧"
-    },
-    {
-        titulo: "Incontinência Urinária Não Especificada",
-        arquivo: "incontinencia-urinaria-nao.html",
-        categoria: "urodinamico",
-        descricao: "Protocolo para abordagem de casos complexos de incontinência urinária.",
-        data: "Jan/2025",
-        icone: "💧"
-    },
-    {
-        titulo: "Síndrome Bexiga Hiperativa",
-        arquivo: "sindrome-bexiga-hiperativa.html",
-        categoria: "funcional",
-        descricao: "Protocolo completo para diagnóstico e tratamento da bexiga hiperativa em mulheres.",
-        data: "Jan/2025",
-        icone: "⚡"
+// Cache de protocolos
+let protocolos = [];
+
+/**
+ * Carrega protocolos do arquivo JSON
+ * @returns {Promise<Array>} Array de protocolos
+ */
+async function carregarProtocolos() {
+    try {
+        const response = await fetch('assets/data/protocolos.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        protocolos = await response.json();
+        return protocolos;
+    } catch (error) {
+        console.error('Erro ao carregar protocolos:', error);
+        // Fallback para dados hardcoded em caso de erro
+        protocolos = [
+            {
+                titulo: "Infecção do Trato Urinário",
+                arquivo: "infeccao-do-trato-urinario.html",
+                categoria: "infeccioso",
+                descricao: "Diretrizes atualizadas baseadas no Protocolo FEBRASGO nº 48 para diagnóstico e tratamento da ITU em mulheres.",
+                data: "Jan/2025",
+                icone: "🦠"
+            },
+            {
+                titulo: "Incontinência Urinária de Esforço",
+                arquivo: "incontinencia-urinaria-esforco.html",
+                categoria: "urodinamico",
+                descricao: "Abordagem baseada em evidências para diagnóstico e tratamento da incontinência urinária de esforço.",
+                data: "Jan/2025",
+                icone: "💧"
+            },
+            {
+                titulo: "Incontinência Urinária Não Especificada",
+                arquivo: "incontinencia-urinaria-nao.html",
+                categoria: "urodinamico",
+                descricao: "Protocolo para abordagem de casos complexos de incontinência urinária.",
+                data: "Jan/2025",
+                icone: "💧"
+            },
+            {
+                titulo: "Síndrome Bexiga Hiperativa",
+                arquivo: "sindrome-bexiga-hiperativa.html",
+                categoria: "funcional",
+                descricao: "Protocolo completo para diagnóstico e tratamento da bexiga hiperativa em mulheres.",
+                data: "Jan/2025",
+                icone: "⚡"
+            }
+        ];
+        return protocolos;
     }
-];
+}
 
 /**
  * Gera os cards de protocolos dinamicamente
@@ -118,8 +138,11 @@ function gerarCardsProtocolos(filtro = 'todos') {
 }
 
 // Inicializar quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     console.log('Inicializando página de protocolos...');
+
+    // Carregar protocolos do JSON
+    await carregarProtocolos();
 
     // Gerar cards inicialmente
     gerarCardsProtocolos();

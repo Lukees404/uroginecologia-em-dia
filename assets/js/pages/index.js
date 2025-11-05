@@ -129,80 +129,118 @@ class SimpleCarousel {
     }
 }
 
-// Dados dos Protocolos
-const protocolos = [
-    {
-        type: 'protocol',
-        title: 'Infecção do Trato Urinário',
-        description: 'Diretrizes atualizadas baseadas no Protocolo FEBRASGO nº 48 para diagnóstico e tratamento da ITU em mulheres.',
-        date: 'Atualizado: Jan/2025',
-        url: 'pages/protocolo/infeccao-do-trato-urinario.html'
-    },
-    {
-        type: 'protocol',
-        title: 'Incontinência Urinária de Esforço',
-        description: 'Abordagem baseada em evidências para diagnóstico e tratamento da incontinência urinária de esforço.',
-        date: 'Atualizado: Jan/2025',
-        url: 'pages/protocolo/incontinencia-urinaria-esforco.html'
-    },
-    {
-        type: 'protocol',
-        title: 'Síndrome Bexiga Hiperativa',
-        description: 'Protocolo completo para diagnóstico e tratamento da bexiga hiperativa em mulheres.',
-        date: 'Atualizado: Jan/2025',
-        url: 'pages/protocolo/sindrome-bexiga-hiperativa.html'
-    },
-    {
-        type: 'protocol',
-        title: 'Incontinência Urinária Não Especificada',
-        description: 'Protocolo para abordagem de casos complexos de incontinência urinária.',
-        date: 'Atualizado: Fev/2025',
-        url: 'pages/protocolo/incontinencia-urinaria-nao.html'
-    }
-];
+// Cache de dados
+let protocolos = [];
+let artigos = [];
 
-// Dados dos Artigos
-const artigos = [
-    {
-        type: 'article',
-        title: 'Eficácia da Toxina Botulínica na Bexiga Hiperativa',
-        description: 'Meta-análise de ensaios clínicos randomizados avaliando a eficácia e segurança da toxina botulínica no tratamento da bexiga hiperativa refratária.',
-        date: 'Publicado: 15/01/2025',
-        url: 'pages/artigo/acupuntura-urinaria-feminina.html'
-    },
-    {
-        type: 'article',
-        title: 'Impacto da Menopausa na Função do Assoalho Pélvico',
-        description: 'Estudo longitudinal avaliando alterações na função do assoalho pélvico durante a transição menopausal e estratégias de prevenção.',
-        date: 'Publicado: 10/01/2025',
-        url: 'pages/artigo/cirurgias-incontinencia.html'
-    },
-    {
-        type: 'article',
-        title: 'Terapias Comportamentais para Incontinência Urinária',
-        description: 'Revisão sistemática sobre a eficácia de intervenções comportamentais no tratamento da incontinência urinária de esforço.',
-        date: 'Publicado: 08/01/2025',
-        url: 'pages/artigo/revi-literaria-artigo.html'
-    },
-    {
-        type: 'article',
-        title: 'Novos Fármacos para Bexiga Hiperativa',
-        description: 'Revisão sistemática avaliando a eficácia e segurança de novos agentes farmacológicos no tratamento da síndrome da bexiga hiperativa.',
-        date: 'Publicado: 05/01/2025',
-        url: 'pages/artigo/revisao-ssistematica.html'
-    },
-    {
-        type: 'article',
-        title: 'Cirurgia Robótica em Prolapso Genital',
-        description: 'Análise comparativa entre abordagens robóticas e tradicionais no tratamento do prolapso genital avançado.',
-        date: 'Publicado: 03/01/2025',
-        url: 'pages/artigo/urinaria-atencao-basica.html'
+/**
+ * Carrega dados dos arquivos JSON
+ */
+async function carregarDados() {
+    try {
+        // Carregar protocolos e artigos em paralelo
+        const [protocolosData, artigosData] = await Promise.all([
+            fetch('assets/data/protocolos.json').then(r => r.json()),
+            fetch('assets/data/artigos.json').then(r => r.json())
+        ]);
+
+        // Transformar dados para formato do carrossel
+        protocolos = protocolosData.map(p => ({
+            type: 'protocol',
+            title: p.titulo,
+            description: p.descricao,
+            date: `Atualizado: ${p.data}`,
+            url: `pages/protocolo/${p.arquivo}`
+        }));
+
+        artigos = artigosData.map(a => ({
+            type: 'article',
+            title: a.titulo,
+            description: a.descricao,
+            date: `Publicado: ${a.data}`,
+            url: `pages/artigo/${a.arquivo}`
+        }));
+
+    } catch (error) {
+        console.error('Erro ao carregar dados:', error);
+        // Fallback para dados hardcoded
+        protocolos = [
+            {
+                type: 'protocol',
+                title: 'Infecção do Trato Urinário',
+                description: 'Diretrizes atualizadas baseadas no Protocolo FEBRASGO nº 48 para diagnóstico e tratamento da ITU em mulheres.',
+                date: 'Atualizado: Jan/2025',
+                url: 'pages/protocolo/infeccao-do-trato-urinario.html'
+            },
+            {
+                type: 'protocol',
+                title: 'Incontinência Urinária de Esforço',
+                description: 'Abordagem baseada em evidências para diagnóstico e tratamento da incontinência urinária de esforço.',
+                date: 'Atualizado: Jan/2025',
+                url: 'pages/protocolo/incontinencia-urinaria-esforco.html'
+            },
+            {
+                type: 'protocol',
+                title: 'Síndrome Bexiga Hiperativa',
+                description: 'Protocolo completo para diagnóstico e tratamento da bexiga hiperativa em mulheres.',
+                date: 'Atualizado: Jan/2025',
+                url: 'pages/protocolo/sindrome-bexiga-hiperativa.html'
+            },
+            {
+                type: 'protocol',
+                title: 'Incontinência Urinária Não Especificada',
+                description: 'Protocolo para abordagem de casos complexos de incontinência urinária.',
+                date: 'Atualizado: Fev/2025',
+                url: 'pages/protocolo/incontinencia-urinaria-nao.html'
+            }
+        ];
+
+        artigos = [
+            {
+                type: 'article',
+                title: 'Eficácia da Toxina Botulínica na Bexiga Hiperativa',
+                description: 'Meta-análise de ensaios clínicos randomizados avaliando a eficácia e segurança da toxina botulínica no tratamento da bexiga hiperativa refratária.',
+                date: 'Publicado: 15/01/2025',
+                url: 'pages/artigo/acupuntura-urinaria-feminina.html'
+            },
+            {
+                type: 'article',
+                title: 'Impacto da Menopausa na Função do Assoalho Pélvico',
+                description: 'Estudo longitudinal avaliando alterações na função do assoalho pélvico durante a transição menopausal e estratégias de prevenção.',
+                date: 'Publicado: 10/01/2025',
+                url: 'pages/artigo/cirurgias-incontinencia.html'
+            },
+            {
+                type: 'article',
+                title: 'Terapias Comportamentais para Incontinência Urinária',
+                description: 'Revisão sistemática sobre a eficácia de intervenções comportamentais no tratamento da incontinência urinária de esforço.',
+                date: 'Publicado: 08/01/2025',
+                url: 'pages/artigo/revi-literaria-artigo.html'
+            },
+            {
+                type: 'article',
+                title: 'Novos Fármacos para Bexiga Hiperativa',
+                description: 'Revisão sistemática avaliando a eficácia e segurança de novos agentes farmacológicos no tratamento da síndrome da bexiga hiperativa.',
+                date: 'Publicado: 05/01/2025',
+                url: 'pages/artigo/revisao-ssistematica.html'
+            },
+            {
+                type: 'article',
+                title: 'Cirurgia Robótica em Prolapso Genital',
+                description: 'Análise comparativa entre abordagens robóticas e tradicionais no tratamento do prolapso genital avançado.',
+                date: 'Publicado: 03/01/2025',
+                url: 'pages/artigo/urinaria-atencao-basica.html'
+            }
+        ];
     }
-];
+}
 
 // Inicializar quando a página carregar
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     console.log('Inicializando carrosseis da página inicial...');
+
+    // Carregar dados dos JSONs
+    await carregarDados();
 
     // Inicializa o carrossel de protocolos
     const protocolCarousel = new SimpleCarousel('protocolsCarousel', protocolos);

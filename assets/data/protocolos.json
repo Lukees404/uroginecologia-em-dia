@@ -1,0 +1,42 @@
+[
+    {
+        "id": "itu",
+        "titulo": "Infecção do Trato Urinário",
+        "arquivo": "infeccao-do-trato-urinario.html",
+        "categoria": "infeccioso",
+        "descricao": "Diretrizes atualizadas baseadas no Protocolo FEBRASGO nº 48 para diagnóstico e tratamento da ITU em mulheres.",
+        "data": "Jan/2025",
+        "icone": "🦠",
+        "tags": ["ITU", "infecção", "antibiótico", "cistite"]
+    },
+    {
+        "id": "iue",
+        "titulo": "Incontinência Urinária de Esforço",
+        "arquivo": "incontinencia-urinaria-esforco.html",
+        "categoria": "urodinamico",
+        "descricao": "Abordagem baseada em evidências para diagnóstico e tratamento da incontinência urinária de esforço.",
+        "data": "Jan/2025",
+        "icone": "💧",
+        "tags": ["incontinência", "esforço", "sling", "cirurgia"]
+    },
+    {
+        "id": "iu-nao",
+        "titulo": "Incontinência Urinária Não Especificada",
+        "arquivo": "incontinencia-urinaria-nao.html",
+        "categoria": "urodinamico",
+        "descricao": "Protocolo para abordagem de casos complexos de incontinência urinária.",
+        "data": "Jan/2025",
+        "icone": "💧",
+        "tags": ["incontinência", "diagnóstico", "tratamento"]
+    },
+    {
+        "id": "sbh",
+        "titulo": "Síndrome Bexiga Hiperativa",
+        "arquivo": "sindrome-bexiga-hiperativa.html",
+        "categoria": "funcional",
+        "descricao": "Protocolo completo para diagnóstico e tratamento da bexiga hiperativa em mulheres.",
+        "data": "Jan/2025",
+        "icone": "⚡",
+        "tags": ["bexiga hiperativa", "urgência", "frequência", "noctúria"]
+    }
+]
