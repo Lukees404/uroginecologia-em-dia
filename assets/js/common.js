@@ -105,9 +105,7 @@ function initializeSearch() {
         const searchTerm = searchInput.value.trim();
 
         if (searchTerm) {
-            // TODO: Implementar página de busca real
-            alert(`Buscando por: ${searchTerm}`);
-            // window.location.href = `busca.html?q=${encodeURIComponent(searchTerm)}`;
+            window.location.href = `pages/busca.html?q=${encodeURIComponent(searchTerm)}`;
         }
     }
 
