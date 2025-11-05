@@ -494,6 +494,9 @@
         </div>
     </footer>
 
+    <!-- PDF Generator -->
+    <script src="../../assets/js/pdf-generator.js"></script>
+
     <script>
         // Initialize Feather Icons
         feather.replace();
@@ -558,18 +561,14 @@
 
         // PDF Download Function
         function downloadPDF() {
-            // Em um ambiente real, isso baixaria o PDF real
-            // Por enquanto, simula o download
-            const link = document.createElement('a');
-            link.href = '/static/protocolos/protocolo-itu-febrasgo-2025.pdf';
-            link.download = 'Protocolo_ITU_FEBRASGO_2025.pdf';
-            link.target = '_blank';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Mensagem de confirmação
-            alert('Download do protocolo de ITU iniciado. O arquivo será salvo como "Protocolo_ITU_FEBRASGO_2025.pdf"');
+            window.PDFGenerator.generatePDF({
+                contentSelector: 'main',
+                filename: 'Protocolo_ITU_FEBRASGO_2025.pdf',
+                title: 'Protocolo de Manejo da Infecção do Trato Urinário (ITU)',
+                subtitle: 'Baseado nas Diretrizes da FEBRASGO',
+                author: 'Ana Paula de Oliveira Pinto',
+                date: 'Janeiro de 2025'
+            });
         }
 
         // Garantir que o menu comece fechado

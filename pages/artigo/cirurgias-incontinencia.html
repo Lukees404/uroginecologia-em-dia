@@ -422,16 +422,10 @@
                 <i data-feather="arrow-left" class="w-4 h-4 inline mr-2"></i>
                 Voltar para Artigos Resumidos
             </a>
-            <div class="flex gap-4 w-full sm:w-auto">
-                <button onclick="printArticle()" class="bg-gray-600 hover:bg-gray-700 text-white py-3 px-6 rounded-lg font-medium transition-colors flex-1 sm:flex-none text-center">
-                    <i data-feather="printer" class="w-4 h-4 inline mr-2"></i>
-                    Imprimir
-                </button>
-                <button onclick="downloadPDF()" class="bg-blue-800 hover:bg-blue-900 text-white py-3 px-6 rounded-lg font-medium transition-colors flex-1 sm:flex-none text-center">
-                    <i data-feather="download" class="w-4 h-4 inline mr-2"></i>
-                    Baixar PDF
-                </button>
-            </div>
+            <button onclick="downloadPDF()" class="bg-blue-800 hover:bg-blue-900 text-white py-3 px-6 rounded-lg font-medium transition-colors w-full sm:w-auto text-center">
+                <i data-feather="download" class="w-4 h-4 inline mr-2"></i>
+                Baixar PDF
+            </button>
         </div>
     </main>
 
@@ -491,6 +485,9 @@
             </div>
         </div>
     </footer>
+
+    <!-- PDF Generator -->
+    <script src="../../assets/js/pdf-generator.js"></script>
 
     <script>
         // Initialize Feather Icons
@@ -557,22 +554,14 @@
 
         // PDF Download Function
         function downloadPDF() {
-            // Em um ambiente real, isso baixaria o PDF real do artigo
-            const link = document.createElement('a');
-            link.href = '/static/artigos/cirurgias-incontinencia-urinaria.pdf';
-            link.download = 'Cirurgias_Incontinencia_Urinaria_Resumo_2025.pdf';
-            link.target = '_blank';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Mensagem de confirmação
-            alert('Download do artigo "Resultados de Longo Prazo das Cirurgias para Incontinência Urinária" iniciado. O arquivo será salvo como "Cirurgias_Incontinencia_Urinaria_Resumo_2025.pdf"');
-        }
-
-        // Print Function
-        function printArticle() {
-            window.print();
+            window.PDFGenerator.generatePDF({
+                contentSelector: 'main',
+                filename: 'Cirurgias_Incontinencia_Urinaria_Esforco_Meta_Analise_2025.pdf',
+                title: 'Resultados de Longo Prazo das Cirurgias para IUE',
+                subtitle: 'Uma Síntese Baseada em Meta-Análise de Rede',
+                author: 'Ana Paula de Oliveira Pinto',
+                date: 'Janeiro de 2025'
+            });
         }
 
         // Garantir que o menu comece fechado
