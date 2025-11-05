@@ -1,76 +1,84 @@
 <!-- Header Component -->
-<header class="bg-uro-branco shadow-md">
+<header class="bg-uro-branco shadow-md" role="banner">
     <div class="container mx-auto px-4 py-4">
         <!-- Top Bar with Logo, Social and Search -->
         <div class="flex flex-col md:flex-row justify-between items-center mb-4">
             <!-- Social Media and Menu Button -->
             <div class="flex items-center space-x-4 mb-4 md:mb-0">
                 <!-- Mobile Menu Button -->
-                <button class="bg-uro-azul text-white p-2 rounded-lg" id="mobileMenuButton">
-                    <i data-feather="menu" class="w-5 h-5"></i>
+                <button class="bg-uro-azul text-white p-2 rounded-lg" id="mobileMenuButton" aria-label="Abrir menu de navegação" aria-expanded="false">
+                    <i data-feather="menu" class="w-5 h-5" aria-hidden="true"></i>
                 </button>
-                
+
                 <!-- Social Media -->
-                <div class="flex space-x-4">
-                    <a href="https://instagram.com/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="instagram"></i></a>
-                    <a href="https://facebook.com/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="facebook"></i></a>
-                    <a href="https://linkedin.com/company/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="linkedin"></i></a>
+                <div class="flex space-x-4" role="list" aria-label="Redes sociais">
+                    <a href="https://instagram.com/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul" aria-label="Siga-nos no Instagram" target="_blank" rel="noopener noreferrer">
+                        <i data-feather="instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://facebook.com/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul" aria-label="Siga-nos no Facebook" target="_blank" rel="noopener noreferrer">
+                        <i data-feather="facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul" aria-label="Siga-nos no LinkedIn" target="_blank" rel="noopener noreferrer">
+                        <i data-feather="linkedin" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
-            
+
             <!-- Logo - Centralizado -->
             <div class="flex items-center mb-4 md:mb-0">
-                <i data-feather="activity" class="w-10 h-10 mr-3 text-uro-azul_escuro"></i>
+                <i data-feather="activity" class="w-10 h-10 mr-3 text-uro-azul_escuro" aria-hidden="true"></i>
                 <h1 class="text-2xl md:text-3xl font-bold text-uro-azul_escuro text-center">Uroginecologia Em Dia</h1>
             </div>
-            
+
             <!-- Search Bar -->
             <div class="relative w-full md:w-64">
-                <input type="text" id="searchInput" placeholder="Buscar..." 
-                    class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-uro-azul text-gray-800">
-                <button class="absolute right-3 top-2 text-uro-azul_escuro" id="searchButton">
-                    <i data-feather="search" class="w-4 h-4"></i>
+                <label for="searchInput" class="sr-only">Buscar no site</label>
+                <input type="text" id="searchInput" placeholder="Buscar..."
+                    class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-uro-azul text-gray-800"
+                    aria-label="Campo de busca">
+                <button class="absolute right-3 top-2 text-uro-azul_escuro" id="searchButton" aria-label="Realizar busca">
+                    <i data-feather="search" class="w-4 h-4" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
-        
+
         <!-- Navigation Tabs - Centralizados -->
-        <div class="border-b border-gray-200">
+        <nav class="border-b border-gray-200" role="navigation" aria-label="Navegação principal">
             <div class="flex justify-center space-x-1">
-                <a href="index.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-uro-azul transition-colors">
+                <a href="index.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-uro-azul transition-colors" data-page="index">
                     Página Inicial
                 </a>
-                <a href="pages/protocolos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                <a href="pages/protocolos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors" data-page="protocolos">
                     Protocolos
                 </a>
-                <a href="pages/artigos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                <a href="pages/artigos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors" data-page="artigos">
                     Artigos Resumidos
                 </a>
-                <a href="pages/eventos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                <a href="pages/eventos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors" data-page="eventos">
                     Eventos
                 </a>
-                <a href="pages/noticias.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                <a href="pages/noticias.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors" data-page="noticias">
                     Notícias
                 </a>
-                <a href="pages/sobre.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
+                <a href="pages/sobre.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors" data-page="sobre">
                     Sobre Nós
                 </a>
             </div>
-        </div>
+        </nav>
     </div>
 </header>
 
 <!-- Mobile Menu Component -->
-<div id="mobileMenu" class="fixed inset-0 z-50 hidden">
-    <div class="fixed inset-0 bg-black bg-opacity-50" id="mobileMenuOverlay"></div>
+<div id="mobileMenu" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-labelledby="mobileMenuTitle">
+    <div class="fixed inset-0 bg-black bg-opacity-50" id="mobileMenuOverlay" aria-hidden="true"></div>
     <div class="fixed left-0 top-0 h-full w-72 bg-uro-branco shadow-lg p-6 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out">
         <div class="flex justify-between items-center mb-8">
-            <h2 class="text-xl font-bold text-uro-azul_escuro">Menu</h2>
-            <button id="closeMobileMenu" class="text-uro-azul_escuro">
-                <i data-feather="x" class="w-6 h-6"></i>
+            <h2 id="mobileMenuTitle" class="text-xl font-bold text-uro-azul_escuro">Menu</h2>
+            <button id="closeMobileMenu" class="text-uro-azul_escuro" aria-label="Fechar menu">
+                <i data-feather="x" class="w-6 h-6" aria-hidden="true"></i>
             </button>
         </div>
-        <nav>
+        <nav role="navigation" aria-label="Menu móvel">
             <ul class="space-y-4">
                 <li><a href="index.html" class="block py-2 px-4 bg-uro-azul text-white rounded-lg font-medium">Página Inicial</a></li>
                 <li><a href="pages/artigos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Artigos Resumidos</a></li>
@@ -78,7 +86,7 @@
                 <li><a href="pages/eventos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Eventos</a></li>
                 <li><a href="pages/noticias.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Notícias</a></li>
                 <li><a href="pages/sobre.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Sobre Nós</a></li>
-                <li><a href="pages/contatos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Fale Conosco</a></li>
+                <li><a href="pages/contato.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Fale Conosco</a></li>
             </ul>
         </nav>
     </div>
