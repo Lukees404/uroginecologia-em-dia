@@ -563,6 +563,9 @@
         </div>
     </footer>
 
+    <!-- PDF Generator -->
+    <script src="../../assets/js/pdf-generator.js"></script>
+
     <script>
         // Initialize Feather Icons
         feather.replace();
@@ -627,18 +630,14 @@
 
         // PDF Download Function
         function downloadPDF() {
-            // Em um ambiente real, isso baixaria o PDF real
-            // Por enquanto, simula o download
-            const link = document.createElement('a');
-            link.href = '/static/protocolos/protocolo-incontinencia-urinaria-ms-2025.pdf';
-            link.download = 'Protocolo_Incontinencia_Urinaria_MS_2025.pdf';
-            link.target = '_blank';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Mensagem de confirmação
-            alert('Download do protocolo de Incontinência Urinária iniciado. O arquivo será salvo como "Protocolo_Incontinencia_Urinaria_MS_2025.pdf"');
+            window.PDFGenerator.generatePDF({
+                contentSelector: 'main',
+                filename: 'Protocolo_Incontinencia_Urinaria_Nao_Neurogenica_2025.pdf',
+                title: 'Protocolo de Incontinência Urinária Não Neurogênica',
+                subtitle: 'Baseado nas Diretrizes do Ministério da Saúde',
+                author: 'Ana Paula de Oliveira Pinto',
+                date: 'Janeiro de 2025'
+            });
         }
 
         // Garantir que o menu comece fechado
