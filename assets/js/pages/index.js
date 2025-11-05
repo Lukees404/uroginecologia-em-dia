@@ -5,36 +5,67 @@
  */
 
 /**
- * Classe para gerenciar carrosséis simples
+ * Classe moderna para gerenciar carrosséis responsivos
  */
-class SimpleCarousel {
-    constructor(containerId, items, itemsPerView = 3) {
-        this.container = document.getElementById(containerId);
-        this.items = items;
-        this.itemsPerView = itemsPerView;
+class ModernCarousel {
+    constructor(options) {
+        this.containerId = options.containerId;
+        this.container = document.getElementById(this.containerId);
+        this.items = options.items || [];
+        this.prevBtnId = options.prevBtnId;
+        this.nextBtnId = options.nextBtnId;
         this.currentIndex = 0;
-        this.init();
+        this.autoRotate = options.autoRotate || false;
+        this.autoRotateInterval = options.autoRotateInterval || 5000;
+        this.intervalId = null;
+        this.touchStartX = 0;
+        this.touchEndX = 0;
+
+        if (this.container) {
+            this.init();
+        } else {
+            console.warn(`Container ${this.containerId} não encontrado`);
+        }
     }
 
+    /**
+     * Retorna o número de itens visíveis baseado no tamanho da tela
+     */
+    getItemsPerView() {
+        const width = window.innerWidth;
+        if (width < 768) return 1; // Mobile
+        if (width < 1024) return 2; // Tablet
+        return 3; // Desktop
+    }
+
+    /**
+     * Inicializa o carrossel
+     */
     init() {
-        if (!this.container) {
-            console.warn(`Container ${this.containerId} não encontrado`);
-            return;
-        }
         this.render();
         this.setupNavigation();
-        if (this.items.length > this.itemsPerView) {
-            this.setupAutoRotate();
+        this.setupTouchGestures();
+        this.setupResizeHandler();
+
+        if (this.autoRotate && this.items.length > this.getItemsPerView()) {
+            this.startAutoRotate();
         }
     }
 
+    /**
+     * Renderiza os itens do carrossel
+     */
     render() {
+        if (!this.container) return;
+
         this.container.innerHTML = '';
-        this.items.forEach(item => {
-            const element = this.createItemElement(item);
+
+        this.items.forEach((item, index) => {
+            const element = this.createItemElement(item, index);
             this.container.appendChild(element);
         });
-        this.updatePosition();
+
+        this.updatePosition(false); // Sem animação na primeira renderização
 
         // Atualizar ícones Feather
         if (typeof feather !== 'undefined') {
@@ -42,89 +73,262 @@ class SimpleCarousel {
         }
     }
 
-    createItemElement(item) {
+    /**
+     * Cria o elemento HTML de um item
+     */
+    createItemElement(item, index) {
         const div = document.createElement('div');
-        div.className = 'flex-shrink-0 w-full md:w-1/3 px-2';
+        div.className = 'carousel-item flex-shrink-0 px-3';
+        div.setAttribute('data-index', index);
 
-        if (item.type === 'protocol') {
-            div.innerHTML = `
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer h-full">
-                    <div class="h-40 bg-gradient-to-r from-uro-azul to-uro-azul_claro flex items-center justify-center">
-                        <i data-feather="file-text" class="w-12 h-12 text-white"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-uro-azul_escuro mb-3 line-clamp-2">${item.title}</h3>
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">${item.description}</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-gray-500">${item.date}</span>
-                            <a href="${item.url}" class="text-uro-azul font-medium hover:text-uro-azul_escuro transition-colors">
-                                Ver Protocolo
-                            </a>
-                        </div>
+        const gradientClass = item.type === 'protocol'
+            ? 'from-uro-azul to-uro-azul_claro'
+            : 'from-uro-azul_escuro to-uro-azul';
+
+        const iconType = item.type === 'protocol' ? 'file-text' : 'book-open';
+        const linkText = item.type === 'protocol' ? 'Ver Protocolo' : 'Ler Artigo';
+
+        div.innerHTML = `
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 h-full card-hover">
+                <div class="h-40 bg-gradient-to-r ${gradientClass} flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-white opacity-0 hover:opacity-10 transition-opacity"></div>
+                    <i data-feather="${iconType}" class="w-12 h-12 text-white relative z-10" aria-hidden="true"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-uro-azul_escuro mb-3 line-clamp-2 min-h-[3.5rem]">${item.title}</h3>
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3 min-h-[4.5rem]">${item.description}</p>
+                    <div class="flex justify-between items-center pt-2 border-t border-gray-100">
+                        <span class="text-xs text-gray-500 flex items-center">
+                            <i data-feather="calendar" class="w-3 h-3 mr-1" aria-hidden="true"></i>
+                            ${item.date}
+                        </span>
+                        <a href="${item.url}"
+                           class="inline-flex items-center text-uro-azul font-medium hover:text-uro-azul_escuro transition-colors text-sm group">
+                            ${linkText}
+                            <i data-feather="arrow-right" class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
-            `;
-        } else if (item.type === 'article') {
-            div.innerHTML = `
-                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer h-full">
-                    <div class="h-40 bg-gradient-to-r from-uro-azul_escuro to-uro-azul flex items-center justify-center">
-                        <i data-feather="book-open" class="w-12 h-12 text-white"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-uro-azul_escuro mb-3 line-clamp-2">${item.title}</h3>
-                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">${item.description}</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-gray-500">${item.date}</span>
-                            <a href="${item.url}" class="text-uro-azul font-medium hover:text-uro-azul_escuro transition-colors">
-                                Ler Artigo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
+            </div>
+        `;
+
         return div;
     }
 
+    /**
+     * Configura a navegação com botões
+     */
     setupNavigation() {
-        const containerName = this.container.id.replace('Carousel', '');
-        const capitalizedName = containerName.charAt(0).toUpperCase() + containerName.slice(1);
-        const prevBtn = document.getElementById(`prev${capitalizedName}`);
-        const nextBtn = document.getElementById(`next${capitalizedName}`);
+        const prevBtn = document.getElementById(this.prevBtnId);
+        const nextBtn = document.getElementById(this.nextBtnId);
 
-        if (prevBtn && nextBtn) {
-            if (this.items.length > this.itemsPerView) {
-                prevBtn.addEventListener('click', () => this.prev());
-                nextBtn.addEventListener('click', () => this.next());
-            } else {
-                prevBtn.style.display = 'none';
-                nextBtn.style.display = 'none';
-            }
+        if (!prevBtn || !nextBtn) {
+            console.warn('Botões de navegação não encontrados');
+            return;
+        }
+
+        const itemsPerView = this.getItemsPerView();
+
+        // Mostrar/ocultar botões baseado no número de itens
+        if (this.items.length <= itemsPerView) {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            return;
+        }
+
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+
+        // Event listeners
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.prev();
+            this.resetAutoRotate();
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.next();
+            this.resetAutoRotate();
+        });
+
+        // Atualizar visibilidade dos botões
+        this.updateButtonStates();
+    }
+
+    /**
+     * Atualiza o estado dos botões (desabilita se no início/fim)
+     */
+    updateButtonStates() {
+        const prevBtn = document.getElementById(this.prevBtnId);
+        const nextBtn = document.getElementById(this.nextBtnId);
+
+        if (!prevBtn || !nextBtn) return;
+
+        const itemsPerView = this.getItemsPerView();
+        const maxIndex = Math.max(0, this.items.length - itemsPerView);
+
+        // Desabilitar botão anterior se no início
+        if (this.currentIndex === 0) {
+            prevBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            prevBtn.disabled = true;
+        } else {
+            prevBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            prevBtn.disabled = false;
+        }
+
+        // Desabilitar botão próximo se no fim
+        if (this.currentIndex >= maxIndex) {
+            nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            nextBtn.disabled = true;
+        } else {
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            nextBtn.disabled = false;
         }
     }
 
+    /**
+     * Configurar gestos de toque para mobile
+     */
+    setupTouchGestures() {
+        if (!this.container) return;
+
+        this.container.addEventListener('touchstart', (e) => {
+            this.touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        this.container.addEventListener('touchend', (e) => {
+            this.touchEndX = e.changedTouches[0].screenX;
+            this.handleSwipe();
+        }, { passive: true });
+    }
+
+    /**
+     * Manipular gesto de swipe
+     */
+    handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = this.touchStartX - this.touchEndX;
+
+        if (Math.abs(diff) < swipeThreshold) return;
+
+        if (diff > 0) {
+            // Swipe para esquerda - próximo
+            this.next();
+        } else {
+            // Swipe para direita - anterior
+            this.prev();
+        }
+
+        this.resetAutoRotate();
+    }
+
+    /**
+     * Configurar handler de redimensionamento
+     */
+    setupResizeHandler() {
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                this.updatePosition(false);
+                this.updateButtonStates();
+            }, 100);
+        });
+    }
+
+    /**
+     * Navegar para o item anterior
+     */
     prev() {
-        if (this.items.length <= this.itemsPerView) return;
-        this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
-        this.updatePosition();
+        if (this.currentIndex > 0) {
+            this.currentIndex--;
+            this.updatePosition();
+            this.updateButtonStates();
+        }
     }
 
+    /**
+     * Navegar para o próximo item
+     */
     next() {
-        if (this.items.length <= this.itemsPerView) return;
-        this.currentIndex = (this.currentIndex + 1) % this.items.length;
-        this.updatePosition();
+        const itemsPerView = this.getItemsPerView();
+        const maxIndex = Math.max(0, this.items.length - itemsPerView);
+
+        if (this.currentIndex < maxIndex) {
+            this.currentIndex++;
+            this.updatePosition();
+            this.updateButtonStates();
+        } else if (this.autoRotate) {
+            // Se auto-rotate está ativo, voltar ao início
+            this.currentIndex = 0;
+            this.updatePosition();
+            this.updateButtonStates();
+        }
     }
 
-    updatePosition() {
-        const translateX = -this.currentIndex * (100 / this.itemsPerView);
+    /**
+     * Atualizar posição do carrossel
+     */
+    updatePosition(animate = true) {
+        if (!this.container) return;
+
+        const itemsPerView = this.getItemsPerView();
+        const itemWidth = 100 / itemsPerView;
+        const translateX = -this.currentIndex * itemWidth;
+
+        if (animate) {
+            this.container.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+        } else {
+            this.container.style.transition = 'none';
+        }
+
         this.container.style.transform = `translateX(${translateX}%)`;
+
+        // Forçar reflow para garantir que a transição funcione
+        if (!animate) {
+            void this.container.offsetWidth;
+        }
     }
 
-    setupAutoRotate() {
-        if (this.items.length > this.itemsPerView) {
-            setInterval(() => {
-                this.next();
-            }, 5000);
+    /**
+     * Iniciar rotação automática
+     */
+    startAutoRotate() {
+        if (this.intervalId) return;
+
+        this.intervalId = setInterval(() => {
+            this.next();
+        }, this.autoRotateInterval);
+    }
+
+    /**
+     * Parar rotação automática
+     */
+    stopAutoRotate() {
+        if (this.intervalId) {
+            clearInterval(this.intervalId);
+            this.intervalId = null;
+        }
+    }
+
+    /**
+     * Resetar rotação automática (parar e reiniciar)
+     */
+    resetAutoRotate() {
+        if (this.autoRotate) {
+            this.stopAutoRotate();
+            this.startAutoRotate();
+        }
+    }
+
+    /**
+     * Destruir o carrossel (cleanup)
+     */
+    destroy() {
+        this.stopAutoRotate();
+        if (this.container) {
+            this.container.innerHTML = '';
         }
     }
 }
@@ -132,6 +336,8 @@ class SimpleCarousel {
 // Cache de dados
 let protocolos = [];
 let artigos = [];
+let protocolCarousel = null;
+let articleCarousel = null;
 
 /**
  * Carrega dados dos arquivos JSON
@@ -163,7 +369,8 @@ async function carregarDados() {
 
     } catch (error) {
         console.error('Erro ao carregar dados:', error);
-        // Fallback para dados hardcoded
+
+        // Fallback para dados de exemplo
         protocolos = [
             {
                 type: 'protocol',
@@ -237,21 +444,37 @@ async function carregarDados() {
 
 // Inicializar quando a página carregar
 document.addEventListener('DOMContentLoaded', async function() {
-    console.log('Inicializando carrosseis da página inicial...');
+    console.log('🎠 Inicializando carrosséis da página inicial...');
 
     // Carregar dados dos JSONs
     await carregarDados();
 
-    // Inicializa o carrossel de protocolos
-    const protocolCarousel = new SimpleCarousel('protocolsCarousel', protocolos);
-    console.log('Carrossel de protocolos inicializado');
+    // Inicializar carrossel de protocolos
+    protocolCarousel = new ModernCarousel({
+        containerId: 'protocolsCarousel',
+        items: protocolos,
+        prevBtnId: 'prevProtocol',
+        nextBtnId: 'nextProtocol',
+        autoRotate: false, // Desativado por padrão
+        autoRotateInterval: 5000
+    });
+    console.log('✅ Carrossel de protocolos inicializado');
 
-    // Inicializa o carrossel de artigos
-    const articleCarousel = new SimpleCarousel('articlesCarousel', artigos);
-    console.log('Carrossel de artigos inicializado');
+    // Inicializar carrossel de artigos
+    articleCarousel = new ModernCarousel({
+        containerId: 'articlesCarousel',
+        items: artigos,
+        prevBtnId: 'prevArticle',
+        nextBtnId: 'nextArticle',
+        autoRotate: false, // Desativado por padrão
+        autoRotateInterval: 5000
+    });
+    console.log('✅ Carrossel de artigos inicializado');
 
-    // Atualiza os ícones
+    // Atualizar ícones Feather
     if (typeof feather !== 'undefined') {
         feather.replace();
     }
+
+    console.log('🎉 Carrosséis prontos!');
 });
