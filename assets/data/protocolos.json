@@ -21,13 +21,13 @@
     },
     {
         "id": "iu-nao",
-        "titulo": "Incontinência Urinária Não Especificada",
+        "titulo": "Incontinência Urinária Não Neurogênica",
         "arquivo": "incontinencia-urinaria-nao.html",
         "categoria": "urodinamico",
-        "descricao": "Protocolo para abordagem de casos complexos de incontinência urinária.",
+        "descricao": "Protocolo para diagnóstico e tratamento da incontinência urinária sem causa neurológica, baseado nas diretrizes do Ministério da Saúde.",
         "data": "Jan/2025",
         "icone": "💧",
-        "tags": ["incontinência", "diagnóstico", "tratamento"]
+        "tags": ["incontinência", "não neurogênica", "diagnóstico", "tratamento"]
     },
     {
         "id": "sbh",
