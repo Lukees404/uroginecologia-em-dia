@@ -761,3 +761,131 @@ body {
 .news-item {
   scroll-snap-align: start;
 }
+
+/* ==========================================
+   MELHORIAS DE RESPONSIVIDADE PARA PROTOCOLOS E ARTIGOS
+   ========================================== */
+
+/* Títulos de protocolos e artigos em mobile */
+@media (max-width: 767px) {
+  /* Títulos principais (H1) em páginas de protocolo/artigo */
+  main h1 {
+    font-size: 1.5rem !important;
+    line-height: 1.3;
+  }
+
+  /* Subtítulos (H2) em conteúdo de protocolo/artigo */
+  main .protocol-section h2,
+  main article h2 {
+    font-size: 1.25rem !important;
+    line-height: 1.4;
+  }
+
+  /* Sub-subtítulos (H3) */
+  main .protocol-section h3,
+  main article h3 {
+    font-size: 1.125rem !important;
+  }
+
+  /* Headers de protocolo - ajuste específico */
+  .bg-white.rounded-lg.shadow-md.border-l-4 h1 {
+    font-size: 1.375rem !important;
+    line-height: 1.3;
+  }
+
+  /* Ajustar padding dos cards em mobile */
+  .bg-white.rounded-lg.shadow-md {
+    padding: 1rem !important;
+  }
+
+  /* Tabelas de recomendações em mobile */
+  .recommendation-table {
+    font-size: 0.875rem;
+  }
+
+  .recommendation-table th,
+  .recommendation-table td {
+    padding: 0.5rem;
+  }
+
+  /* Flowcharts em mobile - scroll horizontal */
+  .flowchart-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mermaid {
+    min-width: 600px;
+  }
+}
+
+/* Tablets - ajustes intermediários */
+@media (min-width: 768px) and (max-width: 1023px) {
+  main h1 {
+    font-size: 1.875rem !important;
+  }
+
+  main .protocol-section h2,
+  main article h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .bg-white.rounded-lg.shadow-md {
+    padding: 1.5rem !important;
+  }
+}
+
+/* Cards de protocolos e artigos - responsividade */
+@media (max-width: 767px) {
+  /* Grid de 1 coluna em mobile */
+  .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+/* Breadcrumb em mobile */
+@media (max-width: 767px) {
+  nav.mb-6.text-sm {
+    font-size: 0.75rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Hero sections - ajuste de padding em mobile */
+@media (max-width: 767px) {
+  .bg-gradient-to-r.from-uro-azul_escuro.to-uro-azul {
+    padding: 1.5rem !important;
+  }
+
+  .bg-gradient-to-r.from-uro-azul_escuro.to-uro-azul h1 {
+    font-size: 1.75rem !important;
+  }
+
+  .bg-gradient-to-r.from-uro-azul_escuro.to-uro-azul p {
+    font-size: 1rem !important;
+  }
+}
+
+/* Botões de ação em mobile - mais espaço */
+@media (max-width: 767px) {
+  .flex.justify-between button,
+  .flex.justify-between a {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  /* Botões empilhados em telas muito pequenas */
+  .flex.justify-between.mt-8 {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .flex.justify-between.mt-8 a,
+  .flex.justify-between.mt-8 button {
+    width: 100%;
+    justify-content: center;
+  }
+}
