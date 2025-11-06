@@ -145,20 +145,41 @@ class PDFGenerator {
             tempContainer.style.padding = '20mm';
             tempContainer.style.fontFamily = 'Arial, sans-serif';
 
-            // Adicionar cabeçalho do PDF
+            // Adicionar cabeçalho do PDF (protegido contra XSS)
             const header = document.createElement('div');
             header.style.marginBottom = '20px';
             header.style.borderBottom = '3px solid #3b82f6';
             header.style.paddingBottom = '15px';
-            header.innerHTML = `
-                <h1 style="margin: 0; font-size: 24px; color: #1e40af;">${title}</h1>
-                ${subtitle ? `<p style="margin: 5px 0 0 0; font-size: 14px; color: #6b7280;">${subtitle}</p>` : ''}
-                <div style="margin-top: 10px; font-size: 12px; color: #6b7280;">
-                    <strong>Fonte:</strong> ${author}<br>
-                    <strong>Data:</strong> ${date}<br>
-                    <strong>Site:</strong> Uroginecologia Em Dia
-                </div>
+
+            // Criar título de forma segura
+            const h1 = document.createElement('h1');
+            h1.style.margin = '0';
+            h1.style.fontSize = '24px';
+            h1.style.color = '#1e40af';
+            h1.textContent = title; // textContent previne XSS
+            header.appendChild(h1);
+
+            // Adicionar subtítulo se existir
+            if (subtitle) {
+                const p = document.createElement('p');
+                p.style.margin = '5px 0 0 0';
+                p.style.fontSize = '14px';
+                p.style.color = '#6b7280';
+                p.textContent = subtitle; // textContent previne XSS
+                header.appendChild(p);
+            }
+
+            // Adicionar metadados
+            const meta = document.createElement('div');
+            meta.style.marginTop = '10px';
+            meta.style.fontSize = '12px';
+            meta.style.color = '#6b7280';
+            meta.innerHTML = `
+                <strong>Fonte:</strong> ${author}<br>
+                <strong>Data:</strong> ${date}<br>
+                <strong>Site:</strong> Uroginecologia Em Dia
             `;
+            header.appendChild(meta);
 
             tempContainer.appendChild(header);
             tempContainer.appendChild(contentClone);

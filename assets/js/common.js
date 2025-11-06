@@ -105,7 +105,12 @@ function initializeSearch() {
         const searchTerm = searchInput.value.trim();
 
         if (searchTerm) {
-            window.location.href = `pages/busca.html?q=${encodeURIComponent(searchTerm)}`;
+            // Usar buildUrl para garantir path correto em qualquer página
+            const searchUrl = window.UroUtils
+                ? window.UroUtils.buildUrl(`pages/busca.html?q=${encodeURIComponent(searchTerm)}`)
+                : `pages/busca.html?q=${encodeURIComponent(searchTerm)}`; // fallback
+
+            window.location.href = searchUrl;
         }
     }
 
