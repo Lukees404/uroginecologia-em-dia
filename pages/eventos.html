@@ -49,9 +49,13 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- Preconnect para CDNs -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" async></script>
     <script>
         tailwind.config = {
             theme: {
@@ -151,6 +155,6 @@
     <script src="assets/js/utils.min.js"></script>
     <script src="assets/js/main.min.js"></script>
     <script src="assets/js/common.min.js"></script>
-    <script src="assets/js/pages/eventos.min.js"></script>
+    <script src="assets/js/pages/eventos.min.js" defer></script>
 </body>
 </html>
