@@ -158,45 +158,8 @@ this.components = {
     }
 
     initializeHeaderEvents() {
-        this.setupMobileMenu();
-    }
-
-    setupMobileMenu() {
-        const mobileMenuButton = document.getElementById('mobileMenuButton');
-        const closeMobileMenu = document.getElementById('closeMobileMenu');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-
-        if (!mobileMenu) return;
-
-        const openMobileMenu = () => {
-            mobileMenu.classList.remove('hidden');
-            setTimeout(() => {
-                document.querySelector('#mobileMenu > div:last-child').classList.remove('-translate-x-full');
-            }, 10);
-        };
-
-        const closeMobileMenuFunc = () => {
-            document.querySelector('#mobileMenu > div:last-child').classList.add('-translate-x-full');
-            setTimeout(() => {
-                mobileMenu.classList.add('hidden');
-            }, 300);
-        };
-
-        if (mobileMenuButton) {
-            mobileMenuButton.addEventListener('click', openMobileMenu);
-        }
-        if (closeMobileMenu) {
-            closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
-        }
-        if (mobileMenuOverlay) {
-            mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
-        }
-
-        // Fechar menu ao clicar em links
-        document.querySelectorAll('#mobileMenu a').forEach(link => {
-            link.addEventListener('click', closeMobileMenuFunc);
-        });
+        // Menu mobile já é inicializado pelo common.js
+        // Removida duplicação de código
     }
 
     initializeSearch() {
@@ -205,15 +168,19 @@ this.components = {
 
         const performSearch = () => {
             const searchTerm = searchInput.value.trim();
-            
+
             if (searchTerm) {
-                this.sendMessage('search-performed', { 
+                this.sendMessage('search-performed', {
                     terms: [searchTerm],
                     timestamp: Date.now()
                 });
-                
-                // Redirecionar para página de busca
-                window.location.href = `busca.html?q=${encodeURIComponent(searchTerm)}`;
+
+                // Usar buildUrl para garantir path correto
+                const searchUrl = window.UroUtils
+                    ? window.UroUtils.buildUrl(`pages/busca.html?q=${encodeURIComponent(searchTerm)}`)
+                    : `pages/busca.html?q=${encodeURIComponent(searchTerm)}`; // fallback
+
+                window.location.href = searchUrl;
             }
         };
 
@@ -287,49 +254,11 @@ this.components = {
     }
 }
 
-// Sistema de Animações
-class ScrollAnimations {
-    constructor() {
-        this.observer = null;
-        this.init();
-    }
-
-    init() {
-        this.setupIntersectionObserver();
-    }
-
-    setupIntersectionObserver() {
-        this.observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                    
-                    // Opcional: parar de observar após animação
-                    // this.observer.unobserve(entry.target);
-                }
-            });
-        }, { 
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        // Observar todas as sections
-        document.querySelectorAll('section').forEach(section => {
-            this.observer.observe(section);
-        });
-
-        // Observar cards e outros elementos
-        document.querySelectorAll('.card-hover').forEach(card => {
-            this.observer.observe(card);
-        });
-    }
-}
-
 // Inicialização global do site
+// Nota: ScrollAnimations removida - já está no common.js
 class UroSite {
     constructor() {
         this.communication = null;
-        this.animations = null;
         this.init();
     }
 
@@ -344,15 +273,15 @@ class UroSite {
 
     start() {
         console.log('🚀 Inicializando Uroginecologia Em Dia...');
-        
+
         // Inicializar sistemas
         this.communication = new SiteCommunication();
-        this.animations = new ScrollAnimations();
-        
+        // Animações já são inicializadas pelo common.js
+
         // Configurações adicionais
         this.setupGlobalEvents();
         this.loadUserPreferences();
-        
+
         console.log('✅ Site inicializado com sucesso');
     }
 

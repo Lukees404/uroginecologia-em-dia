@@ -129,13 +129,23 @@ async function realizarBusca(termo) {
 }
 
 /**
- * Destaca o termo buscado no texto
+ * Destaca o termo buscado no texto (protegido contra XSS)
  */
 function highlightTerm(text, term) {
     if (!term) return text;
 
-    const regex = new RegExp(`(${term})`, 'gi');
-    return text.replace(regex, '<mark class="bg-yellow-200 px-1 rounded">$1</mark>');
+    // Escapar HTML para prevenir XSS
+    const escapeHtml = window.UroUtils ? window.UroUtils.escapeHtml : (str) => str;
+    const escapedText = escapeHtml(text);
+
+    // Escapar caracteres especiais de regex
+    const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+    // Criar regex case-insensitive
+    const regex = new RegExp(`(${escapedTerm})`, 'gi');
+
+    // Aplicar highlight apenas no texto escapado
+    return escapedText.replace(regex, '<mark class="bg-yellow-200 px-1 rounded">$1</mark>');
 }
 
 /**
@@ -152,12 +162,16 @@ function renderizarResultados() {
 
     // Atualizar estatísticas
     if (stats) {
+        // Escapar termo de busca para prevenir XSS
+        const escapeHtml = window.UroUtils ? window.UroUtils.escapeHtml : (str) => str;
+        const termoEscapado = escapeHtml(termoBusca);
+
         if (resultados.length === 0) {
-            stats.innerHTML = `<p class="text-gray-600">Nenhum resultado encontrado para "<strong>${termoBusca}</strong>"</p>`;
+            stats.innerHTML = `<p class="text-gray-600">Nenhum resultado encontrado para "<strong>${termoEscapado}</strong>"</p>`;
             noResults.classList.remove('hidden');
             return;
         } else {
-            stats.innerHTML = `<p class="text-gray-700"><strong>${resultados.length}</strong> resultado${resultados.length > 1 ? 's' : ''} encontrado${resultados.length > 1 ? 's' : ''} para "<strong>${termoBusca}</strong>"</p>`;
+            stats.innerHTML = `<p class="text-gray-700"><strong>${resultados.length}</strong> resultado${resultados.length > 1 ? 's' : ''} encontrado${resultados.length > 1 ? 's' : ''} para "<strong>${termoEscapado}</strong>"</p>`;
             noResults.classList.add('hidden');
         }
     }
