@@ -204,6 +204,158 @@ function handleError(error, context = 'Operação', showUser = true) {
     }
 }
 
+/**
+ * Substitui ícones Feather de forma otimizada (debounced)
+ * Evita múltiplas varreduras do DOM
+ */
+const replaceFeatherIcons = debounce(() => {
+    if (typeof feather !== 'undefined') {
+        feather.replace();
+        console.log('🎨 Ícones Feather atualizados');
+    }
+}, 100);
+
+/**
+ * Sistema de Cache em Memória
+ * Armazena dados JSON para reduzir requisições HTTP
+ */
+const cache = {
+    store: new Map(),
+
+    /**
+     * Obtém dados do cache se ainda válidos
+     * @param {string} key - Chave do cache
+     * @returns {any|null} Dados em cache ou null se expirado/inexistente
+     */
+    get(key) {
+        const item = this.store.get(key);
+        if (!item) return null;
+
+        const now = Date.now();
+        const ttl = window.UroConstants?.CACHE?.TTL || 300000; // 5 min default
+
+        if (now - item.timestamp > ttl) {
+            this.store.delete(key);
+            console.log(`⏰ Cache expirado: ${key}`);
+            return null;
+        }
+
+        console.log(`✨ Cache hit: ${key}`);
+        return item.data;
+    },
+
+    /**
+     * Armazena dados no cache
+     * @param {string} key - Chave do cache
+     * @param {any} data - Dados a armazenar
+     */
+    set(key, data) {
+        this.store.set(key, {
+            data,
+            timestamp: Date.now()
+        });
+        console.log(`💾 Cache armazenado: ${key}`);
+    },
+
+    /**
+     * Remove item específico do cache
+     * @param {string} key - Chave do cache
+     */
+    delete(key) {
+        this.store.delete(key);
+        console.log(`🗑️ Cache removido: ${key}`);
+    },
+
+    /**
+     * Limpa todo o cache
+     */
+    clear() {
+        this.store.clear();
+        console.log('🧹 Cache limpo completamente');
+    },
+
+    /**
+     * Retorna estatísticas do cache
+     * @returns {object} Estatísticas do cache
+     */
+    stats() {
+        return {
+            size: this.store.size,
+            keys: Array.from(this.store.keys())
+        };
+    }
+};
+
+/**
+ * Fetch com cache automático
+ * @param {string} url - URL do recurso
+ * @param {object} options - Opções do fetch
+ * @param {boolean} useCache - Se deve usar cache (default: true)
+ * @returns {Promise<any>} Dados do recurso
+ */
+async function fetchWithCache(url, options = {}, useCache = true) {
+    // Validação de parâmetros
+    if (!url || typeof url !== 'string') {
+        throw new Error('URL inválida fornecida ao fetchWithCache');
+    }
+
+    const cacheKey = `fetch_${url}`;
+
+    // Tentar obter do cache primeiro
+    if (useCache) {
+        const cached = cache.get(cacheKey);
+        if (cached) {
+            return cached;
+        }
+    }
+
+    // Fazer requisição
+    try {
+        console.log(`🌐 Buscando: ${url}`);
+        const response = await fetch(url, options);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        // Armazenar no cache
+        if (useCache) {
+            cache.set(cacheKey, data);
+        }
+
+        return data;
+    } catch (error) {
+        console.error(`Erro ao buscar ${url}:`, error);
+        throw error;
+    }
+}
+
+/**
+ * Adiciona classe de loading a um elemento
+ * @param {HTMLElement} element - Elemento que receberá o loading
+ */
+function showLoading(element) {
+    if (!element || !(element instanceof HTMLElement)) {
+        console.warn('showLoading: elemento inválido');
+        return;
+    }
+    element.classList.add('loading');
+}
+
+/**
+ * Remove classe de loading de um elemento
+ * @param {HTMLElement} element - Elemento que terá o loading removido
+ */
+function hideLoading(element) {
+    if (!element || !(element instanceof HTMLElement)) {
+        console.warn('hideLoading: elemento inválido');
+        return;
+    }
+    element.classList.remove('loading');
+}
+
 // Exportar para uso global
 window.UroUtils = {
     getBasePath,
@@ -214,5 +366,10 @@ window.UroUtils = {
     validateObject,
     formatDate,
     showToast,
-    handleError
+    handleError,
+    replaceFeatherIcons,
+    cache,
+    fetchWithCache,
+    showLoading,
+    hideLoading
 };

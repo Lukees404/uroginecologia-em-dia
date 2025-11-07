@@ -67,9 +67,11 @@ class ModernCarousel {
 
         this.updatePosition(false); // Sem animação na primeira renderização
 
-        // Atualizar ícones Feather
-        if (typeof feather !== 'undefined') {
-            feather.replace();
+        // Atualizar ícones Feather (versão otimizada)
+        if (window.UroUtils && window.UroUtils.replaceFeatherIcons) {
+            window.UroUtils.replaceFeatherIcons();
+        } else if (typeof feather !== 'undefined') {
+            feather.replace(); // fallback
         }
     }
 
@@ -471,9 +473,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
     console.log('✅ Carrossel de artigos inicializado');
 
-    // Atualizar ícones Feather
-    if (typeof feather !== 'undefined') {
-        feather.replace();
+    // Atualizar ícones Feather (versão otimizada)
+    if (window.UroUtils && window.UroUtils.replaceFeatherIcons) {
+        window.UroUtils.replaceFeatherIcons();
+    } else if (typeof feather !== 'undefined') {
+        feather.replace(); // fallback
     }
 
     console.log('🎉 Carrosséis prontos!');

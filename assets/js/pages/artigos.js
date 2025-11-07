@@ -12,15 +12,35 @@ let artigos = [];
  * @returns {Promise<Array>} Array de artigos
  */
 async function carregarArtigos() {
+    const container = document.getElementById('artigos-container');
+
     try {
-        const response = await fetch('assets/data/artigos.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        // Mostrar loading
+        if (container && window.UroUtils?.showLoading) {
+            window.UroUtils.showLoading(container);
         }
-        artigos = await response.json();
+
+        // Usar fetchWithCache para reduzir requisições HTTP
+        if (window.UroUtils?.fetchWithCache) {
+            artigos = await window.UroUtils.fetchWithCache('assets/data/artigos.json');
+        } else {
+            // Fallback para fetch tradicional
+            const response = await fetch('assets/data/artigos.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            artigos = await response.json();
+        }
+
         return artigos;
     } catch (error) {
         console.error('Erro ao carregar artigos:', error);
+
+        // Mostrar toast de erro se disponível
+        if (window.UroUtils?.showToast) {
+            window.UroUtils.showToast('Erro ao carregar artigos. Usando dados de exemplo.', 'error');
+        }
+
         // Fallback para dados hardcoded em caso de erro
         artigos = [
             {
@@ -65,6 +85,11 @@ async function carregarArtigos() {
             }
         ];
         return artigos;
+    } finally {
+        // Remover loading
+        if (container && window.UroUtils?.hideLoading) {
+            window.UroUtils.hideLoading(container);
+        }
     }
 }
 
@@ -140,8 +165,10 @@ function gerarCardsArtigos(filtro = 'todos') {
     });
 
     // Atualizar ícones Feather
-    if (typeof feather !== 'undefined') {
-        feather.replace();
+    if (window.UroUtils && window.UroUtils.replaceFeatherIcons) {
+        window.UroUtils.replaceFeatherIcons();
+    } else if (typeof feather !== 'undefined') {
+        feather.replace(); // fallback
     }
 }
 
