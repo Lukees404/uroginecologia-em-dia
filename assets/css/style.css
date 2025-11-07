@@ -1003,14 +1003,57 @@ body {
    SISTEMA DE PDF - ESTILOS
    ========================================== */
 
-/* Esconder elementos na impressão/PDF */
-.no-print {
-  @media print {
+/* Estilos para PDF */
+@media print {
+  .no-print {
     display: none !important;
+  }
+
+  #conteudo-pdf {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  #conteudo-pdf h1 {
+    page-break-after: avoid;
+    font-size: 24pt !important;
+  }
+
+  #conteudo-pdf h2 {
+    page-break-after: avoid;
+    page-break-before: avoid;
+    font-size: 18pt !important;
+    margin-top: 20pt;
+  }
+
+  #conteudo-pdf h3 {
+    page-break-after: avoid;
+    font-size: 14pt !important;
+  }
+
+  #conteudo-pdf p {
+    page-break-inside: avoid;
+    orphans: 3;
+    widows: 3;
+  }
+
+  #conteudo-pdf ul,
+  #conteudo-pdf ol {
+    page-break-inside: avoid;
   }
 }
 
-/* Estilo para conteúdo PDF */
+/* Para forçar quebra de página se necessário */
+.page-break-before {
+  page-break-before: always;
+}
+
+.page-break-after {
+  page-break-after: always;
+}
+
+/* Estilo para conteúdo PDF (tela) */
 #conteudo-pdf {
   line-height: 1.6;
 }
