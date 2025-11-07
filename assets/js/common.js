@@ -4,9 +4,98 @@
  * Descrição: Menu mobile, busca, newsletter e outras funcionalidades comuns
  */
 
+// ==========================================
+// GOOGLE ANALYTICS 4 - EVENTOS CUSTOMIZADOS
+// ==========================================
+
+/**
+ * Função auxiliar para enviar eventos ao Google Analytics 4
+ * @param {string} eventName - Nome do evento
+ * @param {object} eventParams - Parâmetros do evento
+ */
+function trackGAEvent(eventName, eventParams = {}) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, eventParams);
+    }
+}
+
+/**
+ * Rastreia clique em protocolos
+ * @param {string} protocolName - Nome do protocolo clicado
+ * @param {string} protocolUrl - URL do protocolo
+ */
+function trackProtocolClick(protocolName, protocolUrl) {
+    trackGAEvent('protocol_click', {
+        protocol_name: protocolName,
+        protocol_url: protocolUrl,
+        event_category: 'engagement',
+        event_label: protocolName
+    });
+}
+
+/**
+ * Rastreia download de PDFs
+ * @param {string} fileName - Nome do arquivo PDF
+ * @param {string} fileUrl - URL do arquivo
+ */
+function trackPDFDownload(fileName, fileUrl) {
+    trackGAEvent('pdf_download', {
+        file_name: fileName,
+        file_url: fileUrl,
+        event_category: 'download',
+        event_label: fileName
+    });
+}
+
+/**
+ * Rastreia submissão de newsletter
+ * @param {string} email - Email do usuário (opcional, pode ser omitido por privacidade)
+ */
+function trackNewsletterSignup(email = '') {
+    trackGAEvent('newsletter_signup', {
+        event_category: 'engagement',
+        event_label: 'newsletter_form',
+        method: 'footer_form'
+    });
+}
+
+/**
+ * Rastreia pesquisas realizadas
+ * @param {string} searchTerm - Termo pesquisado
+ * @param {number} resultsCount - Número de resultados (opcional)
+ */
+function trackSearch(searchTerm, resultsCount = null) {
+    const params = {
+        search_term: searchTerm,
+        event_category: 'search',
+        event_label: searchTerm
+    };
+
+    if (resultsCount !== null) {
+        params.results_count = resultsCount;
+    }
+
+    trackGAEvent('search', params);
+}
+
+/**
+ * Rastreia clique em artigos
+ * @param {string} articleTitle - Título do artigo clicado
+ * @param {string} articleUrl - URL do artigo
+ */
+function trackArticleClick(articleTitle, articleUrl) {
+    trackGAEvent('article_click', {
+        article_title: articleTitle,
+        article_url: articleUrl,
+        event_category: 'engagement',
+        event_label: articleTitle
+    });
+}
+
 // Garantir que o DOM está carregado
 document.addEventListener('DOMContentLoaded', function() {
     initializePage();
+    initializeGATracking();
 });
 
 /**
@@ -107,6 +196,9 @@ function initializeSearch() {
         const searchTerm = searchInput.value.trim();
 
         if (searchTerm) {
+            // Rastrear evento de busca no Google Analytics
+            trackSearch(searchTerm);
+
             // Usar buildUrl para garantir path correto em qualquer página
             const searchUrl = window.UroUtils
                 ? window.UroUtils.buildUrl(`pages/busca.html?q=${encodeURIComponent(searchTerm)}`)
@@ -146,6 +238,9 @@ function initializeNewsletter() {
             showNewsletterMessage('Por favor, insira um email válido.', 'error');
             return;
         }
+
+        // Rastrear evento de newsletter no Google Analytics
+        trackNewsletterSignup();
 
         // TODO: Implementar envio real para backend
         showNewsletterMessage('Obrigado por assinar nossa newsletter!', 'success');
@@ -205,9 +300,75 @@ function initializeScrollAnimations() {
     });
 }
 
+/**
+ * Inicializa rastreamento automático de eventos do Google Analytics
+ */
+function initializeGATracking() {
+    // Rastrear cliques em links de protocolos
+    document.querySelectorAll('a[href*="/protocolo/"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const protocolName = this.textContent.trim();
+            const protocolUrl = this.href;
+            trackProtocolClick(protocolName, protocolUrl);
+        });
+    });
+
+    // Rastrear cliques em links de artigos
+    document.querySelectorAll('a[href*="/artigo/"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const articleTitle = this.textContent.trim();
+            const articleUrl = this.href;
+            trackArticleClick(articleTitle, articleUrl);
+        });
+    });
+
+    // Rastrear downloads de PDFs
+    document.querySelectorAll('a[href$=".pdf"], button[onclick*="generatePDF"], button[id*="pdf"]').forEach(element => {
+        element.addEventListener('click', function(e) {
+            let fileName = 'documento.pdf';
+            let fileUrl = '';
+
+            if (this.href && this.href.endsWith('.pdf')) {
+                fileName = this.href.split('/').pop();
+                fileUrl = this.href;
+            } else if (this.textContent.includes('PDF')) {
+                fileName = document.title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.pdf';
+                fileUrl = window.location.href;
+            }
+
+            trackPDFDownload(fileName, fileUrl);
+        });
+    });
+
+    // Rastrear navegação entre páginas principais
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const pageUrl = this.href;
+            const pageName = this.textContent.trim();
+
+            trackGAEvent('navigation', {
+                page_name: pageName,
+                page_url: pageUrl,
+                event_category: 'navigation',
+                event_label: pageName
+            });
+        });
+    });
+}
+
 // Inicializar animações quando o DOM estiver pronto
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeScrollAnimations);
 } else {
     initializeScrollAnimations();
 }
+
+// Exportar funções de tracking para uso global
+window.UroAnalytics = {
+    trackProtocolClick,
+    trackPDFDownload,
+    trackNewsletterSignup,
+    trackSearch,
+    trackArticleClick,
+    trackGAEvent
+};

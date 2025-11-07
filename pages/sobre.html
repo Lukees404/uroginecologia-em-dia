@@ -5,6 +5,30 @@
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1e40af">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Google Analytics 4 -->
+    <script>
+      fetch('../components/analytics.html')
+        .then(response => response.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll('script');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            if (script.async) newScript.async = true;
+            document.head.appendChild(newScript);
+          });
+        });
+    </script>
+
     <!-- SEO Meta Tags -->
     <title>Sobre Nós | Missão e Equipe | Uroginecologia em Dia</title>
     <meta name="description" content="Conheça a missão, valores e equipe do Uroginecologia em Dia. Portal dedicado à democratização do conhecimento em uroginecologia.">
@@ -31,9 +55,13 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- Preconnect para CDNs -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" async></script>
     <script>
         tailwind.config = {
             theme: {
@@ -99,7 +127,7 @@
                                 <p class="text-sm opacity-90">Foto do Profissional</p>
                             </div>
                             <!-- EXEMPLO de como colocar foto real:
-                            <img src="/caminho/para/foto.jpg" alt="Dra. Ana Paula de Oliveira Pinto" class="w-full h-full object-cover">
+                            <img src="/caminho/para/foto.jpg" alt="Dra. Ana Paula de Oliveira Pinto" class="w-full h-full object-cover" loading="lazy">
                             -->
                         </div>
                         <div class="p-6">
@@ -197,9 +225,9 @@
     <div id="footer-component"></div>
 
     <!-- Scripts -->
-    <script src="assets/js/constants.js"></script><!-- Constantes globais -->
-    <script src="assets/js/utils.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/common.js"></script>
+    <script src="assets/js/constants.min.js"></script><!-- Constantes globais -->
+    <script src="assets/js/utils.min.js"></script>
+    <script src="assets/js/main.min.js"></script>
+    <script src="assets/js/common.min.js"></script>
 </body>
 </html>
