@@ -5,6 +5,51 @@
  */
 
 // ==========================================
+// MENU MOBILE TOGGLE
+// ==========================================
+
+// Menu Mobile Toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('menuToggleMobile');
+  const mobileMenu = document.getElementById('mobileMenuNav');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', function() {
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      this.setAttribute('aria-expanded', !isHidden);
+
+      // Animar ícone
+      const path = this.querySelector('svg path');
+      if (!isHidden) {
+        path.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X
+      } else {
+        path.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hambúrguer
+      }
+    });
+
+    // Fechar ao clicar em link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        const path = menuToggle.querySelector('svg path');
+        path.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      });
+    });
+
+    // Fechar ao clicar fora
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        const path = menuToggle.querySelector('svg path');
+        path.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      }
+    });
+  }
+});
+
+// ==========================================
 // GOOGLE ANALYTICS 4 - EVENTOS CUSTOMIZADOS
 // ==========================================
 
