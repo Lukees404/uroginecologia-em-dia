@@ -1,6 +1,6 @@
 /**
  * busca.js - Sistema de busca completo
- * Autor: Uroginecologia Em Dia
+ * Autor: Uroginecologia em Dia
  * Descrição: Busca em protocolos, artigos, eventos e notícias
  */
 
@@ -263,7 +263,7 @@ async function inicializarBusca() {
     }
 
     // Atualizar título da página
-    document.title = `Busca: ${termo} | Uroginecologia Em Dia`;
+    document.title = `Busca: ${termo} | Uroginecologia em Dia`;
 
     // Realizar busca
     await realizarBusca(termo);

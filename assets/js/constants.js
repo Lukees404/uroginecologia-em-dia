@@ -1,6 +1,6 @@
 /**
  * constants.js - Constantes globais do projeto
- * Autor: Uroginecologia Em Dia
+ * Autor: Uroginecologia em Dia
  * Descrição: Centraliza todos os "magic numbers" e configurações
  */
 

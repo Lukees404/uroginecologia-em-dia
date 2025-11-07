@@ -1,6 +1,6 @@
 /**
  * artigos.js - Funcionalidades específicas da página de artigos
- * Autor: Uroginecologia Em Dia
+ * Autor: Uroginecologia em Dia
  * Descrição: Geração dinâmica de cards de artigos e filtros
  */
 

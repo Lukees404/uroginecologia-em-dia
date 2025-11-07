@@ -1,6 +1,6 @@
 /**
  * eventos.js - Funcionalidades específicas da página de eventos
- * Autor: Uroginecologia Em Dia
+ * Autor: Uroginecologia em Dia
  * Descrição: Carregamento e filtro de eventos
  */
 

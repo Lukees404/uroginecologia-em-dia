@@ -70,13 +70,13 @@ this.components = {
         const fallbacks = {
             'header-component': `
                 <div class="bg-uro-branco shadow-md p-4 text-center">
-                    <h1 class="text-2xl font-bold text-uro-azul_escuro">Uroginecologia Em Dia</h1>
+                    <h1 class="text-2xl font-bold text-uro-azul_escuro">Uroginecologia em Dia</h1>
                     <p class="text-sm text-gray-600">Menu temporariamente indisponível</p>
                 </div>
             `,
             'footer-component': `
                 <div class="bg-uro-azul_escuro text-white p-8 text-center">
-                    <p>© 2025 Uroginecologia Em Dia. Todos os direitos reservados.</p>
+                    <p>© 2025 Uroginecologia em Dia. Todos os direitos reservados.</p>
                 </div>
             `
         };
@@ -274,7 +274,7 @@ class UroSite {
     }
 
     start() {
-        console.log('🚀 Inicializando Uroginecologia Em Dia...');
+        console.log('🚀 Inicializando Uroginecologia em Dia...');
 
         // Inicializar sistemas
         this.communication = new SiteCommunication();

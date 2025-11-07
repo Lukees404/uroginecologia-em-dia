@@ -1,6 +1,6 @@
 /**
  * utils.js - Funções utilitárias compartilhadas
- * Autor: Uroginecologia Em Dia
+ * Autor: Uroginecologia em Dia
  * Descrição: Funções helper para uso em todo o projeto
  */
 
