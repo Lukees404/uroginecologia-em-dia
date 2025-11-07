@@ -88,28 +88,22 @@
             <span class="text-gray-600">Protocolo de Incontinência Urinária</span>
         </nav>
 
-        <!-- Protocol Header -->
-        <section class="mb-8">
-            <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-blue-600">
-                <div class="flex flex-col md:flex-row justify-between items-start gap-6">
-                    <div class="flex-1">
-                        <span class="inline-block bg-uro-azul text-white text-xs px-3 py-1 rounded-full mb-2">Ministério da Saúde</span>
-                        <h1 class="text-3xl font-bold text-uro-azul_escuro mb-2">Protocolo de Incontinência Urinária Não Neurogênica</h1>
-                        <p class="text-gray-600">Baseado na Portaria Conjunta SCTIE/SAES/MS N° 1, de 09 de Janeiro de 2020</p>
-                        <p class="text-sm text-gray-500 mt-2">Fonte: PCDT Ministério da Saúde</p>
-                    </div>
-                    <div class="text-right bg-gray-50 p-4 rounded-lg min-w-[200px]">
-                        <p class="text-sm text-gray-500 mb-1">Elaborado por</p>
-                        <p class="font-semibold text-blue-800 mb-3">Dra. Ana Paula de Oliveira Pinto</p>
-                        <p class="text-sm text-gray-500 mb-1">Atualizado em</p>
-                        <p class="font-medium text-gray-700">Janeiro de 2025</p>
-                    </div>
+        <!-- Conteúdo para PDF -->
+        <div id="conteudo-pdf" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <!-- Cabeçalho do documento -->
+            <div class="mb-8 pb-6 border-b-2 border-uro-azul">
+                <h1 class="text-2xl md:text-4xl font-bold text-uro-azul_escuro mb-4">
+                    Protocolo de Incontinência Urinária Não Neurogênica
+                </h1>
+                <div class="text-sm text-gray-600 space-y-1">
+                    <p><strong>Elaborado por:</strong> Dra. Ana Paula de Oliveira Pinto</p>
+                    <p><strong>Atualizado em:</strong> Janeiro de 2025</p>
+                    <p><strong>Fonte:</strong> PCDT Ministério da Saúde - Portaria Conjunta SCTIE/SAES/MS N° 1, de 09/01/2020</p>
                 </div>
             </div>
-        </section>
 
-        <!-- Protocol Content -->
-        <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+            <!-- Conteúdo Principal -->
+            <div class="prose prose-blue max-w-none">
             <!-- Introdução -->
             <section class="protocol-section">
                 <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Introdução</h2>
@@ -417,9 +411,15 @@
                     <strong>Nota:</strong> Este protocolo é um resumo baseado no PCDT do Ministério da Saúde e deve ser adaptado ao contexto clínico individual. A versão completa corresponde à Portaria Conjunta nº 01 de 09 de janeiro de 2020.
                 </p>
             </div>
-        </div>
+            </section>
+        </div><!-- Fim do prose -->
 
-        <!-- Navigation -->
+        <!-- Rodapé do PDF -->
+        <div class="mt-8 pt-6 border-t text-center text-sm text-gray-500">
+            <p>© Uroginecologia Em Dia - uroginecologiaemdia.com.br</p>
+        </div>
+        </div><!-- Fim do conteudo-pdf -->
+
         <!-- Botões de Ação -->
         <div class="max-w-4xl mx-auto mt-6 flex gap-4 justify-center no-print">
             <button onclick="downloadPDF()" class="bg-uro-azul hover:bg-uro-azul_escuro text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors shadow-md hover:shadow-lg">
