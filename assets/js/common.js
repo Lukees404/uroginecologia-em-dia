@@ -363,322 +363,131 @@ if (document.readyState === 'loading') {
     initializeScrollAnimations();
 }
 // ============================================
-// FUNÇÃO DE DOWNLOAD PDF - VERSÃO MELHORADA
+// DOWNLOAD PDF - VERSÃO SIMPLIFICADA
 // ============================================
 
-async function downloadPDF() {
+function downloadPDF() {
   const button = document.getElementById('btnText');
   const originalText = button ? button.textContent : 'Baixar PDF';
 
-  try {
-    if (button) {
-      button.textContent = 'Gerando PDF...';
-      button.disabled = true;
-    }
+  if (button) {
+    button.textContent = 'Gerando PDF...';
+    button.disabled = true;
+  }
 
-    const { jsPDF } = window.jspdf;
-    const conteudo = document.getElementById('conteudo-pdf');
+  const element = document.getElementById('conteudo-pdf');
 
-    if (!conteudo) {
-      throw new Error('Conteúdo não encontrado');
-    }
-
-    // Configurações do PDF
-    const pdf = new jsPDF({
-      orientation: 'portrait',
-      unit: 'mm',
-      format: 'a4'
-    });
-
-    const pageWidth = pdf.internal.pageSize.getWidth();
-    const pageHeight = pdf.internal.pageSize.getHeight();
-    const margin = 20; // 20mm de margem
-    const contentWidth = pageWidth - (margin * 2);
-    const lineHeight = 7; // Altura da linha
-    let currentY = margin;
-    let currentPage = 1;
-
-    // Função auxiliar para adicionar nova página
-    function addNewPage() {
-      pdf.addPage();
-      currentPage++;
-      currentY = margin;
-    }
-
-    // Função auxiliar para verificar espaço e adicionar página se necessário
-    function checkSpace(neededSpace) {
-      if (currentY + neededSpace > pageHeight - margin) {
-        addNewPage();
-        return true;
-      }
-      return false;
-    }
-
-    // ===== CABEÇALHO DO DOCUMENTO =====
-
-    // Logo ou ícone (opcional)
-    pdf.setFillColor(30, 64, 175); // Azul escuro
-    pdf.circle(margin + 5, currentY + 5, 5, 'F');
-
-    // Título
-    const titulo = conteudo.querySelector('h1');
-    if (titulo) {
-      pdf.setFontSize(20);
-      pdf.setFont('helvetica', 'bold');
-      pdf.setTextColor(30, 64, 175);
-
-      const tituloText = titulo.textContent;
-      const tituloLines = pdf.splitTextToSize(tituloText, contentWidth - 15);
-
-      currentY += 2;
-      tituloLines.forEach(line => {
-        pdf.text(line, margin + 15, currentY);
-        currentY += 8;
-      });
-      currentY += 5;
-    }
-
-    // Linha separadora
-    pdf.setDrawColor(30, 64, 175);
-    pdf.setLineWidth(0.5);
-    pdf.line(margin, currentY, pageWidth - margin, currentY);
-    currentY += 8;
-
-    // ===== INFORMAÇÕES DO DOCUMENTO =====
-
-    const infoDiv = conteudo.querySelector('.text-sm.text-gray-600, .text-gray-600');
-    if (infoDiv) {
-      pdf.setFontSize(10);
-      pdf.setFont('helvetica', 'normal');
-      pdf.setTextColor(100, 100, 100);
-
-      const infos = infoDiv.querySelectorAll('p');
-      infos.forEach(p => {
-        const text = p.textContent.trim();
-        if (text) {
-          pdf.text(text, margin, currentY);
-          currentY += 5;
-        }
-      });
-      currentY += 5;
-    }
-
-    // ===== CONTEÚDO PRINCIPAL =====
-
-    const proseDiv = conteudo.querySelector('.prose, .prose-blue');
-    if (proseDiv) {
-      pdf.setFontSize(11);
-      pdf.setFont('helvetica', 'normal');
-      pdf.setTextColor(0, 0, 0);
-
-      // Processar todos os elementos do conteúdo
-      const elementos = proseDiv.children;
-
-      for (let i = 0; i < elementos.length; i++) {
-        const elemento = elementos[i];
-        const tagName = elemento.tagName.toLowerCase();
-
-        // Verificar espaço disponível
-        checkSpace(lineHeight * 2);
-
-        if (tagName === 'h2') {
-          // Título H2
-          checkSpace(15);
-          pdf.setFontSize(16);
-          pdf.setFont('helvetica', 'bold');
-          pdf.setTextColor(30, 64, 175);
-          currentY += 5;
-
-          const h2Text = elemento.textContent.trim();
-          const h2Lines = pdf.splitTextToSize(h2Text, contentWidth);
-          h2Lines.forEach(line => {
-            pdf.text(line, margin, currentY);
-            currentY += 7;
-          });
-          currentY += 3;
-
-          pdf.setFontSize(11);
-          pdf.setFont('helvetica', 'normal');
-          pdf.setTextColor(0, 0, 0);
-
-        } else if (tagName === 'h3') {
-          // Título H3
-          checkSpace(12);
-          pdf.setFontSize(14);
-          pdf.setFont('helvetica', 'bold');
-          pdf.setTextColor(59, 130, 246);
-          currentY += 4;
-
-          const h3Text = elemento.textContent.trim();
-          const h3Lines = pdf.splitTextToSize(h3Text, contentWidth);
-          h3Lines.forEach(line => {
-            pdf.text(line, margin, currentY);
-            currentY += 6;
-          });
-          currentY += 2;
-
-          pdf.setFontSize(11);
-          pdf.setFont('helvetica', 'normal');
-          pdf.setTextColor(0, 0, 0);
-
-        } else if (tagName === 'p') {
-          // Parágrafo
-          const paragrafoText = elemento.textContent.trim();
-          if (paragrafoText) {
-            const lines = pdf.splitTextToSize(paragrafoText, contentWidth);
-
-            lines.forEach(line => {
-              if (checkSpace(lineHeight)) {
-                // Nova página foi adicionada
-              }
-              pdf.text(line, margin, currentY);
-              currentY += lineHeight;
-            });
-            currentY += 3; // Espaço entre parágrafos
-          }
-
-        } else if (tagName === 'ul' || tagName === 'ol') {
-          // Listas
-          const items = elemento.querySelectorAll('li');
-          const isOrdered = tagName === 'ol';
-
-          items.forEach((item, index) => {
-            checkSpace(lineHeight * 2);
-
-            const bullet = isOrdered ? `${index + 1}.` : '•';
-            const itemText = item.textContent.trim();
-            const lines = pdf.splitTextToSize(itemText, contentWidth - 10);
-
-            // Primeira linha com bullet
-            pdf.text(bullet, margin + 2, currentY);
-            pdf.text(lines[0], margin + 10, currentY);
-            currentY += lineHeight;
-
-            // Linhas subsequentes (indentadas)
-            for (let j = 1; j < lines.length; j++) {
-              if (checkSpace(lineHeight)) {
-                // Nova página
-              }
-              pdf.text(lines[j], margin + 10, currentY);
-              currentY += lineHeight;
-            }
-            currentY += 2;
-          });
-          currentY += 3;
-
-        } else if (tagName === 'blockquote') {
-          // Citação
-          checkSpace(15);
-          pdf.setFillColor(240, 240, 240);
-          pdf.setDrawColor(30, 64, 175);
-          pdf.setLineWidth(2);
-
-          const quoteText = elemento.textContent.trim();
-          const quoteLines = pdf.splitTextToSize(quoteText, contentWidth - 15);
-          const quoteHeight = quoteLines.length * lineHeight + 8;
-
-          if (checkSpace(quoteHeight)) {
-            // Nova página
-          }
-
-          pdf.rect(margin, currentY - 3, contentWidth, quoteHeight, 'F');
-          pdf.line(margin, currentY - 3, margin, currentY + quoteHeight - 3);
-
-          currentY += 2;
-          pdf.setFont('helvetica', 'italic');
-          pdf.setTextColor(60, 60, 60);
-
-          quoteLines.forEach(line => {
-            pdf.text(line, margin + 8, currentY);
-            currentY += lineHeight;
-          });
-
-          currentY += 6;
-          pdf.setFont('helvetica', 'normal');
-          pdf.setTextColor(0, 0, 0);
-
-        } else if (tagName === 'strong' || tagName === 'b') {
-          // Texto em negrito (dentro de parágrafo já processado)
-          continue;
-
-        } else {
-          // Outros elementos (tratar como parágrafo)
-          const text = elemento.textContent.trim();
-          if (text) {
-            const lines = pdf.splitTextToSize(text, contentWidth);
-            lines.forEach(line => {
-              if (checkSpace(lineHeight)) {
-                // Nova página
-              }
-              pdf.text(line, margin, currentY);
-              currentY += lineHeight;
-            });
-            currentY += 3;
-          }
-        }
-      }
-    }
-
-    // ===== RODAPÉ EM TODAS AS PÁGINAS =====
-
-    const totalPages = pdf.internal.getNumberOfPages();
-
-    for (let i = 1; i <= totalPages; i++) {
-      pdf.setPage(i);
-
-      // Linha superior do rodapé
-      pdf.setDrawColor(200, 200, 200);
-      pdf.setLineWidth(0.3);
-      pdf.line(margin, pageHeight - 15, pageWidth - margin, pageHeight - 15);
-
-      // Texto do rodapé
-      pdf.setFontSize(8);
-      pdf.setFont('helvetica', 'normal');
-      pdf.setTextColor(120, 120, 120);
-
-      // Esquerda: Site
-      pdf.text('Uroginecologia Em Dia - uroginecologiaemdia.com.br', margin, pageHeight - 10);
-
-      // Direita: Número da página
-      const pageText = `Página ${i} de ${totalPages}`;
-      const pageTextWidth = pdf.getTextWidth(pageText);
-      pdf.text(pageText, pageWidth - margin - pageTextWidth, pageHeight - 10);
-
-      // Centro: Data de geração
-      const dataGeracao = new Date().toLocaleDateString('pt-BR');
-      const dataText = `Gerado em: ${dataGeracao}`;
-      const dataTextWidth = pdf.getTextWidth(dataText);
-      pdf.text(dataText, (pageWidth - dataTextWidth) / 2, pageHeight - 10);
-    }
-
-    // ===== DOWNLOAD =====
-
-    const tituloArquivo = conteudo.querySelector('h1')?.textContent || 'documento';
-    const nomeArquivo = tituloArquivo
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-|-$/g, '')
-      .substring(0, 50);
-
-    pdf.save(`${nomeArquivo}.pdf`);
-
-    console.log(`PDF gerado com sucesso: ${totalPages} páginas`);
-
-    // Track download no Google Analytics
-    if (typeof trackPDFDownload === 'function') {
-      trackPDFDownload(nomeArquivo, window.location.href);
-    }
-
-  } catch (error) {
-    console.error('Erro ao gerar PDF:', error);
-    alert('Erro ao gerar PDF. Por favor, tente novamente.');
-  } finally {
+  if (!element) {
+    alert('Conteúdo não encontrado');
     if (button) {
       button.textContent = originalText;
       button.disabled = false;
     }
+    return;
+  }
+
+  // Configurações do PDF
+  const opt = {
+    margin: [15, 15, 20, 15], // [top, left, bottom, right] em mm
+    filename: gerarNomeArquivo(),
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: {
+      scale: 2,
+      useCORS: true,
+      letterRendering: true,
+      logging: false
+    },
+    jsPDF: {
+      unit: 'mm',
+      format: 'a4',
+      orientation: 'portrait'
+    },
+    pagebreak: {
+      mode: ['avoid-all', 'css', 'legacy'],
+      before: '.page-break-before',
+      after: '.page-break-after',
+      avoid: ['h2', 'h3', 'img']
+    }
+  };
+
+  // Adicionar rodapé antes de gerar
+  adicionarRodape(element);
+
+  // Gerar PDF
+  html2pdf()
+    .set(opt)
+    .from(element)
+    .save()
+    .then(() => {
+      console.log('PDF gerado com sucesso');
+      if (button) {
+        button.textContent = originalText;
+        button.disabled = false;
+      }
+      removerRodape(element);
+
+      // Track download no Google Analytics
+      if (typeof trackPDFDownload === 'function') {
+        trackPDFDownload(gerarNomeArquivo(), window.location.href);
+      }
+    })
+    .catch(error => {
+      console.error('Erro ao gerar PDF:', error);
+      alert('Erro ao gerar PDF. Tente novamente.');
+      if (button) {
+        button.textContent = originalText;
+        button.disabled = false;
+      }
+      removerRodape(element);
+    });
+}
+
+function gerarNomeArquivo() {
+  const titulo = document.querySelector('#conteudo-pdf h1');
+  if (!titulo) return 'documento.pdf';
+
+  const nome = titulo.textContent
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    .substring(0, 50);
+
+  return nome + '.pdf';
+}
+
+function adicionarRodape(element) {
+  // Criar elemento de rodapé
+  const rodape = document.createElement('div');
+  rodape.id = 'pdf-rodape-temp';
+  rodape.className = 'pdf-footer';
+  rodape.style.cssText = `
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #e5e7eb;
+    text-align: center;
+    font-size: 10px;
+    color: #6b7280;
+  `;
+
+  const data = new Date().toLocaleDateString('pt-BR');
+  rodape.innerHTML = `
+    <p style="margin: 0;">
+      <strong>Uroginecologia Em Dia</strong> - uroginecologiaemdia.com.br
+    </p>
+    <p style="margin: 5px 0 0 0;">
+      Gerado em: ${data}
+    </p>
+  `;
+
+  element.appendChild(rodape);
+}
+
+function removerRodape(element) {
+  const rodape = document.getElementById('pdf-rodape-temp');
+  if (rodape) {
+    rodape.remove();
   }
 }
 
