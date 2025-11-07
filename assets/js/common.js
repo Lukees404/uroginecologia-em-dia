@@ -22,11 +22,13 @@ function initializePage() {
 }
 
 /**
- * Inicializa os ícones Feather
+ * Inicializa os ícones Feather (versão otimizada)
  */
 function initializeFeatherIcons() {
-    if (typeof feather !== 'undefined') {
-        feather.replace();
+    if (window.UroUtils && window.UroUtils.replaceFeatherIcons) {
+        window.UroUtils.replaceFeatherIcons();
+    } else if (typeof feather !== 'undefined') {
+        feather.replace(); // fallback
     }
 }
 

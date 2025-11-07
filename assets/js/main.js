@@ -84,16 +84,18 @@ this.components = {
     }
 
     onComponentsLoaded() {
-        // Atualizar ícones
-        if (typeof feather !== 'undefined') {
-            feather.replace();
+        // Atualizar ícones (versão otimizada)
+        if (window.UroUtils && window.UroUtils.replaceFeatherIcons) {
+            window.UroUtils.replaceFeatherIcons();
+        } else if (typeof feather !== 'undefined') {
+            feather.replace(); // fallback
         }
 
         // Inicializar funcionalidades
         this.setupNavigation();
         this.initializeHeaderEvents();
         this.initializeSearch();
-        
+
         console.log('✅ Componentes do site carregados com sucesso');
     }
 

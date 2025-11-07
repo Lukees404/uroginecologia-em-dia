@@ -107,8 +107,10 @@ function gerarEventos() {
     container.appendChild(gridContainer);
 
     // Atualizar ícones Feather
-    if (typeof feather !== 'undefined') {
-        feather.replace();
+    if (window.UroUtils && window.UroUtils.replaceFeatherIcons) {
+        window.UroUtils.replaceFeatherIcons();
+    } else if (typeof feather !== 'undefined') {
+        feather.replace(); // fallback
     }
 }
 
@@ -156,8 +158,10 @@ function gerarEventosPassados() {
     container.appendChild(gridContainer);
 
     // Atualizar ícones Feather
-    if (typeof feather !== 'undefined') {
-        feather.replace();
+    if (window.UroUtils && window.UroUtils.replaceFeatherIcons) {
+        window.UroUtils.replaceFeatherIcons();
+    } else if (typeof feather !== 'undefined') {
+        feather.replace(); // fallback
     }
 }
 

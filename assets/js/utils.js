@@ -204,6 +204,17 @@ function handleError(error, context = 'Operação', showUser = true) {
     }
 }
 
+/**
+ * Substitui ícones Feather de forma otimizada (debounced)
+ * Evita múltiplas varreduras do DOM
+ */
+const replaceFeatherIcons = debounce(() => {
+    if (typeof feather !== 'undefined') {
+        feather.replace();
+        console.log('🎨 Ícones Feather atualizados');
+    }
+}, 100);
+
 // Exportar para uso global
 window.UroUtils = {
     getBasePath,
@@ -214,5 +225,6 @@ window.UroUtils = {
     validateObject,
     formatDate,
     showToast,
-    handleError
+    handleError,
+    replaceFeatherIcons
 };
