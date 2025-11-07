@@ -11,25 +11,36 @@
                 </button>
             </div>
 
-            <!-- Logo Central -->
-            <div class="flex items-center mb-4 md:mb-0">
-                <svg class="w-10 h-10 mr-3 text-uro-azul_escuro" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                </svg>
-                <h1 class="text-2xl md:text-3xl font-bold text-uro-azul_escuro text-center">Uroginecologia Em Dia</h1>
-            </div>
+    <!-- MOBILE: Grid 3 colunas -->
+    <div class="md:hidden grid grid-cols-3 items-center h-16 gap-2">
+      <!-- Menu Hambúrguer (esquerda) -->
+      <div class="flex justify-start">
+        <button id="menuToggleMobile" class="p-2 text-uro-azul hover:bg-gray-100 rounded-lg" aria-label="Abrir menu" aria-expanded="false">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
 
-            <!-- Search Box -->
-            <div class="relative w-full md:w-64">
-                <input type="text" id="searchInput" placeholder="Buscar..."
-                    class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-uro-azul text-gray-800">
-                <button class="absolute right-3 top-2 text-uro-azul_escuro" id="searchButton">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
+      <!-- Logo CENTRO -->
+      <div class="flex justify-center">
+        <a href="/" class="flex items-center gap-1">
+          <svg class="w-6 h-6 text-uro-azul flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+          <span class="text-sm font-bold text-uro-azul whitespace-nowrap">Urogine em Dia</span>
+        </a>
+      </div>
+
+      <!-- Busca (direita) -->
+      <div class="flex justify-end">
+        <button class="p-2 text-uro-azul hover:bg-gray-100 rounded-lg" onclick="document.getElementById('searchMobile').classList.toggle('hidden')" aria-label="Buscar">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
 
         <!-- Desktop Navigation -->
         <div class="border-b border-gray-200 hidden md:block">
