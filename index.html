@@ -5,6 +5,24 @@
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
+    <!-- Google Analytics 4 -->
+    <script>
+      fetch('components/analytics.html')
+        .then(response => response.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll('script');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            if (script.async) newScript.async = true;
+            document.head.appendChild(newScript);
+          });
+        });
+    </script>
+
     <!-- Meta Tags SEO -->
     <meta name="description" content="Portal de referência em uroginecologia para profissionais de saúde. Acesse protocolos clínicos, artigos científicos resumidos, eventos e as últimas notícias da área.">
     <meta name="keywords" content="uroginecologia, incontinência urinária, prolapso genital, assoalho pélvico, protocolos clínicos, FEBRASGO">

@@ -5,6 +5,24 @@
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
+    <!-- Google Analytics 4 -->
+    <script>
+      fetch('../components/analytics.html')
+        .then(response => response.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll('script');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            if (script.async) newScript.async = true;
+            document.head.appendChild(newScript);
+          });
+        });
+    </script>
+
     <!-- Meta Tags SEO -->
     <meta name="description" content="Artigos científicos resumidos sobre uroginecologia com análises críticas e aplicações práticas. Meta-análises, revisões sistemáticas e pesquisas atualizadas.">
     <meta name="keywords" content="artigos uroginecologia, evidências científicas, meta-análise, revisão sistemática, pesquisa clínica">
