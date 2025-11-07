@@ -32,10 +32,26 @@
         .test-pass { color: #10b981; }
         .test-fail { color: #ef4444; }
         .test-pending { color: #f59e0b; }
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #1e40af;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
     </style>
 </head>
 <body class="bg-gray-100 p-8">
-    <div class="max-w-4xl mx-auto">
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
+
+    <div id="main-content" class="max-w-4xl mx-auto">
         <h1 class="text-3xl font-bold mb-6">Suite de Testes Automatizados</h1>
 
         <div class="bg-white rounded-lg shadow-md p-6 mb-6">
