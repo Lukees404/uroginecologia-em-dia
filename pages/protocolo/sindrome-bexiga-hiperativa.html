@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Protocolo de Bexiga Hiperativa | Uroginecologia Em Dia</title>
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -92,83 +92,8 @@
     </style>
 </head>
 <body class="bg-uro-cinza font-sans">
-    <!-- Header -->
-    <header class="bg-uro-branco shadow-md">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
-                <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                    <button class="bg-uro-azul text-white p-2 rounded-lg" id="mobileMenuButton">
-                        <i data-feather="menu" class="w-5 h-5"></i>
-                    </button>
-                    <div class="flex space-x-4">
-                        <a href="https://instagram.com/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="instagram"></i></a>
-                        <a href="https://facebook.com/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="facebook"></i></a>
-                        <a href="https://linkedin.com/company/uroginecologiaemdia" class="text-uro-azul_escuro hover:text-uro-azul"><i data-feather="linkedin"></i></a>
-                    </div>
-                </div>
-                
-                <div class="flex items-center mb-4 md:mb-0">
-                    <i data-feather="activity" class="w-10 h-10 mr-3 text-uro-azul_escuro"></i>
-                    <h1 class="text-2xl md:text-3xl font-bold text-uro-azul_escuro text-center">Uroginecologia Em Dia</h1>
-                </div>
-                
-                <div class="relative w-full md:w-64">
-                    <input type="text" id="searchInput" placeholder="Buscar..." 
-                           class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-uro-azul text-gray-800">
-                    <button class="absolute right-3 top-2 text-uro-azul_escuro" id="searchButton">
-                        <i data-feather="search" class="w-4 h-4"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <div class="border-b border-gray-200">
-                <div class="flex justify-center space-x-1">
-                    <a href="index.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
-                        Página Inicial
-                    </a>
-                    <a href="pages/protocolos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-uro-azul transition-colors">
-                        Protocolos
-                    </a>
-                    <a href="pages/artigos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
-                        Artigos Resumidos
-                    </a>
-                    <a href="pages/eventos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
-                        Eventos
-                    </a>
-                    <a href="pages/noticias.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
-                        Notícias
-                    </a>
-                    <a href="pages/sobre.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 border-transparent hover:border-uro-azul transition-colors">
-                        Sobre Nós
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 z-50 hidden">
-        <div class="fixed inset-0 bg-black bg-opacity-50" id="mobileMenuOverlay"></div>
-        <div class="fixed left-0 top-0 h-full w-72 bg-uro-branco shadow-lg p-6 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out">
-            <div class="flex justify-between items-center mb-8">
-                <h2 class="text-xl font-bold text-uro-azul_escuro">Menu</h2>
-                <button id="closeMobileMenu" class="text-uro-azul_escuro">
-                    <i data-feather="x" class="w-6 h-6"></i>
-                </button>
-            </div>
-            <nav>
-                <ul class="space-y-4">
-                    <li><a href="index.html" class="block py-2 px-4 bg-uro-azul text-white rounded-lg font-medium">Página Inicial</a></li>
-                    <li><a href="pages/artigos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Artigos Resumidos</a></li>
-                    <li><a href="pages/protocolos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Protocolos</a></li>
-                    <li><a href="pages/eventos.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Eventos</a></li>
-                    <li><a href="pages/noticias.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Notícias</a></li>
-                    <li><a href="pages/sobre.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Sobre Nós</a></li>
-                    <li><a href="pages/contato.html" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Fale Conosco</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+    <!-- Header carregado via componente -->
+    <div id="header-component"></div>
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
@@ -533,49 +458,8 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-uro-azul_escuro text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Uroginecologia Em Dia</h3>
-                    <p class="mb-4">Portal de referência em conhecimento uroginecológico para profissionais de saúde.</p>
-                    <div class="flex space-x-4">
-                        <a href="https://instagram.com/uroginecologiaemdia" class="hover:text-uro-azul_claro"><i data-feather="instagram"></i></a>
-                        <a href="https://facebook.com/uroginecologiaemdia" class="hover:text-uro-azul_claro"><i data-feather="facebook"></i></a>
-                        <a href="https://linkedin.com/company/uroginecologiaemdia" class="hover:text-uro-azul_claro"><i data-feather="linkedin"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-md font-bold mb-4">Entre em Contato</h4>
-                    <address class="not-italic">
-                        <p class="mb-2"><i data-feather="mail" class="inline mr-2 w-4 h-4"></i> contato@uroginecologiaemdia.com.br</p>
-                        <p><i data-feather="phone" class="inline mr-2 w-4 h-4"></i> (11) 99999-9999</p>
-                    </address>
-                </div>
-                <div>
-                    <h4 class="text-md font-bold mb-4">Links Rápidos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="hover:text-uro-azul_claro">Página Inicial</a></li>
-                        <li><a href="pages/sobre.html" class="hover:text-uro-azul_claro">Sobre Nós</a></li>
-                        <li><a href="pages/contato.html" class="hover:text-uro-azul_claro">Fale Conosco</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-md font-bold mb-4">Seções</h4>
-                    <ul class="space-y-2">
-                        <li><a href="pages/artigos.html" class="hover:text-uro-azul_claro">Artigos Resumidos</a></li>
-                        <li><a href="pages/protocolos.html" class="hover:text-uro-azul_claro">Protocolos</a></li>
-                        <li><a href="pages/noticias.html" class="hover:text-uro-azul_claro">Notícias</a></li>
-                        <li><a href="pages/eventos.html" class="hover:text-uro-azul_claro">Eventos</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-uro-azul mt-8 pt-8 text-sm text-center">
-                <p>© 2025 Uroginecologia Em Dia. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer carregado via componente -->
+    <div id="footer-component"></div>
 
     <!-- PDF Generator -->
     <script src="../../assets/js/pdf-generator.js"></script>
@@ -661,5 +545,10 @@
             }
         });
     </script>
+    <!-- Scripts -->
+    <script src="../assets/js/constants.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/common.js"></script>
 </body>
 </html>

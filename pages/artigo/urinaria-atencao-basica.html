@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Cuidados de Enfermagem na Incontinência Urinária | Uroginecologia Em Dia</title>
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -60,89 +60,8 @@
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
-    <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-40">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-4">
-                <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                    <button class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors" id="mobileMenuButton">
-                        <i data-feather="menu" class="w-5 h-5"></i>
-                    </button>
-                    <div class="flex space-x-4">
-                        <a href="https://instagram.com/uroginecologiaemdia" class="text-blue-800 hover:text-blue-600 transition-colors">
-                            <i data-feather="instagram"></i>
-                        </a>
-                        <a href="https://facebook.com/uroginecologiaemdia" class="text-blue-800 hover:text-blue-600 transition-colors">
-                            <i data-feather="facebook"></i>
-                        </a>
-                        <a href="https://linkedin.com/company/uroginecologiaemdia" class="text-blue-800 hover:text-blue-600 transition-colors">
-                            <i data-feather="linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="flex items-center mb-4 md:mb-0">
-                    <i data-feather="activity" class="w-10 h-10 mr-3 text-blue-800"></i>
-                    <h1 class="text-2xl md:text-3xl font-bold text-blue-800 text-center">Uroginecologia Em Dia</h1>
-                </div>
-                
-                <div class="relative w-full md:w-64">
-                    <input type="text" id="searchInput" placeholder="Buscar artigos..." 
-                           class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800">
-                    <button class="absolute right-3 top-2 text-blue-800 hover:text-blue-600 transition-colors" id="searchButton">
-                        <i data-feather="search" class="w-4 h-4"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <div class="border-b border-gray-200">
-                <div class="flex justify-center space-x-1 flex-wrap">
-                    <a href="index.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
-                        Página Inicial
-                    </a>
-                    <a href="pages/protocolos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
-                        Protocolos
-                    </a>
-                    <a href="pages/artigos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-blue-600 transition-colors">
-                        Artigos Resumidos
-                    </a>
-                    <a href="pages/eventos.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
-                        Eventos
-                    </a>
-                    <a href="pages/noticias.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
-                        Notícias
-                    </a>
-                    <a href="pages/sobre.html" class="nav-button px-4 py-2 rounded-t-lg font-medium text-blue-800 border-b-2 border-transparent hover:border-blue-600 transition-colors">
-                        Sobre Nós
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 z-50 hidden">
-        <div class="fixed inset-0 bg-black bg-opacity-50" id="mobileMenuOverlay"></div>
-        <div class="fixed left-0 top-0 h-full w-72 bg-white shadow-lg p-6 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out">
-            <div class="flex justify-between items-center mb-8">
-                <h2 class="text-xl font-bold text-blue-800">Menu</h2>
-                <button id="closeMobileMenu" class="text-blue-800 hover:text-blue-600">
-                    <i data-feather="x" class="w-6 h-6"></i>
-                </button>
-            </div>
-            <nav>
-                <ul class="space-y-4">
-                    <li><a href="index.html" class="block py-2 px-4 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">Página Inicial</a></li>
-                    <li><a href="pages/artigos.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Artigos Resumidos</a></li>
-                    <li><a href="pages/protocolos.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Protocolos</a></li>
-                    <li><a href="pages/eventos.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Eventos</a></li>
-                    <li><a href="pages/noticias.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Notícias</a></li>
-                    <li><a href="pages/sobre.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Sobre Nós</a></li>
-                    <li><a href="pages/contato.html" class="block py-2 px-4 text-blue-800 hover:bg-gray-100 rounded-lg transition-colors">Fale Conosco</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+    <!-- Header carregado via componente -->
+    <div id="header-component"></div>
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8 max-w-4xl">
@@ -377,62 +296,8 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-blue-900 text-white py-12 mt-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Uroginecologia Em Dia</h3>
-                    <p class="mb-4 text-blue-200">Portal de referência em conhecimento uroginecológico para profissionais de saúde.</p>
-                    <div class="flex space-x-4">
-                        <a href="https://instagram.com/uroginecologiaemdia" class="text-blue-200 hover:text-white transition-colors">
-                            <i data-feather="instagram"></i>
-                        </a>
-                        <a href="https://facebook.com/uroginecologiaemdia" class="text-blue-200 hover:text-white transition-colors">
-                            <i data-feather="facebook"></i>
-                        </a>
-                        <a href="https://linkedin.com/company/uroginecologiaemdia" class="text-blue-200 hover:text-white transition-colors">
-                            <i data-feather="linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-md font-bold mb-4">Entre em Contato</h4>
-                    <address class="not-italic text-blue-200">
-                        <p class="mb-2 flex items-center">
-                            <i data-feather="mail" class="mr-2 w-4 h-4"></i> 
-                            contato@uroginecologiaemdia.com.br
-                        </p>
-                        <p class="flex items-center">
-                            <i data-feather="phone" class="mr-2 w-4 h-4"></i> 
-                            (11) 99999-9999
-                        </p>
-                    </address>
-                </div>
-                <div>
-                    <h4 class="text-md font-bold mb-4">Links Rápidos</h4>
-                    <ul class="space-y-2 text-blue-200">
-                        <li><a href="index.html" class="hover:text-white transition-colors">Página Inicial</a></li>
-                        <li><a href="pages/sobre.html" class="hover:text-white transition-colors">Sobre Nós</a></li>
-                        <li><a href="pages/contato.html" class="hover:text-white transition-colors">Fale Conosco</a></li>
-                        <li><a href="pages/privacidade.html" class="hover:text-white transition-colors">Política de Privacidade</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-md font-bold mb-4">Seções</h4>
-                    <ul class="space-y-2 text-blue-200">
-                        <li><a href="pages/artigos.html" class="hover:text-white transition-colors">Artigos Resumidos</a></li>
-                        <li><a href="pages/protocolos.html" class="hover:text-white transition-colors">Protocolos</a></li>
-                        <li><a href="pages/noticias.html" class="hover:text-white transition-colors">Notícias</a></li>
-                        <li><a href="pages/eventos.html" class="hover:text-white transition-colors">Eventos</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-blue-700 mt-8 pt-8 text-sm text-center text-blue-300">
-                <p>© 2025 Uroginecologia Em Dia. Todos os direitos reservados. | Desenvolvido para profissionais de saúde</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer carregado via componente -->
+    <div id="footer-component"></div>
 
     <!-- PDF Generator -->
     <script src="../../assets/js/pdf-generator.js"></script>
@@ -519,5 +384,10 @@
             }
         });
     </script>
+    <!-- Scripts -->
+    <script src="../assets/js/constants.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/common.js"></script>
 </body>
 </html>
