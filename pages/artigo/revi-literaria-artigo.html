@@ -39,6 +39,10 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" async></script>
+
+    <!-- Bibliotecas para geração de PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- Skip to main content -->
@@ -56,7 +60,23 @@
             <span class="text-gray-800 font-medium">Análise Comparativa de Diretrizes Internacionais para Incontinência Urinária Feminina</span>
         </nav>
 
-        <!-- Article Header -->
+        <!-- Conteúdo para PDF -->
+        <div id="conteudo-pdf" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <!-- Cabeçalho do documento -->
+            <div class="mb-8 pb-6 border-b-2 border-uro-azul">
+                <h1 class="text-2xl md:text-4xl font-bold text-uro-azul_escuro mb-4">
+                    Revisão Literária: Uroginecologia
+                </h1>
+                <div class="text-sm text-gray-600 space-y-1">
+                    <p><strong>Autor:</strong> Dra. Ana Paula de Oliveira Pinto</p>
+                    <p><strong>Publicado em:</strong> Janeiro de 2025</p>
+                    <p><strong>Fonte:</strong> Revisão de Literatura</p>
+                </div>
+            </div>
+
+            <!-- Conteúdo Principal -->
+            <div class="prose prose-blue max-w-none">
+        <!-- Article Header (será escondido) -->
         <section class="mb-8">
             <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-blue-600">
                 <div class="flex flex-col md:flex-row justify-between items-start gap-6">
@@ -349,8 +369,14 @@
                 <p class="text-blue-700">
                     <strong>Nota Importante:</strong> Este resumo foi elaborado pela Dra. Ana Paula de Oliveira Pinto com base no artigo original de Favre-Inhofer et al. (2020) e destina-se exclusivamente a fins educacionais e de atualização profissional. Recomenda-se a consulta ao artigo completo para informações detalhadas sobre metodologia, análises específicas e resultados completos. As opiniões expressas representam a interpretação da autora do resumo e não substituem o julgamento clínico individualizado.
                 </p>
-            </div>
+            </section>
+        </div><!-- Fim do prose -->
+
+        <!-- Rodapé do PDF -->
+        <div class="mt-8 pt-6 border-t text-center text-sm text-gray-500">
+            <p>© Uroginecologia Em Dia - uroginecologiaemdia.com.br</p>
         </div>
+        </div><!-- Fim do conteudo-pdf -->
 
         <!-- Navigation -->
         <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8">

@@ -40,6 +40,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js" defer></script>
+
+    <!-- Bibliotecas para geração de PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -84,7 +88,23 @@
             <span class="text-gray-600">Protocolo de ITU</span>
         </nav>
 
-        <!-- Protocol Header -->
+        <!-- Conteúdo para PDF -->
+        <div id="conteudo-pdf" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <!-- Cabeçalho do documento -->
+            <div class="mb-8 pb-6 border-b-2 border-uro-azul">
+                <h1 class="text-2xl md:text-4xl font-bold text-uro-azul_escuro mb-4">
+                    Protocolo de Infecção do Trato Urinário
+                </h1>
+                <div class="text-sm text-gray-600 space-y-1">
+                    <p><strong>Elaborado por:</strong> Dra. Ana Paula de Oliveira Pinto</p>
+                    <p><strong>Atualizado em:</strong> Janeiro de 2025</p>
+                    <p><strong>Fonte:</strong> Diretrizes Clínicas e Literatura Médica</p>
+                </div>
+            </div>
+
+            <!-- Conteúdo Principal -->
+            <div class="prose prose-blue max-w-none">
+        <!-- Protocol Header (será removido ou escondido) -->
         <section class="mb-8">
             <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-blue-600">
                 <div class="flex flex-col md:flex-row justify-between items-start gap-6">
@@ -345,17 +365,31 @@
                 </p>
             </div>
         </div>
+            </section>
+        </div><!-- Fim do prose -->
+
+        <!-- Rodapé do PDF -->
+        <div class="mt-8 pt-6 border-t text-center text-sm text-gray-500">
+            <p>© Uroginecologia Em Dia - uroginecologiaemdia.com.br</p>
+        </div>
+        </div><!-- Fim do conteudo-pdf -->
 
         <!-- Navigation -->
-        <div class="flex justify-between mt-8">
-            <a href="pages/protocolos.html" class="bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
-                <i data-feather="arrow-left" class="w-4 h-4 inline mr-2"></i>
-                Voltar para Protocolos
-            </a>
-            <button onclick="downloadPDF()" class="bg-uro-azul_escuro hover:bg-blue-900 text-white py-2 px-4 rounded-lg font-medium transition-colors">
-                <i data-feather="download" class="w-4 h-4 inline mr-2"></i>
-                Baixar PDF
+        <!-- Botões de Ação -->
+        <div class="max-w-4xl mx-auto mt-6 flex gap-4 justify-center no-print">
+            <button onclick="downloadPDF()" class="bg-uro-azul hover:bg-uro-azul_escuro text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors shadow-md hover:shadow-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                <span id="btnText">Baixar PDF</span>
             </button>
+
+            <a href="/pages/protocolos.html" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-lg flex items-center gap-2 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                Voltar
+            </a>
         </div>
     </main>
 
@@ -427,17 +461,6 @@
             });
         }
 
-        // PDF Download Function
-        function downloadPDF() {
-            window.PDFGenerator.generatePDF({
-                contentSelector: 'main',
-                filename: 'Protocolo_ITU_FEBRASGO_2025.pdf',
-                title: 'Protocolo de Manejo da Infecção do Trato Urinário (ITU)',
-                subtitle: 'Baseado nas Diretrizes da FEBRASGO',
-                author: 'Ana Paula de Oliveira Pinto',
-                date: 'Janeiro de 2025'
-            });
-        }
 
         // Garantir que o menu comece fechado
         document.addEventListener('DOMContentLoaded', function() {

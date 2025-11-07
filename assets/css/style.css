@@ -998,3 +998,41 @@ body {
     justify-content: center;
   }
 }
+
+/* ==========================================
+   SISTEMA DE PDF - ESTILOS
+   ========================================== */
+
+/* Esconder elementos na impressão/PDF */
+.no-print {
+  @media print {
+    display: none !important;
+  }
+}
+
+/* Estilo para conteúdo PDF */
+#conteudo-pdf {
+  line-height: 1.6;
+}
+
+#conteudo-pdf h1,
+#conteudo-pdf h2,
+#conteudo-pdf h3 {
+  color: #1e40af;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+#conteudo-pdf p {
+  margin-bottom: 1rem;
+}
+
+#conteudo-pdf ul,
+#conteudo-pdf ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+#conteudo-pdf li {
+  margin-bottom: 0.5rem;
+}

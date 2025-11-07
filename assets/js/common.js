@@ -5,6 +5,51 @@
  */
 
 // ==========================================
+// MENU MOBILE TOGGLE
+// ==========================================
+
+// Menu Mobile Toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('menuToggleMobile');
+  const mobileMenu = document.getElementById('mobileMenuNav');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', function() {
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      this.setAttribute('aria-expanded', !isHidden);
+
+      // Animar ícone
+      const path = this.querySelector('svg path');
+      if (!isHidden) {
+        path.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X
+      } else {
+        path.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hambúrguer
+      }
+    });
+
+    // Fechar ao clicar em link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        const path = menuToggle.querySelector('svg path');
+        path.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      });
+    });
+
+    // Fechar ao clicar fora
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        const path = menuToggle.querySelector('svg path');
+        path.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      }
+    });
+  }
+});
+
+// ==========================================
 // GOOGLE ANALYTICS 4 - EVENTOS CUSTOMIZADOS
 // ==========================================
 
@@ -361,6 +406,66 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeScrollAnimations);
 } else {
     initializeScrollAnimations();
+}
+// ==========================================
+// FUNÇÃO DE DOWNLOAD PDF
+// ==========================================
+
+/**
+ * Gera e baixa PDF do conteúdo da página
+ */
+async function downloadPDF() {
+  const button = document.getElementById('btnText');
+  const originalText = button.textContent;
+
+  try {
+    button.textContent = 'Gerando PDF...';
+
+    const { jsPDF } = window.jspdf;
+    const conteudo = document.getElementById('conteudo-pdf');
+
+    // Capturar como imagem
+    const canvas = await html2canvas(conteudo, {
+      scale: 2,
+      useCORS: true,
+      logging: false,
+      backgroundColor: '#ffffff'
+    });
+
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'mm', 'a4');
+
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = pdf.internal.pageSize.getHeight();
+    const imgWidth = canvas.width;
+    const imgHeight = canvas.height;
+    const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+
+    const imgX = (pdfWidth - imgWidth * ratio) / 2;
+    const imgY = 5;
+
+    pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+
+    // Nome do arquivo baseado no título
+    const titulo = document.querySelector('#conteudo-pdf h1').textContent;
+    const nomeArquivo = titulo
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+
+    pdf.save(`${nomeArquivo}.pdf`);
+
+    // Track download no Google Analytics
+    trackPDFDownload(nomeArquivo, window.location.href);
+
+  } catch (error) {
+    console.error('Erro ao gerar PDF:', error);
+    alert('Erro ao gerar PDF. Por favor, tente novamente.');
+  } finally {
+    button.textContent = originalText;
+  }
 }
 
 // Exportar funções de tracking para uso global
