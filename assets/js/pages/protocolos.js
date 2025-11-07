@@ -8,19 +8,39 @@
 let protocolos = [];
 
 /**
- * Carrega protocolos do arquivo JSON
+ * Carrega protocolos do arquivo JSON com cache
  * @returns {Promise<Array>} Array de protocolos
  */
 async function carregarProtocolos() {
+    const container = document.getElementById('protocolos-container');
+
     try {
-        const response = await fetch('assets/data/protocolos.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        // Mostrar loading
+        if (container && window.UroUtils?.showLoading) {
+            window.UroUtils.showLoading(container);
         }
-        protocolos = await response.json();
+
+        // Usar fetchWithCache para reduzir requisições HTTP
+        if (window.UroUtils?.fetchWithCache) {
+            protocolos = await window.UroUtils.fetchWithCache('assets/data/protocolos.json');
+        } else {
+            // Fallback para fetch tradicional
+            const response = await fetch('assets/data/protocolos.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            protocolos = await response.json();
+        }
+
         return protocolos;
     } catch (error) {
         console.error('Erro ao carregar protocolos:', error);
+
+        // Mostrar toast de erro se disponível
+        if (window.UroUtils?.showToast) {
+            window.UroUtils.showToast('Erro ao carregar protocolos. Usando dados de exemplo.', 'error');
+        }
+
         // Fallback para dados hardcoded em caso de erro
         protocolos = [
             {
@@ -57,6 +77,11 @@ async function carregarProtocolos() {
             }
         ];
         return protocolos;
+    } finally {
+        // Remover loading
+        if (container && window.UroUtils?.hideLoading) {
+            window.UroUtils.hideLoading(container);
+        }
     }
 }
 

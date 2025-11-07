@@ -41,14 +41,22 @@ function matchTerm(text, searchTerm) {
 async function realizarBusca(termo) {
     termoBusca = termo;
     resultados = [];
+    const container = document.getElementById('resultados');
 
     try {
-        // Carregar todos os dados em paralelo
+        // Mostrar loading
+        if (container && window.UroUtils?.showLoading) {
+            window.UroUtils.showLoading(container);
+        }
+
+        // Carregar todos os dados em paralelo com cache
+        const fetchFn = window.UroUtils?.fetchWithCache || (url => fetch(url).then(r => r.json()));
+
         const [protocolos, artigos, eventos, noticias] = await Promise.all([
-            fetch('assets/data/protocolos.json').then(r => r.json()).catch(() => []),
-            fetch('assets/data/artigos.json').then(r => r.json()).catch(() => []),
-            fetch('assets/data/eventos.json').then(r => r.json()).catch(() => []),
-            fetch('assets/data/noticias.json').then(r => r.json()).catch(() => [])
+            fetchFn('assets/data/protocolos.json').catch(() => []),
+            fetchFn('assets/data/artigos.json').catch(() => []),
+            fetchFn('assets/data/eventos.json').catch(() => []),
+            fetchFn('assets/data/noticias.json').catch(() => [])
         ]);
 
         // Buscar em protocolos
@@ -123,6 +131,16 @@ async function realizarBusca(termo) {
 
     } catch (error) {
         console.error('Erro ao realizar busca:', error);
+
+        // Mostrar toast de erro se disponível
+        if (window.UroUtils?.showToast) {
+            window.UroUtils.showToast('Erro ao realizar busca.', 'error');
+        }
+    } finally {
+        // Remover loading
+        if (container && window.UroUtils?.hideLoading) {
+            window.UroUtils.hideLoading(container);
+        }
     }
 
     return resultados;

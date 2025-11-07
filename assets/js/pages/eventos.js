@@ -9,12 +9,25 @@ let eventos = [];
 let eventosFiltrados = [];
 
 /**
- * Carrega dados dos eventos do arquivo JSON
+ * Carrega dados dos eventos do arquivo JSON com cache
  */
 async function carregarEventos() {
+    const container = document.getElementById('eventos-container');
+
     try {
-        const response = await fetch('assets/data/eventos.json');
-        eventos = await response.json();
+        // Mostrar loading
+        if (container && window.UroUtils?.showLoading) {
+            window.UroUtils.showLoading(container);
+        }
+
+        // Usar fetchWithCache para reduzir requisições HTTP
+        if (window.UroUtils?.fetchWithCache) {
+            eventos = await window.UroUtils.fetchWithCache('assets/data/eventos.json');
+        } else {
+            // Fallback para fetch tradicional
+            const response = await fetch('assets/data/eventos.json');
+            eventos = await response.json();
+        }
 
         // Separar eventos futuros e passados
         const hoje = new Date();
@@ -29,6 +42,16 @@ async function carregarEventos() {
         gerarEventosPassados();
     } catch (error) {
         console.error('Erro ao carregar eventos:', error);
+
+        // Mostrar toast de erro se disponível
+        if (window.UroUtils?.showToast) {
+            window.UroUtils.showToast('Erro ao carregar eventos.', 'error');
+        }
+    } finally {
+        // Remover loading
+        if (container && window.UroUtils?.hideLoading) {
+            window.UroUtils.hideLoading(container);
+        }
     }
 }
 
