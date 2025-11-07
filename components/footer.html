@@ -1,19 +1,19 @@
 <!-- Footer Component - Versão Responsiva Otimizada -->
 <footer class="bg-uro-azul_escuro text-white py-8 md:py-12" role="contentinfo">
     <div class="container mx-auto px-4">
-        <!-- Grid Responsivo: 1 coluna (mobile), 2 colunas (tablet), 4 colunas (desktop) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+        <!-- Grid Responsivo: Mobile otimizado com 2 colunas para links, Desktop com 4 colunas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6">
 
             <!-- Coluna 1: Sobre -->
-            <div class="text-center sm:text-left">
-                <div class="flex items-center justify-center sm:justify-start mb-3">
+            <div class="text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start mb-3">
                     <i data-feather="activity" class="w-8 h-8 mr-2 text-uro-azul_claro" aria-hidden="true"></i>
-                    <h3 class="text-lg font-bold">Uro Em Dia</h3>
+                    <h3 class="text-lg font-bold">Uroginecologia em Dia</h3>
                 </div>
                 <p class="mb-4 text-sm md:text-base leading-relaxed">Portal de referência em conhecimento uroginecológico para profissionais de saúde.</p>
 
                 <!-- Redes Sociais -->
-                <div class="flex justify-center sm:justify-start space-x-3" role="list" aria-label="Redes sociais">
+                <div class="flex justify-center md:justify-start space-x-3" role="list" aria-label="Redes sociais">
                     <a href="https://instagram.com/uroginecologiaemdia"
                        class="p-2.5 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition-colors touch-target"
                        aria-label="Siga-nos no Instagram"
@@ -39,36 +39,32 @@
             </div>
 
             <!-- Coluna 2: Contato -->
-            <div class="text-center sm:text-left">
-                <h4 class="text-base md:text-lg font-bold mb-4 flex items-center justify-center sm:justify-start">
+            <div class="text-center md:text-left">
+                <h4 class="text-base md:text-lg font-bold mb-4 flex items-center justify-center md:justify-start">
                     <i data-feather="phone" class="w-4 h-4 mr-2" aria-hidden="true"></i>
                     <span>Contato</span>
                 </h4>
                 <address class="not-italic space-y-3">
-                    <p class="flex items-center justify-center sm:justify-start text-sm md:text-base">
+                    <p class="flex items-center justify-center md:justify-start text-sm md:text-base">
                         <i data-feather="mail" class="w-4 h-4 mr-2 flex-shrink-0" aria-hidden="true"></i>
                         <a href="mailto:contato@uroginecologiaemdia.com.br"
                            class="hover:text-uro-azul_claro transition-colors break-all">
                             contato@uroginecologiaemdia.com.br
                         </a>
                     </p>
-                    <p class="flex items-center justify-center sm:justify-start text-sm md:text-base">
+                    <p class="flex items-center justify-center md:justify-start text-sm md:text-base">
                         <i data-feather="phone" class="w-4 h-4 mr-2 flex-shrink-0" aria-hidden="true"></i>
                         <a href="tel:+5511999999999"
                            class="hover:text-uro-azul_claro transition-colors">
                             (11) 99999-9999
                         </a>
                     </p>
-                    <p class="flex items-center justify-center sm:justify-start text-sm md:text-base">
-                        <i data-feather="map-pin" class="w-4 h-4 mr-2 flex-shrink-0" aria-hidden="true"></i>
-                        <span>São Paulo, Brasil</span>
-                    </p>
                 </address>
             </div>
 
-            <!-- Coluna 3: Links Rápidos -->
-            <div class="text-center sm:text-left">
-                <h4 class="text-base md:text-lg font-bold mb-4 flex items-center justify-center sm:justify-start">
+            <!-- Coluna 3: Links Rápidos (Mobile: metade da largura, lado a lado com Seções) -->
+            <div class="text-center md:text-left col-span-1">
+                <h4 class="text-base md:text-lg font-bold mb-4 flex items-center justify-center md:justify-start">
                     <i data-feather="link" class="w-4 h-4 mr-2" aria-hidden="true"></i>
                     <span>Links Rápidos</span>
                 </h4>
@@ -106,9 +102,9 @@
                 </nav>
             </div>
 
-            <!-- Coluna 4: Seções -->
-            <div class="text-center sm:text-left">
-                <h4 class="text-base md:text-lg font-bold mb-4 flex items-center justify-center sm:justify-start">
+            <!-- Coluna 4: Seções (Mobile: metade da largura, lado a lado com Links Rápidos) -->
+            <div class="text-center md:text-left col-span-1">
+                <h4 class="text-base md:text-lg font-bold mb-4 flex items-center justify-center md:justify-start">
                     <i data-feather="grid" class="w-4 h-4 mr-2" aria-hidden="true"></i>
                     <span>Seções</span>
                 </h4>
@@ -152,7 +148,7 @@
             <!-- Copyright e Links Legais -->
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-center md:text-left">
                 <p class="text-white text-opacity-90">
-                    © 2025 <strong>Uroginecologia Em Dia</strong>. Todos os direitos reservados.
+                    © 2025 <strong>Uroginecologia em Dia</strong>. Todos os direitos reservados.
                 </p>
                 <div class="flex flex-wrap justify-center md:justify-end gap-4 text-white text-opacity-90">
                     <a href="#" class="hover:text-uro-azul_claro transition-colors">Política de Privacidade</a>
@@ -171,7 +167,7 @@
     </div>
 </footer>
 
-<!-- Estilos Adicionais para Touch Targets -->
+<!-- Estilos Adicionais para Touch Targets e Layout Mobile Otimizado -->
 <style>
 footer .touch-target {
     min-width: 44px;
@@ -181,8 +177,29 @@ footer .touch-target {
     justify-content: center;
 }
 
-/* Melhorar espaçamento dos links em mobile */
-@media (max-width: 640px) {
+/* Mobile: Links Rápidos e Seções lado a lado em 2 colunas para reduzir altura */
+@media (max-width: 767px) {
+    footer .grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Container para Links Rápidos e Seções */
+    footer .grid > div:nth-child(3),
+    footer .grid > div:nth-child(4) {
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    footer .grid > div:nth-child(3) {
+        padding-right: 0.75rem;
+    }
+
+    footer .grid > div:nth-child(4) {
+        padding-left: 0.75rem;
+    }
+
     footer ul li a {
         padding: 0.5rem 0;
         display: inline-flex;
