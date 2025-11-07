@@ -39,6 +39,10 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" async></script>
+
+    <!-- Bibliotecas para geração de PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- Skip to main content -->
@@ -349,17 +353,6 @@
             });
         }
 
-        // PDF Download Function
-        function downloadPDF() {
-            window.PDFGenerator.generatePDF({
-                contentSelector: 'main',
-                filename: 'Cuidados_Enfermagem_IU_Atencao_Basica_2025.pdf',
-                title: 'Cuidados de Enfermagem na IU',
-                subtitle: 'Síntese Baseada em Evidências para Atenção Básica',
-                author: 'Ana Paula de Oliveira Pinto',
-                date: 'Janeiro de 2025'
-            });
-        }
 
         // Garantir que o menu comece fechado
         document.addEventListener('DOMContentLoaded', function() {

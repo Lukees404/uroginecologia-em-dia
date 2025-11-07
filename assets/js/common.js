@@ -407,6 +407,66 @@ if (document.readyState === 'loading') {
 } else {
     initializeScrollAnimations();
 }
+// ==========================================
+// FUNÇÃO DE DOWNLOAD PDF
+// ==========================================
+
+/**
+ * Gera e baixa PDF do conteúdo da página
+ */
+async function downloadPDF() {
+  const button = document.getElementById('btnText');
+  const originalText = button.textContent;
+
+  try {
+    button.textContent = 'Gerando PDF...';
+
+    const { jsPDF } = window.jspdf;
+    const conteudo = document.getElementById('conteudo-pdf');
+
+    // Capturar como imagem
+    const canvas = await html2canvas(conteudo, {
+      scale: 2,
+      useCORS: true,
+      logging: false,
+      backgroundColor: '#ffffff'
+    });
+
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'mm', 'a4');
+
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = pdf.internal.pageSize.getHeight();
+    const imgWidth = canvas.width;
+    const imgHeight = canvas.height;
+    const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+
+    const imgX = (pdfWidth - imgWidth * ratio) / 2;
+    const imgY = 5;
+
+    pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+
+    // Nome do arquivo baseado no título
+    const titulo = document.querySelector('#conteudo-pdf h1').textContent;
+    const nomeArquivo = titulo
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, '');
+
+    pdf.save(`${nomeArquivo}.pdf`);
+
+    // Track download no Google Analytics
+    trackPDFDownload(nomeArquivo, window.location.href);
+
+  } catch (error) {
+    console.error('Erro ao gerar PDF:', error);
+    alert('Erro ao gerar PDF. Por favor, tente novamente.');
+  } finally {
+    button.textContent = originalText;
+  }
+}
 
 // Exportar funções de tracking para uso global
 window.UroAnalytics = {
