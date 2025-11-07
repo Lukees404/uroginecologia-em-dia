@@ -1,6 +1,6 @@
 /**
  * index.js - Funcionalidades específicas da página inicial
- * Autor: Uroginecologia Em Dia
+ * Autor: Uroginecologia em Dia
  * Descrição: Carrossel de protocolos e artigos em destaque
  */
 

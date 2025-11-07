@@ -1,6 +1,6 @@
 /**
  * noticias.js - Funcionalidades específicas da página de notícias
- * Autor: Uroginecologia Em Dia
+ * Autor: Uroginecologia em Dia
  * Descrição: Carregamento e filtro de notícias
  */
 

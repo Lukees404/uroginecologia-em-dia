@@ -1,6 +1,6 @@
 /**
  * pdf-generator.js - Gerador de PDF para Artigos e Protocolos
- * Autor: Uroginecologia Em Dia
+ * Autor: Uroginecologia em Dia
  * Descrição: Converte conteúdo HTML em PDF bem formatado
  */
 
@@ -177,7 +177,7 @@ class PDFGenerator {
             meta.innerHTML = `
                 <strong>Fonte:</strong> ${author}<br>
                 <strong>Data:</strong> ${date}<br>
-                <strong>Site:</strong> Uroginecologia Em Dia
+                <strong>Site:</strong> Uroginecologia em Dia
             `;
             header.appendChild(meta);
 
@@ -193,7 +193,7 @@ class PDFGenerator {
             footer.style.color = '#9ca3af';
             footer.style.textAlign = 'center';
             footer.innerHTML = `
-                <p style="margin: 0;">© ${new Date().getFullYear()} Uroginecologia Em Dia - Portal de Referência em Uroginecologia</p>
+                <p style="margin: 0;">© ${new Date().getFullYear()} Uroginecologia em Dia - Portal de Referência em Uroginecologia</p>
                 <p style="margin: 5px 0 0 0;">Conteúdo baseado em evidências científicas</p>
             `;
 

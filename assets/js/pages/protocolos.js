@@ -1,6 +1,6 @@
 /**
  * protocolos.js - Funcionalidades específicas da página de protocolos
- * Autor: Uroginecologia Em Dia
+ * Autor: Uroginecologia em Dia
  * Descrição: Geração dinâmica de cards de protocolos e filtros
  */
 

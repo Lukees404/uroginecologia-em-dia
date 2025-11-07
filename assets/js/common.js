@@ -1,6 +1,6 @@
 /**
  * common.js - Funcionalidades compartilhadas entre todas as páginas
- * Autor: Uroginecologia Em Dia
+ * Autor: Uroginecologia em Dia
  * Descrição: Menu mobile, busca, newsletter e outras funcionalidades comuns
  */
 
