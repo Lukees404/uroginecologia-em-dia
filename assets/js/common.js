@@ -180,14 +180,10 @@ function initializeMobileMenu() {
     }
 
     /**
-     * Fecha o menu mobile
+     * Animação de fechar menu (compartilhada)
      */
-    function closeMobileMenuFunc(e) {
-        if (e) {
-            e.preventDefault();
-        }
+    function closeMenuAnimation() {
         console.log('📱 Fechando menu mobile');
-
         const menuPanel = document.querySelector('#mobileMenu > div:last-child');
         if (menuPanel) {
             menuPanel.classList.add('-translate-x-full');
@@ -195,6 +191,25 @@ function initializeMobileMenu() {
         setTimeout(() => {
             mobileMenu.classList.add('hidden');
         }, 300);
+    }
+
+    /**
+     * Fecha o menu mobile (para overlay e botão X)
+     * Previne comportamento padrão
+     */
+    function closeMobileMenuFunc(e) {
+        e.preventDefault();
+        closeMenuAnimation();
+    }
+
+    /**
+     * Fecha o menu mobile quando link é clicado
+     * NÃO previne comportamento padrão - permite navegação
+     */
+    function closeMobileMenuAndNavigate() {
+        console.log('🔗 Link clicado - navegando e fechando menu');
+        closeMenuAnimation();
+        // NÃO chama preventDefault - navegação acontece naturalmente
     }
 
     // Event listeners
@@ -213,11 +228,11 @@ function initializeMobileMenu() {
         console.log('✅ Event listener adicionado ao overlay');
     }
 
-    // Fechar menu ao clicar em um link
+    // Fechar menu ao clicar em um link (SEM bloquear navegação)
     const menuLinks = document.querySelectorAll('#mobileMenu a');
     console.log(`✅ Adicionando listeners a ${menuLinks.length} links do menu`);
     menuLinks.forEach(link => {
-        link.addEventListener('click', closeMobileMenuFunc);
+        link.addEventListener('click', closeMobileMenuAndNavigate);
     });
 
     // Marcar como inicializado
