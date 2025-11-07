@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 function initializePage() {
     initializeFeatherIcons();
-    initializeMobileMenu();
+    // Menu mobile é inicializado pelo main.js APÓS carregar o header
     initializeSearch();
     initializeNewsletter();
 
@@ -123,14 +123,41 @@ function initializeFeatherIcons() {
 
 /**
  * Inicializa o menu mobile
+ * IMPORTANTE: Esta função deve ser chamada APÓS o header ser carregado
  */
 function initializeMobileMenu() {
+    // Prevenir inicialização duplicada
+    if (window._mobileMenuInitialized) {
+        console.log('⚠️ Menu mobile já foi inicializado, ignorando chamada duplicada');
+        return;
+    }
+
+    console.log('🔍 Inicializando menu mobile...');
+
     const mobileMenuButton = document.getElementById('mobileMenuButton');
     const closeMobileMenu = document.getElementById('closeMobileMenu');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
 
-    if (!mobileMenu) return;
+    // Log detalhado para debug
+    console.log('🔍 Elementos encontrados:');
+    console.log('  - mobileMenuButton:', mobileMenuButton ? '✅' : '❌');
+    console.log('  - closeMobileMenu:', closeMobileMenu ? '✅' : '❌');
+    console.log('  - mobileMenu:', mobileMenu ? '✅' : '❌');
+    console.log('  - mobileMenuOverlay:', mobileMenuOverlay ? '✅' : '❌');
+
+    if (!mobileMenu) {
+        console.error('❌ Menu mobile não encontrado! Certifique-se que o header foi carregado.');
+        console.log('IDs disponíveis na página:',
+            Array.from(document.querySelectorAll('[id]')).map(el => el.id)
+        );
+        return;
+    }
+
+    if (!mobileMenuButton) {
+        console.error('❌ Botão do menu mobile não encontrado!');
+        return;
+    }
 
     // Garantir que o menu comece fechado
     mobileMenu.classList.add('hidden');
@@ -138,7 +165,11 @@ function initializeMobileMenu() {
     /**
      * Abre o menu mobile
      */
-    function openMobileMenu() {
+    function openMobileMenu(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('📱 Abrindo menu mobile');
+
         mobileMenu.classList.remove('hidden');
         setTimeout(() => {
             const menuPanel = document.querySelector('#mobileMenu > div:last-child');
@@ -151,7 +182,12 @@ function initializeMobileMenu() {
     /**
      * Fecha o menu mobile
      */
-    function closeMobileMenuFunc() {
+    function closeMobileMenuFunc(e) {
+        if (e) {
+            e.preventDefault();
+        }
+        console.log('📱 Fechando menu mobile');
+
         const menuPanel = document.querySelector('#mobileMenu > div:last-child');
         if (menuPanel) {
             menuPanel.classList.add('-translate-x-full');
@@ -164,20 +200,29 @@ function initializeMobileMenu() {
     // Event listeners
     if (mobileMenuButton) {
         mobileMenuButton.addEventListener('click', openMobileMenu);
+        console.log('✅ Event listener adicionado ao botão do menu');
     }
 
     if (closeMobileMenu) {
         closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        console.log('✅ Event listener adicionado ao botão de fechar');
     }
 
     if (mobileMenuOverlay) {
         mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+        console.log('✅ Event listener adicionado ao overlay');
     }
 
     // Fechar menu ao clicar em um link
-    document.querySelectorAll('#mobileMenu a').forEach(link => {
+    const menuLinks = document.querySelectorAll('#mobileMenu a');
+    console.log(`✅ Adicionando listeners a ${menuLinks.length} links do menu`);
+    menuLinks.forEach(link => {
         link.addEventListener('click', closeMobileMenuFunc);
     });
+
+    // Marcar como inicializado
+    window._mobileMenuInitialized = true;
+    console.log('✅ Menu mobile inicializado com sucesso!');
 }
 
 /**

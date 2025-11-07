@@ -96,6 +96,12 @@ this.components = {
         this.initializeHeaderEvents();
         this.initializeSearch();
 
+        // CRÍTICO: Inicializar menu mobile DEPOIS que header foi carregado
+        if (typeof initializeMobileMenu === 'function') {
+            initializeMobileMenu();
+            console.log('✅ Menu mobile inicializado após carregamento do header');
+        }
+
         console.log('✅ Componentes do site carregados com sucesso');
     }
 
