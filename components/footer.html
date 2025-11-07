@@ -1,210 +1,77 @@
-<!-- Footer Component - Versão Responsiva Otimizada -->
-<footer class="bg-uro-azul_escuro text-white px-4 py-8 md:px-8 md:py-12" role="contentinfo" aria-label="Rodapé do site">
-    <div class="container mx-auto">
-        <!-- Grid Responsivo: Mobile otimizado com 2 colunas para links, Desktop com 4 colunas -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<footer class="bg-uro-azul_escuro text-white">
+  <div class="container mx-auto px-4 py-8">
 
-            <!-- Coluna 1: Sobre -->
-            <div class="text-center md:text-left">
-                <div class="flex items-center justify-center md:justify-start mb-3">
-                    <i data-feather="activity" class="w-8 h-8 mr-2 text-uro-azul_claro" aria-hidden="true"></i>
-                    <h3 class="text-lg font-bold">Uroginecologia em Dia</h3>
-                </div>
-                <p class="mb-4 text-sm md:text-base leading-relaxed">Portal de referência em conhecimento uroginecológico para profissionais de saúde.</p>
+    <!-- Grid: 2 colunas mobile, 4 colunas desktop -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
 
-                <!-- Redes Sociais -->
-                <div class="flex justify-center md:justify-start space-x-3" role="list" aria-label="Redes sociais">
-                    <a href="https://instagram.com/uroginecologiaemdia"
-                       class="p-2.5 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition-colors touch-target"
-                       aria-label="Siga-nos no Instagram"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        <i data-feather="instagram" class="w-5 h-5" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://facebook.com/uroginecologiaemdia"
-                       class="p-2.5 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition-colors touch-target"
-                       aria-label="Siga-nos no Facebook"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        <i data-feather="facebook" class="w-5 h-5" aria-hidden="true"></i>
-                    </a>
-                    <a href="https://linkedin.com/company/uroginecologiaemdia"
-                       class="p-2.5 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition-colors touch-target"
-                       aria-label="Siga-nos no LinkedIn"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        <i data-feather="linkedin" class="w-5 h-5" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
+      <!-- Coluna 1: Links Rápidos -->
+      <div>
+        <h3 class="text-sm md:text-base font-bold mb-3 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+          </svg>
+          Links Rápidos
+        </h3>
+        <nav class="space-y-2">
+          <a href="/" class="block text-xs md:text-sm opacity-90 hover:opacity-100 transition-opacity">Página Inicial</a>
+          <a href="/pages/sobre.html" class="block text-xs md:text-sm opacity-90 hover:opacity-100 transition-opacity">Sobre Nós</a>
+          <a href="/pages/contato.html" class="block text-xs md:text-sm opacity-90 hover:opacity-100 transition-opacity">Fale Conosco</a>
+          <a href="#" class="block text-xs md:text-sm opacity-90 hover:opacity-100 transition-opacity">Busca</a>
+        </nav>
+      </div>
 
-            <!-- Coluna 2: Contato -->
-            <div class="text-center md:text-left">
-                <h4 class="text-base md:text-lg font-bold mb-4 flex items-center justify-center md:justify-start">
-                    <i data-feather="phone" class="w-4 h-4 mr-2" aria-hidden="true"></i>
-                    <span>Contato</span>
-                </h4>
-                <address class="not-italic space-y-3">
-                    <p class="flex items-center justify-center md:justify-start text-sm md:text-base">
-                        <i data-feather="mail" class="w-4 h-4 mr-2 flex-shrink-0" aria-hidden="true"></i>
-                        <a href="mailto:contato@uroginecologiaemdia.com.br"
-                           class="hover:text-uro-azul_claro transition-colors break-all text-sm">
-                            contato@uroginecologiaemdia.com.br
-                        </a>
-                    </p>
-                    <p class="flex items-center justify-center md:justify-start text-sm md:text-base">
-                        <i data-feather="phone" class="w-4 h-4 mr-2 flex-shrink-0" aria-hidden="true"></i>
-                        <a href="tel:+5511999999999"
-                           class="hover:text-uro-azul_claro transition-colors">
-                            (11) 99999-9999
-                        </a>
-                    </p>
-                </address>
-            </div>
+      <!-- Coluna 2: Seções -->
+      <div>
+        <h3 class="text-sm md:text-base font-bold mb-3 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+          </svg>
+          Seções
+        </h3>
+        <nav class="space-y-2">
+          <a href="/pages/protocolos.html" class="block text-xs md:text-sm opacity-90 hover:opacity-100 transition-opacity">Protocolos</a>
+          <a href="/pages/artigos.html" class="block text-xs md:text-sm opacity-90 hover:opacity-100 transition-opacity">Artigos</a>
+          <a href="/pages/eventos.html" class="block text-xs md:text-sm opacity-90 hover:opacity-100 transition-opacity">Eventos</a>
+          <a href="/pages/noticias.html" class="block text-xs md:text-sm opacity-90 hover:opacity-100 transition-opacity">Notícias</a>
+        </nav>
+      </div>
 
-            <!-- Coluna 3: Links Rápidos (Mobile: metade da largura, lado a lado com Seções) -->
-            <div class="text-center md:text-left col-span-1">
-                <h4 class="text-base md:text-lg font-bold mb-4 flex items-center justify-center md:justify-start">
-                    <i data-feather="link" class="w-4 h-4 mr-2" aria-hidden="true"></i>
-                    <span>Links Rápidos</span>
-                </h4>
-                <nav aria-label="Links rápidos">
-                    <ul class="space-y-2.5">
-                        <li>
-                            <a href="index.html"
-                               class="inline-flex items-center hover:text-uro-azul_claro transition-colors text-sm md:text-base py-1">
-                                <i data-feather="chevron-right" class="w-4 h-4 mr-1" aria-hidden="true"></i>
-                                <span>Página Inicial</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pages/sobre.html"
-                               class="inline-flex items-center hover:text-uro-azul_claro transition-colors text-sm md:text-base py-1">
-                                <i data-feather="chevron-right" class="w-4 h-4 mr-1" aria-hidden="true"></i>
-                                <span>Sobre Nós</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pages/contato.html"
-                               class="inline-flex items-center hover:text-uro-azul_claro transition-colors text-sm md:text-base py-1">
-                                <i data-feather="chevron-right" class="w-4 h-4 mr-1" aria-hidden="true"></i>
-                                <span>Fale Conosco</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pages/busca.html"
-                               class="inline-flex items-center hover:text-uro-azul_claro transition-colors text-sm md:text-base py-1">
-                                <i data-feather="chevron-right" class="w-4 h-4 mr-1" aria-hidden="true"></i>
-                                <span>Busca</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-
-            <!-- Coluna 4: Seções (Mobile: metade da largura, lado a lado com Links Rápidos) -->
-            <div class="text-center md:text-left col-span-1">
-                <h4 class="text-base md:text-lg font-bold mb-4 flex items-center justify-center md:justify-start">
-                    <i data-feather="grid" class="w-4 h-4 mr-2" aria-hidden="true"></i>
-                    <span>Seções</span>
-                </h4>
-                <nav aria-label="Seções do site">
-                    <ul class="space-y-2.5">
-                        <li>
-                            <a href="pages/protocolos.html"
-                               class="inline-flex items-center hover:text-uro-azul_claro transition-colors text-sm md:text-base py-1">
-                                <i data-feather="chevron-right" class="w-4 h-4 mr-1" aria-hidden="true"></i>
-                                <span>Protocolos</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pages/artigos.html"
-                               class="inline-flex items-center hover:text-uro-azul_claro transition-colors text-sm md:text-base py-1">
-                                <i data-feather="chevron-right" class="w-4 h-4 mr-1" aria-hidden="true"></i>
-                                <span>Artigos</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pages/eventos.html"
-                               class="inline-flex items-center hover:text-uro-azul_claro transition-colors text-sm md:text-base py-1">
-                                <i data-feather="chevron-right" class="w-4 h-4 mr-1" aria-hidden="true"></i>
-                                <span>Eventos</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pages/noticias.html"
-                               class="inline-flex items-center hover:text-uro-azul_claro transition-colors text-sm md:text-base py-1">
-                                <i data-feather="chevron-right" class="w-4 h-4 mr-1" aria-hidden="true"></i>
-                                <span>Notícias</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+      <!-- Coluna 3: Contato (ocupa 2 colunas no mobile, 1 no desktop) -->
+      <div class="col-span-2 md:col-span-1">
+        <h3 class="text-sm md:text-base font-bold mb-3">Entre em Contato</h3>
+        <div class="space-y-2 text-xs md:text-sm">
+          <a href="mailto:contato@uroginecologiaemdia.com.br" class="block break-all opacity-90 hover:opacity-100 transition-opacity">
+            contato@uroginecologiaemdia.com.br
+          </a>
+          <a href="tel:+5511999999999" class="block opacity-90 hover:opacity-100 transition-opacity">
+            (11) 99999-9999
+          </a>
         </div>
+      </div>
 
-        <!-- Linha Divisória -->
-        <div class="border-t border-white border-opacity-20 mt-8 pt-6 md:pt-8">
-            <!-- Copyright e Links Legais -->
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-center md:text-left">
-                <p class="text-white text-opacity-90">
-                    © 2025 <strong>Uroginecologia em Dia</strong>. Todos os direitos reservados.
-                </p>
-                <div class="flex flex-wrap justify-center md:justify-end gap-4 text-white text-opacity-90">
-                    <a href="#" class="hover:text-uro-azul_claro transition-colors">Política de Privacidade</a>
-                    <span class="hidden md:inline">|</span>
-                    <a href="#" class="hover:text-uro-azul_claro transition-colors">Termos de Uso</a>
-                </div>
-            </div>
+      <!-- Coluna 4: Newsletter (ocupa 2 colunas no mobile, 1 no desktop) -->
+      <div class="col-span-2 md:col-span-1">
+        <h3 class="text-sm md:text-base font-bold mb-3">Newsletter</h3>
+        <p class="text-xs md:text-sm opacity-90 mb-3">Receba atualizações</p>
+        <form class="flex flex-col gap-2">
+          <input type="email" placeholder="Seu email" required class="px-3 py-2 text-xs md:text-sm rounded text-gray-800 focus:outline-none focus:ring-2 focus:ring-uro-azul_claro">
+          <button type="submit" class="bg-uro-azul hover:bg-uro-azul_claro text-white px-4 py-2 rounded text-xs md:text-sm font-medium transition-colors">
+            Assinar
+          </button>
+        </form>
+      </div>
 
-            <!-- Badges/Certificações (Opcional) -->
-            <div class="mt-4 pt-4 border-t border-white border-opacity-10 text-center">
-                <p class="text-xs text-white text-opacity-75">
-                    Conteúdo baseado em evidências científicas · WCAG 2.1 AA Compliance
-                </p>
-            </div>
-        </div>
     </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-white border-opacity-10 mt-6 pt-4 text-center">
+      <p class="text-xs md:text-sm opacity-75">
+        © <span id="currentYear"></span> Uroginecologia Em Dia. Todos os direitos reservados.
+      </p>
+    </div>
+  </div>
 </footer>
 
-<!-- Estilos Adicionais para Touch Targets e Layout Mobile Otimizado -->
-<style>
-footer .touch-target {
-    min-width: 44px;
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Mobile: Links Rápidos e Seções lado a lado em 2 colunas para reduzir altura */
-@media (max-width: 767px) {
-    footer .grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    /* Container para Links Rápidos e Seções */
-    footer .grid > div:nth-child(3),
-    footer .grid > div:nth-child(4) {
-        width: 50%;
-        display: inline-block;
-        vertical-align: top;
-    }
-
-    footer .grid > div:nth-child(3) {
-        padding-right: 0.75rem;
-    }
-
-    footer .grid > div:nth-child(4) {
-        padding-left: 0.75rem;
-    }
-
-    footer ul li a {
-        padding: 0.5rem 0;
-        display: inline-flex;
-        min-height: 44px;
-        align-items: center;
-    }
-}
-</style>
+<script>
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
