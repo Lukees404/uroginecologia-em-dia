@@ -1003,6 +1003,34 @@ body {
    SISTEMA DE PDF - ESTILOS
    ========================================== */
 
+/* Classe para esconder elementos do PDF */
+.no-print {
+  /* Visível na tela, mas não vai para o PDF */
+}
+
+/* Animações para notificações de PDF */
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+}
+
 /* Estilos para PDF */
 @media print {
   .no-print {

@@ -423,11 +423,14 @@ if (document.readyState === 'loading') {
     initializeScrollAnimations();
 }
 // ============================================
-// DOWNLOAD PDF - VERSÃO SIMPLIFICADA
+// DOWNLOAD PDF - VERSÃO OTIMIZADA
 // ============================================
 
 function downloadPDF() {
-  const button = document.getElementById('btnText');
+  console.log('📄 Iniciando geração de PDF...');
+
+  // Encontrar botão de download
+  const button = event?.target?.closest('button') || document.querySelector('button[onclick*="downloadPDF"]');
   const originalText = button ? button.textContent : 'Baixar PDF';
 
   if (button) {
@@ -435,10 +438,12 @@ function downloadPDF() {
     button.disabled = true;
   }
 
+  // Encontrar elemento de conteúdo
   const element = document.getElementById('conteudo-pdf');
 
   if (!element) {
-    alert('Conteúdo não encontrado');
+    console.error('❌ Elemento #conteudo-pdf não encontrado');
+    alert('Conteúdo não encontrado para gerar PDF');
     if (button) {
       button.textContent = originalText;
       button.disabled = false;
@@ -446,60 +451,259 @@ function downloadPDF() {
     return;
   }
 
-  // Configurações do PDF
+  // Criar clone do elemento para manipulação
+  const clone = element.cloneNode(true);
+  console.log('✅ Clone do conteúdo criado');
+
+  // Remover elementos indesejados do clone
+  const selectorsToRemove = [
+    '.no-print',
+    'button',
+    '.btn',
+    'nav',
+    '.navigation',
+    'script',
+    'style'
+  ];
+
+  selectorsToRemove.forEach(selector => {
+    const elements = clone.querySelectorAll(selector);
+    elements.forEach(el => {
+      console.log(`🗑️ Removendo elemento: ${selector}`);
+      el.remove();
+    });
+  });
+
+  // Aplicar estilos inline para garantir renderização correta
+  applyPDFStyles(clone);
+
+  // Criar container temporário
+  const tempContainer = document.createElement('div');
+  tempContainer.id = 'pdf-temp-container';
+  tempContainer.style.cssText = `
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    width: 210mm;
+    background: white;
+    padding: 15mm;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: 12pt;
+    line-height: 1.6;
+    color: #000;
+  `;
+
+  tempContainer.appendChild(clone);
+  document.body.appendChild(tempContainer);
+  console.log('✅ Container temporário criado');
+
+  // Configurações OTIMIZADAS do PDF
   const opt = {
-    margin: [15, 15, 20, 15], // [top, left, bottom, right] em mm
+    margin: [12, 12, 15, 12], // [top, left, bottom, right] em mm
     filename: gerarNomeArquivo(),
-    image: { type: 'jpeg', quality: 0.98 },
+    image: {
+      type: 'jpeg',
+      quality: 0.95
+    },
     html2canvas: {
       scale: 2,
       useCORS: true,
       letterRendering: true,
-      logging: false
+      logging: false,
+      backgroundColor: '#ffffff',
+      removeContainer: false,
+      imageTimeout: 15000,
+      scrollY: 0,
+      scrollX: 0
     },
     jsPDF: {
       unit: 'mm',
       format: 'a4',
-      orientation: 'portrait'
+      orientation: 'portrait',
+      compress: true
     },
     pagebreak: {
-      mode: ['avoid-all', 'css', 'legacy'],
+      mode: ['css', 'legacy'], // ✅ Removido 'avoid-all'
       before: '.page-break-before',
       after: '.page-break-after',
-      avoid: ['h2', 'h3', 'img']
+      avoid: 'img' // ✅ Apenas imagens
     }
   };
 
-  // Adicionar rodapé antes de gerar
-  adicionarRodape(element);
+  console.log('⚙️ Configurações do PDF:', opt);
+
+  // Adicionar rodapé
+  adicionarRodape(clone);
 
   // Gerar PDF
   html2pdf()
     .set(opt)
-    .from(element)
+    .from(tempContainer)
     .save()
     .then(() => {
-      console.log('PDF gerado com sucesso');
+      console.log('✅ PDF gerado com sucesso!');
+
+      // Limpar container temporário
+      if (tempContainer && tempContainer.parentNode) {
+        tempContainer.parentNode.removeChild(tempContainer);
+      }
+
       if (button) {
         button.textContent = originalText;
         button.disabled = false;
       }
-      removerRodape(element);
 
       // Track download no Google Analytics
       if (typeof trackPDFDownload === 'function') {
         trackPDFDownload(gerarNomeArquivo(), window.location.href);
       }
+
+      // Mostrar mensagem de sucesso
+      showPDFNotification('PDF gerado com sucesso!', 'success');
     })
     .catch(error => {
-      console.error('Erro ao gerar PDF:', error);
-      alert('Erro ao gerar PDF. Tente novamente.');
+      console.error('❌ Erro ao gerar PDF:', error);
+
+      // Limpar container temporário
+      if (tempContainer && tempContainer.parentNode) {
+        tempContainer.parentNode.removeChild(tempContainer);
+      }
+
       if (button) {
         button.textContent = originalText;
         button.disabled = false;
       }
-      removerRodape(element);
+
+      showPDFNotification('Erro ao gerar PDF. Tente novamente.', 'error');
     });
+}
+
+/**
+ * Aplica estilos inline no conteúdo para garantir renderização no PDF
+ */
+function applyPDFStyles(element) {
+  // Títulos H2
+  element.querySelectorAll('h2').forEach(h2 => {
+    h2.style.cssText = `
+      font-size: 20pt;
+      color: #1e40af;
+      margin-top: 20pt;
+      margin-bottom: 12pt;
+      font-weight: bold;
+      page-break-after: avoid;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 8pt;
+    `;
+  });
+
+  // Títulos H3
+  element.querySelectorAll('h3').forEach(h3 => {
+    h3.style.cssText = `
+      font-size: 16pt;
+      color: #1e40af;
+      margin-top: 16pt;
+      margin-bottom: 10pt;
+      font-weight: bold;
+      page-break-after: avoid;
+    `;
+  });
+
+  // Parágrafos
+  element.querySelectorAll('p').forEach(p => {
+    p.style.cssText = `
+      font-size: 11pt;
+      line-height: 1.6;
+      margin-bottom: 10pt;
+      text-align: justify;
+      color: #1f2937;
+    `;
+  });
+
+  // Listas
+  element.querySelectorAll('ul, ol').forEach(list => {
+    list.style.cssText = `
+      margin-left: 15pt;
+      margin-bottom: 10pt;
+      page-break-inside: avoid;
+    `;
+  });
+
+  element.querySelectorAll('li').forEach(li => {
+    li.style.cssText = `
+      font-size: 11pt;
+      line-height: 1.5;
+      margin-bottom: 6pt;
+      color: #1f2937;
+    `;
+  });
+
+  // Tabelas
+  element.querySelectorAll('table').forEach(table => {
+    table.style.cssText = `
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12pt 0;
+      page-break-inside: auto;
+      font-size: 10pt;
+    `;
+  });
+
+  element.querySelectorAll('th, td').forEach(cell => {
+    cell.style.cssText = `
+      border: 1px solid #ddd;
+      padding: 8pt;
+      text-align: left;
+    `;
+  });
+
+  element.querySelectorAll('th').forEach(th => {
+    th.style.cssText += `
+      background-color: #3b82f6;
+      color: white;
+      font-weight: bold;
+    `;
+  });
+
+  // Boxes destacados
+  element.querySelectorAll('.highlight-box, .key-point, [class*="bg-blue"], [class*="bg-yellow"], [class*="bg-green"]').forEach(box => {
+    box.style.cssText = `
+      background-color: #f0f9ff;
+      border-left: 4px solid #3b82f6;
+      padding: 12pt;
+      margin: 12pt 0;
+      page-break-inside: avoid;
+    `;
+  });
+
+  console.log('✅ Estilos inline aplicados');
+}
+
+/**
+ * Mostra notificação de status do PDF
+ */
+function showPDFNotification(message, type = 'success') {
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: ${type === 'success' ? '#10b981' : '#ef4444'};
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 10000;
+    font-weight: 500;
+    animation: slideIn 0.3s ease-out;
+  `;
+  notification.textContent = message;
+
+  document.body.appendChild(notification);
+
+  setTimeout(() => {
+    notification.style.animation = 'slideOut 0.3s ease-out';
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
 }
 
 function gerarNomeArquivo() {
