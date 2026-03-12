@@ -1,0 +1,120 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<!-- Header -->
+<header class="bg-uro-branco shadow-md">
+    <div class="container mx-auto px-4 py-4">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+            <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                <button class="bg-uro-azul text-white p-2 rounded-lg" id="mobileMenuButton" aria-label="Abrir menu">
+                    <i data-feather="menu" class="w-5 h-5"></i>
+                </button>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-uro-azul_escuro hover:text-uro-azul" aria-label="Instagram"><i data-feather="instagram"></i></a>
+                    <a href="#" class="text-uro-azul_escuro hover:text-uro-azul" aria-label="Facebook"><i data-feather="facebook"></i></a>
+                    <a href="#" class="text-uro-azul_escuro hover:text-uro-azul" aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
+                </div>
+            </div>
+            <div class="flex items-center mb-4 md:mb-0">
+                <i data-feather="activity" class="w-10 h-10 mr-3 text-uro-azul_escuro"></i>
+                <a href="/">
+                    <h1 class="text-2xl md:text-3xl font-bold text-uro-azul_escuro text-center">Uroginecologia em Dia</h1>
+                </a>
+            </div>
+            <div class="relative w-full md:w-64">
+                <input type="text" id="searchInput" placeholder="Buscar..."
+                    class="w-full py-2 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-uro-azul text-gray-800"
+                    aria-label="Buscar no site">
+                <button class="absolute right-3 top-2 text-uro-azul_escuro" id="searchButton" aria-label="Buscar">
+                    <i data-feather="search" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+        <div class="border-b border-gray-200">
+            <div class="flex justify-center space-x-1">
+                <a href="/" class:list={["nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 transition-colors", currentPath === '/' ? 'border-uro-azul' : 'border-transparent hover:border-uro-azul']}>Página Inicial</a>
+                <a href="/protocolos/" class:list={["nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 transition-colors", currentPath.startsWith('/protocolos') ? 'border-uro-azul' : 'border-transparent hover:border-uro-azul']}>Protocolos</a>
+                <a href="/artigos/" class:list={["nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 transition-colors", currentPath.startsWith('/artigos') ? 'border-uro-azul' : 'border-transparent hover:border-uro-azul']}>Artigos Resumidos</a>
+                <a href="/eventos/" class:list={["nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 transition-colors", currentPath.startsWith('/eventos') ? 'border-uro-azul' : 'border-transparent hover:border-uro-azul']}>Eventos</a>
+                <a href="/noticias/" class:list={["nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 transition-colors", currentPath.startsWith('/noticias') ? 'border-uro-azul' : 'border-transparent hover:border-uro-azul']}>Notícias</a>
+                <a href="/sobre/" class:list={["nav-button px-4 py-2 rounded-t-lg font-medium text-uro-azul_escuro border-b-2 transition-colors", currentPath.startsWith('/sobre') ? 'border-uro-azul' : 'border-transparent hover:border-uro-azul']}>Sobre Nós</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="fixed inset-0 z-50 hidden">
+    <div class="fixed inset-0 bg-black bg-opacity-50" id="mobileMenuOverlay"></div>
+    <div class="fixed left-0 top-0 h-full w-72 bg-uro-branco shadow-lg p-6 overflow-y-auto transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-xl font-bold text-uro-azul_escuro">Menu</h2>
+            <button id="closeMobileMenu" class="text-uro-azul_escuro" aria-label="Fechar menu">
+                <i data-feather="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <nav>
+            <ul class="space-y-4">
+                <li><a href="/" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Página Inicial</a></li>
+                <li><a href="/artigos/" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Artigos Resumidos</a></li>
+                <li><a href="/protocolos/" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Protocolos</a></li>
+                <li><a href="/eventos/" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Eventos</a></li>
+                <li><a href="/noticias/" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Notícias</a></li>
+                <li><a href="/sobre/" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Sobre Nós</a></li>
+                <li><a href="/contato/" class="block py-2 px-4 text-uro-azul_escuro hover:bg-uro-cinza rounded-lg">Fale Conosco</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuButton = document.getElementById('mobileMenuButton');
+        const closeButton = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('mobileMenuOverlay');
+        const menuPanel = mobileMenu?.querySelector('.fixed.left-0');
+
+        function openMenu() {
+            mobileMenu?.classList.remove('hidden');
+            setTimeout(() => {
+                menuPanel?.classList.remove('-translate-x-full');
+                menuPanel?.classList.add('translate-x-0');
+            }, 10);
+        }
+
+        function closeMenu() {
+            menuPanel?.classList.remove('translate-x-0');
+            menuPanel?.classList.add('-translate-x-full');
+            setTimeout(() => {
+                mobileMenu?.classList.add('hidden');
+            }, 300);
+        }
+
+        menuButton?.addEventListener('click', openMenu);
+        closeButton?.addEventListener('click', closeMenu);
+        overlay?.addEventListener('click', closeMenu);
+
+        // Search redirect
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+
+        function doSearch() {
+            const query = searchInput?.value?.trim();
+            if (query) {
+                window.location.href = `/busca/?q=${encodeURIComponent(query)}`;
+            }
+        }
+
+        searchButton?.addEventListener('click', doSearch);
+        searchInput?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') doSearch();
+        });
+
+        // Initialize feather icons
+        if (typeof feather !== 'undefined') {
+            feather.replace();
+        }
+    });
+</script>

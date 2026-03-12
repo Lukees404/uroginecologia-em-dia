@@ -1,0 +1,130 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Artigos Científicos Resumidos"
+  description="Artigos científicos resumidos sobre uroginecologia com análises críticas e aplicações práticas. Meta-análises, revisões sistemáticas e pesquisas atualizadas."
+>
+    <!-- Main Content -->
+    <main id="main-content" class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="mb-12 fade-in">
+            <div class="bg-gradient-to-r from-uro-azul_escuro to-uro-azul text-white rounded-2xl p-8 md:p-12 text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">Artigos Científicos Resumidos</h1>
+                <p class="text-xl max-w-3xl mx-auto">Resumos de artigos científicos relevantes em uroginecologia, com análises críticas e aplicações práticas para o dia a dia clínico.</p>
+            </div>
+        </section>
+
+        <!-- Filtros e Contador -->
+        <section class="mb-12 fade-in">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-uro-azul_escuro border-b-2 border-uro-azul pb-2">
+                        Artigos Científicos
+                        <span id="contador-artigos" class="text-lg font-normal text-gray-600 ml-2"></span>
+                    </h2>
+                </div>
+                <div class="relative">
+                    <label for="filtro-categoria" class="sr-only">Filtrar por tipo de estudo</label>
+                    <select id="filtro-categoria"
+                            class="bg-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-uro-azul"
+                            aria-label="Filtrar artigos por tipo">
+                        <option value="todos">Todos os Artigos</option>
+                        <option value="pesquisa">Pesquisa</option>
+                        <option value="estudo">Estudo Longitudinal</option>
+                        <option value="revisao">Revisão Sistemática</option>
+                        <option value="meta">Meta-análise</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Container dos cards -->
+            <div id="artigos-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cards serão gerados dinamicamente via JavaScript -->
+            </div>
+
+            <!-- Mensagem quando não há artigos -->
+            <div id="mensagem-vazio" class="hidden text-center py-12">
+                <i data-feather="file-text" class="w-16 h-16 text-gray-300 mx-auto mb-4" aria-hidden="true"></i>
+                <h3 class="text-xl font-semibold text-gray-500 mb-2">Nenhum artigo encontrado</h3>
+                <p class="text-gray-400">Tente alterar o filtro ou verifique novamente em breve.</p>
+            </div>
+
+            <!-- Informação sobre novos artigos -->
+            <div class="mt-12 bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
+                <i data-feather="info" class="w-8 h-8 text-uro-azul mx-auto mb-3" aria-hidden="true"></i>
+                <h3 class="text-lg font-semibold text-uro-azul_escuro mb-2">Mais Artigos em Desenvolvimento</h3>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Nossa equipe está trabalhando na elaboração de novos resumos de artigos baseados nas publicações mais recentes em uroginecologia.
+                    Em breve teremos mais conteúdos disponíveis para auxiliar na prática clínica.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sobre os Artigos -->
+        <section class="mb-12 fade-in">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-6 text-center">Sobre Nossos Artigos</h2>
+                <div class="max-w-3xl mx-auto">
+                    <p class="text-gray-700 text-lg mb-6 text-center">
+                        Nossos resumos são elaborados por especialistas em uroginecologia, priorizando artigos de alto impacto
+                        publicados em periódicos de primeira linha. Cada resumo inclui análise crítica da metodologia e
+                        discussão sobre aplicabilidade clínica.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i data-feather="search" class="w-6 h-6 text-green-500 mr-3" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-uro-azul_escuro mb-2">Seleção Criteriosa</h3>
+                                <p class="text-gray-600 text-sm">Artigos selecionados de periódicos de alto impacto e relevância clínica</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i data-feather="check-square" class="w-6 h-6 text-blue-500 mr-3" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-uro-azul_escuro mb-2">Análise Crítica</h3>
+                                <p class="text-gray-600 text-sm">Avaliação da qualidade metodológica e força das evidências</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i data-feather="clipboard" class="w-6 h-6 text-purple-500 mr-3" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-uro-azul_escuro mb-2">Aplicação Prática</h3>
+                                <p class="text-gray-600 text-sm">Discussão sobre como aplicar os resultados na prática clínica</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i data-feather="bookmark" class="w-6 h-6 text-orange-500 mr-3" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-uro-azul_escuro mb-2">Referências Completas</h3>
+                                <p class="text-gray-600 text-sm">Links para os artigos originais e referências citadas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="mb-12 fade-in">
+            <div class="bg-gradient-to-r from-uro-azul to-uro-azul_claro text-white rounded-2xl p-8 text-center">
+                <h2 class="text-2xl font-bold mb-4">Quer Sugerir um Artigo?</h2>
+                <p class="max-w-2xl mx-auto mb-6">Se você conhece algum artigo relevante que gostaria de ver resumido em nosso portal, entre em contato conosco!</p>
+                <a href="/contato/" class="inline-block bg-white text-uro-azul_escuro hover:bg-gray-100 py-3 px-6 rounded-lg font-medium transition-colors">
+                    Entre em Contato
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script is:inline src="/assets/js/pages/artigos.js" slot="scripts"></script>
+</Base>

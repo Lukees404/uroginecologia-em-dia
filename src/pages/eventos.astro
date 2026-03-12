@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Eventos em Uroginecologia"
+  description="Calendário completo de eventos em uroginecologia: congressos, cursos práticos, workshops e webinars. Fique por dentro dos principais eventos da área."
+>
+    <!-- Main Content -->
+    <main id="main-content" class="container mx-auto px-4 py-8" role="main">
+        <!-- Hero Section -->
+        <section class="mb-12 fade-in" aria-labelledby="hero-title">
+            <div class="bg-gradient-to-r from-uro-azul_escuro to-uro-azul text-white rounded-2xl p-8 md:p-12 text-center">
+                <h1 id="hero-title" class="text-3xl md:text-4xl font-bold mb-4">Eventos em Uroginecologia</h1>
+                <p class="text-xl max-w-3xl mx-auto">Fique por dentro dos principais congressos, cursos e workshops na área de uroginecologia.</p>
+            </div>
+        </section>
+
+        <!-- Eventos Section -->
+        <section class="mb-12 fade-in" aria-labelledby="eventos-title">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                <h2 id="eventos-title" class="text-2xl font-bold text-uro-azul_escuro border-b-2 border-uro-azul pb-2">Próximos Eventos</h2>
+                <div class="relative">
+                    <label for="filtroEventos" class="sr-only">Filtrar eventos por categoria</label>
+                    <select id="filtroEventos" class="bg-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-uro-azul" aria-label="Filtrar eventos por categoria">
+                        <option value="todos">Todos os Eventos</option>
+                        <option value="congresso">Congressos</option>
+                        <option value="workshop">Workshops</option>
+                        <option value="curso">Cursos</option>
+                        <option value="webinar">Online</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Container para eventos dinâmicos -->
+            <div id="eventos-container" aria-live="polite" aria-atomic="true">
+                <!-- Os eventos serão carregados aqui via JavaScript -->
+                <div class="text-center py-8">
+                    <p class="text-gray-600">Carregando eventos...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Eventos Passados Section -->
+        <section class="mt-16 fade-in" aria-labelledby="eventos-passados-title">
+            <h2 id="eventos-passados-title" class="text-2xl font-bold text-uro-azul_escuro mb-6 border-b-2 border-uro-azul pb-2">Eventos Realizados</h2>
+
+            <!-- Container para eventos passados -->
+            <div id="eventos-passados-container" aria-live="polite" aria-atomic="true">
+                <!-- Os eventos passados serão carregados aqui via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="mb-16 mt-16 fade-in" aria-labelledby="newsletter-title">
+            <div class="bg-gradient-to-r from-uro-azul_escuro to-uro-azul text-white rounded-2xl p-8 text-center">
+                <h2 id="newsletter-title" class="text-2xl font-bold mb-4">Receba Notificações de Eventos</h2>
+                <p class="max-w-2xl mx-auto mb-6">Cadastre-se para receber informações sobre novos eventos, prazos de inscrição e oportunidades na área de uroginecologia.</p>
+                <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4" id="newsletterForm" aria-label="Formulário de newsletter">
+                    <label for="newsletterEmail" class="sr-only">Seu endereço de email</label>
+                    <input type="email" id="newsletterEmail" placeholder="Seu endereço de email"
+                           class="flex-grow py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white text-gray-800"
+                           required aria-required="true">
+                    <button type="submit" class="bg-white text-uro-azul_escuro hover:bg-gray-100 py-3 px-6 rounded-lg font-medium transition-colors whitespace-nowrap">
+                        Cadastrar
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script is:inline src="/assets/js/pages/eventos.js" slot="scripts"></script>
+</Base>

@@ -1,0 +1,219 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Uroginecologia em Dia - Portal para Profissionais de Saúde"
+  description="Portal de referência em uroginecologia para profissionais de saúde. Acesse protocolos clínicos, artigos científicos resumidos, eventos e as últimas notícias da área."
+  canonicalUrl="https://www.uroginecologiaemdia.com.br/"
+>
+    <!-- Main Content -->
+    <main id="main-content" class="container mx-auto px-4 py-8">
+        <!-- Hero Banner -->
+        <section class="mb-12 fade-in">
+            <div class="bg-gradient-to-r from-uro-azul_escuro to-uro-azul text-white rounded-2xl p-8 md:p-12 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Portal de Referência em Uroginecologia</h2>
+                <p class="text-xl max-w-3xl mx-auto">Conteúdo especializado para médicos e estudantes de medicina, com as últimas evidências científicas e protocolos clínicos.</p>
+            </div>
+        </section>
+
+        <!-- Protocolos Section -->
+        <section class="mb-16 fade-in">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro border-b-2 border-uro-azul pb-2">Protocolos em Destaque</h2>
+                <a href="/protocolos/" class="text-uro-azul hover:text-uro-azul_escuro font-medium flex items-center">
+                    Ver Todos <i data-feather="arrow-right" class="w-4 h-4 ml-1" aria-hidden="true"></i>
+                </a>
+            </div>
+
+            <div class="relative">
+                <button id="prevProtocol" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-uro-azul bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full z-10 shadow-lg transition-all" aria-label="Protocolo anterior">
+                    <i data-feather="chevron-left" class="w-5 h-5" aria-hidden="true"></i>
+                </button>
+
+                <div class="overflow-hidden">
+                    <div id="protocolsCarousel" class="flex gap-6 transition-transform duration-300 ease-in-out">
+                        <!-- Protocolos carregados via JavaScript -->
+                    </div>
+                </div>
+
+                <button id="nextProtocol" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-uro-azul bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full z-10 shadow-lg transition-all" aria-label="Próximo protocolo">
+                    <i data-feather="chevron-right" class="w-5 h-5" aria-hidden="true"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Artigos Section -->
+        <section class="mb-16 fade-in">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro border-b-2 border-uro-azul pb-2">Artigos em Destaque</h2>
+                <a href="/artigos/" class="text-uro-azul hover:text-uro-azul_escuro font-medium flex items-center">
+                    Ver Todos <i data-feather="arrow-right" class="w-4 h-4 ml-1" aria-hidden="true"></i>
+                </a>
+            </div>
+
+            <div class="relative">
+                <button id="prevArticle" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-uro-azul bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full z-10 shadow-lg transition-all" aria-label="Artigo anterior">
+                    <i data-feather="chevron-left" class="w-5 h-5" aria-hidden="true"></i>
+                </button>
+
+                <div class="overflow-hidden">
+                    <div id="articlesCarousel" class="flex gap-6 transition-transform duration-300 ease-in-out">
+                        <!-- Artigos serão inseridos aqui via JavaScript -->
+                    </div>
+                </div>
+
+                <button id="nextArticle" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-uro-azul bg-opacity-80 hover:bg-opacity-100 text-white p-3 rounded-full z-10 shadow-lg transition-all" aria-label="Próximo artigo">
+                    <i data-feather="chevron-right" class="w-5 h-5" aria-hidden="true"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Notícias Section -->
+        <section class="mb-16 fade-in">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro border-b-2 border-uro-azul pb-2">Últimas Notícias</h2>
+                <a href="/noticias/" class="text-uro-azul hover:text-uro-azul_escuro font-medium flex items-center">
+                    Ver Todas <i data-feather="arrow-right" class="w-4 h-4 ml-1" aria-hidden="true"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Notícia 1 -->
+                <article class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-40 bg-gradient-to-r from-uro-azul to-uro-azul_claro flex items-center justify-center">
+                        <i data-feather="book-open" class="w-12 h-12 text-white" aria-hidden="true"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-uro-azul text-white rounded-full px-2 py-1 text-xs font-semibold mb-3">Pesquisa</span>
+                        <h3 class="text-lg font-bold text-uro-azul_escuro mb-3 line-clamp-2">Toxina botulínica mostra eficácia para bexiga hiperativa</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">Estudo multicêntrico publicado no New England Journal confirma eficácia da aplicação de toxina botulínica na bexiga para tratamento da bexiga hiperativa refratária.</p>
+                        <div class="flex justify-between items-center">
+                            <time class="text-xs text-gray-500" datetime="2024-03-10">10/03/2024</time>
+                            <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa1208312" target="_blank" rel="noopener noreferrer" class="text-uro-azul font-medium hover:text-uro-azul_escuro transition-colors text-sm">
+                                Ler Mais
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Notícia 2 -->
+                <article class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-40 bg-gradient-to-r from-uro-azul to-uro-azul_claro flex items-center justify-center">
+                        <i data-feather="book-open" class="w-12 h-12 text-white" aria-hidden="true"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-green-500 text-white rounded-full px-2 py-1 text-xs font-semibold mb-3">Inovação</span>
+                        <h3 class="text-lg font-bold text-uro-azul_escuro mb-3 line-clamp-2">Dispositivo intravaginal para tratamento do prolapso</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">Pesquisadores desenvolvem novo dispositivo intravaginal que oferece alternativa não cirúrgica para mulheres com prolapso de órgãos pélvicos.</p>
+                        <div class="flex justify-between items-center">
+                            <time class="text-xs text-gray-500" datetime="2024-02-28">28/02/2024</time>
+                            <a href="https://journals.lww.com/fpmrs/Abstract/9900/Novel_Intravaginal_Device_for_Pelvic_Organ.209.aspx" target="_blank" rel="noopener noreferrer" class="text-uro-azul font-medium hover:text-uro-azul_escuro transition-colors text-sm">
+                                Ler Mais
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Notícia 3 -->
+                <article class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-40 bg-gradient-to-r from-uro-azul to-uro-azul_claro flex items-center justify-center">
+                        <i data-feather="book-open" class="w-12 h-12 text-white" aria-hidden="true"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-purple-500 text-white rounded-full px-2 py-1 text-xs font-semibold mb-3">Evento</span>
+                        <h3 class="text-lg font-bold text-uro-azul_escuro mb-3 line-clamp-2">Congresso Internacional de Uroginecologia 2024</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">Evento reúne especialistas mundiais para discutir avanços no diagnóstico e tratamento das disfunções do assoalho pélvico feminino.</p>
+                        <div class="flex justify-between items-center">
+                            <time class="text-xs text-gray-500" datetime="2024-02-15">15/02/2024</time>
+                            <a href="https://www.ics.org/2024" target="_blank" rel="noopener noreferrer" class="text-uro-azul font-medium hover:text-uro-azul_escuro transition-colors text-sm">
+                                Ler Mais
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section class="mb-16 fade-in">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro border-b-2 border-uro-azul pb-2">Próximos Eventos</h2>
+                <a href="/eventos/" class="text-uro-azul hover:text-uro-azul_escuro font-medium flex items-center">
+                    Ver Todos <i data-feather="arrow-right" class="w-4 h-4 ml-1" aria-hidden="true"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <article class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-gradient-to-r from-uro-azul to-uro-azul_claro text-white p-4 flex justify-between items-center">
+                        <time datetime="2025-10-25" class="font-bold">25 OUT</time>
+                        <span class="text-sm">2025</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-uro-azul_escuro mb-3">Webinar Internacional: Novas Diretrizes IUGA sobre Bexiga Hiperativa</h3>
+                        <p class="text-gray-600 mb-2"><i data-feather="map-pin" class="inline w-4 h-4 mr-2" aria-hidden="true"></i>Online - Transmissão ao vivo</p>
+                        <p class="text-gray-600 mb-4 line-clamp-2">Atualização das diretrizes internacionais com especialistas da International Urogynecological Association (IUGA).</p>
+                        <a href="https://www.iuga.org" target="_blank" rel="noopener noreferrer" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                            Site da IUGA
+                        </a>
+                    </div>
+                </article>
+
+                <article class="card-hover bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-gradient-to-r from-uro-azul to-uro-azul_claro text-white p-4 flex justify-between items-center">
+                        <time datetime="2025-11-15" class="font-bold">15 NOV</time>
+                        <span class="text-sm">2025</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-uro-azul_escuro mb-3">Curso Prático de Urodinâmica - FEBRASGO</h3>
+                        <p class="text-gray-600 mb-2"><i data-feather="map-pin" class="inline w-4 h-4 mr-2" aria-hidden="true"></i>Rio de Janeiro, RJ</p>
+                        <p class="text-gray-600 mb-4 line-clamp-2">Curso hands-on com estações práticas de interpretação de exames urodinâmicos e casos clínicos complexos.</p>
+                        <a href="https://www.febrasgo.org.br/cursos" target="_blank" rel="noopener noreferrer" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-2 px-4 rounded-lg font-medium transition-colors">
+                            Cursos FEBRASGO
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="mb-16 fade-in">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-6 text-center">Sobre Nós</h2>
+                <div class="max-w-3xl mx-auto">
+                    <p class="text-gray-700 text-lg mb-6 text-center">
+                        Saiba mais sobre o portal Uroginecologia em Dia, sua plataforma de referência em conhecimento uroginecológico.
+                        Nosso objetivo é conectar profissionais de saúde, pesquisadores e estudantes com as últimas descobertas e
+                        tendências para melhorar os cuidados e resultados para os pacientes.
+                    </p>
+                    <div class="text-center">
+                        <a href="/sobre/" class="inline-block bg-uro-azul hover:bg-uro-azul_escuro text-white py-3 px-6 rounded-lg font-medium transition-colors">
+                            Conheça Mais
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="mb-16 fade-in">
+            <div class="bg-gradient-to-r from-uro-azul_escuro to-uro-azul text-white rounded-2xl p-8 text-center">
+                <h2 class="text-2xl font-bold mb-4">Assine Nossa Newsletter</h2>
+                <p class="max-w-2xl mx-auto mb-6">Receba os artigos mais recentes sobre saúde uroginecológica diretamente no seu email.</p>
+                <form id="newsletterForm" class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+                    <label for="newsletterEmail" class="sr-only">Endereço de email</label>
+                    <input type="email" id="newsletterEmail" placeholder="Seu endereço de email"
+                        class="flex-grow py-3 px-4 rounded-lg focus:outline-none text-gray-800" required
+                        aria-label="Endereço de email para newsletter">
+                    <button type="submit" class="bg-white text-uro-azul_escuro hover:bg-gray-100 py-3 px-6 rounded-lg font-medium transition-colors whitespace-nowrap">
+                        Assinar
+                    </button>
+                </form>
+                <p id="newsletterMessage" class="mt-4 text-sm hidden" role="alert" aria-live="polite"></p>
+            </div>
+        </section>
+    </main>
+
+    <script is:inline src="/assets/js/pages/index.js" slot="scripts"></script>
+</Base>

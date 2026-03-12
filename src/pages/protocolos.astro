@@ -1,0 +1,118 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Protocolos Clínicos"
+  description="Protocolos clínicos atualizados em uroginecologia baseados em evidências científicas. Acesse diretrizes da FEBRASGO e sociedades internacionais."
+>
+    <!-- Main Content -->
+    <main id="main-content" class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="mb-12 fade-in">
+            <div class="bg-gradient-to-r from-uro-azul_escuro to-uro-azul text-white rounded-2xl p-8 md:p-12 text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">Protocolos Clínicos</h1>
+                <p class="text-xl max-w-3xl mx-auto">Diretrizes baseadas em evidências científicas para diagnóstico e tratamento de condições uroginecológicas, atualizadas conforme as principais sociedades médicas.</p>
+            </div>
+        </section>
+
+        <!-- Filtros e Contador -->
+        <section class="mb-12 fade-in">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-uro-azul_escuro border-b-2 border-uro-azul pb-2">
+                        Protocolos Disponíveis
+                        <span id="contador-protocolos" class="text-lg font-normal text-gray-600 ml-2"></span>
+                    </h2>
+                </div>
+                <div class="relative">
+                    <label for="filtro-categoria" class="sr-only">Filtrar por categoria</label>
+                    <select id="filtro-categoria"
+                            class="bg-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-uro-azul"
+                            aria-label="Filtrar protocolos por categoria">
+                        <option value="todos">Todos os Protocolos</option>
+                        <option value="infeccioso">Infeccioso</option>
+                        <option value="urodinamico">Urodinâmico</option>
+                        <option value="cirurgico">Cirúrgico</option>
+                        <option value="funcional">Funcional</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Container dos cards -->
+            <div id="protocolos-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cards serão gerados dinamicamente via JavaScript -->
+            </div>
+
+            <!-- Mensagem quando não há protocolos -->
+            <div id="mensagem-vazio" class="hidden text-center py-12">
+                <i data-feather="file-text" class="w-16 h-16 text-gray-300 mx-auto mb-4" aria-hidden="true"></i>
+                <h3 class="text-xl font-semibold text-gray-500 mb-2">Nenhum protocolo encontrado</h3>
+                <p class="text-gray-400">Tente alterar o filtro ou verifique novamente em breve.</p>
+            </div>
+
+            <!-- Informação sobre novos protocolos -->
+            <div class="mt-12 bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
+                <i data-feather="info" class="w-8 h-8 text-uro-azul mx-auto mb-3" aria-hidden="true"></i>
+                <h3 class="text-lg font-semibold text-uro-azul_escuro mb-2">Mais Protocolos em Desenvolvimento</h3>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Nossa equipe está trabalhando na elaboração de novos protocolos baseados nas últimas evidências científicas.
+                    Em breve teremos mais conteúdos disponíveis para auxiliar na prática clínica diária.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sobre os Protocolos -->
+        <section class="mb-12 fade-in">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-6 text-center">Sobre Nossos Protocolos</h2>
+                <div class="max-w-3xl mx-auto">
+                    <p class="text-gray-700 text-lg mb-6 text-center">
+                        Nossos protocolos são desenvolvidos com base nas diretrizes mais recentes da FEBRASGO (Federação Brasileira
+                        das Associações de Ginecologia e Obstetrícia) e de sociedades internacionais como IUGA, EAU e AUA.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i data-feather="check-circle" class="w-6 h-6 text-green-500 mr-3" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-uro-azul_escuro mb-2">Baseado em Evidências</h3>
+                                <p class="text-gray-600 text-sm">Todos os protocolos seguem os princípios da medicina baseada em evidências</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i data-feather="refresh-cw" class="w-6 h-6 text-blue-500 mr-3" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-uro-azul_escuro mb-2">Constantemente Atualizados</h3>
+                                <p class="text-gray-600 text-sm">Revisados periodicamente para incorporar novas evidências científicas</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i data-feather="users" class="w-6 h-6 text-purple-500 mr-3" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-uro-azul_escuro mb-2">Elaborados por Especialistas</h3>
+                                <p class="text-gray-600 text-sm">Desenvolvidos por profissionais com expertise em uroginecologia</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i data-feather="book" class="w-6 h-6 text-orange-500 mr-3" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-uro-azul_escuro mb-2">Aplicação Prática</h3>
+                                <p class="text-gray-600 text-sm">Focados na aplicabilidade clínica no dia a dia do consultório</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script is:inline src="/assets/js/pages/protocolos.js" slot="scripts"></script>
+</Base>

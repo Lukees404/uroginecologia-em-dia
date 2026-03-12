@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Notícias em Uroginecologia"
+  description="Últimas notícias em uroginecologia: pesquisas científicas, inovações tecnológicas, novos tratamentos e avanços na área. Mantenha-se atualizado."
+>
+    <!-- Main Content -->
+    <main id="main-content" class="container mx-auto px-4 py-8" role="main">
+        <!-- Hero Section -->
+        <section class="mb-12 fade-in" aria-labelledby="hero-title">
+            <div class="bg-gradient-to-r from-uro-azul_escuro to-uro-azul text-white rounded-2xl p-8 md:p-12 text-center">
+                <h1 id="hero-title" class="text-3xl md:text-4xl font-bold mb-4">Notícias em Uroginecologia</h1>
+                <p class="text-xl max-w-3xl mx-auto">Fique atualizado com as últimas novidades, pesquisas e avanços na área de uroginecologia.</p>
+            </div>
+        </section>
+
+        <!-- Notícias Section -->
+        <section class="mb-12 fade-in" aria-labelledby="noticias-title">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                <h2 id="noticias-title" class="text-2xl font-bold text-uro-azul_escuro border-b-2 border-uro-azul pb-2">Últimas Notícias</h2>
+                <div class="relative">
+                    <label for="filtroNoticias" class="sr-only">Filtrar notícias por categoria</label>
+                    <select id="filtroNoticias" class="bg-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-uro-azul" aria-label="Filtrar notícias por categoria">
+                        <option value="todas">Todas as Categorias</option>
+                        <option value="pesquisa">Pesquisa</option>
+                        <option value="tratamento">Tratamentos</option>
+                        <option value="evento">Eventos</option>
+                        <option value="inovacao">Inovações</option>
+                        <option value="educacao">Educação</option>
+                        <option value="alerta">Alertas</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Container para notícias dinâmicas -->
+            <div id="noticias-container" aria-live="polite" aria-atomic="true">
+                <!-- As notícias serão carregadas aqui via JavaScript -->
+                <div class="text-center py-8">
+                    <p class="text-gray-600">Carregando notícias...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="mb-16 fade-in" aria-labelledby="newsletter-title">
+            <div class="bg-gradient-to-r from-uro-azul_escuro to-uro-azul text-white rounded-2xl p-8 text-center">
+                <h2 id="newsletter-title" class="text-2xl font-bold mb-4">Receba Nossas Notícias</h2>
+                <p class="max-w-2xl mx-auto mb-6">Cadastre-se para receber as últimas notícias e atualizações em uroginecologia diretamente no seu email.</p>
+                <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4" id="newsletterForm" aria-label="Formulário de newsletter">
+                    <label for="newsletterEmail" class="sr-only">Seu endereço de email</label>
+                    <input type="email" id="newsletterEmail" placeholder="Seu endereço de email"
+                           class="flex-grow py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-white text-gray-800"
+                           required aria-required="true">
+                    <button type="submit" class="bg-white text-uro-azul_escuro hover:bg-gray-100 py-3 px-6 rounded-lg font-medium transition-colors whitespace-nowrap">
+                        Cadastrar
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script is:inline src="/assets/js/pages/noticias.js" slot="scripts"></script>
+</Base>

@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../layouts/Base.astro';
+---
+
+<BaseLayout title="Cirurgias para Incontinência Urinária de Esforço" description="Resultados de longo prazo das cirurgias para incontinência urinária de esforço: síntese baseada em meta-análise de rede.">
+  <fragment slot="head">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" is:inline defer></script>
+  </fragment>
+
+  <main id="main-content" class="container mx-auto px-4 py-8 max-w-4xl">
+    <nav class="mb-6 text-sm text-gray-600">
+      <a href="/" class="text-blue-600 hover:text-blue-800 transition-colors">Página Inicial</a> &gt;
+      <a href="/artigos" class="text-blue-600 hover:text-blue-800 transition-colors">Artigos Resumidos</a> &gt;
+      <span class="text-gray-800 font-medium">Resultados de Longo Prazo das Cirurgias para Incontinência Urinária</span>
+    </nav>
+
+    <div id="conteudo-pdf" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+      <div class="mb-8 pb-6 border-b-2 border-uro-azul">
+        <h1 class="text-2xl md:text-4xl font-bold text-uro-azul_escuro mb-4">
+          Cirurgias para Incontinência Urinária de Esforço
+        </h1>
+        <div class="text-sm text-gray-600 space-y-1">
+          <p><strong>Autor:</strong> Dra. Ana Paula de Oliveira Pinto</p>
+          <p><strong>Publicado em:</strong> Janeiro de 2025</p>
+          <p><strong>Fonte:</strong> Revisão de Literatura</p>
+        </div>
+      </div>
+
+      <div class="prose prose-blue max-w-none">
+        <section class="article-section">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Introdução</h2>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            A incontinência urinária de esforço (IUE) constitui um distúrbio urológico de significativa prevalência na população feminina, afetando aproximadamente 40% das mulheres, com pico de incidência em torno de 65% na faixa etária de 45 a 49 anos.
+          </p>
+          <div class="highlight-box">
+            <p class="text-blue-800 font-semibold mb-2">📊 Contexto Epidemiológico:</p>
+            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+              <li>Prevalência de aproximadamente 40% na população feminina geral</li>
+              <li>Pico de incidência de 65% entre 45-49 anos</li>
+              <li>Impacto significativo na qualidade de vida e atividades sociais</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="article-section">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Objetivo do Estudo</h2>
+          <p class="text-gray-700 leading-relaxed">
+            Esta meta-análise de rede teve como objetivo realizar uma avaliação abrangente e comparativa da eficácia e segurança em longo prazo das principais técnicas cirúrgicas para o tratamento da IUE feminina, hierarquizando as intervenções com base em seus perfis de eficácia e segurança.
+          </p>
+        </section>
+
+        <section class="article-section">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Metodologia da Meta-Análise</h2>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            Foram incluídos 37 ensaios clínicos randomizados publicados até maio de 2023, com 5.720 pacientes (idade mediana 56,6 anos) e período mediano de acompanhamento de 48 meses.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-blue-800 mb-2">Critérios de Inclusão</h4>
+              <ul class="list-disc pl-5 text-blue-700 space-y-1 text-sm">
+                <li>Ensaios clínicos randomizados</li>
+                <li>Pacientes do sexo feminino com IUE</li>
+                <li>Seguimento mínimo de 24 meses</li>
+                <li>Dados de eficácia e segurança reportados</li>
+              </ul>
+            </div>
+            <div class="bg-green-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-green-800 mb-2">Técnicas Avaliadas</h4>
+              <ul class="list-disc pl-5 text-green-700 space-y-1 text-sm">
+                <li>TVT retropúbico (TVT-RP)</li>
+                <li>TVT transobturador (TVT-O)</li>
+                <li>Fita transobturadora (TOT)</li>
+                <li>Sling de incisão única (SIS)</li>
+                <li>Colpossuspensão de Burch</li>
+                <li>Sling pubovaginal (PVS)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="article-section">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Resultados Principais</h2>
+          <div class="key-point">
+            <h3 class="text-xl font-bold text-white mb-3">Síntese das Evidências</h3>
+            <p class="text-white mb-3">
+              Diferentes técnicas cirúrgicas apresentam perfis distintos de eficácia e segurança em longo prazo, permitindo seleção personalizada baseada nas características de cada paciente.
+            </p>
+          </div>
+
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Eficácia em Longo Prazo</h3>
+          <div class="overflow-x-auto mb-6">
+            <table class="evidence-table">
+              <thead>
+                <tr>
+                  <th>Técnica Cirúrgica</th>
+                  <th>Sucesso Objetivo (SUCRA)</th>
+                  <th>Sucesso Subjetivo (SUCRA)</th>
+                  <th>Classificação Geral</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Sling Pubovaginal (PVS)</strong></td><td>93,1</td><td>80,1</td><td>Excelente</td></tr>
+                <tr><td><strong>TVT Retropúbico (TVT-RP)</strong></td><td>53,6</td><td>75,6</td><td>Muito Bom</td></tr>
+                <tr><td><strong>TVT Transobturador (TVT-O)</strong></td><td>56,8</td><td>73,8</td><td>Muito Bom</td></tr>
+                <tr><td><strong>Fita Transobturadora (TOT)</strong></td><td>60,1</td><td>29,0</td><td>Bom</td></tr>
+                <tr><td><strong>Colpossuspensão de Burch</strong></td><td>25,1</td><td>32,8</td><td>Regular</td></tr>
+                <tr><td><strong>Sling Incisão Única (SIS)</strong></td><td>13,1</td><td>8,7</td><td>Limitado</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+            <h4 class="font-semibold text-yellow-800 mb-2">📈 Achados Significativos:</h4>
+            <ul class="list-disc pl-5 text-yellow-700 space-y-2">
+              <li>TVT-RP demonstrou superioridade sobre TOT e SIS em sucesso subjetivo</li>
+              <li>PVS apresentou melhor desempenho em sucesso objetivo</li>
+              <li>SIS teve menor taxa de complicações, mas eficácia limitada</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="article-section">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Discussão e Implicações Clínicas</h2>
+          <div class="bg-green-50 p-4 rounded-lg mb-4">
+            <h4 class="font-semibold text-green-800 mb-2">💡 Recomendações Práticas:</h4>
+            <ul class="list-disc pl-5 text-green-700 space-y-2">
+              <li><strong>TVT-RP e TVT-O</strong> como primeira escolha para pacientes que optam por slings sintéticos</li>
+              <li><strong>PVS autólogo</strong> para pacientes que preferem slings não sintéticos</li>
+              <li><strong>SIS</strong> pode ser considerado quando a minimização de complicações é prioridade</li>
+              <li>Discussão compartilhada com a paciente sobre riscos, benefícios e preferências pessoais</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="article-section">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Conclusão</h2>
+          <p class="text-gray-700 mb-4 leading-relaxed">
+            TVT-RP, TVT-O e PVS emergem como as opções com melhor relação eficácia-segurança. A escolha deve considerar preferências da paciente, experiência do cirurgião e características clínicas individuais.
+          </p>
+        </section>
+
+        <section class="article-section">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Referências Bibliográficas</h2>
+          <ol class="reference-list text-gray-700">
+            <li>Chen Y, et al. Long-term outcomes of surgical interventions for stress urinary incontinence: a systematic review and network meta-analysis. <em>Int J Surg</em>. 2024;110:520-528.</li>
+            <li>Fusco F, et al. Updated Systematic Review and Meta-analysis on Colposuspensions, Pubovaginal Slings, and Midurethral Tapes. <em>Eur Urol</em>. 2017;72:567-591.</li>
+            <li>Nambiar AK, et al. EAU Guidelines on Female Non-neurogenic Lower Urinary Tract Symptoms. <em>Eur Urol</em>. 2022;82:49-59.</li>
+            <li>Ford AA, et al. Retropubic or transobturator mid-urethral slings for intrinsic sphincter deficiency. <em>Int Urogynecol J</em>. 2016;27:19-28.</li>
+            <li>Albo ME, et al. Burch colposuspension versus fascial sling to reduce urinary stress incontinence. <em>N Engl J Med</em>. 2007;356:2143-2155.</li>
+          </ol>
+        </section>
+
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-8 rounded-lg">
+          <p class="text-blue-700">
+            <strong>Nota Importante:</strong> Este resumo foi elaborado pela Dra. Ana Paula de Oliveira Pinto com base no artigo original de Chen et al. (2024) e destina-se exclusivamente a fins educacionais e de atualização profissional.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-6 border-t text-center text-sm text-gray-500">
+        <p>© Uroginecologia Em Dia - uroginecologiaemdia.com.br</p>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8">
+      <a href="/artigos" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-colors w-full sm:w-auto text-center">
+        <i data-feather="arrow-left" class="w-4 h-4 inline mr-2"></i>
+        Voltar para Artigos Resumidos
+      </a>
+      <button onclick="downloadPDF()" class="bg-blue-800 hover:bg-blue-900 text-white py-3 px-6 rounded-lg font-medium transition-colors w-full sm:w-auto text-center">
+        <i data-feather="download" class="w-4 h-4 inline mr-2"></i>
+        Baixar PDF
+      </button>
+    </div>
+  </main>
+
+  <fragment slot="scripts">
+    <script is:inline src="/assets/js/pdf-generator.min.js"></script>
+  </fragment>
+</BaseLayout>
