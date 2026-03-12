@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../../layouts/Base.astro';
+---
+
+<BaseLayout title="Protocolo de Incontinência Urinária de Esforço" description="Protocolo de Incontinência Urinária de Esforço baseado em diretrizes internacionais.">
+  <fragment slot="head">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" is:inline defer></script>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof mermaid !== 'undefined') {
+          mermaid.initialize({ startOnLoad: true, theme: 'default', securityLevel: 'loose' });
+        }
+      });
+    </script>
+  </fragment>
+
+  <main id="main-content" class="container mx-auto px-4 py-8">
+    <nav class="mb-6 text-sm">
+      <a href="/" class="text-uro-azul hover:text-uro-azul_escuro">Página Inicial</a> &gt;
+      <a href="/protocolos" class="text-uro-azul hover:text-uro-azul_escuro">Protocolos</a> &gt;
+      <span class="text-gray-600">Incontinência Urinária de Esforço</span>
+    </nav>
+
+    <div id="conteudo-pdf" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+      <div class="mb-8 pb-6 border-b-2 border-uro-azul">
+        <h1 class="text-2xl md:text-4xl font-bold text-uro-azul_escuro mb-4">
+          Protocolo de Incontinência Urinária de Esforço
+        </h1>
+        <div class="text-sm text-gray-600 space-y-1">
+          <p><strong>Elaborado por:</strong> Dra. Ana Paula de Oliveira Pinto</p>
+          <p><strong>Atualizado em:</strong> Janeiro de 2025</p>
+          <p><strong>Fonte:</strong> Diretrizes Internacionais</p>
+        </div>
+      </div>
+
+      <div class="prose prose-blue max-w-none">
+        <section class="protocol-section">
+          <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Introdução e Definição</h2>
+          <p class="text-gray-700 mb-4">
+            A <strong>Incontinência Urinária de Esforço (IUE)</strong> constitui a manifestação mais prevalente de perda urinária involuntária na população feminina, caracterizando-se pela ocorrência de escape urinário durante atividades que determinam elevação da pressão intra-abdominal.
+          </p>
+          <div class="bg-blue-50 p-4 rounded-lg">
+            <p class="text-blue-800 font-semibold mb-2">📊 Dados Epidemiológicos:</p>
+            <ul class="list-disc pl-5 text-blue-700 space-y-1">
+              <li>10-15% das mulheres antes da terceira década</li>
+              <li>≈30% na sexta década de vida</li>
+              <li>Até 40% entre a oitava e nona décadas</li>
+              <li>1 em cada 3 mulheres acima de 45 anos (dados norte-americanos)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="protocol-section">
+          <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Bases Fisiopatológicas</h2>
+          <div class="pathophysiology-grid">
+            <div class="theory-card">
+              <h3 class="text-xl font-semibold text-uro-azul_escuro mb-2">Teoria da Equalização Pressórica</h3>
+              <p class="text-gray-700">Baseia-se no princípio de que a localização intra-abdominal do colo vesical é crucial para a continência.</p>
+            </div>
+            <div class="theory-card">
+              <h3 class="text-xl font-semibold text-uro-azul_escuro mb-2">Deficiência Esfincteriana Intrínseca</h3>
+              <p class="text-gray-700">Envolve o comprometimento das estruturas uretrais responsáveis pelo fechamento luminal.</p>
+            </div>
+            <div class="theory-card">
+              <h3 class="text-xl font-semibold text-uro-azul_escuro mb-2">Teoria Integral</h3>
+              <p class="text-gray-700">Propõe que a continência depende do equilíbrio entre forças de tração anterior sobre a uretra e posterior sobre a bexiga.</p>
+            </div>
+            <div class="theory-card">
+              <h3 class="text-xl font-semibold text-uro-azul_escuro mb-2">Teoria do Sistema em Rede</h3>
+              <p class="text-gray-700">Descreve a uretra sustentada por estrutura composta pela fáscia endopélvica e parede vaginal anterior.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="protocol-section">
+          <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Abordagem Diagnóstica</h2>
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold text-uro-azul mb-3">Avaliação Clínica Inicial</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-uro-azul_escuro mb-2">Anamnese Direcionada</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>Caracterização temporal dos episódios</li>
+                  <li>Fatores agravantes e atenuantes</li>
+                  <li>Histórico de tratamentos prévios</li>
+                  <li>Impacto na qualidade de vida</li>
+                </ul>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-semibold text-uro-azul_escuro mb-2">Exame Físico Especializado</h4>
+                <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                  <li>Teste de esforço em diferentes posições</li>
+                  <li>Pesquisa de incontinência oculta</li>
+                  <li>Avaliação de prolapsos associados</li>
+                  <li>Exame neurológico básico</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold text-uro-azul mb-3">Fluxograma Diagnóstico-Terapêutico</h3>
+            <div class="flowchart-container">
+              <div class="mermaid">
+                flowchart TD
+                  A[Paciente com IUE Suspeita] --> B[Anamnese + Exame Físico<br>+ Sedimento Urinário]
+                  B --> C{Diagnóstico Confirmado?}
+                  C -->|Sim| D[Iniciar Tratamento Conservador<br>Fisioterapia Pélvica]
+                  C -->|Não| E[Investigação Complementar<br>Pad-test/Estudo Urodinâmico]
+                  E --> F{IUE Confirmada?}
+                  F -->|Sim| D
+                  F -->|Não| G[Diagnóstico Diferencial]
+                  D --> H{Resposta Satisfatória?}
+                  H -->|Sim| I[Manutenção do Tratamento]
+                  H -->|Não| J[Abordagem Cirúrgica<br>Sling de Uretra Média]
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold text-uro-azul mb-3">Exames Complementares</h3>
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <p class="font-semibold text-uro-azul_escuro mb-2">Avaliação Laboratorial:</p>
+                  <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>Sedimento urinário e urocultura</li>
+                    <li>Resíduo pós-miccional</li>
+                    <li>Teste do absorvente (pad-test)</li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="font-semibold text-uro-azul_escuro mb-2">Avaliação Funcional:</p>
+                  <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>Estudo urodinâmico completo</li>
+                    <li>Avaliação da mobilidade uretral</li>
+                    <li>Ultrassonografia pélvica</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="protocol-section">
+          <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Tratamento Conservador</h2>
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold text-uro-azul mb-3">Fisioterapia Pélvica Especializada</h3>
+            <div class="bg-green-50 p-4 rounded-lg">
+              <p class="text-green-800 font-semibold mb-2">Treinamento Muscular do Assoalho Pélvico (TMAP):</p>
+              <ul class="list-disc pl-5 text-green-700 space-y-2">
+                <li><strong>Eficácia:</strong> Melhora em ≈74% das mulheres</li>
+                <li><strong>Protocolo:</strong> Sessões supervisionadas com melhor resultado</li>
+                <li><strong>Duração:</strong> Programas de 12-16 semanas usualmente</li>
+                <li><strong>Adjuvantes:</strong> Biofeedback pode potencializar resultados</li>
+              </ul>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-yellow-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-yellow-800 mb-2">Intervenções Comportamentais</h4>
+              <ul class="list-disc pl-5 text-yellow-700 text-sm space-y-1">
+                <li>Controle ponderal</li>
+                <li>Manejo de comorbidades</li>
+                <li>Adequação de hábitos</li>
+              </ul>
+            </div>
+            <div class="bg-purple-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-purple-800 mb-2">Pessários Vaginais</h4>
+              <ul class="list-disc pl-5 text-purple-700 text-sm space-y-1">
+                <li>Melhora em ≈40% dos casos</li>
+                <li>Suporte mecânico</li>
+                <li>Alternativa não cirúrgica</li>
+              </ul>
+            </div>
+            <div class="bg-pink-50 p-4 rounded-lg">
+              <h4 class="font-semibold text-pink-800 mb-2">Estrogênios Tópicos</h4>
+              <ul class="list-disc pl-5 text-pink-700 text-sm space-y-1">
+                <li>Benéficos na pós-menopausa</li>
+                <li>Sintomas urogenitais associados</li>
+                <li>Não como tratamento isolado</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="protocol-section">
+          <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Abordagem Cirúrgica</h2>
+          <div class="overflow-x-auto">
+            <table class="recommendation-table">
+              <thead>
+                <tr>
+                  <th>Técnica</th>
+                  <th>Taxa de Cura</th>
+                  <th>Complicações Principais</th>
+                  <th>Indicações Preferenciais</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Sling Retropúbico</strong></td><td>90% (17 anos)</td><td>Perfuração vesical, retenção urinária</td><td>Casos graves, recidivados</td></tr>
+                <tr><td><strong>Sling Transobturador</strong></td><td>90% (36 meses)</td><td>Dor em coxa, urgência miccional</td><td>Primeira escolha geral</td></tr>
+                <tr><td><strong>Mini-slings</strong></td><td>Evidências limitadas</td><td>Dados insuficientes</td><td>Casos selecionados</td></tr>
+                <tr><td><strong>Cirurgia de Burch</strong></td><td>Boa eficácia</td><td>Risco em obesas</td><td>Associação com prolapso</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="protocol-section">
+          <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Recomendações Baseadas em Evidências</h2>
+          <div class="overflow-x-auto">
+            <table class="recommendation-table">
+              <thead>
+                <tr><th>Recomendação</th><th>Grau</th><th>Fundamentação</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Diagnóstico baseado em anamnese e exame físico</td><td><span class="grade-A px-2 py-1 rounded-full">A</span></td><td>Evidências robustas de acurácia diagnóstica</td></tr>
+                <tr><td>TMAP como primeira linha terapêutica</td><td><span class="grade-A px-2 py-1 rounded-full">A</span></td><td>Eficácia demonstrada em múltiplos estudos</td></tr>
+                <tr><td>Slings de uretra média como primeira escolha cirúrgica</td><td><span class="grade-A px-2 py-1 rounded-full">A</span></td><td>Altas taxas de cura e seguimento de longo prazo</td></tr>
+                <tr><td>Estrogênio tópico não como tratamento isolado</td><td><span class="grade-A px-2 py-1 rounded-full">A</span></td><td>Evidências de benefício limitado para IUE isolada</td></tr>
+                <tr><td>Estudo urodinâmico pré-cirúrgico em situações específicas</td><td><span class="grade-C px-2 py-1 rounded-full">C</span></td><td>Consenso de especialistas, evidências limitadas</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="protocol-section">
+          <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Referências</h2>
+          <ol class="list-decimal pl-5 text-gray-700 space-y-2 text-sm">
+            <li><strong>FEBRASGO.</strong> Diretrizes para Diagnóstico e Tratamento da Incontinência Urinária de Esforço. São Paulo: FEBRASGO, 2024.</li>
+            <li>Abrams P, et al. The standardisation of terminology of lower urinary tract function. <em>Neurourol Urodyn</em>. 2002.</li>
+            <li>Haylen BT, et al. IUGA/ICS joint report on the terminology for female pelvic floor dysfunction. <em>Int Urogynecol J</em>. 2010.</li>
+            <li>Dumoulin C, et al. Pelvic floor muscle training versus no treatment for urinary incontinence in women. <em>Cochrane Database Syst Rev</em>. 2018.</li>
+            <li>Ford AA, et al. Mid-urethral sling operations for stress urinary incontinence in women. <em>Cochrane Database Syst Rev</em>. 2017.</li>
+          </ol>
+        </section>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-8">
+          <p class="text-yellow-700">
+            <strong>Nota Importante:</strong> Este protocolo representa uma síntese baseada em evidências científicas atuais e deve ser adaptado ao contexto clínico individual.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-6 border-t text-center text-sm text-gray-500">
+        <p>© Uroginecologia Em Dia - uroginecologiaemdia.com.br</p>
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto mt-6 flex gap-4 justify-center no-print">
+      <button onclick="downloadPDF()" class="bg-uro-azul hover:bg-uro-azul_escuro text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors shadow-md hover:shadow-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        <span id="btnText">Baixar PDF</span>
+      </button>
+      <a href="/protocolos" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-lg flex items-center gap-2 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Voltar
+      </a>
+    </div>
+  </main>
+
+  <fragment slot="scripts">
+    <script is:inline src="/assets/js/pdf-generator.min.js"></script>
+  </fragment>
+</BaseLayout>

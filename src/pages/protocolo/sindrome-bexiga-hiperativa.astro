@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../layouts/Base.astro';
+---
+
+<BaseLayout title="Protocolo de Síndrome da Bexiga Hiperativa" description="Protocolo de Manejo da Síndrome da Bexiga Hiperativa em Mulheres baseado nas diretrizes da FEBRASGO.">
+  <fragment slot="head">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" is:inline defer></script>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof mermaid !== 'undefined') {
+          mermaid.initialize({ startOnLoad: true, theme: 'default', securityLevel: 'loose' });
+        }
+      });
+    </script>
+  </fragment>
+
+  <main id="main-content" class="container mx-auto px-4 py-8">
+    <nav class="mb-6 text-sm">
+      <a href="/" class="text-uro-azul hover:text-uro-azul_escuro">Página Inicial</a> &gt;
+      <a href="/protocolos" class="text-uro-azul hover:text-uro-azul_escuro">Protocolos</a> &gt;
+      <span class="text-gray-600">Protocolo de Bexiga Hiperativa</span>
+    </nav>
+
+    <div id="conteudo-pdf" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+      <div class="mb-8 pb-6 border-b-2 border-uro-azul">
+        <h1 class="text-2xl md:text-4xl font-bold text-uro-azul_escuro mb-4">
+          Protocolo de Síndrome da Bexiga Hiperativa
+        </h1>
+        <div class="text-sm text-gray-600 space-y-1">
+          <p><strong>Elaborado por:</strong> Dra. Ana Paula de Oliveira Pinto</p>
+          <p><strong>Atualizado em:</strong> Janeiro de 2025</p>
+          <p><strong>Fonte:</strong> Diretrizes Internacionais e FEBRASGO</p>
+        </div>
+      </div>
+
+      <div class="prose prose-blue max-w-none">
+        <section class="protocol-section">
+          <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Introdução</h2>
+          <p class="text-gray-700 mb-4">
+            A <strong>Síndrome da Bexiga Hiperativa (BH)</strong> é caracterizada pela urgência miccional — desejo súbito, não adiável e imperioso de urinar — geralmente acompanhada de aumento da frequência urinária e noctúria, na ausência de infecção ou outras patologias.
+          </p>
+          <p class="text-gray-700 mb-4">
+            A incontinência urinária de urgência está presente em cerca de um terço a metade das pacientes, caracterizando a <strong>BH molhada</strong>. Quando não há perda urinária, denomina-se <strong>BH seca</strong>.
+          </p>
+          <p class="text-gray-700">
+            Estudos brasileiros mostram que 25% das mulheres acima de 40 anos têm ou terão sintomas de BH, sendo que 80% não procuram ajuda especializada.
+          </p>
+        </section>
+
+        <section class="protocol-section">
+          <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Fisiopatologia e Fenótipos</h2>
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h3 class="text-xl font-semibold text-uro-azul mb-3">Teorias Fisiopatológicas</h3>
+                <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                  <li><strong>Miogênica:</strong> Contrações involuntárias do detrusor</li>
+                  <li><strong>Uroteliogênica:</strong> Alterações na aferência do urotélio</li>
+                  <li><strong>Uretrogênica:</strong> Ativação aferente pela presença de líquido na uretra</li>
+                  <li><strong>Supraespinhal:</strong> Inibição cortical deficiente</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-uro-azul mb-3">Cofatores Associados</h3>
+                <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                  <li>Síndrome metabólica</li>
+                  <li>Desordens afetivas (ansiedade/depressão)</li>
+                  <li>Deficiência de esteroides sexuais</li>
+                  <li>Alterações no microbioma vesical</li>
+                  <li>Disfunção do sistema nervoso autônomo</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="protocol-section">
+          <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Diagnóstico</h2>
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold text-uro-azul mb-3">Avaliação Clínica</h3>
+            <ul class="list-disc pl-5 text-gray-700 space-y-2">
+              <li><strong>Anamnese detalhada:</strong> Sintomas de urgência miccional (obrigatório), frequência, noctúria, urgeincontinência</li>
+              <li><strong>Histórico:</strong> Doenças neurológicas, cirurgias prévias, medicamentos em uso</li>
+              <li><strong>Exame físico:</strong> Avaliação neurológica do assoalho pélvico, distopias urogenitais, atrofia vaginal</li>
+              <li><strong>Diário miccional:</strong> 1 a 3 dias — ferramenta fundamental para diagnóstico e acompanhamento</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-uro-azul mb-3">Investigação Complementar</h3>
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <p class="font-semibold text-uro-azul_escuro mb-2">Exames obrigatórios:</p>
+              <ul class="list-disc pl-5 text-gray-700 mb-3">
+                <li>Urina tipo 1 e urocultura (para excluir infecção)</li>
+              </ul>
+              <p class="font-semibold text-uro-azul_escuro mb-2">Estudo urodinâmico (NÃO de rotina):</p>
+              <ul class="list-disc pl-5 text-gray-700">
+                <li>Sintomas mistos com dúvida diagnóstica</li>
+                <li>Casos neurogênicos</li>
+                <li>Pacientes refratárias ao tratamento convencional</li>
+                <li>BH após correção cirúrgica de IUE</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="protocol-section">
+          <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Tratamento</h2>
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold text-uro-azul mb-3">1. Tratamento Comportamental e Fisioterapêutico</h3>
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <p class="font-semibold text-uro-azul_escuro mb-2">Primeira linha de tratamento:</p>
+              <ul class="list-disc pl-5 text-gray-700 mb-3">
+                <li><strong>Orientações gerais:</strong> Ingesta hídrica adequada (1-2L/dia)</li>
+                <li><strong>Modificações dietéticas:</strong> Redução de cafeína, bebidas gaseificadas, frutas cítricas, álcool</li>
+                <li><strong>Treinamento vesical:</strong> Aumento gradual do intervalo entre micções (atingir 2-4 horas)</li>
+                <li><strong>Exercícios perineais:</strong> Ensino de contração da musculatura do assoalho pélvico</li>
+                <li><strong>Eletroestimulação:</strong> Eficácia variável, incluindo estimulação do nervo tibial posterior</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold text-uro-azul mb-3">2. Tratamento Farmacológico</h3>
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <p class="font-semibold text-uro-azul_escuro mb-2">Anticolinérgicos (Grau A):</p>
+              <ul class="list-disc pl-5 text-gray-700 mb-3">
+                <li>Oxibutinina, Tolterodina, Darifenacina, Solifenacina, Cloreto de tróspio</li>
+                <li>Cuidado especial em idosos (risco cognitivo)</li>
+              </ul>
+              <p class="font-semibold text-uro-azul_escuro mb-2">Agonistas β3-adrenérgicos:</p>
+              <ul class="list-disc pl-5 text-gray-700 mb-3">
+                <li>Mirabegrona 50 mg/dia</li>
+                <li>Eficácia similar aos anticolinérgicos com menos boca seca</li>
+              </ul>
+              <p class="font-semibold text-uro-azul_escuro mb-2">Estrogênios vaginais:</p>
+              <ul class="list-disc pl-5 text-gray-700">
+                <li>Melhora significativa dos sintomas na pós-menopausa</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold text-uro-azul mb-3">3. Terapias de Terceira Linha</h3>
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <p class="font-semibold text-uro-azul_escuro mb-2">Toxina botulínica A (Grau A):</p>
+              <ul class="list-disc pl-5 text-gray-700 mb-3">
+                <li>Indicada para casos refratários (falha de ≥2 esquemas farmacológicos)</li>
+                <li>Duração: 6-9 meses (necessidade de reinjeções)</li>
+              </ul>
+              <p class="font-semibold text-uro-azul_escuro mb-2">Neuromodulação sacral:</p>
+              <ul class="list-disc pl-5 text-gray-700">
+                <li>Implante de eletrodos na raiz nervosa S3</li>
+                <li>Reservado para casos graves refratários</li>
+                <li>Taxas de sucesso: 60-75%</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="protocol-section">
+          <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Fluxograma de Conduta</h2>
+          <div class="flowchart-container">
+            <div class="mermaid">
+              flowchart TD
+                A[Paciente com sintomas de BH] --> B{Avaliação inicial<br>e diário miccional}
+                B --> C[Excluir infecção urinária]
+                C --> D[Tratamento comportamental<br>e fisioterapêutico]
+                D --> E{Melhora adequada?}
+                E -->|Sim| F[Manutenção]
+                E -->|Não| G[+ Tratamento farmacológico<br>Anticolinérgico ou β3-agonista]
+                G --> H{Resposta satisfatória?}
+                H -->|Sim| I[Manutenção por ≥6 meses]
+                H -->|Não| J[Terapia combinada<br>ou troca de classe]
+                J --> K{Controle adequado?}
+                K -->|Sim| L[Manutenção]
+                K -->|Não| M[Terapias de 3ª linha<br>Toxina botulínica ou neuromodulação]
+            </div>
+          </div>
+        </section>
+
+        <section class="protocol-section">
+          <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Medicamentos Disponíveis no Brasil</h2>
+          <div class="overflow-x-auto">
+            <table class="recommendation-table">
+              <thead>
+                <tr><th>Medicamento</th><th>Apresentação</th><th>Dose Diária</th><th>Posologia</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Oxibutinina</td><td>5 mg</td><td>5-20 mg</td><td>1-4 comprimidos/dia</td></tr>
+                <tr><td>Tolterodina</td><td>4 mg</td><td>4 mg</td><td>1 comprimido/dia</td></tr>
+                <tr><td>Darifenacina</td><td>7,5 mg / 15 mg</td><td>7,5-15 mg</td><td>1 comprimido/dia</td></tr>
+                <tr><td>Solifenacina</td><td>5 mg / 10 mg</td><td>5-10 mg</td><td>1 comprimido/dia</td></tr>
+                <tr><td>Cloreto de tróspio</td><td>30 mg</td><td>30-45 mg</td><td>1 comp pela manhã + ½ à noite</td></tr>
+                <tr><td>Mirabegrona</td><td>50 mg</td><td>50 mg</td><td>1 comprimido/dia</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="protocol-section">
+          <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Recomendações Finais</h2>
+          <div class="overflow-x-auto">
+            <table class="recommendation-table">
+              <thead>
+                <tr><th>Conduta</th><th>Recomendação</th><th>Grau</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Diagnóstico de BH</td><td>Clínico, baseado em sintomas de urgência + frequência/noctúria</td><td><span class="grade-A px-2 py-1 rounded-full">A</span></td></tr>
+                <tr><td>Primeira linha de tratamento</td><td>Terapia comportamental e fisioterapêutica</td><td><span class="grade-A px-2 py-1 rounded-full">A</span></td></tr>
+                <tr><td>Estudo urodinâmico</td><td>Não indicado de rotina</td><td><span class="grade-A px-2 py-1 rounded-full">A</span></td></tr>
+                <tr><td>Anticolinérgicos</td><td>Segunda linha, escolha baseada no perfil de efeitos colaterais</td><td><span class="grade-A px-2 py-1 rounded-full">A</span></td></tr>
+                <tr><td>Mirabegrona</td><td>Alternativa com menos efeitos anticolinérgicos</td><td><span class="grade-A px-2 py-1 rounded-full">A</span></td></tr>
+                <tr><td>Terapia combinada</td><td>Indicada quando resposta inadequada à monoterapia</td><td><span class="grade-B px-2 py-1 rounded-full">B</span></td></tr>
+                <tr><td>Toxina botulínica</td><td>Terapia de terceira linha para casos refratários</td><td><span class="grade-A px-2 py-1 rounded-full">A</span></td></tr>
+                <tr><td>Estrogênios vaginais</td><td>Recomendados na BH associada à atrofia urogenital</td><td><span class="grade-A px-2 py-1 rounded-full">A</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="protocol-section">
+          <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Referências</h2>
+          <ol class="list-decimal pl-5 text-gray-700 space-y-2 text-sm">
+            <li><strong>FEBRASGO.</strong> Protocolo FEBRASGO nº 51: Síndrome da Bexiga Hiperativa. 3ª ed. São Paulo: FEBRASGO, 2025.</li>
+            <li>Haylen BT, et al. IUGA/ICS joint report on the terminology for female pelvic floor dysfunction. <em>Int Urogynecol J</em>. 2010.</li>
+            <li>Peyronnet B, et al. A comprehensive review of overactive bladder pathophysiology. <em>Eur Urol</em>. 2019.</li>
+            <li>Soler R, et al. The prevalence of lower urinary tract symptoms in Brazil. <em>Neurourol Urodyn</em>. 2018.</li>
+          </ol>
+        </section>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-8">
+          <p class="text-yellow-700">
+            <strong>Nota:</strong> Este protocolo é um resumo baseado nas diretrizes da FEBRASGO e deve ser adaptado ao contexto clínico individual.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-6 border-t text-center text-sm text-gray-500">
+        <p>© Uroginecologia Em Dia - uroginecologiaemdia.com.br</p>
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto mt-6 flex gap-4 justify-center no-print">
+      <button onclick="downloadPDF()" class="bg-uro-azul hover:bg-uro-azul_escuro text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors shadow-md hover:shadow-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+        </svg>
+        <span id="btnText">Baixar PDF</span>
+      </button>
+      <a href="/protocolos" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-lg flex items-center gap-2 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        Voltar
+      </a>
+    </div>
+  </main>
+
+  <fragment slot="scripts">
+    <script is:inline src="/assets/js/pdf-generator.min.js"></script>
+  </fragment>
+</BaseLayout>
