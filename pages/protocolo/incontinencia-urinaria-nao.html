@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#881337">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Google Analytics 4 -->
+    <script>
+      fetch('../../components/analytics.html')
+        .then(response => response.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll('script');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            if (script.async) newScript.async = true;
+            document.head.appendChild(newScript);
+          });
+        });
+    </script>
+
+    <title>Protocolo de Incontinência Urinária | Uroginecologia em Dia</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/redesign.css">
+
+    <!-- Preconnect para CDNs -->
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js" defer></script>
+
+    <!-- Bibliotecas para geração de PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        uro: {
+                            azul_escuro: '#1e40af',
+                            azul: '#3b82f6',
+                            azul_claro: '#60a5fa',
+                            branco: '#ffffff',
+                            cinza: '#f3f4f6',
+                            cinza_escuro: '#6b7280'
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Inicializar Mermaid
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({ 
+                startOnLoad: true,
+                theme: 'default',
+                securityLevel: 'loose'
+            });
+        });
+    </script>
+</head>
+<body >
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link sr-only focus:not-sr-only">Pular para conteúdo principal</a>
+
+    <!-- Header carregado via componente -->
+    <div id="header-component"></div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="container mx-auto px-4 py-8">
+        <!-- Breadcrumb -->
+        <nav class="mb-6 text-sm">
+            <a href="index.html" class="text-uro-azul hover:text-uro-azul_escuro">Página Inicial</a> &gt;
+            <a href="pages/protocolos.html" class="text-uro-azul hover:text-uro-azul_escuro">Protocolos</a> &gt;
+            <span class="text-gray-600">Protocolo de Incontinência Urinária</span>
+        </nav>
+
+        <!-- Conteúdo para PDF -->
+        <div id="conteudo-pdf" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <!-- Cabeçalho do documento -->
+            <div class="mb-8 pb-6 border-b-2 border-uro-azul">
+                <h1 class="text-2xl md:text-4xl font-bold text-uro-azul_escuro mb-4">
+                    Protocolo de Incontinência Urinária Não Neurogênica
+                </h1>
+                <div class="text-sm text-gray-600 space-y-1">
+                    <p><strong>Elaborado por:</strong> Dra. Ana Paula de Oliveira Pinto</p>
+                    <p><strong>Atualizado em:</strong> Janeiro de 2025</p>
+                    <p><strong>Fonte:</strong> PCDT Ministério da Saúde - Portaria Conjunta SCTIE/SAES/MS N° 1, de 09/01/2020</p>
+                </div>
+            </div>
+
+            <!-- Conteúdo Principal -->
+            <div class="prose prose-blue max-w-none">
+            <!-- Introdução -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Introdução</h2>
+                <p class="text-gray-700 mb-4">
+                    A <strong>Incontinência Urinária (IU)</strong> refere-se à perda involuntária da urina relatada por um indivíduo. As causas não neurogênicas incluem:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold text-uro-azul_escuro mb-2">Incontinência Urinária de Esforço (IUE)</h3>
+                        <p class="text-gray-700">Ocorre durante esforço físico, atividade esportiva, espirros ou tosse. Resulta de deficiência no suporte vesical e uretral pelos músculos do assoalho pélvico ou fraqueza do esfíncter uretral.</p>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold text-uro-azul_escuro mb-2">Incontinência Urinária de Urgência (IUU)</h3>
+                        <p class="text-gray-700">Caracterizada por perda urinária associada à urgência miccional. Resulta da hiperatividade do músculo detrusor devido a fatores como infecção urinária ou lesão nervosa.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Critérios -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Critérios de Inclusão e Exclusão</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold text-uro-azul_escuro mb-3">Critérios de Inclusão</h3>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>Adultos (> 18 anos) de ambos os sexos</li>
+                            <li>Diagnóstico de IUE, IUU ou IUM (mista)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold text-uro-azul_escuro mb-3">Critérios de Exclusão</h3>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li>População pediátrica (< 18 anos)</li>
+                            <li>IU de causa neurogênica</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diagnóstico IUE -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Diagnóstico - Incontinência Urinária de Esforço (IUE)</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Anamnese</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Aspectos Gerais:</h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                <li>Frequência, tipo e horário dos episódios</li>
+                                <li>Gravidade (número de perdas, uso de proteção)</li>
+                                <li>Grau de incômodo e hábitos miccionais</li>
+                                <li>Comorbidades e medicamentos em uso</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Aspectos Específicos por Sexo:</h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                <li><strong>Mulheres:</strong> Ingestão hídrica, cirurgias pélvicas, partos, complicações ginecológicas</li>
+                                <li><strong>Homens:</strong> Cirurgia prostática, câncer, radioterapia, história familiar</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Exame Físico</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Mulheres:</h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                <li>Avaliação neurológica (mobilidade, cognição, força pélvica)</li>
+                                <li>Exame abdominal e IMC</li>
+                                <li>Avaliação de prolapso e atrofia vaginal</li>
+                                <li>Observação de perdas com manobras de esforço</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Homens:</h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                <li>Presença de distensão vesical</li>
+                                <li>Tônus do esfíncter anal e reflexo bulbocavermoso</li>
+                                <li>Observação de perda com bexiga cheia e aumento da pressão intra-abdominal</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Diário Miccional</h3>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="text-gray-700">Método simples e útil que avalia rotina urinária e perdas. Deve ser realizado entre <strong>2 a 7 dias</strong>. Monitora a resposta e eficácia do tratamento, além de exercer papel terapêutico ao fornecer ao paciente uma visão do comportamento da bexiga.</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Exames Complementares</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Exames Básicos:</h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                <li>Exame de urina (caracteres físicos, elementos e sedimentos)</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold text-gray-700 mt-4 mb-2">Mulheres (conforme indicação):</h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                <li>USG de trato urinário</li>
+                                <li>Cistoscopia</li>
+                                <li>Uretrocistografia</li>
+                                <li>Estudo urodinâmico</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Homens (conforme indicação):</h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                <li>Urocultura (pré-cirúrgico)</li>
+                                <li>Creatinina e PSA</li>
+                                <li>Estudo urodinâmico (pós-prostatectomia)</li>
+                                <li>Uretrocistografia retrógrada e miccional</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diagnóstico IUU -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Diagnóstico - Incontinência Urinária de Urgência (IUU)</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Anamnese</h3>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>Urgência miccional</strong> - desejo súbito e inadiável de urinar</li>
+                        <li><strong>Frequência aumentada</strong> - mais de 8 micções diárias</li>
+                        <li><strong>Noctúria</strong> - com ou sem incontinência de urgência associada</li>
+                    </ul>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Exame Físico</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Mulheres:</h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                <li>Exame da região pélvica</li>
+                                <li>Exame neurológico sumário (marcha, sensibilidade perineal)</li>
+                                <li>Exame ginecológico (atrofia urogenital, prolapso)</li>
+                                <li>Teste de esforço em posição ortostática</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Homens:</h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                <li>Toque retal para avaliação prostática</li>
+                                <li>Avaliação das condições do assoalho pélvico</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Exames Complementares</h3>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="font-semibold text-uro-azul_escuro mb-2">Exames Básicos:</p>
+                        <ul class="list-disc pl-5 text-gray-700 mb-3">
+                            <li>Exame de urina, urocultura e antibiograma</li>
+                            <li>Creatinina e glicose</li>
+                        </ul>
+                        
+                        <p class="font-semibold text-uro-azul_escuro mb-2">Estudo Urodinâmico (quando indicado):</p>
+                        <ul class="list-disc pl-5 text-gray-700">
+                            <li>Sintomas não explicados apenas por hiperatividade primária</li>
+                            <li>Falha do tratamento inicial</li>
+                            <li>Resíduo pós-miccional significativo</li>
+                            <li>Cirurgias prévias do trato urinário inferior</li>
+                            <li>Suspeita de doenças neurológicas</li>
+                            <li>Sintomas dolorosos sugerindo cistite intersticial</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tratamento -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Tratamento</h2>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Conduta Conservadora - Primeira Escolha</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold text-uro-azul_escuro mb-2">Incontinência Urinária de Esforço (IUE)</h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                <li>Mudanças de estilo de vida (dieta, atividade física)</li>
+                                <li>Adequação da ingestão de líquidos</li>
+                                <li>Cessação do tabagismo e cafeína</li>
+                                <li>Tratamento da constipação</li>
+                                <li><strong>Treinamento dos músculos do assoalho pélvico (TMAP)</strong></li>
+                                <li>Biofeedback como primeira escolha nos primeiros 12 meses</li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold text-uro-azul_escuro mb-2">Incontinência Urinária de Urgência (IUU)</h4>
+                            <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                                <li>Condutas equivalentes ao tratamento da IUE</li>
+                                <li>Biofeedback e estimulação elétrica</li>
+                                <li>Medicações anticolinérgicas ou β3-agonistas quando indicado</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-yellow-50 p-4 rounded-lg">
+                    <p class="text-yellow-700 font-semibold">Importante: O tratamento deve ser realizado considerando o tipo específico de incontinência urinária (IUE, IUU ou mista).</p>
+                </div>
+            </section>
+
+            <!-- Fluxograma -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Fluxograma de Conduta</h2>
+                <div class="flowchart-container">
+                    <div class="mermaid">
+                        flowchart TD
+                            A[Paciente com queixa de IU] --> B{Avaliação inicial<br>e diário miccional}
+                            B --> C[Excluir infecção urinária<br>e causas neurogênicas]
+                            C --> D{Definir tipo de IU}
+                            D --> E[IUE - Esforço]
+                            D --> F[IUU - Urgência]
+                            D --> G[IUM - Mista]
+                            
+                            E --> H[Tratamento conservador:<br>TMAP, biofeedback,<br>mudanças comportamentais]
+                            F --> I[Tratamento conservador:<br>TMAP, biofeedback,<br>estimulação elétrica]
+                            G --> J[Tratar componente<br>predominante + medidas gerais]
+                            
+                            H --> K{Resposta em 3 meses?}
+                            I --> L{Resposta em 3 meses?}
+                            J --> M{Resposta em 3 meses?}
+                            
+                            K -->|Sim| N[Manutenção e acompanhamento]
+                            K -->|Não| O[Avaliar cirurgia ou outras opções]
+                            
+                            L -->|Sim| P[Manutenção e acompanhamento]
+                            L -->|Não| Q[+ Medicação ou outras terapias]
+                            
+                            M -->|Sim| R[Manutenção e acompanhamento]
+                            M -->|Não| S[Reavaliação diagnóstica<br>e tratamento combinado]
+                    </div>
+                </div>
+            </section>
+
+            <!-- Monitoramento -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Monitoramento</h2>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li><strong>Avaliação pós-tratamento conservador:</strong> Pelo menos uma avaliação após conclusão das medidas fisioterápicas básicas (tempo mínimo de 3 meses)</li>
+                        <li><strong>Avaliações periódicas:</strong> Seguimento regular conforme critério do médico assistente</li>
+                        <li><strong>Reavaliação:</strong> Necessária quando há falha na resposta ao tratamento inicial ou surgimento de novos sintomas</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- CID-10 -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Classificação CID-10</h2>
+                <div class="overflow-x-auto">
+                    <table class="recommendation-table">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Descrição</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>R32</strong></td>
+                                <td>Incontinência urinária não especificada</td>
+                            </tr>
+                            <tr>
+                                <td><strong>N39.3</strong></td>
+                                <td>Incontinência de tensão ("stress")</td>
+                            </tr>
+                            <tr>
+                                <td><strong>N39.4</strong></td>
+                                <td>Outras incontinências urinárias especificadas</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Referências -->
+            <section class="protocol-section">
+                <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Referências</h2>
+                <ol class="list-decimal pl-5 text-gray-700 space-y-2 text-sm">
+                    <li>Brasil. Ministério da Saúde. Portaria Conjunta SCTIE/SAES/MS N° 1, de 09 de Janeiro de 2020. Protocolo Clínico e Diretrizes Terapêuticas da Incontinência Urinária Não Neurogênica.</li>
+                    <li><strong>FEBRASGO - Federação Brasileira das Associações de Ginecologia e Obstetrícia.</strong> Diretrizes para Diagnóstico e Tratamento da Incontinência Urinária. São Paulo: FEBRASGO, 2024.</li>
+                    <li>Haylen BT, et al. An International Urogynecological Association (IUGA)/International Continence Society (ICS) joint report on the terminology for female pelvic floor dysfunction. <em>Int Urogynecol J</em>. 2010.</li>
+                    <li>Abrams P, et al. The standardisation of terminology of lower urinary tract function: report from the Standardisation Sub-committee of the International Continence Society. <em>Neurourol Urodyn</em>. 2002.</li>
+                </ol>
+            </section>
+
+            <!-- Nota Final -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-8">
+                <p class="text-yellow-700">
+                    <strong>Nota:</strong> Este protocolo é um resumo baseado no PCDT do Ministério da Saúde e deve ser adaptado ao contexto clínico individual. A versão completa corresponde à Portaria Conjunta nº 01 de 09 de janeiro de 2020.
+                </p>
+            </div>
+            </section>
+        </div><!-- Fim do prose -->
+
+        <!-- Rodapé do PDF -->
+        <div class="mt-8 pt-6 border-t text-center text-sm text-gray-500">
+            <p>© Uroginecologia Em Dia - uroginecologiaemdia.com.br</p>
+        </div>
+        </div><!-- Fim do conteudo-pdf -->
+
+        <!-- Botões de Ação -->
+        <div class="max-w-4xl mx-auto mt-6 flex gap-4 justify-center no-print">
+            <button onclick="downloadPDF()" class="bg-uro-azul hover:bg-uro-azul_escuro text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors shadow-md hover:shadow-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                <span id="btnText">Baixar PDF</span>
+            </button>
+
+            <a href="/pages/protocolos.html" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-lg flex items-center gap-2 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                Voltar
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer carregado via componente -->
+    <div id="footer-component"></div>
+
+    <!-- PDF Generator -->
+    <script src="../../assets/js/pdf-generator.min.js"></script>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile Menu Functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                document.querySelector('#mobileMenu > div:last-child').classList.remove('-translate-x-full');
+            }, 10);
+        }
+
+        function closeMobileMenuFunc() {
+            document.querySelector('#mobileMenu > div:last-child').classList.add('-translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+        }
+        if (closeMobileMenu) {
+            closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        }
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+        }
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenuFunc);
+        });
+
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                alert(`Buscando por: ${searchTerm}`);
+            }
+        }
+        
+        if (searchButton) {
+            searchButton.addEventListener('click', performSearch);
+        }
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        }
+
+
+        // Garantir que o menu comece fechado
+        document.addEventListener('DOMContentLoaded', function() {
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+    <!-- Scripts -->
+    <script src="../assets/js/constants.min.js"></script>
+    <script src="../assets/js/utils.min.js"></script>
+    <script src="../assets/js/main.min.js"></script>
+    <script src="../assets/js/common.min.js"></script>
+</body>
+</html>

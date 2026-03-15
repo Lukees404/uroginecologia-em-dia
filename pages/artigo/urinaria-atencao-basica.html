@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#881337">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Google Analytics 4 -->
+    <script>
+      fetch('../../components/analytics.html')
+        .then(response => response.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll('script');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            if (script.async) newScript.async = true;
+            document.head.appendChild(newScript);
+          });
+        });
+    </script>
+
+    <title>Cuidados de Enfermagem na Incontinência Urinária | Uroginecologia em Dia</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/redesign.css">
+
+    <!-- Preconnect para CDNs -->
+
+
+    <!-- Bibliotecas para geração de PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link sr-only focus:not-sr-only">Pular para conteúdo principal</a>
+
+    <!-- Header carregado via componente -->
+    <div id="header-component"></div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Breadcrumb -->
+        <nav class="mb-6 text-sm text-gray-600">
+            <a href="index.html" class="text-blue-600 hover:text-blue-800 transition-colors">Página Inicial</a> &gt;
+            <a href="pages/artigos.html" class="text-blue-600 hover:text-blue-800 transition-colors">Artigos Resumidos</a> &gt;
+            <span class="text-gray-800 font-medium">Cuidados de Enfermagem na Incontinência Urinária</span>
+        </nav>
+
+        <!-- Conteúdo para PDF -->
+        <div id="conteudo-pdf" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <!-- Cabeçalho do documento -->
+            <div class="mb-8 pb-6 border-b-2 border-uro-azul">
+                <h1 class="text-2xl md:text-4xl font-bold text-uro-azul_escuro mb-4">
+                    Incontinência Urinária na Atenção Básica
+                </h1>
+                <div class="text-sm text-gray-600 space-y-1">
+                    <p><strong>Autor:</strong> Dra. Ana Paula de Oliveira Pinto</p>
+                    <p><strong>Publicado em:</strong> Janeiro de 2025</p>
+                    <p><strong>Fonte:</strong> Guia Prático</p>
+                </div>
+            </div>
+
+            <!-- Conteúdo Principal -->
+            <div class="prose prose-blue max-w-none">
+        <!-- Article Header (será escondido) -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-blue-600">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-6">
+                    <div class="flex-1">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="inline-block bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">Artigo Resumido</span>
+                            <span class="inline-block bg-green-600 text-white text-xs px-3 py-1 rounded-full font-medium">Uroginecologia</span>
+                            <span class="inline-block bg-purple-600 text-white text-xs px-3 py-1 rounded-full font-medium">Enfermagem</span>
+                            <span class="inline-block bg-orange-600 text-white text-xs px-3 py-1 rounded-full font-medium">Atenção Básica</span>
+                        </div>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-3 leading-tight">Cuidados de Enfermagem às Mulheres com Incontinência Urinária na Atenção Básica: Síntese Baseada em Evidências</h1>
+                        <p class="text-gray-600 text-lg">Análise crítica dos cuidados prioritários e fatores intervenientes na implementação da assistência de enfermagem à mulher com incontinência urinária na atenção primária</p>
+                    </div>
+                    <div class="text-right bg-gray-50 p-4 rounded-lg min-w-[200px]">
+                        <p class="text-sm text-gray-500 mb-1">Resumo por</p>
+                        <p class="font-semibold text-blue-800 mb-3">Dra. Ana Paula de Oliveira Pinto</p>
+                        <p class="text-sm text-gray-500 mb-1">Publicado em</p>
+                        <p class="font-medium text-gray-700">Janeiro de 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Content -->
+        <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+            <!-- Introdução -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Introdução Contextualizada</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A incontinência urinária (IU) configura-se como uma condição clínica de significante prevalência na população feminina, definida pela International Continence Society como "perda involuntária de urina que gera problemas sociais e/ou higiênicos". Estima-se que entre 14% e 57% das mulheres em nível global sejam afetadas por algum grau de IU, com aproximadamente um terço da população feminina brasileira convivendo com esta condição.
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A IU classifica-se em três tipos principais: <strong>incontinência urinária de esforço</strong> (perda urinária aos esforços, espirros ou tosse), <strong>incontinência urinária de urgência</strong> (escape precedido de urgência miccional) e <strong>incontinência urinária mista</strong> (associação dos dois tipos). Embora não esteja associada a risco de morte, a IU impacta profundamente a qualidade de vida, acarretando prejuízos psicossociais, interferência na sexualidade, limitação nas atividades de vida diária e autopercepção negativa da saúde.
+                </p>
+                <div class="highlight-box">
+                    <p class="text-blue-800 font-semibold mb-2">📊 Dados Epidemiológicos Relevantes:</p>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                        <li>Prevalência global: 14% a 57% das mulheres</li>
+                        <li>No Brasil: aproximadamente 33% das mulheres afetadas</li>
+                        <li>Subnotificação: 30% não relatam sintomas espontaneamente</li>
+                        <li>Maior prevalência pós-menopausa e em idosas</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Justificativa -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Justificativa e Relevância Clínica</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Os fatores fisiopatológicos envolvidos na gênese da IU feminina incluem diminuição dos níveis estrogênicos pós-menopausa, história de gestações e partos vaginais traumáticos, episiotomias, excesso de peso, fraqueza muscular do assoalho pélvico, prolapsos urogenitais e alterações morfológicas decorrentes do envelhecimento.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Um aspecto crítico identificado na literatura é a significativa subnotificação dos sintomas. Aproximadamente 30% das mulheres não relatam espontaneamente os sintomas de IU durante a avaliação clínica, seja por vergonha, pudor ou por acreditarem que a condição representa um processo natural do envelhecimento. Esta realidade ressalta a importância do profissional de saúde, particularmente o enfermeiro na Atenção Básica, em abordar proativamente o tema.
+                </p>
+            </section>
+
+            <!-- Métodos -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Metodologia da Revisão Integrativa</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    O estudo analisado constituiu-se como uma revisão integrativa da literatura, método que permite síntese sistemática do conhecimento disponível sobre determinado tema. A busca foi realizada entre novembro de 2020 e janeiro de 2021 nas bases LILACS, MEDLINE, SCIELO e BDENF.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">Critérios de Inclusão</h4>
+                        <ul class="list-disc pl-5 text-blue-700 space-y-1 text-sm">
+                            <li>Artigos originais publicados entre 2017-2020</li>
+                            <li>Idiomas: português, inglês e espanhol</li>
+                            <li>Tema: cuidados de enfermagem na IU feminina</li>
+                            <li>Contexto: Atenção Primária à Saúde</li>
+                            <li>Acesso livre e texto completo disponível</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-2">Processo de Seleção</h4>
+                        <ul class="list-disc pl-5 text-green-700 space-y-1 text-sm">
+                            <li>Estudos recuperados: 228 artigos</li>
+                            <li>Após eliminação de duplicatas: 76 artigos</li>
+                            <li>Após leitura de resumos: 27 artigos</li>
+                            <li>Após leitura na íntegra: 12 artigos incluídos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="text-gray-700 leading-relaxed">
+                    A análise dos dados seguiu a técnica de análise de conteúdo, resultando na elaboração de duas categorias analíticas principais: cuidados de enfermagem à clientela com IU na Atenção Básica e fatores intervenientes para implementação desses cuidados.
+                </p>
+            </section>
+
+            <!-- Resultados -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Resultados e Discussão</h2>
+                
+                <div class="key-point">
+                    <h3 class="text-xl font-bold text-white mb-3">Síntese dos Principais Achados</h3>
+                    <p class="text-white mb-3">
+                        A análise dos 12 artigos incluídos revelou consistência na identificação dos cuidados prioritários de enfermagem e dos principais fatores que interferem na implementação efetiva da assistência à mulher com incontinência urinária na Atenção Básica.
+                    </p>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Cuidados de Enfermagem Prioritários</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A consulta de enfermagem na Atenção Básica deve englobar anamnese detalhada, investigando fatores de risco como idade, hereditariedade, paridade e tipo de parto, peso do recém-nascido, cirurgias ginecológicas prévias, status menopausal, obesidade, constipação intestinal, doenças crônicas, tabagismo, consumo de cafeína e nível de atividade física.
+                </p>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="evidence-table">
+                        <thead>
+                            <tr>
+                                <th>Intervenção</th>
+                                <th>Objetivo</th>
+                                <th>Evidência</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Acolhimento e vínculo</td>
+                                <td>Criar ambiente seguro para relato de sintomas</td>
+                                <td>Fundamental para abordagem inicial</td>
+                            </tr>
+                            <tr>
+                                <td>Avaliação abrangente</td>
+                                <td>Identificar fatores de risco e comorbidades</td>
+                                <td>Anamnese detalhada essencial</td>
+                            </tr>
+                            <tr>
+                                <td>Educação em saúde</td>
+                                <td>Orientar sobre condição e autocuidado</td>
+                                <td>Melhora adesão ao tratamento</td>
+                            </tr>
+                            <tr>
+                                <td>Treinamento do assoalho pélvico</td>
+                                <td>Fortalecimento muscular</td>
+                                <td>Eficaz na IU de esforço</td>
+                            </tr>
+                            <tr>
+                                <td>Encaminhamento oportuno</td>
+                                <td>Para serviços especializados quando necessário</td>
+                                <td>Evita agravamento do quadro</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Fatores Intervenientes no Cuidado</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A análise identificou múltiplos fatores que interferem na implementação adequada dos cuidados de enfermagem à mulher com IU:
+                </p>
+
+                <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+                    <h4 class="font-semibold text-yellow-800 mb-2">⚠️ Principais Barreiras Identificadas:</h4>
+                    <ul class="list-disc pl-5 text-yellow-700 space-y-2">
+                        <li><strong>Barreiras Socioculturais:</strong> Vergonha, pudor em discutir sintomas urinários</li>
+                        <li><strong>Naturalização da IU:</strong> Considerada como parte natural do envelhecimento</li>
+                        <li><strong>Falta de Protocolos:</strong> Ausência de diretrizes específicas do Ministério da Saúde</li>
+                        <li><strong>Sobrecarga da Rede:</strong> Alta demanda e número insuficiente de profissionais</li>
+                        <li><strong>Capacitação Limitada:</strong> Conhecimento restrito sobre avaliação e intervenções</li>
+                    </ul>
+                </div>
+
+                <p class="text-gray-700 leading-relaxed">
+                    Estudo incluído na revisão identificou consumo elevado de cafeína como fator de risco relevante, devido à sua ação diurética e potencial para causar instabilidade do músculo detrusor. A mesma pesquisa apontou prevalência de 39,1% de IU na população estudada, ficando atrás apenas da constipação intestinal como disfunção mais prevalente.
+                </p>
+            </section>
+
+            <!-- Conclusão -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Conclusões e Recomendações para a Prática</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A incontinência urinária feminina representa um significativo problema de saúde pública, com impacto substantivo na qualidade de vida e subnotificação expressiva. A Atenção Básica configura-se como cenário privilegiado para abordagem precoce e implementação de cuidados conservadores efetivos.
+                </p>
+                
+                <div class="bg-green-50 p-4 rounded-lg mb-4">
+                    <h4 class="font-semibold text-green-800 mb-2">💡 Recomendações para Ação:</h4>
+                    <ul class="list-disc pl-5 text-green-700 space-y-2">
+                        <li><strong>Capacitação Profissional:</strong> Inclusão da temática na grade curricular de graduação e pós-graduação em enfermagem</li>
+                        <li><strong>Desenvolvimento de Protocolos:</strong> Criação de diretrizes clínicas específicas para o manejo da IU na Atenção Básica</li>
+                        <li><strong>Materiais Educativos:</strong> Elaboração de cartilhas para pacientes e manuais para profissionais</li>
+                        <li><strong>Programas de Reabilitação:</strong> Implementação de Programas de Reabilitação do Assoalho Pélvico na Atenção Básica</li>
+                        <li><strong>Fomento à Pesquisa:</strong> Incentivo à produção científica de enfermagem sobre a temática</li>
+                    </ul>
+                </div>
+
+                <p class="text-gray-700 leading-relaxed">
+                    O enfermeiro da Atenção Básica precisa estar capacitado para abordagem precoce e implementação de cuidados conservadores efetivos, atuando como agente fundamental na quebra do ciclo de silêncio e subnotificação que caracteriza esta condição.
+                </p>
+            </section>
+
+            <!-- Referências -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Referências Bibliográficas</h2>
+                <ol class="reference-list text-gray-700">
+                    <li>Pereira CA, Braz CCS, Mota FC, et al. Cuidados de enfermagem às mulheres com incontinência urinária na atenção básica: revisão integrativa. [Periódico]. 2023; [No prelo].</li>
+                    <li>ABRAMS, P. et al. The standardisation of terminology in lower urinary tract function: report from the standardisation sub-committee of the International Continence Society. Urology. 2003;61(1):37-49.</li>
+                    <li>TOMASI, A. V. R. et al. Desafios para enfermeiros e fisioterapeutas assistirem mulheres idosas com incontinência urinária. Enfermagem em Foco. 2020;11(1):87-92.</li>
+                    <li>LENARDT, M. H. et al. Fragilidade física e incontinência urinária de idosos em assistência ambulatorial. Cogitare Enfermagem. 2020;25:e67077.</li>
+                    <li>REIS, H. G. et al. Disfunções dos músculos do assoalho pélvico em mulheres que realizam o exame preventivo de câncer de colo de útero. Fisioterapia Brasil. 2019;20(3):400-408.</li>
+                    <li>BRASIL. Ministério da Saúde. Política nacional de atenção integral à saúde da mulher: princípios e diretrizes. Brasília: Ministério da Saúde; 2004.</li>
+                </ol>
+            </section>
+
+            <!-- Nota Final -->
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-8 rounded-lg">
+                <p class="text-blue-700">
+                    <strong>Nota Importante:</strong> Este resumo foi elaborado pela Dra. Ana Paula de Oliveira Pinto com base no artigo original de Pereira et al. (2023) e destina-se exclusivamente a fins educacionais e de atualização profissional. Recomenda-se a consulta ao artigo completo para informações detalhadas sobre metodologia, análises estatísticas e resultados específicos. As opiniões expressas representam a interpretação da autora do resumo e não substituem o julgamento clínico individualizado.
+                </p>
+            </section>
+        </div><!-- Fim do prose -->
+
+        <!-- Rodapé do PDF -->
+        <div class="mt-8 pt-6 border-t text-center text-sm text-gray-500">
+            <p>© Uroginecologia Em Dia - uroginecologiaemdia.com.br</p>
+        </div>
+        </div><!-- Fim do conteudo-pdf -->
+
+        <!-- Navigation -->
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8">
+            <a href="pages/artigos.html" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-colors w-full sm:w-auto text-center">
+                <i data-feather="arrow-left" class="w-4 h-4 inline mr-2"></i>
+                Voltar para Artigos Resumidos
+            </a>
+            <button onclick="downloadPDF()" class="bg-blue-800 hover:bg-blue-900 text-white py-3 px-6 rounded-lg font-medium transition-colors w-full sm:w-auto text-center">
+                <i data-feather="download" class="w-4 h-4 inline mr-2"></i>
+                Baixar PDF
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer carregado via componente -->
+    <div id="footer-component"></div>
+
+    <!-- PDF Generator -->
+    <script src="../../assets/js/pdf-generator.min.js"></script>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile Menu Functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                document.querySelector('#mobileMenu > div:last-child').classList.remove('-translate-x-full');
+            }, 10);
+        }
+
+        function closeMobileMenuFunc() {
+            document.querySelector('#mobileMenu > div:last-child').classList.add('-translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+        }
+        if (closeMobileMenu) {
+            closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        }
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+        }
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenuFunc);
+        });
+
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                // Em ambiente real, redirecionaria para página de busca
+                window.location.href = `pages/busca.html?q=${encodeURIComponent(searchTerm)}`;
+            }
+        }
+        
+        if (searchButton) {
+            searchButton.addEventListener('click', performSearch);
+        }
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        }
+
+
+        // Garantir que o menu comece fechado
+        document.addEventListener('DOMContentLoaded', function() {
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+    <!-- Scripts -->
+    <script src="../assets/js/constants.min.js"></script>
+    <script src="../assets/js/utils.min.js"></script>
+    <script src="../assets/js/main.min.js"></script>
+    <script src="../assets/js/common.min.js"></script>
+</body>
+</html>

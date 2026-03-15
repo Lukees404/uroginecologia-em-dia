@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#881337">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Google Analytics 4 -->
+    <script>
+      fetch('../../components/analytics.html')
+        .then(response => response.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll('script');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            if (script.async) newScript.async = true;
+            document.head.appendChild(newScript);
+          });
+        });
+    </script>
+
+    <title>Artigo Resumido | Uroginecologia em Dia</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/redesign.css">
+
+    <!-- Preconnect para CDNs -->
+
+
+    <!-- Bibliotecas para geração de PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link sr-only focus:not-sr-only">Pular para conteúdo principal</a>
+
+    <!-- Header carregado via componente -->
+    <div id="header-component"></div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Breadcrumb -->
+        <nav class="mb-6 text-sm text-gray-600">
+            <a href="index.html" class="text-blue-600 hover:text-blue-800 transition-colors">Página Inicial</a> &gt;
+            <a href="pages/artigos.html" class="text-blue-600 hover:text-blue-800 transition-colors">Artigos Resumidos</a> &gt;
+            <span class="text-gray-800 font-medium">Eficácia e Segurança da Acupuntura na Incontinência Urinária Feminina</span>
+        </nav>
+
+        <!-- Article Header - Apenas para visualização na tela (NÃO INCLUIR NO PDF) -->
+        <section class="mb-8 no-print">
+            <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-blue-600">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-6">
+                    <div class="flex-1">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="inline-block bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">Artigo Resumido</span>
+                            <span class="inline-block bg-green-600 text-white text-xs px-3 py-1 rounded-full font-medium">Uroginecologia</span>
+                            <span class="inline-block bg-purple-600 text-white text-xs px-3 py-1 rounded-full font-medium">Medicina Integrativa</span>
+                        </div>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-3 leading-tight">Eficácia e Segurança da Acupuntura na Incontinência Urinária Feminina: Uma Síntese Baseada em Revisões Sistemáticas</h1>
+                        <p class="text-gray-600 text-lg">Análise crítica da qualidade metodológica e força das evidências sobre intervenções de acupuntura para tratamento da incontinência urinária em mulheres</p>
+                    </div>
+                    <div class="text-right bg-gray-50 p-4 rounded-lg min-w-[200px]">
+                        <p class="text-sm text-gray-500 mb-1">Resumo por</p>
+                        <p class="font-semibold text-blue-800 mb-3">Dra. Ana Paula de Oliveira Pinto</p>
+                        <p class="text-sm text-gray-500 mb-1">Publicado em</p>
+                        <p class="font-medium text-gray-700">Janeiro de 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conteúdo para PDF -->
+        <div id="conteudo-pdf" class="bg-white rounded-lg shadow-md p-8 mb-8">
+            <!-- Cabeçalho para PDF -->
+            <div class="pdf-header mb-8 pb-6" style="border-bottom: 3px solid #3b82f6;">
+                <h1 class="pdf-title" style="font-size: 28px; color: #1e40af; margin-bottom: 16px; line-height: 1.3;">
+                    Eficácia e Segurança da Acupuntura na Incontinência Urinária Feminina
+                </h1>
+                <div class="pdf-meta" style="font-size: 14px; color: #6b7280;">
+                    <p style="margin: 4px 0;"><strong>Autor:</strong> Dra. Ana Paula de Oliveira Pinto</p>
+                    <p style="margin: 4px 0;"><strong>Publicado em:</strong> Janeiro de 2025</p>
+                    <p style="margin: 4px 0;"><strong>Fonte:</strong> Overview de Revisões Sistemáticas</p>
+                </div>
+            </div>
+
+            <!-- Introdução -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Introdução</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A incontinência urinária (IU) feminina representa uma condição clínica de significativa prevalência, afetando aproximadamente 50% das mulheres em diferentes faixas etárias, com impacto substancial na qualidade de vida, autoestima e atividades diárias. Tradicionalmente, as abordagens terapêuticas incluem intervenções comportamentais, farmacológicas e cirúrgicas, cada uma com seu perfil específico de eficácia e limitações.
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Nos últimos anos, observa-se crescente interesse em modalidades terapêuticas complementares e integrativas, destacando-se a acupuntura e suas variações, como a eletroacupuntura. Estas intervenções, enraizadas na medicina tradicional chinesa mas progressivamente incorporadas à prática ocidental, vêm demonstrando potencial promissor como alternativas ou coadjuvantes aos tratamentos convencionais, particularmente em casos de resposta insuficiente ou contra-indicações às abordagens padrão.
+                </p>
+                <div class="highlight-box">
+                    <p class="text-blue-800 font-semibold mb-2">📈 Contexto Epidemiológico:</p>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                        <li>Prevalência de aproximadamente 50% na população feminina geral</li>
+                        <li>Afeta até 77% das mulheres idosas em instituições de longa permanência</li>
+                        <li>Apenas 25% das mulheres afetadas buscam tratamento ativo</li>
+                        <li>Impacto significativo na qualidade de vida e saúde mental</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Objetivo -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Objetivo do Estudo</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Esta overview de revisões sistemáticas teve como objetivo principal realizar uma avaliação abrangente e crítica da qualidade metodológica, bem como da força das evidências disponíveis em revisões sistemáticas (RS) e meta-análises (MA) que investigam a eficácia e segurança da acupuntura e terapias relacionadas no tratamento da incontinência urinária feminina.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Adicionalmente, buscou-se identificar lacunas metodológicas nas revisões existentes e fornecer direcionamentos para futuras pesquisas nesta área, contribuindo para a prática clínica baseada em evidências no manejo da IU feminina.
+                </p>
+            </section>
+
+            <!-- Métodos -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Metodologia da Overview</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A overview foi conduzida seguindo as diretrizes do Cochrane Handbook for Systematic Reviews e referenciou o protocolo PRIOR para revisões de revisões. O protocolo desta overview encontra-se registrado no PROSPERO (CRD42024557600), assegurando transparência e reprodutibilidade metodológica.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-2">Critérios de Inclusão</h4>
+                        <ul class="list-disc pl-5 text-blue-700 space-y-1 text-sm">
+                            <li>Revisões sistemáticas e meta-análises publicadas</li>
+                            <li>Ensaios clínicos randomizados como estudos primários</li>
+                            <li>Intervenções: acupuntura e terapias relacionadas</li>
+                            <li>População: mulheres com diagnóstico de IU</li>
+                            <li>Publicações em periódicos internacionais</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-2">Fontes de Busca</h4>
+                        <ul class="list-disc pl-5 text-green-700 space-y-1 text-sm">
+                            <li>PubMed/MEDLINE</li>
+                            <li>Cochrane Library</li>
+                            <li>Web of Science</li>
+                            <li>Embase</li>
+                            <li>Período: até setembro de 2023</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Foram incluídas 7 revisões sistemáticas/meta-análises publicadas entre 2013 e 2023. A qualidade metodológica foi avaliada utilizando a ferramenta AMSTAR-2, a qualidade das evidências através do sistema GRADE, e a qualidade do relato conforme as diretrizes PRISMA-2020.
+                </p>
+            </section>
+
+            <!-- Resultados -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Resultados Principais</h2>
+                
+                <div class="key-point">
+                    <h3 class="text-xl font-bold text-white mb-3">Síntese das Evidências</h3>
+                    <p class="text-white mb-3">
+                        A análise das 7 revisões sistemáticas incluídas revelou consistência na demonstração de benefícios da acupuntura e terapias relacionadas para o tratamento da incontinência urinária feminina, com perfil de segurança favorável.
+                    </p>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Eficácia Comparativa</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A acupuntura demonstrou superioridade estatisticamente significativa quando comparada a intervenções sham (placebo), medicamentos convencionais (como duloxetina) e treinamento muscular do assoalho pélvico (TMAP) isolado. Os desfechos principais que apresentaram melhora significativa incluíram:
+                </p>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="evidence-table">
+                        <thead>
+                            <tr>
+                                <th>Desfecho</th>
+                                <th>Comparação</th>
+                                <th>Resultado</th>
+                                <th>Significância</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Vazamento urinário (teste do absorvente 1h)</td>
+                                <td>Acupuntura vs Sham</td>
+                                <td>Redução significativa</td>
+                                <td>p < 0,05</td>
+                            </tr>
+                            <tr>
+                                <td>Escore ICIQ-SF</td>
+                                <td>Acupuntura vs Duloxetina</td>
+                                <td>Melhora superior</td>
+                                <td>p < 0,01</td>
+                            </tr>
+                            <tr>
+                                <td>Episódios de IU (diário de 72h)</td>
+                                <td>Acupuntura vs TMAP</td>
+                                <td>Redução maior</td>
+                                <td>p < 0,05</td>
+                            </tr>
+                            <tr>
+                                <td>Taxa de cura clínica</td>
+                                <td>Acupuntura vs Controle</td>
+                                <td>Incremento significativo</td>
+                                <td>p < 0,001</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Perfil de Segurança</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A acupuntura demonstrou excelente perfil de segurança, com baixa incidência de eventos adversos, predominantemente leves e transitórios (dor no local da aplicação, pequenos hematomas, fadiga). Em contraste, o grupo medicamentoso (duloxetina) apresentou maior frequência de efeitos adversos, incluindo náuseas, boca seca e distúrbios do sono.
+                </p>
+
+                <h3 class="text-xl font-semibold text-gray-900 mb-3">Qualidade das Evidências</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A avaliação pela ferramenta AMSTAR-2 revelou que 3 revisões foram classificadas como alta qualidade metodológica, 2 como moderada e 2 como baixa. Os principais pontos de melhoria identificados incluíram a ausência de registro de protocolo, falha na descrição de fontes de financiamento dos estudos primários e análise inadequada do viés de publicação.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Entretanto, a avaliação pelo sistema GRADE indicou que a qualidade das evidências variou de moderada a muito baixa, principalmente devido ao risco de viés nos estudos primários, heterogeneidade significativa entre os estudos e imprecisão nas estimativas de efeito.
+                </p>
+            </section>
+
+            <!-- Discussão -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Discussão e Implicações Clínicas</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Os resultados desta overview sustentam a acupuntura como intervenção eficaz e segura para o tratamento da incontinência urinária feminina, com potencial para integração em protocolos clínicos baseados em evidências. A consistência dos achados favoráveis através de diferentes revisões sistemáticas fortalece a validade destas conclusões.
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    Do ponto de vista fisiopatológico, mecanismos propostos para a ação da acupuntura na IU incluem modulação neurogênica através de estímulo de nervos sacrais (S2-S4), regulação da atividade do músculo detrusor, melhora da vascularização uretral e modulação de neurotransmissores envolvidos no controle vesical.
+                </p>
+                
+                <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+                    <h4 class="font-semibold text-yellow-800 mb-2">💡 Recomendações Práticas:</h4>
+                    <ul class="list-disc pl-5 text-yellow-700 space-y-2">
+                        <li>Considerar acupuntura como opção terapêutica para mulheres com IU que não respondem ou não toleram tratamentos convencionais</li>
+                        <li>Incluir eletroacupuntura como modalidade potencialmente mais efetiva que acupuntura manual</li>
+                        <li>Oferecer terapia combinada (acupuntura + TMAP) para potencialização de resultados</li>
+                        <li>Monitorar efeitos adversos leves, embora raros e autolimitados</li>
+                    </ul>
+                </div>
+
+                <p class="text-gray-700 leading-relaxed">
+                    É importante reconhecer as limitações das evidências atuais, particularmente a heterogeneidade nos protocolos de acupuntura (pontos utilizados, frequência das sessões, duração do tratamento) e o número ainda limitado de ensaios clínicos robustos com follow-up de longo prazo. Futuras pesquisas devem focar na padronização de protocolos e na investigação de preditores de resposta ao tratamento.
+                </p>
+            </section>
+
+            <!-- Conclusão -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Conclusão</h2>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A acupuntura e terapias relacionadas representam opções terapêuticas eficazes e seguras para o tratamento da incontinência urinária feminina, com evidências que suportam sua superioridade em comparação a intervenções sham, alguns medicamentos convencionais e treinamento muscular do assoalho pélvico isolado.
+                </p>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    A qualidade metodológica das revisões sistemáticas disponíveis é geralmente satisfatória, embora a qualidade das evidências dos estudos primários seja comprometida por viés, heterogeneidade e imprecisão. A acupuntura demonstra potencial para integração em abordagens multimodais de tratamento, oferecendo uma alternativa valiosa particularmente para pacientes com contraindicações ou resposta insuficiente às terapias convencionais.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Recomenda-se a realização de mais ensaios clínicos robustos, com metodologia rigorosa, protocolos padronizados e follow-up de longo prazo para fortalecer as evidências e elucidar os mecanismos subjacentes aos efeitos terapêuticos observados.
+                </p>
+            </section>
+
+            <!-- Referências -->
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Referências Bibliográficas</h2>
+                <ol class="reference-list text-gray-700">
+                    <li>Song X, Yang X, Wang J, Wu L, Li R, Cai Y, et al. Evidence evaluation of acupuncture and its related therapies for female urinary incontinence: an overview and quality assessment of systematic reviews and meta-analyses. Eur J Phys Rehabil Med. 2024;60(5):857-867.</li>
+                    <li>Liu Z, Liu Y, Xu H, He L, Chen Y, Fu L, et al. Effect of Electroacupuncture on Urinary Leakage Among Women With Stress Urinary Incontinence: A Randomized Clinical Trial. JAMA. 2017;317(24):2493-2501.</li>
+                    <li>Liu B, Liu Y, Qin Z, Zhou K, Xu H, He L, et al. Electroacupuncture Versus Pelvic Floor Muscle Training Plus Solifenacin for Women With Mixed Urinary Incontinence: A Randomized Noninferiority Trial. Mayo Clin Proc. 2019;94(1):54-65.</li>
+                    <li>Nambiar AK, Arlandis S, Bo K, Cobussen-Bockhorst H, Costantini E, de Heide M, et al. European Association of Urology Guidelines on the Diagnosis and Management of Female Non-neurogenic Lower Urinary Tract Symptoms. Part 1: Diagnostics, Overactive Bladder, Stress Urinary Incontinence, and Mixed Urinary Incontinence. Eur Urol. 2022;82(1):49-59.</li>
+                    <li>Wang Y, Zhishun L, Peng W, Zhao J, Liu B. Acupuncture for stress urinary incontinence in adults. Cochrane Database Syst Rev. 2013;2013(7):CD009408.</li>
+                    <li>Yang N, Ge X, Ye J, Liu Q, Wu Y, Yan H, et al. Efficacy of acupuncture for urinary incontinence in middle-aged and elderly women: A systematic review and meta-analysis of randomized controlled trials. Eur J Obstet Gynecol Reprod Biol. 2021;257:138-143.</li>
+                </ol>
+            </section>
+
+            <!-- Nota Final -->
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-8 rounded-lg">
+                <p class="text-blue-700">
+                    <strong>Nota Importante:</strong> Este resumo foi elaborado pela Dra. Ana Paula de Oliveira Pinto com base no artigo original de Song et al. (2024) e destina-se exclusivamente a fins educacionais e de atualização profissional. Recomenda-se a consulta ao artigo completo para informações detalhadas sobre metodologia, análises estatísticas e resultados específicos. As opiniões expressas representam a interpretação da autora do resumo e não substituem o julgamento clínico individualizado.
+                </p>
+            </div>
+        </div><!-- Fim do conteudo-pdf -->
+
+        <!-- Navigation -->
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8">
+            <a href="pages/artigos.html" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-medium transition-colors w-full sm:w-auto text-center">
+                <i data-feather="arrow-left" class="w-4 h-4 inline mr-2"></i>
+                Voltar para Artigos Resumidos
+            </a>
+            <button onclick="downloadPDF()" class="bg-blue-800 hover:bg-blue-900 text-white py-3 px-6 rounded-lg font-medium transition-colors w-full sm:w-auto text-center">
+                <i data-feather="download" class="w-4 h-4 inline mr-2"></i>
+                Baixar PDF
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer carregado via componente -->
+    <div id="footer-component"></div>
+
+    <!-- PDF Generator -->
+    <script src="../../assets/js/pdf-generator.min.js"></script>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Mobile Menu Functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                document.querySelector('#mobileMenu > div:last-child').classList.remove('-translate-x-full');
+            }, 10);
+        }
+
+        function closeMobileMenuFunc() {
+            document.querySelector('#mobileMenu > div:last-child').classList.add('-translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+        }
+        if (closeMobileMenu) {
+            closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        }
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+        }
+
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenuFunc);
+        });
+
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                // Em ambiente real, redirecionaria para página de busca
+                window.location.href = `pages/busca.html?q=${encodeURIComponent(searchTerm)}`;
+            }
+        }
+        
+        if (searchButton) {
+            searchButton.addEventListener('click', performSearch);
+        }
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        }
+
+
+        // Garantir que o menu comece fechado
+        document.addEventListener('DOMContentLoaded', function() {
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+    <!-- Scripts -->
+    <script src="../assets/js/constants.min.js"></script>
+    <script src="../assets/js/utils.min.js"></script>
+    <script src="../assets/js/main.min.js"></script>
+    <script src="../assets/js/common.min.js"></script>
+</body>
+</html>

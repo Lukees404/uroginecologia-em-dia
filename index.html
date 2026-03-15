@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#881337">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Google Analytics 4 -->
+    <script>
+      fetch('components/analytics.html')
+        .then(response => response.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll('script');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            if (script.async) newScript.async = true;
+            document.head.appendChild(newScript);
+          });
+        });
+    </script>
+
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Portal de referência em uroginecologia para profissionais de saúde. Acesse protocolos clínicos, artigos científicos resumidos, eventos e notícias.">
+    <meta name="author" content="Uroginecologia em Dia">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uroginecologiaemdia.com.br/">
+    <meta property="og:title" content="Uroginecologia em Dia - Portal para Profissionais de Saúde">
+    <meta property="og:description" content="Portal de referência em uroginecologia para profissionais de saúde. Acesse protocolos clínicos, artigos científicos resumidos, eventos e notícias.">
+
+    <title>Uroginecologia em Dia - Portal para Profissionais de Saúde</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <!-- Fonts + CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/redesign.css">
+
+</head>
+<body>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
+
+    <!-- Header carregado via componente -->
+    <div id="header-component"></div>
+
+    <!-- AVISO BANNER -->
+    <div class="aviso-banner">
+        🎉 Novo protocolo disponível: <a href="pages/protocolo/sindrome-bexiga-hiperativa.html">Síndrome da Bexiga Hiperativa — Atualização 2025</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-orb-1"></div>
+        <div class="hero-orb-2"></div>
+        <div class="hero-orb-3"></div>
+
+        <div class="hero-inner">
+            <div>
+                <div class="hero-badge anim-1">
+                    <span class="badge-dot"></span>
+                    Portal para profissionais de saúde
+                </div>
+
+                <h1 class="anim-2">
+                    Referência clínica em<br>
+                    <em>Uroginecologia</em><br>
+                    sempre atualizada
+                </h1>
+
+                <p class="hero-subtitulo anim-3">
+                    Protocolos baseados em evidências, artigos científicos e eventos da área para médicos e estudantes de medicina.
+                </p>
+
+                <div class="hero-search-wrapper anim-4">
+                    <span class="hero-search-icon">🔍</span>
+                    <input class="hero-search-input" id="heroSearchInput" type="text" placeholder="Buscar protocolos, artigos, CID-10..." />
+                    <button class="hero-search-btn" id="heroSearchBtn">Pesquisar</button>
+                </div>
+
+                <div class="hero-search-tags anim-5">
+                    <span class="search-tag-label">Buscas frequentes:</span>
+                    <span class="search-tag">Incontinência</span>
+                    <span class="search-tag">Urodinâmica</span>
+                    <span class="search-tag">Prolapso</span>
+                    <span class="search-tag">Bexiga hiperativa</span>
+                </div>
+            </div>
+
+            <div class="hero-stats anim-3">
+                <div class="stat-card">
+                    <div class="stat-icon">📋</div>
+                    <div>
+                        <div class="stat-numero">24+</div>
+                        <div class="stat-label">Protocolos clínicos revisados</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📰</div>
+                    <div>
+                        <div class="stat-numero">80+</div>
+                        <div class="stat-label">Artigos com resumo crítico</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div>
+                        <div class="stat-numero">12</div>
+                        <div class="stat-label">Eventos nacionais e internacionais</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🆕</div>
+                    <div>
+                        <div class="stat-numero">Semanal</div>
+                        <div class="stat-label">Atualização de conteúdo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-content">
+
+    <!-- PROTOCOLOS -->
+    <section class="sec-protocolos">
+        <div class="container">
+            <div class="secao-cabecalho">
+                <div>
+                    <div class="secao-tag">📋 Protocolos em Destaque</div>
+                    <h2 class="secao-titulo">Diretrizes baseadas em evidências</h2>
+                    <p class="secao-subtitulo">Protocolos atualizados segundo FEBRASGO, IUGA e sociedades internacionais.</p>
+                </div>
+                <a href="pages/protocolos.html" class="ver-todos">Ver todos →</a>
+            </div>
+            <div id="protocolsCarousel" class="cards-grid">
+                <!-- Protocolos carregados via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTIGOS -->
+    <section style="background: var(--creme);">
+        <div class="container">
+            <div class="secao-cabecalho">
+                <div>
+                    <div class="secao-tag">📰 Artigos em Destaque</div>
+                    <h2 class="secao-titulo">Evidências que mudam a prática</h2>
+                    <p class="secao-subtitulo">Resumos críticos de publicações relevantes com análise clínica.</p>
+                </div>
+                <a href="pages/artigos.html" class="ver-todos">Ver todos →</a>
+            </div>
+            <div id="articlesCarousel" class="cards-grid">
+                <!-- Artigos carregados via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTÍCIAS -->
+    <section class="sec-noticias">
+        <div class="container">
+            <div class="secao-cabecalho">
+                <div>
+                    <div class="secao-tag">📢 Últimas Notícias</div>
+                    <h2 class="secao-titulo">O que há de novo na área</h2>
+                    <p class="secao-subtitulo">Fique por dentro das pesquisas, inovações e eventos da uroginecologia.</p>
+                </div>
+                <a href="pages/noticias.html" class="ver-todos">Ver todas →</a>
+            </div>
+            <div class="noticias-grid" id="newsContainer">
+                <!-- Notícias carregadas via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTOS -->
+    <section class="sec-eventos" style="background: var(--rosa-palido);">
+        <div class="container">
+            <div class="secao-cabecalho">
+                <div>
+                    <div class="secao-tag">📅 Próximos Eventos</div>
+                    <h2 class="secao-titulo">Agenda da especialidade</h2>
+                    <p class="secao-subtitulo">Congressos, cursos e webinars para atualização profissional.</p>
+                </div>
+                <a href="pages/eventos.html" class="ver-todos">Ver todos →</a>
+            </div>
+            <div class="eventos-lista" id="eventsContainer">
+                <!-- Eventos carregados via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="sobre-section">
+        <div class="container">
+            <div class="sobre-grid">
+                <div class="sobre-texto">
+                    <div class="secao-tag">💡 Sobre o Portal</div>
+                    <h2 class="secao-titulo">Conhecimento especializado<br>ao alcance dos profissionais</h2>
+                    <p>O <strong>Uroginecologia em Dia</strong> nasceu da necessidade de um espaço confiável em português para profissionais de saúde que atuam com disfunções do assoalho pélvico feminino.</p>
+                    <p>Reunimos protocolos clínicos atualizados, resumos de artigos científicos e informações sobre eventos — tudo curado por especialistas comprometidos com a medicina baseada em evidências.</p>
+                    <div class="sobre-cita">
+                        "O cuidado especializado começa com acesso ao conhecimento certo, no momento certo."
+                    </div>
+                    <a href="pages/sobre.html" class="sobre-btn">Conheça nossa missão →</a>
+                </div>
+                <div class="sobre-valores">
+                    <div class="valor-item">
+                        <div class="valor-emoji">🎯</div>
+                        <div class="valor-titulo">Foco Clínico</div>
+                        <div class="valor-desc">Conteúdo dirigido à prática médica, sem ruído acadêmico desnecessário.</div>
+                    </div>
+                    <div class="valor-item">
+                        <div class="valor-emoji">🔬</div>
+                        <div class="valor-titulo">Baseado em Evidências</div>
+                        <div class="valor-desc">Toda informação referenciada em fontes de alto impacto e revisadas por pares.</div>
+                    </div>
+                    <div class="valor-item">
+                        <div class="valor-emoji">🇧🇷</div>
+                        <div class="valor-titulo">Contexto Brasileiro</div>
+                        <div class="valor-desc">Adaptado à realidade do sistema de saúde e das diretrizes nacionais.</div>
+                    </div>
+                    <div class="valor-item">
+                        <div class="valor-emoji">🔄</div>
+                        <div class="valor-titulo">Sempre Atualizado</div>
+                        <div class="valor-desc">Revisão contínua dos protocolos conforme novas publicações surgem.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-inner">
+                <div class="newsletter-tag">✉ Newsletter Semanal</div>
+                <h2 class="newsletter-titulo">Não perca nenhuma atualização</h2>
+                <p class="newsletter-subtitulo">Receba semanalmente os melhores artigos, protocolos novos e eventos da uroginecologia direto no seu e-mail.</p>
+                <form id="newsletterForm" class="newsletter-form">
+                    <label for="newsletterEmail" class="sr-only">Endereço de email</label>
+                    <input type="email" id="newsletterEmail" placeholder="Seu melhor endereço de e-mail..." required aria-label="Endereço de email para newsletter" />
+                    <button type="submit" class="newsletter-btn">Assinar ✓</button>
+                </form>
+                <div class="newsletter-nota">Sem spam. Cancele quando quiser. Seus dados estão seguros.</div>
+                <p id="newsletterMessage" class="newsletter-msg hidden" role="alert" aria-live="polite"></p>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer carregado via componente -->
+    <div id="footer-component"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/constants.min.js"></script>
+    <script src="assets/js/utils.min.js"></script>
+    <script src="assets/js/main.min.js"></script>
+    <script src="assets/js/common.min.js"></script>
+    <script src="assets/js/pages/index.min.js" defer></script>
+</body>
+</html>
