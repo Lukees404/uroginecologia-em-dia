@@ -322,7 +322,7 @@ function initializeNewsletter() {
             formData.append('locale', 'pt');
 
             const response = await fetch(
-                `https://sibforms.com/serve/MUIFALxxxxxxx`, // ← URL do formulário Brevo
+                'https://7d32b4a9.sibforms.com/serve/MUIFAO1Y0hVh1s0LrzHjDMUN-D6VoJfte-D8tS-lobNSQSOalugYU_98-8y_RE4Q8CEbJraJf5byc1-kWSWksNNRqCYFwZ2A9Fo8XBQXeYlCLvYoyzaOcBrH5Vfu8qy4nmpSKbveM3Q6VHyd1N0wjGX5AG2y4agcMgNx_ioU11fBrjcOzJ55qTxtJWnjuaMStziKBruf7Hxhv8zydg==',
                 {
                     method: 'POST',
                     body: formData,
