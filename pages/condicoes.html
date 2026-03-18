@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- PWA Configuration -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#881337">
-    <meta name="description" content="Em breve você encontrará aqui informações detalhadas sobre incontinência urinária, bexiga hiperativa, prolapso e outras condições. Estamos preparando conteúdo de qualidade para você.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Google Analytics 4 -->
+    <script>
+      fetch('../components/analytics.html')
+        .then(response => response.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll('script');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            if (script.async) newScript.async = true;
+            document.head.appendChild(newScript);
+          });
+        });
+    </script>
+
+    <meta name="description" content="Informações completas sobre condições comuns de saúde pélvica feminina: incontinência urinária, bexiga hiperativa, prolapso de órgãos pélvicos e infecção urinária de repetição.">
+    <meta name="author" content="Uroginecologia em Dia">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uroginecologiaemdia.com.br/pages/condicoes.html">
+    <meta property="og:title" content="Condições Comuns | Uroginecologia em Dia">
+    <meta property="og:description" content="Entenda as condições mais comuns que afetam a saúde pélvica feminina, seus sintomas, causas e tratamentos.">
+
     <title>Condições Comuns | Uroginecologia em Dia</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,28 +48,264 @@
     <div id="header-component"></div>
 
     <main id="main-content">
-        <section class="em-breve">
-            <div class="em-breve-icon">🩺</div>
-            <h1>Condições Comuns</h1>
-            <p>Em breve você encontrará aqui informações detalhadas sobre incontinência urinária, bexiga hiperativa, prolapso e outras condições. Estamos preparando conteúdo de qualidade para você.</p>
-            <a href="/index.html" class="btn-primary">← Voltar para o início</a>
-        </section>
 
-        <section class="newsletter-section">
-            <div class="container">
-                <div class="newsletter-inner">
-                    <div class="newsletter-tag">✉ Fique informada</div>
-                    <h2 class="newsletter-titulo">Receba novidades</h2>
-                    <p class="newsletter-subtitulo">Cadastre-se para saber quando este conteúdo estiver disponível.</p>
-                    <form id="newsletterForm" class="newsletter-form">
-                        <label for="newsletterEmail" class="sr-only">Email</label>
-                        <input type="email" id="newsletterEmail" placeholder="Seu e-mail..." required />
-                        <button type="submit" class="newsletter-btn">Assinar ✓</button>
-                    </form>
-                    <p id="newsletterMessage" class="newsletter-msg hidden" role="alert"></p>
+    <!-- Page Hero -->
+    <section class="pac-hero">
+        <div class="pac-hero-icon anim-1">🩺</div>
+        <h1 class="anim-2">Condições Comuns</h1>
+        <p class="anim-3">Informações claras e confiáveis sobre as condições que mais afetam a saúde pélvica feminina. Entenda o que pode estar acontecendo, reconheça os sintomas e saiba quais tratamentos existem.</p>
+    </section>
+
+    <!-- Navegação rápida -->
+    <section style="background: var(--creme); padding: 32px 28px 0;">
+        <div class="container">
+            <div class="cond-grid" style="gap: 12px;">
+                <a href="#incontinencia" class="cond-card" style="padding:14px;">
+                    <div class="cond-icon rosa" style="width:40px;height:40px;font-size:1.1rem;">💧</div>
+                    <div><div class="cond-title" style="font-size:0.88rem;">Incontinência urinária</div></div>
+                </a>
+                <a href="#bexiga" class="cond-card" style="padding:14px;">
+                    <div class="cond-icon lilas" style="width:40px;height:40px;font-size:1.1rem;">🫧</div>
+                    <div><div class="cond-title" style="font-size:0.88rem;">Bexiga hiperativa</div></div>
+                </a>
+                <a href="#prolapso" class="cond-card" style="padding:14px;">
+                    <div class="cond-icon verde" style="width:40px;height:40px;font-size:1.1rem;">🏥</div>
+                    <div><div class="cond-title" style="font-size:0.88rem;">Prolapso pélvico</div></div>
+                </a>
+                <a href="#itu" class="cond-card" style="padding:14px;">
+                    <div class="cond-icon ambar" style="width:40px;height:40px;font-size:1.1rem;">🔥</div>
+                    <div><div class="cond-title" style="font-size:0.88rem;">Infecção urinária</div></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONDIÇÃO 1: INCONTINÊNCIA URINÁRIA -->
+    <section id="incontinencia" style="background: var(--creme);">
+        <div class="container">
+            <div class="content-card">
+                <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px;">
+                    <div class="cond-icon rosa" style="width:56px;height:56px;font-size:1.6rem;">💧</div>
+                    <div>
+                        <div class="secao-tag">Condição 1 de 4</div>
+                        <h2 class="secao-titulo" style="font-size:1.5rem;">Incontinência urinária</h2>
+                    </div>
+                </div>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">O que é?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:16px; line-height:1.8;">A incontinência urinária é a perda involuntária de urina — ou seja, quando a urina escapa sem que você consiga controlar. Pode acontecer ao tossir, espirrar, rir, pegar peso ou até mesmo ao caminhar. É uma condição muito comum: estima-se que uma em cada três mulheres acima de 40 anos conviva com algum grau de perda urinária.</p>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">Existem diferentes tipos, sendo os mais comuns:</p>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:14px; margin-bottom:24px;">
+                    <div style="background:var(--rosa-palido); border-radius:var(--radius); padding:18px; border-left:4px solid var(--rosa-medio);">
+                        <strong style="color:var(--rosa-profundo);">De esforço</strong>
+                        <p style="font-size:0.875rem; color:var(--texto-suave); margin-top:6px; line-height:1.6;">Perda de urina ao fazer esforço físico — tossir, espirrar, rir, correr ou levantar peso. Acontece porque os músculos do assoalho pélvico ou o esfíncter da uretra estão enfraquecidos.</p>
+                    </div>
+                    <div style="background:#ede9fe; border-radius:var(--radius); padding:18px; border-left:4px solid #7c3aed;">
+                        <strong style="color:#6d28d9;">De urgência</strong>
+                        <p style="font-size:0.875rem; color:var(--texto-suave); margin-top:6px; line-height:1.6;">Vontade súbita e intensa de urinar, com perda de urina antes de chegar ao banheiro. A bexiga contrai de forma involuntária.</p>
+                    </div>
+                    <div style="background:#dcfce7; border-radius:var(--radius); padding:18px; border-left:4px solid #16a34a;">
+                        <strong style="color:#15803d;">Mista</strong>
+                        <p style="font-size:0.875rem; color:var(--texto-suave); margin-top:6px; line-height:1.6;">Combinação dos dois tipos anteriores — tanto ao esforço quanto com urgência. É bastante frequente em mulheres.</p>
+                    </div>
+                </div>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Quais são os sintomas?</h3>
+                <ul style="color:var(--texto-suave); margin-bottom:20px; line-height:1.9; padding-left:20px;">
+                    <li>Perda de urina ao tossir, espirrar, rir ou fazer exercícios</li>
+                    <li>Necessidade urgente e repentina de ir ao banheiro</li>
+                    <li>Não conseguir segurar a urina ao ouvir barulho de água ou chegar em casa</li>
+                    <li>Precisar usar absorvente ou protetor por causa das perdas</li>
+                    <li>Acordar várias vezes à noite para urinar</li>
+                </ul>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Quais são as causas?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">A incontinência urinária pode ser causada por diversos fatores, muitas vezes combinados: gravidez e partos (especialmente partos normais difíceis), menopausa e queda dos hormônios, obesidade, constipação intestinal crônica, cirurgias pélvicas anteriores, tosse crônica, envelhecimento natural dos tecidos e predisposição genética.</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Como é feito o diagnóstico?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">O diagnóstico começa com uma conversa detalhada sobre seus sintomas e um exame físico. O médico pode solicitar um diário miccional (você anota quando e quanto urina durante alguns dias), exame de urina para descartar infecção, e em alguns casos um estudo urodinâmico — um exame que avalia como sua bexiga funciona.</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Quais são os tratamentos?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:12px; line-height:1.8;">A boa notícia é que existem vários tratamentos eficazes:</p>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-bottom:16px;">
+                    <div style="background:var(--rosa-palido); border-radius:10px; padding:16px;"><strong style="color:var(--rosa-profundo); font-size:0.9rem;">Fisioterapia pélvica</strong><p style="font-size:0.82rem; color:var(--texto-suave); margin-top:6px; line-height:1.55;">Exercícios para fortalecer o assoalho pélvico. É o tratamento de primeira escolha e melhora cerca de 70% dos casos.</p></div>
+                    <div style="background:var(--rosa-palido); border-radius:10px; padding:16px;"><strong style="color:var(--rosa-profundo); font-size:0.9rem;">Mudanças de hábitos</strong><p style="font-size:0.82rem; color:var(--texto-suave); margin-top:6px; line-height:1.55;">Controlar peso, tratar constipação, evitar excesso de cafeína e adequar a ingestão de líquidos.</p></div>
+                    <div style="background:var(--rosa-palido); border-radius:10px; padding:16px;"><strong style="color:var(--rosa-profundo); font-size:0.9rem;">Medicamentos</strong><p style="font-size:0.82rem; color:var(--texto-suave); margin-top:6px; line-height:1.55;">Em casos de urgência, medicamentos podem ajudar a relaxar a bexiga. Hormônios locais podem ajudar na menopausa.</p></div>
+                    <div style="background:var(--rosa-palido); border-radius:10px; padding:16px;"><strong style="color:var(--rosa-profundo); font-size:0.9rem;">Cirurgia</strong><p style="font-size:0.82rem; color:var(--texto-suave); margin-top:6px; line-height:1.55;">Quando o tratamento conservador não é suficiente, existem cirurgias minimamente invasivas com altas taxas de sucesso.</p></div>
+                </div>
+                <div class="sobre-cita">Perder urina NÃO é normal em nenhuma idade. Não é algo com o que você precise "se acostumar". Existem tratamentos eficazes — procure ajuda.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONDIÇÃO 2: BEXIGA HIPERATIVA -->
+    <section id="bexiga" style="background: var(--rosa-palido);">
+        <div class="container">
+            <div class="content-card">
+                <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px;">
+                    <div class="cond-icon lilas" style="width:56px;height:56px;font-size:1.6rem;">🫧</div>
+                    <div>
+                        <div class="secao-tag">Condição 2 de 4</div>
+                        <h2 class="secao-titulo" style="font-size:1.5rem;">Bexiga hiperativa</h2>
+                    </div>
+                </div>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">O que é?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">A bexiga hiperativa é uma condição em que a bexiga se contrai de forma involuntária, causando uma vontade urgente e incontrolável de urinar. Isso acontece mesmo quando a bexiga não está cheia. É como se a bexiga enviasse "sinais errados" ao cérebro, dizendo que precisa esvaziar quando ainda não precisa. Estima-se que 25% das mulheres acima de 40 anos tenham ou terão sintomas de bexiga hiperativa.</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Quais são os sintomas?</h3>
+                <ul style="color:var(--texto-suave); margin-bottom:20px; line-height:1.9; padding-left:20px;">
+                    <li><strong>Urgência:</strong> vontade súbita e forte de urinar, difícil de adiar</li>
+                    <li><strong>Frequência aumentada:</strong> ir ao banheiro mais de 8 vezes durante o dia</li>
+                    <li><strong>Noctúria:</strong> acordar 2 ou mais vezes à noite para urinar</li>
+                    <li><strong>Perda de urina:</strong> em cerca de metade dos casos, a urgência vem acompanhada de escape</li>
+                </ul>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Quais são as causas?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">Na maioria das vezes, não existe uma causa única. A bexiga hiperativa pode estar relacionada a alterações nos nervos que controlam a bexiga, enfraquecimento do assoalho pélvico, menopausa, infecções urinárias de repetição, consumo excessivo de cafeína ou álcool, ansiedade e estresse, obesidade e até alterações no intestino.</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Como é feito o diagnóstico?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">O diagnóstico é essencialmente clínico — baseado nos seus sintomas. O médico vai perguntar sobre sua rotina urinária e pode pedir um diário miccional (anotar horários e volumes de urina por 1 a 3 dias). Exame de urina é feito para descartar infecção. O estudo urodinâmico geralmente não é necessário, exceto em casos que não melhoram com o tratamento inicial.</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Quais são os tratamentos?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:12px; line-height:1.8;">O tratamento é feito em etapas, do mais simples ao mais avançado:</p>
+                <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:16px;">
+                    <div style="background:#ede9fe; border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start;">
+                        <div style="background:#7c3aed; color:white; width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.85rem; font-weight:700; flex-shrink:0;">1</div>
+                        <div><strong style="color:#6d28d9; font-size:0.9rem;">Mudanças comportamentais</strong><p style="font-size:0.85rem; color:var(--texto-suave); margin-top:4px; line-height:1.55;">Treinamento da bexiga (aumentar gradualmente o intervalo entre idas ao banheiro), reduzir cafeína e bebidas gaseificadas, adequar ingestão de líquidos e exercícios para o assoalho pélvico.</p></div>
+                    </div>
+                    <div style="background:#ede9fe; border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start;">
+                        <div style="background:#7c3aed; color:white; width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.85rem; font-weight:700; flex-shrink:0;">2</div>
+                        <div><strong style="color:#6d28d9; font-size:0.9rem;">Medicamentos</strong><p style="font-size:0.85rem; color:var(--texto-suave); margin-top:4px; line-height:1.55;">Remédios que ajudam a bexiga a relaxar (anticolinérgicos ou agonistas beta-3). Escolhidos conforme o perfil de cada paciente. Estrogênio vaginal pode ajudar na menopausa.</p></div>
+                    </div>
+                    <div style="background:#ede9fe; border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start;">
+                        <div style="background:#7c3aed; color:white; width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.85rem; font-weight:700; flex-shrink:0;">3</div>
+                        <div><strong style="color:#6d28d9; font-size:0.9rem;">Tratamentos avançados</strong><p style="font-size:0.85rem; color:var(--texto-suave); margin-top:4px; line-height:1.55;">Para casos que não melhoram: aplicação de toxina botulínica na bexiga, neuromodulação (estimulação elétrica de nervos) ou, em situações extremas, cirurgia.</p></div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <!-- CONDIÇÃO 3: PROLAPSO DE ÓRGÃOS PÉLVICOS -->
+    <section id="prolapso" style="background: var(--creme);">
+        <div class="container">
+            <div class="content-card">
+                <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px;">
+                    <div class="cond-icon verde" style="width:56px;height:56px;font-size:1.6rem;">🏥</div>
+                    <div>
+                        <div class="secao-tag">Condição 3 de 4</div>
+                        <h2 class="secao-titulo" style="font-size:1.5rem;">Prolapso de órgãos pélvicos</h2>
+                    </div>
+                </div>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">O que é?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:16px; line-height:1.8;">O prolapso de órgãos pélvicos acontece quando os músculos e ligamentos que sustentam os órgãos da pelve (bexiga, útero, reto) se enfraquecem, e esses órgãos "descem" de sua posição normal. Em casos mais avançados, é possível sentir ou até ver um abaulamento na entrada da vagina. Muitas mulheres descrevem como uma sensação de "algo saindo pela vagina" ou um peso na região.</p>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">É mais comum do que se imagina — cerca de metade das mulheres que tiveram filhos por parto normal apresentam algum grau de prolapso, embora nem todas tenham sintomas.</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Quais são os sintomas?</h3>
+                <ul style="color:var(--texto-suave); margin-bottom:20px; line-height:1.9; padding-left:20px;">
+                    <li>Sensação de peso, pressão ou "bola" na vagina</li>
+                    <li>Abaulamento visível ou palpável na vagina</li>
+                    <li>Dificuldade para esvaziar completamente a bexiga ou o intestino</li>
+                    <li>Dor lombar que piora ao longo do dia e melhora ao deitar</li>
+                    <li>Desconforto ou dor durante a relação sexual</li>
+                    <li>Sensação de que algo está "caindo" ao ficar em pé ou caminhar</li>
+                </ul>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Quais são as causas?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">Os principais fatores de risco são: partos vaginais (especialmente múltiplos ou com bebês grandes), menopausa e queda dos hormônios, envelhecimento, obesidade, constipação crônica com esforço para evacuar, tosse crônica, trabalhos que envolvem levantamento de peso e predisposição genética (histórico familiar).</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Como é feito o diagnóstico?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">O diagnóstico é feito pelo exame físico ginecológico, em que o médico pede para você fazer força enquanto examina a região. Isso permite ver se existe descida dos órgãos e em qual grau. Em geral não são necessários exames de imagem, exceto em casos específicos ou quando se planeja cirurgia.</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Quais são os tratamentos?</h3>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-bottom:16px;">
+                    <div style="background:#dcfce7; border-radius:10px; padding:16px;"><strong style="color:#15803d; font-size:0.9rem;">Observação</strong><p style="font-size:0.82rem; color:var(--texto-suave); margin-top:6px; line-height:1.55;">Casos leves e sem sintomas podem ser apenas acompanhados com orientações de prevenção.</p></div>
+                    <div style="background:#dcfce7; border-radius:10px; padding:16px;"><strong style="color:#15803d; font-size:0.9rem;">Fisioterapia pélvica</strong><p style="font-size:0.82rem; color:var(--texto-suave); margin-top:6px; line-height:1.55;">Fortalecimento do assoalho pélvico pode estabilizar ou até melhorar prolapsos leves a moderados.</p></div>
+                    <div style="background:#dcfce7; border-radius:10px; padding:16px;"><strong style="color:#15803d; font-size:0.9rem;">Pessário vaginal</strong><p style="font-size:0.82rem; color:var(--texto-suave); margin-top:6px; line-height:1.55;">Dispositivo de silicone colocado na vagina que sustenta os órgãos. Boa opção para quem prefere não operar.</p></div>
+                    <div style="background:#dcfce7; border-radius:10px; padding:16px;"><strong style="color:#15803d; font-size:0.9rem;">Cirurgia</strong><p style="font-size:0.82rem; color:var(--texto-suave); margin-top:6px; line-height:1.55;">Indicada para casos moderados a graves com sintomas. Existem diversas técnicas, escolhidas conforme cada caso.</p></div>
+                </div>
+                <div class="sobre-cita">Prolapso NÃO precisa necessariamente de cirurgia. Existem opções conservadoras eficazes. Quanto mais cedo buscar ajuda, mais opções de tratamento você terá.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONDIÇÃO 4: INFECÇÃO URINÁRIA DE REPETIÇÃO -->
+    <section id="itu" style="background: var(--rosa-palido);">
+        <div class="container">
+            <div class="content-card">
+                <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px;">
+                    <div class="cond-icon ambar" style="width:56px;height:56px;font-size:1.6rem;">🔥</div>
+                    <div>
+                        <div class="secao-tag">Condição 4 de 4</div>
+                        <h2 class="secao-titulo" style="font-size:1.5rem;">Infecção urinária de repetição</h2>
+                    </div>
+                </div>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">O que é?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">A infecção do trato urinário (ITU) é uma infecção causada por bactérias que atingem o sistema urinário. A forma mais comum é a cistite (infecção na bexiga). Quando uma mulher tem 3 ou mais episódios em um ano, ou 2 em seis meses, chamamos de infecção urinária de repetição. A bactéria mais frequente é a <em>Escherichia coli</em>, presente naturalmente no intestino.</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Quais são os sintomas?</h3>
+                <ul style="color:var(--texto-suave); margin-bottom:20px; line-height:1.9; padding-left:20px;">
+                    <li>Ardência ou dor ao urinar</li>
+                    <li>Vontade frequente de urinar, mas em pequena quantidade</li>
+                    <li>Urgência para ir ao banheiro</li>
+                    <li>Dor na parte baixa da barriga</li>
+                    <li>Urina com cheiro forte ou aspecto turvo</li>
+                    <li>Em casos mais graves: febre, dor lombar e mal-estar (pode indicar infecção nos rins)</li>
+                </ul>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Quais são as causas e fatores de risco?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">A anatomia feminina (uretra mais curta e próxima ao ânus) já favorece as infecções. Outros fatores incluem: relação sexual, menopausa (a queda hormonal altera a flora vaginal protetora), uso de diafragma ou espermicida, histórico familiar, constipação intestinal e uso inadequado de antibióticos que altera a flora bacteriana natural.</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Como é feito o diagnóstico?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">Para um episódio simples, os sintomas já podem ser suficientes para o diagnóstico. Em casos de repetição, o médico vai pedir urocultura (exame que identifica a bactéria e quais antibióticos funcionam contra ela). Exames de imagem como ultrassom podem ser solicitados para investigar se existe alguma alteração anatômica que favoreça as infecções.</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Quais são os tratamentos?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:12px; line-height:1.8;">O tratamento envolve tratar o episódio agudo e prevenir novos:</p>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-bottom:16px;">
+                    <div style="background:#fef3c7; border-radius:10px; padding:16px;"><strong style="color:#b45309; font-size:0.9rem;">Episódio agudo</strong><p style="font-size:0.82rem; color:var(--texto-suave); margin-top:6px; line-height:1.55;">Antibióticos de curta duração (3 a 5 dias). A escolha depende da bactéria e da sensibilidade no exame.</p></div>
+                    <div style="background:#fef3c7; border-radius:10px; padding:16px;"><strong style="color:#b45309; font-size:0.9rem;">Medidas preventivas</strong><p style="font-size:0.82rem; color:var(--texto-suave); margin-top:6px; line-height:1.55;">Beber bastante água, urinar após relação sexual, higiene da frente para trás, evitar duchas vaginais.</p></div>
+                    <div style="background:#fef3c7; border-radius:10px; padding:16px;"><strong style="color:#b45309; font-size:0.9rem;">Estrogênio vaginal</strong><p style="font-size:0.82rem; color:var(--texto-suave); margin-top:6px; line-height:1.55;">Na menopausa, o estrogênio local restaura a flora vaginal protetora e reduz significativamente as infecções.</p></div>
+                    <div style="background:#fef3c7; border-radius:10px; padding:16px;"><strong style="color:#b45309; font-size:0.9rem;">Profilaxia</strong><p style="font-size:0.82rem; color:var(--texto-suave); margin-top:6px; line-height:1.55;">Em casos persistentes: antibiótico em dose baixa, imunoestimulantes ou antibiótico pós-relação sexual.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Especialista -->
+    <section style="background: var(--creme);">
+        <div class="container">
+            <div class="cta-especialista">
+                <div class="cta-esp-icon">👩‍⚕️</div>
+                <div class="cta-esp-text">
+                    <div class="cta-esp-title">Identificou-se com algum desses sintomas?</div>
+                    <div class="cta-esp-desc">Não espere que o problema piore. Converse com uma especialista e descubra qual é o melhor tratamento para o seu caso.</div>
+                </div>
+                <a href="pages/contato.html" class="cta-esp-btn">Entrar em contato</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-inner">
+                <div class="newsletter-tag">✉ Fique informada</div>
+                <h2 class="newsletter-titulo">Receba dicas de saúde pélvica</h2>
+                <p class="newsletter-subtitulo">Cadastre-se para receber informações úteis sobre saúde feminina direto no seu e-mail.</p>
+                <form id="newsletterForm" class="newsletter-form">
+                    <label for="newsletterEmail" class="sr-only">Endereço de email</label>
+                    <input type="email" id="newsletterEmail" placeholder="Seu melhor endereço de e-mail..." required />
+                    <button type="submit" class="newsletter-btn">Assinar ✓</button>
+                </form>
+                <div class="newsletter-nota">Sem spam. Cancele quando quiser.</div>
+                <p id="newsletterMessage" class="newsletter-msg hidden" role="alert" aria-live="polite"></p>
+            </div>
+        </div>
+    </section>
+
     </main>
 
     <div id="footer-component"></div>

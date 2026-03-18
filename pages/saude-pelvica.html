@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- PWA Configuration -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#881337">
-    <meta name="description" content="Em breve você encontrará aqui dicas práticas sobre exercícios de Kegel, hábitos urinários saudáveis, cuidados pós-parto e muito mais. Estamos preparando conteúdo de qualidade para você.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Google Analytics 4 -->
+    <script>
+      fetch('../components/analytics.html')
+        .then(response => response.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll('script');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            if (script.async) newScript.async = true;
+            document.head.appendChild(newScript);
+          });
+        });
+    </script>
+
+    <meta name="description" content="Dicas práticas para cuidar da saúde pélvica: exercícios de Kegel passo a passo, hábitos urinários saudáveis e cuidados pós-parto para o assoalho pélvico.">
+    <meta name="author" content="Uroginecologia em Dia">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uroginecologiaemdia.com.br/pages/saude-pelvica.html">
+    <meta property="og:title" content="Saúde Pélvica | Uroginecologia em Dia">
+    <meta property="og:description" content="Guias práticos para fortalecer o assoalho pélvico, manter hábitos urinários saudáveis e cuidar da saúde pélvica no pós-parto.">
+
     <title>Saúde Pélvica | Uroginecologia em Dia</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,28 +48,265 @@
     <div id="header-component"></div>
 
     <main id="main-content">
-        <section class="em-breve">
-            <div class="em-breve-icon">💡</div>
-            <h1>Saúde Pélvica</h1>
-            <p>Em breve você encontrará aqui dicas práticas sobre exercícios de Kegel, hábitos urinários saudáveis, cuidados pós-parto e muito mais. Estamos preparando conteúdo de qualidade para você.</p>
-            <a href="/index.html" class="btn-primary">← Voltar para o início</a>
-        </section>
 
-        <section class="newsletter-section">
-            <div class="container">
-                <div class="newsletter-inner">
-                    <div class="newsletter-tag">✉ Fique informada</div>
-                    <h2 class="newsletter-titulo">Receba novidades</h2>
-                    <p class="newsletter-subtitulo">Cadastre-se para saber quando este conteúdo estiver disponível.</p>
-                    <form id="newsletterForm" class="newsletter-form">
-                        <label for="newsletterEmail" class="sr-only">Email</label>
-                        <input type="email" id="newsletterEmail" placeholder="Seu e-mail..." required />
-                        <button type="submit" class="newsletter-btn">Assinar ✓</button>
-                    </form>
-                    <p id="newsletterMessage" class="newsletter-msg hidden" role="alert"></p>
+    <!-- Page Hero -->
+    <section class="pac-hero">
+        <div class="pac-hero-icon anim-1">💡</div>
+        <h1 class="anim-2">Saúde Pélvica</h1>
+        <p class="anim-3">Guias práticos e confiáveis para cuidar do seu assoalho pélvico no dia a dia. Aprenda exercícios, entenda hábitos saudáveis e saiba como se cuidar em cada fase da vida.</p>
+    </section>
+
+    <!-- Navegação rápida -->
+    <section style="background: var(--creme); padding: 32px 28px 0;">
+        <div class="container">
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px;">
+                <a href="#kegel" class="dica-card" style="display:flex; gap:14px; align-items:center;">
+                    <div style="font-size:1.8rem; flex-shrink:0;">🧘‍♀️</div>
+                    <div><div class="dica-title" style="font-size:0.88rem;">Exercícios de Kegel</div><span class="dica-link" style="font-size:0.78rem;">Ir para o guia →</span></div>
+                </a>
+                <a href="#habitos" class="dica-card" style="display:flex; gap:14px; align-items:center;">
+                    <div style="font-size:1.8rem; flex-shrink:0;">🚰</div>
+                    <div><div class="dica-title" style="font-size:0.88rem;">Hábitos urinários saudáveis</div><span class="dica-link" style="font-size:0.78rem;">Ir para o artigo →</span></div>
+                </a>
+                <a href="#posparto" class="dica-card" style="display:flex; gap:14px; align-items:center;">
+                    <div style="font-size:1.8rem; flex-shrink:0;">🤰</div>
+                    <div><div class="dica-title" style="font-size:0.88rem;">Pós-parto e assoalho pélvico</div><span class="dica-link" style="font-size:0.78rem;">Ir para o artigo →</span></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         ARTIGO 1: EXERCÍCIOS DE KEGEL
+         ============================================================ -->
+    <section id="kegel" style="background: var(--creme);">
+        <div class="container">
+            <div class="content-card">
+                <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px;">
+                    <div style="width:56px;height:56px;background:linear-gradient(135deg, #fce7f3, #fda4af);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;">🧘‍♀️</div>
+                    <div>
+                        <div class="secao-tag">Guia prático</div>
+                        <h2 class="secao-titulo" style="font-size:1.5rem;">Exercícios de Kegel: guia completo</h2>
+                    </div>
+                </div>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">O que são os exercícios de Kegel?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:16px; line-height:1.8;">Os exercícios de Kegel são contrações voluntárias dos músculos do assoalho pélvico — aqueles que ficam na base da pelve e sustentam a bexiga, o útero e o reto. Eles foram criados pelo ginecologista Dr. Arnold Kegel nos anos 1940 e são, até hoje, um dos tratamentos mais eficazes e acessíveis para fortalecer essa musculatura.</p>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">Quando feitos corretamente e com regularidade, podem reduzir significativamente os sintomas de incontinência urinária leve a moderada, melhorar o controle da bexiga e até contribuir para a satisfação sexual.</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Como identificar os músculos corretos?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:12px; line-height:1.8;">Antes de começar, é fundamental saber quais músculos contrair. Existem duas formas simples de identificá-los:</p>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:14px; margin-bottom:20px;">
+                    <div style="background:var(--rosa-palido); border-radius:var(--radius); padding:18px;">
+                        <strong style="color:var(--rosa-profundo);">Método 1 — ao urinar</strong>
+                        <p style="font-size:0.875rem; color:var(--texto-suave); margin-top:6px; line-height:1.6;">Tente interromper o jato de urina no meio da micção. Os músculos que você usa para isso são os do assoalho pélvico. <em>Atenção:</em> use esse teste apenas para identificar os músculos — não faça isso como exercício regular, pois pode atrapalhar o esvaziamento da bexiga.</p>
+                    </div>
+                    <div style="background:var(--rosa-palido); border-radius:var(--radius); padding:18px;">
+                        <strong style="color:var(--rosa-profundo);">Método 2 — com o dedo</strong>
+                        <p style="font-size:0.875rem; color:var(--texto-suave); margin-top:6px; line-height:1.6;">Deite-se confortavelmente e insira um dedo limpo na vagina. Tente apertar ao redor do dedo, como se estivesse "segurando" algo. Se sentir pressão ao redor do dedo, está contraindo os músculos certos.</p>
+                    </div>
+                </div>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Como fazer: passo a passo</h3>
+                <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:24px;">
+                    <div style="background:white; border:1px solid var(--borda-suave); border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start;">
+                        <div style="background:var(--rosa-profundo); color:white; width:32px; height:32px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:0.9rem; font-weight:700; flex-shrink:0;">1</div>
+                        <div><strong style="color:var(--texto-principal); font-size:0.9rem;">Encontre uma posição confortável</strong><p style="font-size:0.85rem; color:var(--texto-suave); margin-top:4px; line-height:1.55;">Pode ser deitada de costas com os joelhos dobrados, sentada ou em pé. No começo, deitada é mais fácil.</p></div>
+                    </div>
+                    <div style="background:white; border:1px solid var(--borda-suave); border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start;">
+                        <div style="background:var(--rosa-profundo); color:white; width:32px; height:32px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:0.9rem; font-weight:700; flex-shrink:0;">2</div>
+                        <div><strong style="color:var(--texto-principal); font-size:0.9rem;">Contraia os músculos do assoalho pélvico</strong><p style="font-size:0.85rem; color:var(--texto-suave); margin-top:4px; line-height:1.55;">Imagine que está tentando segurar a urina e os gases ao mesmo tempo. Você deve sentir um "aperto" e uma leve elevação na região entre a vagina e o ânus.</p></div>
+                    </div>
+                    <div style="background:white; border:1px solid var(--borda-suave); border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start;">
+                        <div style="background:var(--rosa-profundo); color:white; width:32px; height:32px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:0.9rem; font-weight:700; flex-shrink:0;">3</div>
+                        <div><strong style="color:var(--texto-principal); font-size:0.9rem;">Mantenha a contração por 5 a 10 segundos</strong><p style="font-size:0.85rem; color:var(--texto-suave); margin-top:4px; line-height:1.55;">No início, pode ser difícil segurar por muito tempo. Comece com 3 segundos e vá aumentando gradualmente. Respire normalmente durante o exercício.</p></div>
+                    </div>
+                    <div style="background:white; border:1px solid var(--borda-suave); border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start;">
+                        <div style="background:var(--rosa-profundo); color:white; width:32px; height:32px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:0.9rem; font-weight:700; flex-shrink:0;">4</div>
+                        <div><strong style="color:var(--texto-principal); font-size:0.9rem;">Relaxe por igual tempo</strong><p style="font-size:0.85rem; color:var(--texto-suave); margin-top:4px; line-height:1.55;">Relaxe completamente os músculos pelo mesmo tempo que manteve a contração. O relaxamento é tão importante quanto a contração.</p></div>
+                    </div>
+                    <div style="background:white; border:1px solid var(--borda-suave); border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start;">
+                        <div style="background:var(--rosa-profundo); color:white; width:32px; height:32px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:0.9rem; font-weight:700; flex-shrink:0;">5</div>
+                        <div><strong style="color:var(--texto-principal); font-size:0.9rem;">Repita 10 a 15 vezes, 3 vezes ao dia</strong><p style="font-size:0.85rem; color:var(--texto-suave); margin-top:4px; line-height:1.55;">Faça de 10 a 15 repetições por série, e realize 3 séries ao longo do dia (manhã, tarde e noite). Consistência é a chave.</p></div>
+                    </div>
+                </div>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Erros comuns a evitar</h3>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px; margin-bottom:20px;">
+                    <div style="background:#fee2e2; border-radius:10px; padding:14px;">
+                        <strong style="color:#b91c1c; font-size:0.88rem;">Contrair a barriga ou glúteos</strong>
+                        <p style="font-size:0.82rem; color:var(--texto-suave); margin-top:4px; line-height:1.5;">O exercício deve isolar os músculos pélvicos. Se sua barriga endurecer ou você apertar as nádegas, está fazendo errado.</p>
+                    </div>
+                    <div style="background:#fee2e2; border-radius:10px; padding:14px;">
+                        <strong style="color:#b91c1c; font-size:0.88rem;">Prender a respiração</strong>
+                        <p style="font-size:0.82rem; color:var(--texto-suave); margin-top:4px; line-height:1.5;">Respire normalmente durante todo o exercício. Prender a respiração aumenta a pressão abdominal.</p>
+                    </div>
+                    <div style="background:#fee2e2; border-radius:10px; padding:14px;">
+                        <strong style="color:#b91c1c; font-size:0.88rem;">Empurrar para baixo</strong>
+                        <p style="font-size:0.82rem; color:var(--texto-suave); margin-top:4px; line-height:1.5;">O movimento correto é de "puxar para cima e para dentro", nunca de empurrar para baixo como se estivesse evacuando.</p>
+                    </div>
+                </div>
+
+                <div class="sobre-cita">Os primeiros resultados costumam aparecer entre 4 e 8 semanas de prática regular. Se tiver dificuldade para identificar os músculos, procure uma fisioterapeuta pélvica — a orientação profissional faz toda a diferença.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         ARTIGO 2: HÁBITOS URINÁRIOS SAUDÁVEIS
+         ============================================================ -->
+    <section id="habitos" style="background: var(--rosa-palido);">
+        <div class="container">
+            <div class="content-card">
+                <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px;">
+                    <div style="width:56px;height:56px;background:linear-gradient(135deg, #ede9fe, #c4b5fd);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;">🚰</div>
+                    <div>
+                        <div class="secao-tag">Artigo educativo</div>
+                        <h2 class="secao-titulo" style="font-size:1.5rem;">Hábitos urinários saudáveis</h2>
+                    </div>
+                </div>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Quantas vezes é normal ir ao banheiro?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">O normal é urinar entre 6 e 8 vezes ao longo do dia e no máximo 1 vez durante a noite. Se você vai ao banheiro mais de 8 vezes por dia ou acorda mais de 2 vezes à noite, pode ser sinal de que algo precisa de atenção. O volume normal de cada micção é de cerca de 200 a 400 ml.</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Quanto líquido devo tomar por dia?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">A recomendação geral é de 1,5 a 2 litros de líquidos por dia (incluindo água, chás e sucos). Isso pode variar conforme o clima, nível de atividade física e condições de saúde. A dica é: sua urina deve ter cor amarelo-claro. Se estiver muito escura, você provavelmente precisa beber mais. Se estiver quase transparente, pode estar bebendo demais.</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Bons hábitos para a saúde da bexiga</h3>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:14px; margin-bottom:20px;">
+                    <div style="background:#dcfce7; border-radius:var(--radius); padding:18px;">
+                        <strong style="color:#15803d;">Não segure a urina por muito tempo</strong>
+                        <p style="font-size:0.875rem; color:var(--texto-suave); margin-top:6px; line-height:1.6;">Segurar demais de forma habitual pode distender a bexiga e enfraquecer sua capacidade de contração. Procure ir ao banheiro a cada 2 a 4 horas.</p>
+                    </div>
+                    <div style="background:#dcfce7; border-radius:var(--radius); padding:18px;">
+                        <strong style="color:#15803d;">Não vá "por precaução" o tempo todo</strong>
+                        <p style="font-size:0.875rem; color:var(--texto-suave); margin-top:6px; line-height:1.6;">Ir ao banheiro "só para garantir" quando a bexiga ainda não está cheia ensina o corpo a sentir urgência com volumes cada vez menores. Vá quando realmente sentir vontade.</p>
+                    </div>
+                    <div style="background:#dcfce7; border-radius:var(--radius); padding:18px;">
+                        <strong style="color:#15803d;">Urine sem pressa e sem fazer força</strong>
+                        <p style="font-size:0.875rem; color:var(--texto-suave); margin-top:6px; line-height:1.6;">Sente-se confortavelmente no vaso, relaxe os músculos e deixe a urina fluir naturalmente. Não faça esforço para esvaziar mais rápido.</p>
+                    </div>
+                    <div style="background:#dcfce7; border-radius:var(--radius); padding:18px;">
+                        <strong style="color:#15803d;">Distribua os líquidos ao longo do dia</strong>
+                        <p style="font-size:0.875rem; color:var(--texto-suave); margin-top:6px; line-height:1.6;">Evite tomar grandes volumes de uma só vez. Se acorda muito à noite, tente reduzir a ingestão de líquidos 2 horas antes de dormir.</p>
+                    </div>
+                </div>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">O que evitar</h3>
+                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-bottom:16px;">
+                    <div style="background:#fef3c7; border-radius:10px; padding:14px;">
+                        <strong style="color:#b45309; font-size:0.88rem;">Excesso de cafeína</strong>
+                        <p style="font-size:0.82rem; color:var(--texto-suave); margin-top:4px; line-height:1.5;">Café, chá preto, chá verde, refrigerantes e energéticos irritam a bexiga e aumentam a frequência urinária.</p>
+                    </div>
+                    <div style="background:#fef3c7; border-radius:10px; padding:14px;">
+                        <strong style="color:#b45309; font-size:0.88rem;">Bebidas gaseificadas</strong>
+                        <p style="font-size:0.82rem; color:var(--texto-suave); margin-top:4px; line-height:1.5;">O gás carbônico pode irritar a bexiga e piorar sintomas de urgência.</p>
+                    </div>
+                    <div style="background:#fef3c7; border-radius:10px; padding:14px;">
+                        <strong style="color:#b45309; font-size:0.88rem;">Álcool em excesso</strong>
+                        <p style="font-size:0.82rem; color:var(--texto-suave); margin-top:4px; line-height:1.5;">Além de irritar a bexiga, o álcool é diurético — faz você produzir mais urina.</p>
+                    </div>
+                    <div style="background:#fef3c7; border-radius:10px; padding:14px;">
+                        <strong style="color:#b45309; font-size:0.88rem;">Alimentos muito ácidos</strong>
+                        <p style="font-size:0.82rem; color:var(--texto-suave); margin-top:4px; line-height:1.5;">Frutas cítricas, tomate e alimentos muito condimentados podem irritar a bexiga em pessoas sensíveis.</p>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         ARTIGO 3: PÓS-PARTO E ASSOALHO PÉLVICO
+         ============================================================ -->
+    <section id="posparto" style="background: var(--creme);">
+        <div class="container">
+            <div class="content-card">
+                <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px;">
+                    <div style="width:56px;height:56px;background:linear-gradient(135deg, #dcfce7, #86efac);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;">🤰</div>
+                    <div>
+                        <div class="secao-tag">Artigo educativo</div>
+                        <h2 class="secao-titulo" style="font-size:1.5rem;">Pós-parto e assoalho pélvico</h2>
+                    </div>
+                </div>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">O que acontece com o assoalho pélvico na gestação e no parto?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:16px; line-height:1.8;">Durante a gravidez, o peso do útero em crescimento exerce pressão contínua sobre os músculos do assoalho pélvico. As alterações hormonais também tornam os ligamentos e tecidos mais frouxos para permitir a passagem do bebê. No parto vaginal, essa musculatura é intensamente estirada — em alguns casos, podem ocorrer micro-lesões nas fibras musculares e nos nervos da região.</p>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">Esses fatores combinados explicam por que muitas mulheres experimentam algum grau de incontinência urinária ou sensação de fraqueza pélvica no pós-parto. A boa notícia é que, na maioria dos casos, a recuperação é possível com cuidados adequados.</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Sintomas comuns no pós-parto</h3>
+                <ul style="color:var(--texto-suave); margin-bottom:20px; line-height:1.9; padding-left:20px;">
+                    <li>Perda de algumas gotas de urina ao tossir, espirrar ou rir</li>
+                    <li>Sensação de peso ou pressão na região vaginal</li>
+                    <li>Dificuldade de sentir ou contrair os músculos do períneo</li>
+                    <li>Urgência para urinar que não existia antes</li>
+                    <li>Desconforto ou diminuição de sensibilidade durante a relação sexual</li>
+                    <li>Dificuldade para controlar gases</li>
+                </ul>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Quando começar os cuidados?</h3>
+                <p style="color:var(--texto-suave); margin-bottom:20px; line-height:1.8;">Os exercícios leves de contração do assoalho pélvico podem ser iniciados já nos primeiros dias após o parto, desde que não causem dor. Comece de forma suave — contrações leves e de curta duração. A avaliação com uma fisioterapeuta pélvica é ideal a partir de 6 semanas pós-parto, quando ela pode avaliar como está a musculatura e indicar um programa personalizado.</p>
+
+                <h3 style="font-family:'Lora',serif; font-size:1.15rem; color:var(--rosa-profundo); margin-bottom:10px;">Cuidados essenciais no pós-parto</h3>
+                <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:20px;">
+                    <div style="background:white; border:1px solid var(--borda-suave); border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start;">
+                        <div style="background:#16a34a; color:white; width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.8rem; flex-shrink:0;">✓</div>
+                        <div><strong style="color:var(--texto-principal); font-size:0.9rem;">Exercícios de Kegel regulares</strong><p style="font-size:0.85rem; color:var(--texto-suave); margin-top:4px; line-height:1.55;">Comece com contrações leves e curtas, aumentando progressivamente conforme se sentir confortável. A regularidade é mais importante que a intensidade.</p></div>
+                    </div>
+                    <div style="background:white; border:1px solid var(--borda-suave); border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start;">
+                        <div style="background:#16a34a; color:white; width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.8rem; flex-shrink:0;">✓</div>
+                        <div><strong style="color:var(--texto-principal); font-size:0.9rem;">Evitar esforço abdominal intenso nas primeiras semanas</strong><p style="font-size:0.85rem; color:var(--texto-suave); margin-top:4px; line-height:1.55;">Abdominais tradicionais e atividades de alto impacto devem ser evitados inicialmente. Priorize caminhadas leves e exercícios de respiração.</p></div>
+                    </div>
+                    <div style="background:white; border:1px solid var(--borda-suave); border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start;">
+                        <div style="background:#16a34a; color:white; width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.8rem; flex-shrink:0;">✓</div>
+                        <div><strong style="color:var(--texto-principal); font-size:0.9rem;">Manter boa postura ao amamentar e carregar o bebê</strong><p style="font-size:0.85rem; color:var(--texto-suave); margin-top:4px; line-height:1.55;">A postura inadequada pode aumentar a pressão sobre o assoalho pélvico. Use almofadas de apoio e alterne posições.</p></div>
+                    </div>
+                    <div style="background:white; border:1px solid var(--borda-suave); border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start;">
+                        <div style="background:#16a34a; color:white; width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.8rem; flex-shrink:0;">✓</div>
+                        <div><strong style="color:var(--texto-principal); font-size:0.9rem;">Cuidar da constipação intestinal</strong><p style="font-size:0.85rem; color:var(--texto-suave); margin-top:4px; line-height:1.55;">A constipação é comum no pós-parto e fazer muita força para evacuar sobrecarrega o assoalho pélvico. Mantenha hidratação, alimentação rica em fibras e, se necessário, converse com seu médico.</p></div>
+                    </div>
+                    <div style="background:white; border:1px solid var(--borda-suave); border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start;">
+                        <div style="background:#16a34a; color:white; width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.8rem; flex-shrink:0;">✓</div>
+                        <div><strong style="color:var(--texto-principal); font-size:0.9rem;">Buscar avaliação profissional</strong><p style="font-size:0.85rem; color:var(--texto-suave); margin-top:4px; line-height:1.55;">Se os sintomas persistirem após 3 meses, procure uma fisioterapeuta pélvica ou um uroginecologista. A maioria dos problemas é tratável.</p></div>
+                    </div>
+                </div>
+
+                <div class="sobre-cita">A recuperação do assoalho pélvico no pós-parto é possível na grande maioria dos casos. Não aceite a incontinência como "preço da maternidade" — busque orientação profissional.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Especialista -->
+    <section style="background: var(--rosa-palido);">
+        <div class="container">
+            <div class="cta-especialista">
+                <div class="cta-esp-icon">👩‍⚕️</div>
+                <div class="cta-esp-text">
+                    <div class="cta-esp-title">Precisa de orientação personalizada?</div>
+                    <div class="cta-esp-desc">Cada mulher é diferente. A Dra. Ana Paula pode ajudar você a encontrar o melhor caminho para cuidar da sua saúde pélvica.</div>
+                </div>
+                <a href="pages/contato.html" class="cta-esp-btn">Entrar em contato</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-inner">
+                <div class="newsletter-tag">✉ Fique informada</div>
+                <h2 class="newsletter-titulo">Receba dicas de saúde pélvica</h2>
+                <p class="newsletter-subtitulo">Cadastre-se para receber informações úteis sobre saúde feminina direto no seu e-mail.</p>
+                <form id="newsletterForm" class="newsletter-form">
+                    <label for="newsletterEmail" class="sr-only">Endereço de email</label>
+                    <input type="email" id="newsletterEmail" placeholder="Seu melhor endereço de e-mail..." required />
+                    <button type="submit" class="newsletter-btn">Assinar ✓</button>
+                </form>
+                <div class="newsletter-nota">Sem spam. Cancele quando quiser.</div>
+                <p id="newsletterMessage" class="newsletter-msg hidden" role="alert" aria-live="polite"></p>
+            </div>
+        </div>
+    </section>
+
     </main>
 
     <div id="footer-component"></div>
