@@ -318,7 +318,11 @@ async function fetchWithCache(url, options = {}, useCache = true) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data = await response.json();
+        let data = await response.json();
+        // Auto-unwrap formato Decap CMS: {items: [...]} → [...]
+        if (data && !Array.isArray(data) && Array.isArray(data.items)) {
+            data = data.items;
+        }
 
         // Armazenar no cache
         if (useCache) {

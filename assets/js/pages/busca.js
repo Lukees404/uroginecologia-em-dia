@@ -50,7 +50,8 @@ async function realizarBusca(termo) {
         }
 
         // Carregar todos os dados em paralelo com cache
-        const fetchFn = window.UroUtils?.fetchWithCache || (url => fetch(url).then(r => r.json()));
+        const unwrap = (d) => (d && !Array.isArray(d) && Array.isArray(d.items)) ? d.items : d;
+        const fetchFn = window.UroUtils?.fetchWithCache || (url => fetch(url).then(r => r.json()).then(unwrap));
 
         const [protocolos, artigos, eventos, noticias] = await Promise.all([
             fetchFn('assets/data/protocolos.json').catch(() => []),

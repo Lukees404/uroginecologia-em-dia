@@ -17,7 +17,8 @@ async function carregarProtocolos() {
         } else {
             const response = await fetch('assets/data/protocolos.json');
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            protocolos = await response.json();
+            const raw = await response.json();
+            protocolos = Array.isArray(raw) ? raw : (raw.items || []);
         }
         return protocolos;
     } catch (error) {

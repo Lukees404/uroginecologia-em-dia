@@ -23,7 +23,8 @@ async function carregarEventos() {
             eventos = await window.UroUtils.fetchWithCache('assets/data/eventos.json');
         } else {
             const response = await fetch('assets/data/eventos.json');
-            eventos = await response.json();
+            const raw = await response.json();
+            eventos = Array.isArray(raw) ? raw : (raw.items || []);
         }
         const hoje = new Date();
         eventos.forEach(evento => {

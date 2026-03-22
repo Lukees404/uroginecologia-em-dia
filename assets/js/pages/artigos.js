@@ -14,7 +14,8 @@ async function carregarArtigos() {
         } else {
             const response = await fetch('assets/data/artigos.json');
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            artigos = await response.json();
+            const raw = await response.json();
+            artigos = Array.isArray(raw) ? raw : (raw.items || []);
         }
         return artigos;
     } catch (error) {

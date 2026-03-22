@@ -1,73 +1,75 @@
-[
+{
+  "items": [
     {
-        "id": "estudo-exercicios-pelvicos",
-        "titulo": "Estudo revela que exercícios pélvicos previnem incontinência urinária após parto",
-        "descricao": "Pesquisa publicada no British Journal of Sports Medicine mostra que mulheres que realizam exercícios do assoalho pélvico durante a gravidez têm 50% menos chance de desenvolver incontinência urinária no pós-parto.",
-        "categoria": "pesquisa",
-        "data": "18/03/2024",
-        "dataOrdenacao": "2024-03-18",
-        "link": "https://bjsm.bmj.com/content/58/7/382",
-        "linkTexto": "Ler Notícia",
-        "destaque": true
+      "id": "estudo-exercicios-pelvicos",
+      "titulo": "Estudo revela que exercícios pélvicos previnem incontinência urinária após parto",
+      "descricao": "Pesquisa publicada no British Journal of Sports Medicine mostra que mulheres que realizam exercícios do assoalho pélvico durante a gravidez têm 50% menos chance de desenvolver incontinência urinária no pós-parto.",
+      "categoria": "pesquisa",
+      "data": "18/03/2024",
+      "dataOrdenacao": "2024-03-18",
+      "link": "https://bjsm.bmj.com/content/58/7/382",
+      "linkTexto": "Ler Notícia",
+      "destaque": true
     },
     {
-        "id": "toxina-botulinica-bexiga",
-        "titulo": "Toxina botulínica mostra eficácia para bexiga hiperativa",
-        "descricao": "Estudo multicêntrico publicado no New England Journal confirma eficácia da aplicação de toxina botulínica na bexiga para tratamento da bexiga hiperativa refratária.",
-        "categoria": "pesquisa",
-        "data": "10/03/2024",
-        "dataOrdenacao": "2024-03-10",
-        "link": "https://www.nejm.org/doi/full/10.1056/NEJMoa1208312",
-        "linkTexto": "Ler Mais"
+      "id": "toxina-botulinica-bexiga",
+      "titulo": "Toxina botulínica mostra eficácia para bexiga hiperativa",
+      "descricao": "Estudo multicêntrico publicado no New England Journal confirma eficácia da aplicação de toxina botulínica na bexiga para tratamento da bexiga hiperativa refratária.",
+      "categoria": "pesquisa",
+      "data": "10/03/2024",
+      "dataOrdenacao": "2024-03-10",
+      "link": "https://www.nejm.org/doi/full/10.1056/NEJMoa1208312",
+      "linkTexto": "Ler Mais"
     },
     {
-        "id": "dispositivo-intravaginal-prolapso",
-        "titulo": "Dispositivo intravaginal para tratamento do prolapso",
-        "descricao": "Pesquisadores desenvolvem novo dispositivo intravaginal que oferece alternativa não cirúrgica para mulheres com prolapso de órgãos pélvicos.",
-        "categoria": "inovacao",
-        "data": "28/02/2024",
-        "dataOrdenacao": "2024-02-28",
-        "link": "https://journals.lww.com/fpmrs/Abstract/9900/Novel_Intravaginal_Device_for_Pelvic_Organ.209.aspx",
-        "linkTexto": "Ler Mais"
+      "id": "dispositivo-intravaginal-prolapso",
+      "titulo": "Dispositivo intravaginal para tratamento do prolapso",
+      "descricao": "Pesquisadores desenvolvem novo dispositivo intravaginal que oferece alternativa não cirúrgica para mulheres com prolapso de órgãos pélvicos.",
+      "categoria": "inovacao",
+      "data": "28/02/2024",
+      "dataOrdenacao": "2024-02-28",
+      "link": "https://journals.lww.com/fpmrs/Abstract/9900/Novel_Intravaginal_Device_for_Pelvic_Organ.209.aspx",
+      "linkTexto": "Ler Mais"
     },
     {
-        "id": "congresso-internacional-2024",
-        "titulo": "Congresso Internacional de Uroginecologia 2024",
-        "descricao": "Evento reúne especialistas mundiais para discutir avanços no diagnóstico e tratamento das disfunções do assoalho pélvico feminino.",
-        "categoria": "evento",
-        "data": "15/02/2024",
-        "dataOrdenacao": "2024-02-15",
-        "link": "https://www.ics.org/2024",
-        "linkTexto": "Ler Mais"
+      "id": "congresso-internacional-2024",
+      "titulo": "Congresso Internacional de Uroginecologia 2024",
+      "descricao": "Evento reúne especialistas mundiais para discutir avanços no diagnóstico e tratamento das disfunções do assoalho pélvico feminino.",
+      "categoria": "evento",
+      "data": "15/02/2024",
+      "dataOrdenacao": "2024-02-15",
+      "link": "https://www.ics.org/2024",
+      "linkTexto": "Ler Mais"
     },
     {
-        "id": "fisioterapia-pelvica-reduz-cirurgia",
-        "titulo": "Fisioterapia pélvica reduz necessidade de cirurgia",
-        "descricao": "Estudo randomizado mostra que fisioterapia do assoalho pélvico reduz em 40% a necessidade de intervenção cirúrgica para incontinência urinária.",
-        "categoria": "tratamento",
-        "data": "05/02/2024",
-        "dataOrdenacao": "2024-02-05",
-        "link": "https://journals.lww.com/greenjournal/Abstract/9900/Efficacy_of_Pelvic_Floor_Muscle_Training_for.209.aspx",
-        "linkTexto": "Ler Mais"
+      "id": "fisioterapia-pelvica-reduz-cirurgia",
+      "titulo": "Fisioterapia pélvica reduz necessidade de cirurgia",
+      "descricao": "Estudo randomizado mostra que fisioterapia do assoalho pélvico reduz em 40% a necessidade de intervenção cirúrgica para incontinência urinária.",
+      "categoria": "tratamento",
+      "data": "05/02/2024",
+      "dataOrdenacao": "2024-02-05",
+      "link": "https://journals.lww.com/greenjournal/Abstract/9900/Efficacy_of_Pelvic_Floor_Muscle_Training_for.209.aspx",
+      "linkTexto": "Ler Mais"
     },
     {
-        "id": "anvisa-medicamento-cistite",
-        "titulo": "ANVISA aprova novo medicamento para cistite intersticial",
-        "descricao": "Nova opção terapêutica para cistite intersticial/síndrome da bexiga dolorosa recebe registro no Brasil, oferecendo alívio para pacientes refratárias.",
-        "categoria": "alerta",
-        "data": "25/01/2024",
-        "dataOrdenacao": "2024-01-25",
-        "link": "https://www.gov.br/anvisa/pt-br/assuntos/medicamentos/novos-medicamentos",
-        "linkTexto": "Ler Mais"
+      "id": "anvisa-medicamento-cistite",
+      "titulo": "ANVISA aprova novo medicamento para cistite intersticial",
+      "descricao": "Nova opção terapêutica para cistite intersticial/síndrome da bexiga dolorosa recebe registro no Brasil, oferecendo alívio para pacientes refratárias.",
+      "categoria": "alerta",
+      "data": "25/01/2024",
+      "dataOrdenacao": "2024-01-25",
+      "link": "https://www.gov.br/anvisa/pt-br/assuntos/medicamentos/novos-medicamentos",
+      "linkTexto": "Ler Mais"
     },
     {
-        "id": "curso-online-urodinamica",
-        "titulo": "Curso online gratuito sobre urodinâmica",
-        "descricao": "Programa de educação continuada oferece capacitação em interpretação de exames urodinâmicos para profissionais de saúde.",
-        "categoria": "educacao",
-        "data": "10/01/2024",
-        "dataOrdenacao": "2024-01-10",
-        "link": "https://www.sbu.org.br/educacao/cursos",
-        "linkTexto": "Ler Mais"
+      "id": "curso-online-urodinamica",
+      "titulo": "Curso online gratuito sobre urodinâmica",
+      "descricao": "Programa de educação continuada oferece capacitação em interpretação de exames urodinâmicos para profissionais de saúde.",
+      "categoria": "educacao",
+      "data": "10/01/2024",
+      "dataOrdenacao": "2024-01-10",
+      "link": "https://www.sbu.org.br/educacao/cursos",
+      "linkTexto": "Ler Mais"
     }
-]
+  ]
+}

@@ -11,6 +11,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+    <!-- Netlify Identity Widget (necessário para redirect pós-login do CMS) -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
     <!-- Google Analytics 4 -->
     <script>
       fetch('components/analytics.html')
@@ -438,5 +441,18 @@
     <script src="assets/js/common.min.js"></script>
     <script src="assets/js/pages/index.min.js" defer></script>
     <script src="assets/js/mode-toggle.js" defer></script>
+
+    <!-- Netlify Identity: redirect para /admin/ após login -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function(user) {
+          if (!user) {
+            window.netlifyIdentity.on("login", function() {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
 </body>
 </html>

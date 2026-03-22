@@ -347,10 +347,12 @@ let articleCarousel = null;
 async function carregarDados() {
     try {
         // Carregar protocolos e artigos em paralelo
-        const [protocolosData, artigosData] = await Promise.all([
+        const [protocolosRaw, artigosRaw] = await Promise.all([
             fetch('assets/data/protocolos.json').then(r => r.json()),
             fetch('assets/data/artigos.json').then(r => r.json())
         ]);
+        const protocolosData = Array.isArray(protocolosRaw) ? protocolosRaw : (protocolosRaw.items || []);
+        const artigosData = Array.isArray(artigosRaw) ? artigosRaw : (artigosRaw.items || []);
 
         // Transformar dados para formato do carrossel
         protocolos = protocolosData.map(p => ({

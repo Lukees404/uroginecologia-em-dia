@@ -22,7 +22,8 @@ const catClasses = {
 async function carregarNoticias() {
     try {
         const response = await fetch('assets/data/noticias.json');
-        noticias = await response.json();
+        const raw = await response.json();
+        noticias = Array.isArray(raw) ? raw : (raw.items || []);
         noticiasFiltradas = [...noticias];
         gerarNoticias();
     } catch (error) {
