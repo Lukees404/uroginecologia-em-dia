@@ -1,31 +1,21 @@
-# robots.txt para Uroginecologia Em Dia
-# Gerado em: 2025-01-15
+# robots.txt — Uroginecologia em Dia
+# Atualizado em: 2026-03-22
 
-# Permitir acesso a todos os bots de busca
 User-agent: *
 Allow: /
-
-# Desabilitar acesso a diretórios administrativos (se existirem)
 Disallow: /admin/
-Disallow: /private/
 Disallow: /.git/
-
-# Desabilitar acesso a arquivos de configuração
-Disallow: /*.json$
 Disallow: /assets/data/
+Disallow: /tests/
+Disallow: /docs/
 
-# Permitir especificamente páginas importantes
-Allow: /index.html
-Allow: /pages/
-Allow: /assets/
-
-# Sitemap location
+# Sitemap
 Sitemap: https://uroginecologiaemdia.com.br/sitemap.xml
 
-# Crawl delay para ser gentil com o servidor
+# Crawl-delay
 Crawl-delay: 1
 
-# Configurações específicas por bot
+# Bots de busca principais
 User-agent: Googlebot
 Allow: /
 
@@ -35,7 +25,7 @@ Allow: /
 User-agent: Slurp
 Allow: /
 
-# Bloquear bots mal intencionados
+# Bloquear bots de scraping
 User-agent: AhrefsBot
 Disallow: /
 
@@ -46,4 +36,13 @@ User-agent: MJ12bot
 Disallow: /
 
 User-agent: DotBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
 Disallow: /

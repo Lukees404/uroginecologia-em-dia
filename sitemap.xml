@@ -7,58 +7,79 @@
     <!-- Página Principal -->
     <url>
         <loc>https://uroginecologiaemdia.com.br/</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
 
-    <!-- Páginas Principais -->
+    <!-- Páginas do Paciente -->
     <url>
-        <loc>https://uroginecologiaemdia.com.br/pages/sobre.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <loc>https://uroginecologiaemdia.com.br/pages/condicoes.html</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://uroginecologiaemdia.com.br/pages/saude-pelvica.html</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://uroginecologiaemdia.com.br/pages/perguntas-frequentes.html</loc>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
+    <!-- Páginas Institucionais -->
+    <url>
+        <loc>https://uroginecologiaemdia.com.br/pages/sobre.html</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
     <url>
         <loc>https://uroginecologiaemdia.com.br/pages/contato.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://uroginecologiaemdia.com.br/pages/busca.html</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
     </url>
 
     <!-- Seção Protocolos -->
     <url>
         <loc>https://uroginecologiaemdia.com.br/pages/protocolos.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
-
     <url>
         <loc>https://uroginecologiaemdia.com.br/pages/protocolo/infeccao-do-trato-urinario.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-
     <url>
         <loc>https://uroginecologiaemdia.com.br/pages/protocolo/incontinencia-urinaria-esforco.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-
     <url>
         <loc>https://uroginecologiaemdia.com.br/pages/protocolo/incontinencia-urinaria-nao.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-
     <url>
         <loc>https://uroginecologiaemdia.com.br/pages/protocolo/sindrome-bexiga-hiperativa.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -66,58 +87,51 @@
     <!-- Seção Artigos -->
     <url>
         <loc>https://uroginecologiaemdia.com.br/pages/artigos.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
-
     <url>
         <loc>https://uroginecologiaemdia.com.br/pages/artigo/acupuntura-urinaria-feminina.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-
     <url>
         <loc>https://uroginecologiaemdia.com.br/pages/artigo/cirurgias-incontinencia.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-
     <url>
         <loc>https://uroginecologiaemdia.com.br/pages/artigo/revi-literaria-artigo.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-
     <url>
         <loc>https://uroginecologiaemdia.com.br/pages/artigo/revisao-ssistematica.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-
     <url>
         <loc>https://uroginecologiaemdia.com.br/pages/artigo/urinaria-atencao-basica.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- Seção Eventos -->
+    <!-- Seção Eventos e Notícias -->
     <url>
         <loc>https://uroginecologiaemdia.com.br/pages/eventos.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
-
-    <!-- Seção Notícias -->
     <url>
         <loc>https://uroginecologiaemdia.com.br/pages/noticias.html</loc>
-        <lastmod>2025-01-15</lastmod>
+        <lastmod>2026-03-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
