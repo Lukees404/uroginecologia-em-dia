@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#881337">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Google Analytics 4 -->
+    <script>
+      fetch('../components/analytics.html')
+        .then(response => response.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll('script');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            if (script.async) newScript.async = true;
+            document.head.appendChild(newScript);
+          });
+        });
+    </script>
+
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Congressos, cursos e workshops em uroginecologia.">
+    <meta name="author" content="Uroginecologia em Dia">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uroginecologiaemdia.com.br/pages/eventos.html">
+    <meta property="og:title" content="Eventos | Uroginecologia em Dia">
+    <meta property="og:description" content="Congressos, cursos e workshops em uroginecologia.">
+
+    <title>Eventos | Uroginecologia em Dia</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <!-- Fonts + CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/redesign.css">
+
+</head>
+<body>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
+
+    <!-- Header carregado via componente -->
+    <div id="header-component"></div>
+
+    <main id="main-content">
+    <section class="page-hero">
+        <h1 class="anim-1">Eventos em Uroginecologia</h1>
+        <p class="anim-2">Fique por dentro dos principais congressos, cursos e workshops na área de uroginecologia.</p>
+    </section>
+
+    <section style="background: var(--creme);">
+        <div class="container">
+            <div class="secao-cabecalho">
+                <div>
+                    <div class="secao-tag">📅 Próximos Eventos</div>
+                    <h2 class="secao-titulo">Agenda da especialidade</h2>
+                </div>
+                <select id="filtroEventos" class="filtro-select" aria-label="Filtrar eventos por categoria">
+                    <option value="todos">Todos os Eventos</option>
+                    <option value="congresso">Congressos</option>
+                    <option value="workshop">Workshops</option>
+                    <option value="curso">Cursos</option>
+                    <option value="webinar">Online</option>
+                </select>
+            </div>
+
+            <div id="eventos-container" class="eventos-lista" aria-live="polite">
+                <p style="text-align:center; color:var(--texto-claro);">Carregando eventos...</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: var(--rosa-palido);">
+        <div class="container">
+            <div class="secao-cabecalho">
+                <div>
+                    <div class="secao-tag">📁 Arquivo</div>
+                    <h2 class="secao-titulo">Eventos Realizados</h2>
+                </div>
+            </div>
+            <div id="eventos-passados-container" class="eventos-lista" aria-live="polite"></div>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-inner">
+                <div class="newsletter-tag">📬 Fique por dentro</div>
+                <h2 class="newsletter-titulo">Receba Notificações de Eventos</h2>
+                <p class="newsletter-subtitulo">Cadastre-se para receber informações sobre novos eventos, prazos de inscrição e oportunidades na área de uroginecologia.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <label for="newsletterEmail" class="sr-only">Seu endereço de email</label>
+                    <input type="email" id="newsletterEmail" placeholder="Seu endereço de email" required>
+                    <button type="submit" class="newsletter-btn">Cadastrar ✓</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer carregado via componente -->
+    <div id="footer-component"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/constants.min.js"></script>
+    <script src="assets/js/utils.min.js"></script>
+    <script src="assets/js/main.min.js"></script>
+    <script src="assets/js/common.min.js"></script>
+    <script src="assets/js/pages/eventos.min.js" defer></script>
+    <script src="assets/js/mode-toggle.js" defer></script>
+</body>
+</html>

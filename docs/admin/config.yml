@@ -1,0 +1,184 @@
+# ============================================================
+# DECAP CMS — Configuração para Uroginecologia em Dia
+# ============================================================
+# Gerencia: Protocolos, Artigos, Eventos e Notícias
+# Backend: Netlify Git Gateway (login via Netlify Identity)
+# ============================================================
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Localização em português
+locale: "pt"
+
+# Pasta onde o CMS faz upload de mídia (imagens, PDFs, etc.)
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+# Modo editorial: permite salvar rascunhos antes de publicar
+# (Descomente se quiser workflow de aprovação)
+# publish_mode: editorial_workflow
+
+# ============================================================
+# COLEÇÕES DE CONTEÚDO
+# ============================================================
+
+collections:
+
+  # ──────────────────────────────────────────────
+  # PROTOCOLOS
+  # ──────────────────────────────────────────────
+  - name: "protocolos"
+    label: "Protocolos Clínicos"
+    label_singular: "Protocolo"
+    description: "Gerenciar protocolos clínicos do portal"
+    file: "assets/data/protocolos.json"
+    format: "json"
+    editor:
+      preview: false
+    fields:
+      - name: "items"
+        label: "Lista de Protocolos"
+        widget: "list"
+        label_singular: "Protocolo"
+        summary: "{{fields.titulo}} ({{fields.categoria}})"
+        fields:
+          - { name: "id", label: "ID (slug único)", widget: "string", hint: "Identificador único, ex: itu, iue, sbh" }
+          - { name: "titulo", label: "Título", widget: "string" }
+          - { name: "arquivo", label: "Arquivo HTML", widget: "string", hint: "Nome do arquivo em pages/protocolo/, ex: infeccao-do-trato-urinario.html" }
+          - name: "categoria"
+            label: "Categoria"
+            widget: "select"
+            options:
+              - { label: "Infeccioso", value: "infeccioso" }
+              - { label: "Urodinâmico", value: "urodinamico" }
+              - { label: "Cirúrgico", value: "cirurgico" }
+              - { label: "Funcional", value: "funcional" }
+          - { name: "descricao", label: "Descrição", widget: "text" }
+          - { name: "data", label: "Data", widget: "string", hint: "Ex: Jan/2025" }
+          - name: "icone"
+            label: "Ícone (emoji)"
+            widget: "select"
+            options: ["🦠", "💧", "⚡", "🔬", "🩺", "💊", "🔪", "📋"]
+          - { name: "tags", label: "Tags", widget: "list", allow_add: true, field: { name: "tag", label: "Tag", widget: "string" } }
+
+  # ──────────────────────────────────────────────
+  # ARTIGOS
+  # ──────────────────────────────────────────────
+  - name: "artigos"
+    label: "Artigos Científicos"
+    label_singular: "Artigo"
+    description: "Gerenciar artigos científicos resumidos"
+    file: "assets/data/artigos.json"
+    format: "json"
+    editor:
+      preview: false
+    fields:
+      - name: "items"
+        label: "Lista de Artigos"
+        widget: "list"
+        label_singular: "Artigo"
+        summary: "{{fields.titulo}} ({{fields.categoria}})"
+        fields:
+          - { name: "id", label: "ID (slug único)", widget: "string", hint: "Identificador único, ex: acupuntura-iu" }
+          - { name: "titulo", label: "Título", widget: "string" }
+          - { name: "arquivo", label: "Arquivo HTML", widget: "string", hint: "Nome do arquivo em pages/artigo/, ex: acupuntura-urinaria-feminina.html" }
+          - name: "categoria"
+            label: "Categoria"
+            widget: "select"
+            options:
+              - { label: "Pesquisa Original", value: "pesquisa" }
+              - { label: "Estudo Longitudinal", value: "estudo" }
+              - { label: "Revisão Sistemática", value: "revisao" }
+              - { label: "Meta-análise", value: "meta" }
+          - { name: "descricao", label: "Descrição", widget: "text" }
+          - { name: "data", label: "Data", widget: "string", hint: "Ex: Jan 2025" }
+          - name: "icone"
+            label: "Ícone (emoji)"
+            widget: "select"
+            options: ["🔬", "📊", "📋", "📈", "📰", "🧬"]
+          - { name: "tags", label: "Tags", widget: "list", allow_add: true, field: { name: "tag", label: "Tag", widget: "string" } }
+
+  # ──────────────────────────────────────────────
+  # EVENTOS
+  # ──────────────────────────────────────────────
+  - name: "eventos"
+    label: "Eventos"
+    label_singular: "Evento"
+    description: "Gerenciar eventos, congressos e workshops"
+    file: "assets/data/eventos.json"
+    format: "json"
+    editor:
+      preview: false
+    fields:
+      - name: "items"
+        label: "Lista de Eventos"
+        widget: "list"
+        label_singular: "Evento"
+        summary: "{{fields.titulo}} — {{fields.data}}"
+        fields:
+          - { name: "id", label: "ID (slug único)", widget: "string", hint: "Ex: congresso-brasileiro-2025" }
+          - { name: "titulo", label: "Título", widget: "string" }
+          - { name: "descricao", label: "Descrição", widget: "text" }
+          - { name: "data", label: "Data (exibição)", widget: "string", hint: "Texto exibido, ex: 06-08 de Novembro, 2025" }
+          - { name: "dataOrdenacao", label: "Data para ordenação", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+          - { name: "local", label: "Local", widget: "string" }
+          - name: "categoria"
+            label: "Categoria"
+            widget: "select"
+            options:
+              - { label: "Congresso", value: "congresso" }
+              - { label: "Workshop", value: "workshop" }
+              - { label: "Curso", value: "curso" }
+              - { label: "Webinar", value: "webinar" }
+              - { label: "Simpósio", value: "simposio" }
+              - { label: "Jornada", value: "jornada" }
+          - name: "status"
+            label: "Status"
+            widget: "select"
+            options:
+              - { label: "Inscrições Abertas", value: "inscricoes-abertas" }
+              - { label: "Realizado", value: "realizado" }
+              - { label: "Cancelado", value: "cancelado" }
+          - { name: "link", label: "Link externo", widget: "string", required: false }
+          - { name: "linkTexto", label: "Texto do link", widget: "string", required: false, default: "Ver evento" }
+          - { name: "destaque", label: "Destaque?", widget: "boolean", default: false, required: false }
+          - { name: "passado", label: "Evento passado?", widget: "boolean", default: false, required: false }
+
+  # ──────────────────────────────────────────────
+  # NOTÍCIAS
+  # ──────────────────────────────────────────────
+  - name: "noticias"
+    label: "Notícias"
+    label_singular: "Notícia"
+    description: "Gerenciar notícias do portal"
+    file: "assets/data/noticias.json"
+    format: "json"
+    editor:
+      preview: false
+    fields:
+      - name: "items"
+        label: "Lista de Notícias"
+        widget: "list"
+        label_singular: "Notícia"
+        summary: "{{fields.titulo}} — {{fields.data}}"
+        fields:
+          - { name: "id", label: "ID (slug único)", widget: "string", hint: "Ex: estudo-exercicios-pelvicos" }
+          - { name: "titulo", label: "Título", widget: "string" }
+          - { name: "descricao", label: "Descrição / Resumo", widget: "text" }
+          - name: "categoria"
+            label: "Categoria"
+            widget: "select"
+            options:
+              - { label: "Pesquisa", value: "pesquisa" }
+              - { label: "Inovação", value: "inovacao" }
+              - { label: "Evento", value: "evento" }
+              - { label: "Tratamento", value: "tratamento" }
+              - { label: "Educação", value: "educacao" }
+              - { label: "Alerta", value: "alerta" }
+          - { name: "data", label: "Data (exibição)", widget: "string", hint: "Ex: 18/03/2024" }
+          - { name: "dataOrdenacao", label: "Data para ordenação", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+          - { name: "link", label: "Link externo", widget: "string", required: false }
+          - { name: "linkTexto", label: "Texto do link", widget: "string", required: false, default: "Ler Mais" }
+          - { name: "destaque", label: "Destaque?", widget: "boolean", default: false, required: false }

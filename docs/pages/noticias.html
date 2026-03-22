@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#881337">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Google Analytics 4 -->
+    <script>
+      fetch('../components/analytics.html')
+        .then(response => response.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll('script');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            if (script.async) newScript.async = true;
+            document.head.appendChild(newScript);
+          });
+        });
+    </script>
+
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Últimas notícias e avanços em uroginecologia.">
+    <meta name="author" content="Uroginecologia em Dia">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uroginecologiaemdia.com.br/pages/noticias.html">
+    <meta property="og:title" content="Notícias | Uroginecologia em Dia">
+    <meta property="og:description" content="Últimas notícias e avanços em uroginecologia.">
+
+    <title>Notícias | Uroginecologia em Dia</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <!-- Fonts + CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/redesign.css">
+
+</head>
+<body>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
+
+    <!-- Header carregado via componente -->
+    <div id="header-component"></div>
+
+    <main id="main-content">
+    <section class="page-hero">
+        <h1 class="anim-1">Notícias em Uroginecologia</h1>
+        <p class="anim-2">Fique atualizado com as últimas novidades, pesquisas e avanços na área de uroginecologia.</p>
+    </section>
+
+    <section class="sec-noticias">
+        <div class="container">
+            <div class="secao-cabecalho">
+                <div>
+                    <div class="secao-tag">📢 Últimas Notícias</div>
+                    <h2 class="secao-titulo">O que há de novo na área</h2>
+                </div>
+                <select id="filtroNoticias" class="filtro-select" aria-label="Filtrar notícias por categoria">
+                    <option value="todas">Todas as Categorias</option>
+                    <option value="pesquisa">Pesquisa</option>
+                    <option value="tratamento">Tratamentos</option>
+                    <option value="evento">Eventos</option>
+                    <option value="inovacao">Inovações</option>
+                    <option value="educacao">Educação</option>
+                    <option value="alerta">Alertas</option>
+                </select>
+            </div>
+
+            <div id="noticias-container" class="cards-grid" aria-live="polite">
+                <p style="text-align:center; color:var(--texto-claro);">Carregando notícias...</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-inner">
+                <div class="newsletter-tag">📬 Newsletter</div>
+                <h2 class="newsletter-titulo">Receba Nossas Notícias</h2>
+                <p class="newsletter-subtitulo">Cadastre-se para receber as últimas notícias e atualizações em uroginecologia direto no seu email.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <label for="newsletterEmail" class="sr-only">Seu endereço de email</label>
+                    <input type="email" id="newsletterEmail" placeholder="Seu endereço de email" required>
+                    <button type="submit" class="newsletter-btn">Cadastrar ✓</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer carregado via componente -->
+    <div id="footer-component"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/constants.min.js"></script>
+    <script src="assets/js/utils.min.js"></script>
+    <script src="assets/js/main.min.js"></script>
+    <script src="assets/js/common.min.js"></script>
+    <script src="assets/js/pages/noticias.min.js" defer></script>
+    <script src="assets/js/mode-toggle.js" defer></script>
+</body>
+</html>

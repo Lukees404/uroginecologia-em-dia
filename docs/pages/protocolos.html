@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#881337">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Google Analytics 4 -->
+    <script>
+      fetch('../components/analytics.html')
+        .then(response => response.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll('script');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            if (script.async) newScript.async = true;
+            document.head.appendChild(newScript);
+          });
+        });
+    </script>
+
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Protocolos clínicos atualizados em uroginecologia baseados em evidências científicas.">
+    <meta name="author" content="Uroginecologia em Dia">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uroginecologiaemdia.com.br/pages/protocolos.html">
+    <meta property="og:title" content="Protocolos Clínicos | Uroginecologia em Dia">
+    <meta property="og:description" content="Protocolos clínicos atualizados em uroginecologia baseados em evidências científicas.">
+
+    <title>Protocolos Clínicos | Uroginecologia em Dia</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <!-- Fonts + CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/redesign.css">
+
+</head>
+<body>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
+
+    <!-- Header carregado via componente -->
+    <div id="header-component"></div>
+
+    <main id="main-content">
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <h1 class="anim-1">Protocolos Clínicos</h1>
+        <p class="anim-2">Diretrizes baseadas em evidências científicas para diagnóstico e tratamento de condições uroginecológicas, atualizadas conforme as principais sociedades médicas.</p>
+    </section>
+
+    <!-- Protocolos -->
+    <section class="sec-protocolos">
+        <div class="container">
+            <div class="secao-cabecalho">
+                <div>
+                    <div class="secao-tag">📋 Protocolos Disponíveis</div>
+                    <h2 class="secao-titulo">Diretrizes clínicas <span id="contador-protocolos" style="font-size:0.8em; font-weight:400; color:var(--texto-claro);"></span></h2>
+                </div>
+                <select id="filtro-categoria" class="filtro-select" aria-label="Filtrar protocolos por categoria">
+                    <option value="todos">Todos os Protocolos</option>
+                    <option value="infeccioso">Infeccioso</option>
+                    <option value="urodinamico">Urodinâmico</option>
+                    <option value="cirurgico">Cirúrgico</option>
+                    <option value="funcional">Funcional</option>
+                </select>
+            </div>
+
+            <div id="protocolos-container" class="cards-grid">
+                <!-- Cards gerados via JavaScript -->
+            </div>
+
+            <div id="mensagem-vazio" class="empty-state hidden">
+                <h3>Nenhum protocolo encontrado</h3>
+                <p>Tente alterar o filtro ou verifique novamente em breve.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>📝 Mais Protocolos em Desenvolvimento</h3>
+                <p>Nossa equipe está trabalhando na elaboração de novos protocolos baseados nas últimas evidências científicas. Em breve teremos mais conteúdos disponíveis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre os Protocolos -->
+    <section style="background: var(--creme);">
+        <div class="container">
+            <div class="content-card" style="text-align:center;">
+                <h2 class="secao-titulo" style="margin-bottom:16px;">Sobre Nossos Protocolos</h2>
+                <p style="color:var(--texto-suave); max-width:700px; margin:0 auto 24px; line-height:1.75;">
+                    Nossos protocolos são desenvolvidos com base nas diretrizes mais recentes da FEBRASGO e de sociedades internacionais como IUGA, EAU e AUA.
+                </p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon green">✅</div>
+                        <div>
+                            <div class="feature-title">Baseado em Evidências</div>
+                            <div class="feature-desc">Todos seguem os princípios da medicina baseada em evidências</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon blue">🔄</div>
+                        <div>
+                            <div class="feature-title">Constantemente Atualizados</div>
+                            <div class="feature-desc">Revisados periodicamente para incorporar novas evidências</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon purple">👥</div>
+                        <div>
+                            <div class="feature-title">Elaborados por Especialistas</div>
+                            <div class="feature-desc">Desenvolvidos por profissionais com expertise em uroginecologia</div>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon orange">📖</div>
+                        <div>
+                            <div class="feature-title">Aplicação Prática</div>
+                            <div class="feature-desc">Focados na aplicabilidade clínica no dia a dia do consultório</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer carregado via componente -->
+    <div id="footer-component"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/constants.min.js"></script>
+    <script src="assets/js/utils.min.js"></script>
+    <script src="assets/js/main.min.js"></script>
+    <script src="assets/js/common.min.js"></script>
+    <script src="assets/js/pages/protocolos.min.js" defer></script>
+    <script src="assets/js/mode-toggle.js" defer></script>
+</body>
+</html>

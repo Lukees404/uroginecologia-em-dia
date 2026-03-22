@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#881337">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Google Analytics 4 -->
+    <script>
+      fetch('../components/analytics.html')
+        .then(response => response.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll('script');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            if (script.async) newScript.async = true;
+            document.head.appendChild(newScript);
+          });
+        });
+    </script>
+
+    <meta name="description" content="Perguntas frequentes sobre saúde pélvica feminina: mitos e verdades sobre incontinência urinária, exercícios de Kegel, bexiga hiperativa, prolapso e muito mais.">
+    <meta name="author" content="Uroginecologia em Dia">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uroginecologiaemdia.com.br/pages/perguntas-frequentes.html">
+    <meta property="og:title" content="Perguntas Frequentes | Uroginecologia em Dia">
+    <meta property="og:description" content="Respostas para as dúvidas mais comuns sobre saúde pélvica feminina. Mitos, verdades e orientações confiáveis.">
+
+    <title>Perguntas Frequentes | Uroginecologia em Dia</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/redesign.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
+    <div id="header-component"></div>
+
+    <main id="main-content">
+
+    <!-- Page Hero -->
+    <section class="pac-hero">
+        <div class="pac-hero-icon anim-1">❓</div>
+        <h1 class="anim-2">Perguntas Frequentes</h1>
+        <p class="anim-3">Respostas para as dúvidas mais comuns sobre saúde pélvica feminina. Separamos por temas para facilitar a leitura — clique em cada pergunta para ver a resposta.</p>
+    </section>
+
+    <!-- SEÇÃO 1: MITOS E VERDADES -->
+    <section style="background: var(--creme);">
+        <div class="container">
+            <div class="secao-cabecalho" style="margin-bottom:24px;">
+                <div>
+                    <div class="secao-tag">🔍 Mitos e Verdades</div>
+                    <h2 class="secao-titulo">O que é verdade e o que não é?</h2>
+                </div>
+            </div>
+
+            <div class="faq-pac-list">
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>"Perder urina é normal depois de certa idade"</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a"><strong style="color:var(--rosa-profundo)">Mito.</strong> Embora a incontinência urinária se torne mais comum com a idade, ela NÃO é uma consequência inevitável do envelhecimento. É uma condição tratável em qualquer fase da vida. Muitas mulheres sofrem em silêncio por acreditarem que "faz parte", quando existem tratamentos eficazes que podem melhorar significativamente a qualidade de vida.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>"Exercícios de Kegel realmente funcionam?"</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a"><strong style="color:#16a34a">Verdade.</strong> Quando feitos corretamente e com regularidade, os exercícios de Kegel são o tratamento de primeira escolha para incontinência urinária de esforço leve a moderada. Estudos mostram melhora em até 70% dos casos. O segredo está na técnica correta e na consistência — os primeiros resultados costumam aparecer entre 4 e 8 semanas.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>"Só mulheres que tiveram filhos têm incontinência"</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a"><strong style="color:var(--rosa-profundo)">Mito.</strong> Embora a gravidez e o parto sejam fatores de risco importantes, mulheres que nunca engravidaram também podem desenvolver incontinência. Outros fatores como obesidade, menopausa, constipação crônica, predisposição genética e certas atividades físicas de alto impacto podem contribuir para o enfraquecimento do assoalho pélvico.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>"Beber menos água ajuda a controlar a incontinência"</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a"><strong style="color:var(--rosa-profundo)">Mito.</strong> Reduzir muito a ingestão de líquidos pode na verdade piorar a situação. A urina concentrada irrita a bexiga, causando mais urgência e desconforto. Além disso, a desidratação favorece infecções urinárias e constipação. O ideal é manter a hidratação adequada (1,5 a 2 litros por dia) e evitar excessos de cafeína e álcool.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>"Prolapso sempre precisa de cirurgia?"</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a"><strong style="color:var(--rosa-profundo)">Mito.</strong> Casos leves podem ser tratados com fisioterapia pélvica e uso de pessários (dispositivos de silicone que sustentam os órgãos). A cirurgia é reservada para casos mais avançados ou quando os tratamentos conservadores não são suficientes. Muitas mulheres convivem bem com prolapso leve sem precisar de intervenção cirúrgica.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>"Café causa infecção urinária"</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a"><strong style="color:var(--rosa-profundo)">Mito (parcial).</strong> O café não causa infecção urinária diretamente. No entanto, a cafeína irrita a bexiga e pode piorar sintomas de urgência e frequência urinária. Para quem já tem bexiga hiperativa ou infecções de repetição, reduzir o consumo de cafeína pode ajudar a controlar os sintomas.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>"Incontinência urinária afeta a vida sexual"</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a"><strong style="color:#16a34a">Verdade.</strong> A incontinência pode causar constrangimento durante a relação sexual e levar muitas mulheres a evitar a intimidade. Além disso, o enfraquecimento do assoalho pélvico pode reduzir a sensibilidade e a satisfação sexual. Tratar a incontinência — com exercícios, fisioterapia ou outros tratamentos — frequentemente melhora também a vida sexual.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>"Fazer xixi antes de sair de casa previne acidentes"</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a"><strong style="color:var(--rosa-profundo)">Mito.</strong> Ir ao banheiro "por precaução" quando a bexiga não está cheia treina sua bexiga a funcionar com volumes cada vez menores, piorando a urgência com o tempo. Isso é especialmente prejudicial para quem tem bexiga hiperativa. O ideal é ir ao banheiro quando realmente sentir vontade.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2: PERGUNTAS SOBRE TRATAMENTO -->
+    <section style="background: var(--rosa-palido);">
+        <div class="container">
+            <div class="secao-cabecalho" style="margin-bottom:24px;">
+                <div>
+                    <div class="secao-tag">💊 Sobre Tratamentos</div>
+                    <h2 class="secao-titulo">Dúvidas sobre diagnóstico e tratamento</h2>
+                </div>
+            </div>
+
+            <div class="faq-pac-list">
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>Quando devo procurar um médico para a incontinência?</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a">Procure um médico se você tiver perda de urina que a incomoda, mesmo que seja em pequena quantidade. Também procure se: precisar usar absorvente por causa de perdas, evitar atividades por medo de perder urina, acordar mais de 2 vezes por noite para urinar, ou sentir urgência que a impede de chegar ao banheiro a tempo. Não existe "pouca" incontinência — qualquer grau que afete sua qualidade de vida merece atenção.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>O que é o estudo urodinâmico? Dói?</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a">O estudo urodinâmico é um exame que avalia como sua bexiga armazena e esvazia a urina. É feito com um cateter fino inserido na bexiga pela uretra e mede as pressões durante o enchimento e a micção. Pode causar um leve desconforto, mas geralmente não dói. O exame dura cerca de 20 a 30 minutos. Não é necessário para todos os casos — muitas vezes o diagnóstico é feito apenas com a conversa e o exame físico.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>Fisioterapia pélvica é mesmo necessária? Não basta fazer Kegel sozinha?</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a">Fazer Kegel por conta própria já é benéfico, mas estudos mostram que a fisioterapia supervisionada traz resultados muito melhores. Isso porque a fisioterapeuta avalia se você está contraindo os músculos corretos (muitas mulheres fazem errado sem perceber), mede a força da sua musculatura e monta um programa personalizado. Ela pode usar recursos como biofeedback e eletroestimulação para potencializar os resultados.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>A cirurgia de incontinência é segura?</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a">As cirurgias modernas para incontinência urinária de esforço, como os slings (faixas) de uretra média, têm altas taxas de sucesso (acima de 85-90%) e são minimamente invasivas. Como qualquer cirurgia, existem riscos (infecção, dificuldade para urinar temporariamente, urgência nova), mas são relativamente raros. A cirurgia é indicada quando o tratamento conservador (fisioterapia, mudanças de hábito) não foi suficiente. A decisão deve ser discutida com seu médico, considerando seus sintomas e expectativas.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>O que é um pessário e como funciona?</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a">O pessário é um dispositivo de silicone médico que é inserido na vagina para sustentar os órgãos pélvicos que "desceram" (prolapso). Funciona como uma espécie de suporte mecânico. Existem vários formatos e tamanhos, e o médico escolhe o mais adequado para cada caso. Pode ser usado de forma contínua ou removido e limpo periodicamente. É uma boa alternativa para mulheres que preferem não fazer cirurgia ou que não podem operar.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>Os medicamentos para bexiga hiperativa causam muitos efeitos colaterais?</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a">Os efeitos colaterais mais comuns dos medicamentos anticolinérgicos são boca seca e constipação, mas variam conforme o tipo de medicamento e a dose. Existem várias opções disponíveis, e se uma não for bem tolerada, seu médico pode trocar por outra com menos efeitos colaterais. Os medicamentos mais novos (como os agonistas beta-3) tendem a causar menos boca seca. Em idosas, alguns anticolinérgicos devem ser usados com cuidado por causa de possíveis efeitos na memória.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: PERGUNTAS SOBRE PREVENÇÃO E DIA A DIA -->
+    <section style="background: var(--creme);">
+        <div class="container">
+            <div class="secao-cabecalho" style="margin-bottom:24px;">
+                <div>
+                    <div class="secao-tag">🛡️ Prevenção e Dia a Dia</div>
+                    <h2 class="secao-titulo">Como cuidar da saúde pélvica no dia a dia</h2>
+                </div>
+            </div>
+
+            <div class="faq-pac-list">
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>Posso fazer exercícios físicos se tenho incontinência?</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a">Sim, e deve! A atividade física é importante para a saúde geral. Porém, exercícios de alto impacto (corrida, crossfit, saltos) podem piorar a incontinência se o assoalho pélvico estiver fraco. Uma estratégia é: primeiro fortalecer o assoalho pélvico com fisioterapia, depois retomar as atividades de maior impacto gradualmente. Atividades como pilates, yoga e natação são excelentes opções que trabalham o corpo todo sem sobrecarregar a pelve.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>Existe algum alimento que ajuda a saúde da bexiga?</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a">Não existe um "super alimento" para a bexiga, mas uma alimentação equilibrada faz diferença. Alimentos ricos em fibras (frutas, verduras, grãos integrais) ajudam a prevenir constipação, que é inimiga do assoalho pélvico. Manter-se hidratada com água é fundamental. Evitar excesso de cafeína (café, chá preto, energéticos), álcool, alimentos muito condimentados e bebidas gaseificadas pode ajudar quem tem bexiga sensível.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>Cranberry previne infecção urinária?</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a">A crença de que cranberry previne infecções urinárias é muito popular, mas as evidências científicas são limitadas. Alguns estudos sugerem um pequeno benefício na redução de infecções de repetição em mulheres jovens, mas os resultados não são consistentes. O cranberry não trata infecções já instaladas e não substitui antibióticos quando necessários. Se você gosta de cranberry, não há problema em consumir, mas não conte apenas com ele para prevenir infecções.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>A menopausa piora os problemas urinários?</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a">A queda dos níveis de estrogênio que acontece na menopausa afeta os tecidos do trato urinário e da vagina, tornando-os mais finos e menos elásticos. Isso pode causar ou agravar sintomas como urgência, frequência urinária, ardência ao urinar, infecções de repetição e secura vaginal. O uso de estrogênio vaginal (creme ou óvulo) é uma das medidas mais eficazes para melhorar esses sintomas e é seguro para a maioria das mulheres, mesmo a longo prazo.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>A gravidez pode causar danos permanentes ao assoalho pélvico?</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a">A gravidez e o parto vaginal são os maiores fatores de risco para disfunções do assoalho pélvico, mas "dano permanente" é um termo forte demais para a maioria dos casos. A musculatura e os tecidos têm grande capacidade de recuperação, especialmente com exercícios adequados e fisioterapia. Algumas mulheres podem ter lesões mais significativas (como em partos difíceis ou com fórceps), mas mesmo nesses casos, tratamentos eficazes estão disponíveis. A melhor estratégia é a prevenção: exercícios durante a gestação e cuidados no pós-parto.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>Qual a diferença entre ginecologista e uroginecologista?</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a">O ginecologista é o médico que cuida da saúde reprodutiva feminina de forma geral. O uroginecologista é um ginecologista com formação extra (subespecialização) em disfunções do assoalho pélvico — como incontinência urinária, prolapso de órgãos, bexiga hiperativa e disfunções sexuais femininas. Se você tem problemas urinários ou de assoalho pélvico que não melhoraram com o tratamento inicial do ginecologista, o uroginecologista pode oferecer uma avaliação e um tratamento mais especializados.</div>
+                </div>
+                <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                    <div class="faq-pac-q"><span>Usar absorvente diário por causa da incontinência faz mal?</span><span class="faq-arrow">▼</span></div>
+                    <div class="faq-pac-a">Usar proteção pode ser necessário temporariamente, mas não deve ser a solução definitiva. O uso prolongado de absorventes pode causar irritação na pele, predispor a infecções e, psicologicamente, fazer com que a mulher "aceite" a situação em vez de buscar tratamento. Se você precisa usar proteção todos os dias por causa de perda urinária, isso é um sinal de que vale a pena procurar um especialista. A incontinência é tratável — o objetivo é eliminar a necessidade de proteção, não conviver com ela.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background: var(--rosa-palido);">
+        <div class="container">
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
+                <a href="pages/condicoes.html" class="cond-card">
+                    <div class="cond-icon rosa">🩺</div>
+                    <div>
+                        <div class="cond-title">Saiba mais sobre condições</div>
+                        <div class="cond-desc">Informações detalhadas sobre incontinência, bexiga hiperativa, prolapso e ITU.</div>
+                        <span class="cond-link">Ver condições →</span>
+                    </div>
+                </a>
+                <a href="pages/saude-pelvica.html" class="cond-card">
+                    <div class="cond-icon lilas">💡</div>
+                    <div>
+                        <div class="cond-title">Dicas de saúde pélvica</div>
+                        <div class="cond-desc">Guia de exercícios de Kegel, hábitos urinários e cuidados pós-parto.</div>
+                        <span class="cond-link">Ver dicas →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Especialista -->
+    <section style="background: var(--creme);">
+        <div class="container">
+            <div class="cta-especialista">
+                <div class="cta-esp-icon">👩‍⚕️</div>
+                <div class="cta-esp-text">
+                    <div class="cta-esp-title">Tem uma pergunta que não encontrou aqui?</div>
+                    <div class="cta-esp-desc">Envie sua dúvida para nós. Responderemos e poderemos incluí-la nesta página para ajudar outras mulheres.</div>
+                </div>
+                <a href="pages/contato.html" class="cta-esp-btn">Enviar pergunta</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-inner">
+                <div class="newsletter-tag">✉ Fique informada</div>
+                <h2 class="newsletter-titulo">Receba dicas de saúde pélvica</h2>
+                <p class="newsletter-subtitulo">Cadastre-se para receber informações úteis sobre saúde feminina direto no seu e-mail.</p>
+                <form id="newsletterForm" class="newsletter-form">
+                    <label for="newsletterEmail" class="sr-only">Endereço de email</label>
+                    <input type="email" id="newsletterEmail" placeholder="Seu melhor endereço de e-mail..." required />
+                    <button type="submit" class="newsletter-btn">Assinar ✓</button>
+                </form>
+                <div class="newsletter-nota">Sem spam. Cancele quando quiser.</div>
+                <p id="newsletterMessage" class="newsletter-msg hidden" role="alert" aria-live="polite"></p>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <div id="footer-component"></div>
+    <script src="assets/js/constants.min.js"></script>
+    <script src="assets/js/utils.min.js"></script>
+    <script src="assets/js/main.min.js"></script>
+    <script src="assets/js/common.min.js"></script>
+    <script src="assets/js/mode-toggle.js" defer></script>
+</body>
+</html>

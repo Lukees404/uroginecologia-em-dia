@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#881337">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Google Analytics 4 -->
+    <script>
+      fetch('../components/analytics.html')
+        .then(response => response.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll('script');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            if (script.async) newScript.async = true;
+            document.head.appendChild(newScript);
+          });
+        });
+    </script>
+
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Conheça o portal Uroginecologia em Dia e nossa missão.">
+    <meta name="author" content="Uroginecologia em Dia">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uroginecologiaemdia.com.br/pages/sobre.html">
+    <meta property="og:title" content="Sobre Nós | Uroginecologia em Dia">
+    <meta property="og:description" content="Conheça o portal Uroginecologia em Dia e nossa missão.">
+
+    <title>Sobre Nós | Uroginecologia em Dia</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <!-- Fonts + CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/redesign.css">
+
+</head>
+<body>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
+
+    <!-- Header carregado via componente -->
+    <div id="header-component"></div>
+
+    <main id="main-content">
+    <section class="page-hero">
+        <h1 class="anim-1">Nossa Missão</h1>
+        <p class="anim-2">Democratizar o conhecimento em uroginecologia, oferecendo aos profissionais de saúde acesso a informações atualizadas, baseadas em evidências científicas sólidas e protocolos clínicos validados pelas principais sociedades médicas.</p>
+    </section>
+
+    <!-- Equipe -->
+    <section style="background: var(--creme);">
+        <div class="container" style="text-align:center;">
+            <div class="secao-tag">👩‍⚕️ Nossa Equipe</div>
+            <h2 class="secao-titulo" style="margin-bottom:8px;">Profissionais dedicados</h2>
+            <p class="secao-subtitulo" style="max-width:600px; margin:0 auto 40px;">Profissionais dedicados e apaixonados por educação médica continuada</p>
+
+            <div class="equipe-card">
+                <div class="equipe-foto">👩‍⚕️</div>
+                <div class="equipe-body">
+                    <div class="equipe-nome">Dra. Ana Paula de Oliveira Pinto</div>
+                    <div class="equipe-cargo">Ginecologista & Obstetra — CRM/AM 8341</div>
+                    <div class="equipe-bio">Doutora em Ginecologia & Obstetrícia pela UEA. Coordenadora científica do portal.</div>
+                    <div class="equipe-social">
+                        <a href="#" aria-label="Instagram">📸</a>
+                        <a href="#" aria-label="LinkedIn">👔</a>
+                        <a href="#" aria-label="WhatsApp">💬</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores -->
+    <section class="sobre-section">
+        <div class="container">
+            <div class="sobre-grid">
+                <div class="sobre-texto">
+                    <div class="secao-tag">💎 Nossos Valores</div>
+                    <h2 class="secao-titulo">Princípios que guiam<br>nosso trabalho</h2>
+                    <p>O <strong>Uroginecologia em Dia</strong> nasceu da necessidade de um espaço confiável em português para profissionais de saúde que atuam com disfunções do assoalho pélvico feminino.</p>
+                    <p>Reunimos protocolos clínicos atualizados, resumos de artigos científicos e informações sobre eventos — tudo curado por especialistas comprometidos com a medicina baseada em evidências.</p>
+                    <div class="sobre-cita">
+                        "Nosso objetivo é ser a ponte entre a ciência e a prática clínica, facilitando o acesso ao conhecimento que transforma vidas."
+                    </div>
+                </div>
+                <div class="sobre-valores">
+                    <div class="valor-item"><div class="valor-emoji">🎯</div><div class="valor-titulo">Excelência Científica</div><div class="valor-desc">Conteúdos baseados em evidências científicas e revisados por especialistas.</div></div>
+                    <div class="valor-item"><div class="valor-emoji">👥</div><div class="valor-titulo">Acesso Democrático</div><div class="valor-desc">Conhecimento especializado disponível para todos os profissionais de saúde.</div></div>
+                    <div class="valor-item"><div class="valor-emoji">📈</div><div class="valor-titulo">Atualização Constante</div><div class="valor-desc">Conteúdos sempre atualizados com as mais recentes descobertas científicas.</div></div>
+                    <div class="valor-item"><div class="valor-emoji">🇧🇷</div><div class="valor-titulo">Contexto Brasileiro</div><div class="valor-desc">Adaptado à realidade do sistema de saúde e das diretrizes nacionais.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-inner">
+                <div class="newsletter-tag">✉ Comunidade</div>
+                <h2 class="newsletter-titulo">Junte-se a Nossa Comunidade</h2>
+                <p class="newsletter-subtitulo">Cadastre-se para receber nossos conteúdos exclusivos, notícias e atualizações diretamente no seu email.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <label for="newsletterEmail" class="sr-only">Seu endereço de email</label>
+                    <input type="email" id="newsletterEmail" placeholder="Seu endereço de email" required>
+                    <button type="submit" class="newsletter-btn">Assinar ✓</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer carregado via componente -->
+    <div id="footer-component"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/constants.min.js"></script>
+    <script src="assets/js/utils.min.js"></script>
+    <script src="assets/js/main.min.js"></script>
+    <script src="assets/js/common.min.js"></script>
+    <script src="assets/js/mode-toggle.js" defer></script>
+</body>
+</html>
