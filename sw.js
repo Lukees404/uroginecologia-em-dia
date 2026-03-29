@@ -1,10 +1,11 @@
-const CACHE_NAME = 'urogine-v1';
+const CACHE_NAME = 'urogine-v3';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/assets/css/style.css',
+  '/assets/css/redesign.css',
   '/assets/js/main.min.js',
   '/assets/js/common.min.js',
+  '/assets/js/mode-toggle.js',
   '/components/header.html',
   '/components/footer.html'
 ];
@@ -14,6 +15,7 @@ self.addEventListener('install', event => {
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(urlsToCache))
   );
+  self.skipWaiting();
 });
 
 self.addEventListener('fetch', event => {
@@ -33,6 +35,6 @@ self.addEventListener('activate', event => {
           }
         })
       );
-    })
+    }).then(() => self.clients.claim())
   );
 });

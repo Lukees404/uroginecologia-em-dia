@@ -128,11 +128,9 @@ function initializeFeatherIcons() {
 function initializeMobileMenu() {
     // Prevenir inicialização duplicada
     if (window._mobileMenuInitialized) {
-        console.log('⚠️ Menu mobile já foi inicializado, ignorando chamada duplicada');
         return;
     }
 
-    console.log('🔍 Inicializando menu mobile...');
 
     const mobileMenuButton = document.getElementById('mobileMenuButton');
     const closeMobileMenu = document.getElementById('closeMobileMenu');
@@ -140,7 +138,6 @@ function initializeMobileMenu() {
     const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
 
     // Log detalhado para debug
-    console.log('🔍 Elementos encontrados:');
     console.log('  - mobileMenuButton:', mobileMenuButton ? '✅' : '❌');
     console.log('  - closeMobileMenu:', closeMobileMenu ? '✅' : '❌');
     console.log('  - mobileMenu:', mobileMenu ? '✅' : '❌');
@@ -160,7 +157,7 @@ function initializeMobileMenu() {
     }
 
     // Garantir que o menu comece fechado
-    mobileMenu.classList.add('hidden');
+    mobileMenu.classList.remove('active');
 
     /**
      * Abre o menu mobile
@@ -168,29 +165,16 @@ function initializeMobileMenu() {
     function openMobileMenu(e) {
         e.preventDefault();
         e.stopPropagation();
-        console.log('📱 Abrindo menu mobile');
-
-        mobileMenu.classList.remove('hidden');
-        setTimeout(() => {
-            const menuPanel = document.querySelector('#mobileMenu > div:last-child');
-            if (menuPanel) {
-                menuPanel.classList.remove('-translate-x-full');
-            }
-        }, 10);
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
     }
 
     /**
      * Animação de fechar menu (compartilhada)
      */
     function closeMenuAnimation() {
-        console.log('📱 Fechando menu mobile');
-        const menuPanel = document.querySelector('#mobileMenu > div:last-child');
-        if (menuPanel) {
-            menuPanel.classList.add('-translate-x-full');
-        }
-        setTimeout(() => {
-            mobileMenu.classList.add('hidden');
-        }, 300);
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
     }
 
     /**
@@ -207,7 +191,6 @@ function initializeMobileMenu() {
      * NÃO previne comportamento padrão - permite navegação
      */
     function closeMobileMenuAndNavigate() {
-        console.log('🔗 Link clicado - navegando e fechando menu');
         closeMenuAnimation();
         // NÃO chama preventDefault - navegação acontece naturalmente
     }
@@ -215,29 +198,24 @@ function initializeMobileMenu() {
     // Event listeners
     if (mobileMenuButton) {
         mobileMenuButton.addEventListener('click', openMobileMenu);
-        console.log('✅ Event listener adicionado ao botão do menu');
     }
 
     if (closeMobileMenu) {
         closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
-        console.log('✅ Event listener adicionado ao botão de fechar');
     }
 
     if (mobileMenuOverlay) {
         mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
-        console.log('✅ Event listener adicionado ao overlay');
     }
 
     // Fechar menu ao clicar em um link (SEM bloquear navegação)
     const menuLinks = document.querySelectorAll('#mobileMenu a');
-    console.log(`✅ Adicionando listeners a ${menuLinks.length} links do menu`);
     menuLinks.forEach(link => {
         link.addEventListener('click', closeMobileMenuAndNavigate);
     });
 
     // Marcar como inicializado
     window._mobileMenuInitialized = true;
-    console.log('✅ Menu mobile inicializado com sucesso!');
 }
 
 /**
