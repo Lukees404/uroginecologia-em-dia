@@ -1,0 +1,96 @@
+{
+  "items": [
+    {
+      "id": "cbgo-2026",
+      "titulo": "CBGO 2026 — Congresso Brasileiro de Ginecologia e Obstetrícia",
+      "descricao": "Principal congresso nacional da FEBRASGO. Atualização completa em uroginecologia, TGI, cirurgia e todas as subespecialidades.",
+      "data": "27-30 MAI",
+      "dataCompleta": "27 a 30 de Maio, 2026",
+      "dataOrdenacao": "2026-05-27",
+      "local": "Belo Horizonte, MG",
+      "categoria": "congresso",
+      "status": "inscricoes-abertas",
+      "link": "https://www.febrasgo.org.br",
+      "linkTexto": "Site FEBRASGO",
+      "destaque": true
+    },
+    {
+      "id": "uro-oncologia-2026",
+      "titulo": "Congresso Internacional de Uro-oncologia 2026",
+      "descricao": "Congresso internacional focado em uro-oncologia com participação de especialistas nacionais e internacionais.",
+      "data": "15-18 ABR",
+      "dataCompleta": "15 a 18 de Abril, 2026",
+      "dataOrdenacao": "2026-04-15",
+      "local": "Local a confirmar",
+      "categoria": "congresso",
+      "status": "inscricoes-abertas",
+      "link": "#",
+      "linkTexto": "Em breve"
+    },
+    {
+      "id": "congresso-df-go-2026",
+      "titulo": "Congresso do DF de Ginecologia e Obstetrícia 2026",
+      "descricao": "Congresso regional com foco em atualização clínica e prática em ginecologia e obstetrícia.",
+      "data": "18-20 JUN",
+      "dataCompleta": "18 a 20 de Junho, 2026",
+      "dataOrdenacao": "2026-06-18",
+      "local": "Brasília, DF",
+      "categoria": "congresso",
+      "status": "inscricoes-abertas",
+      "link": "#",
+      "linkTexto": "Em breve"
+    },
+    {
+      "id": "sul-brasileiro-urologia-2026",
+      "titulo": "Congresso Sul-Brasileiro de Urologia 2026",
+      "descricao": "Um dos principais congressos de urologia da região sul, com temas relevantes para uroginecologia.",
+      "data": "25-27 JUN",
+      "dataCompleta": "25 a 27 de Junho, 2026",
+      "dataOrdenacao": "2026-06-25",
+      "local": "Balneário Camboriú, SC",
+      "categoria": "congresso",
+      "status": "inscricoes-abertas",
+      "link": "#",
+      "linkTexto": "Em breve"
+    },
+    {
+      "id": "sogesp-2026",
+      "titulo": "Congresso SOGESP 2026",
+      "descricao": "Congresso da Associação de Obstetrícia e Ginecologia de São Paulo. Excelente para prática clínica e networking.",
+      "data": "20-22 AGO",
+      "dataCompleta": "20 a 22 de Agosto, 2026",
+      "dataOrdenacao": "2026-08-20",
+      "local": "São Paulo, SP",
+      "categoria": "congresso",
+      "status": "inscricoes-abertas",
+      "link": "https://www.sogesp.com.br",
+      "linkTexto": "Site SOGESP"
+    },
+    {
+      "id": "paulista-urologia-2026",
+      "titulo": "Congresso Paulista de Urologia 2026",
+      "descricao": "Um dos maiores congressos de urologia do país, com ampla cobertura de temas uroginecológicos.",
+      "data": "03-06 SET",
+      "dataCompleta": "03 a 06 de Setembro, 2026",
+      "dataOrdenacao": "2026-09-03",
+      "local": "São Paulo, SP",
+      "categoria": "congresso",
+      "status": "inscricoes-abertas",
+      "link": "#",
+      "linkTexto": "Em breve"
+    },
+    {
+      "id": "norte-go-2026",
+      "titulo": "Congresso Norte de Ginecologia e Obstetrícia 2026",
+      "descricao": "Congresso regional com foco na realidade da prática clínica na região Norte do Brasil.",
+      "data": "18-19 SET",
+      "dataCompleta": "18 a 19 de Setembro, 2026",
+      "dataOrdenacao": "2026-09-18",
+      "local": "Belém, PA",
+      "categoria": "congresso",
+      "status": "inscricoes-abertas",
+      "link": "#",
+      "linkTexto": "Em breve"
+    }
+  ]
+}
