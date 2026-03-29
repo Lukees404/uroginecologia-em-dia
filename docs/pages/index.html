@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#881337">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Netlify Identity Widget (necessário para redirect pós-login do CMS) -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!-- Google Analytics 4 -->
+    <script>
+      fetch('components/analytics.html')
+        .then(response => response.text())
+        .then(html => {
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll('script');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            if (script.src) newScript.src = script.src;
+            else newScript.textContent = script.textContent;
+            if (script.async) newScript.async = true;
+            document.head.appendChild(newScript);
+          });
+        });
+    </script>
+
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Portal sobre saúde pélvica feminina e uroginecologia. Informações para pacientes e conteúdo técnico para profissionais de saúde.">
+    <meta name="author" content="Uroginecologia em Dia">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uroginecologiaemdia.com.br/">
+    <meta property="og:title" content="Uroginecologia em Dia - Saúde Pélvica e Uroginecologia">
+    <meta property="og:description" content="Informações confiáveis sobre saúde pélvica feminina para pacientes e profissionais de saúde.">
+
+    <title>Uroginecologia em Dia — Saúde Pélvica Feminina</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <!-- Fonts + CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/redesign.css">
+
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
+
+    <!-- Header carregado via componente -->
+    <div id="header-component"></div>
+
+    <!-- ============================================================
+         ÁREA DO PACIENTE
+         ============================================================ -->
+    <div class="area-paciente">
+
+        <!-- Hero Paciente -->
+        <section class="pac-hero">
+            <div class="pac-hero-icon anim-1">🩷</div>
+            <h1 class="anim-2">Cuidando da sua saúde pélvica</h1>
+            <p class="anim-3">Informações confiáveis, em linguagem acessível, para você entender seu corpo, reconhecer sintomas e saber quando buscar ajuda profissional</p>
+            <div class="hero-search-wrapper anim-4">
+                <span class="hero-search-icon">🔍</span>
+                <input class="hero-search-input" id="heroSearchInput" type="text" placeholder="Buscar: incontinência, prolapso, exercícios..." />
+                <button class="hero-search-btn" id="heroSearchBtn">Pesquisar</button>
+            </div>
+        </section>
+
+        <main id="main-content">
+
+        <!-- Condições Comuns -->
+        <section style="background: var(--creme);">
+            <div class="container">
+                <div class="secao-cabecalho">
+                    <div>
+                        <div class="secao-tag">🩺 Condições comuns</div>
+                        <h2 class="secao-titulo">Entenda o que pode estar acontecendo</h2>
+                        <p class="secao-subtitulo">Cada condição explicada de forma clara, com sintomas, causas e opções de tratamento</p>
+                    </div>
+                </div>
+                <div class="cond-grid">
+                    <a href="pages/condicoes.html#incontinencia" class="cond-card">
+                        <div class="cond-icon rosa">💧</div>
+                        <div>
+                            <div class="cond-title">Incontinência urinária</div>
+                            <div class="cond-desc">Perda involuntária de urina ao tossir, espirrar, rir ou fazer esforço. Afeta milhões de mulheres e tem tratamento.</div>
+                            <span class="cond-link">Saiba mais →</span>
+                        </div>
+                    </a>
+                    <a href="pages/condicoes.html#bexiga" class="cond-card">
+                        <div class="cond-icon lilas">🫧</div>
+                        <div>
+                            <div class="cond-title">Bexiga hiperativa</div>
+                            <div class="cond-desc">Urgência repentina para urinar, ir ao banheiro muitas vezes ao dia ou acordar várias vezes à noite.</div>
+                            <span class="cond-link">Saiba mais →</span>
+                        </div>
+                    </a>
+                    <a href="pages/condicoes.html#prolapso" class="cond-card">
+                        <div class="cond-icon verde">🏥</div>
+                        <div>
+                            <div class="cond-title">Prolapso de órgãos pélvicos</div>
+                            <div class="cond-desc">Sensação de peso ou "bola" na vagina. Acontece quando os órgãos pélvicos perdem sustentação.</div>
+                            <span class="cond-link">Saiba mais →</span>
+                        </div>
+                    </a>
+                    <a href="pages/condicoes.html#itu" class="cond-card">
+                        <div class="cond-icon ambar">🔥</div>
+                        <div>
+                            <div class="cond-title">Infecção urinária de repetição</div>
+                            <div class="cond-desc">Ardência ao urinar, vontade frequente e dor. Quando acontece 3 ou mais vezes ao ano, merece atenção especial.</div>
+                            <span class="cond-link">Saiba mais →</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dicas de Saúde Pélvica -->
+        <section style="background: var(--rosa-palido);">
+            <div class="container">
+                <div class="secao-cabecalho">
+                    <div>
+                        <div class="secao-tag">💡 Saúde pélvica</div>
+                        <h2 class="secao-titulo">Cuide-se no dia a dia</h2>
+                        <p class="secao-subtitulo">Dicas práticas para fortalecer o assoalho pélvico e prevenir problemas</p>
+                    </div>
+                    <a href="pages/saude-pelvica.html" class="ver-todos">Ver todos →</a>
+                </div>
+                <div class="dicas-grid">
+                    <a href="pages/saude-pelvica.html#kegel" class="dica-card">
+                        <div class="dica-img r1">🧘‍♀️</div>
+                        <div class="dica-body">
+                            <div class="dica-title">Exercícios de Kegel: guia completo</div>
+                            <div class="dica-desc">Aprenda a fazer corretamente os exercícios que fortalecem o assoalho pélvico</div>
+                            <span class="dica-link">Ler artigo →</span>
+                        </div>
+                    </a>
+                    <a href="pages/saude-pelvica.html#habitos" class="dica-card">
+                        <div class="dica-img r2">🚰</div>
+                        <div class="dica-body">
+                            <div class="dica-title">Hábitos urinários saudáveis</div>
+                            <div class="dica-desc">Quantas vezes é normal ir ao banheiro? Quanto líquido tomar por dia?</div>
+                            <span class="dica-link">Ler artigo →</span>
+                        </div>
+                    </a>
+                    <a href="pages/saude-pelvica.html#posparto" class="dica-card">
+                        <div class="dica-img r3">🤰</div>
+                        <div class="dica-body">
+                            <div class="dica-title">Pós-parto e assoalho pélvico</div>
+                            <div class="dica-desc">Cuidados essenciais para recuperar a musculatura após a gestação</div>
+                            <span class="dica-link">Ler artigo →</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mitos e Verdades / FAQ -->
+        <section style="background: var(--creme);">
+            <div class="container">
+                <div class="secao-cabecalho">
+                    <div>
+                        <div class="secao-tag">❓ Perguntas frequentes</div>
+                        <h2 class="secao-titulo">Mitos e verdades sobre saúde pélvica</h2>
+                    </div>
+                    <a href="pages/perguntas-frequentes.html" class="ver-todos">Ver todas →</a>
+                </div>
+                <div class="faq-pac-list" id="faqPacList">
+                    <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                        <div class="faq-pac-q"><span>"Perder urina é normal com a idade"</span><span class="faq-arrow">▼</span></div>
+                        <div class="faq-pac-a"><strong style="color:var(--rosa-profundo)">Mito.</strong> Embora seja mais comum após os 50 anos, a incontinência urinária não é uma consequência inevitável do envelhecimento. Existem tratamentos eficazes em qualquer idade, desde exercícios até cirurgias minimamente invasivas.</div>
+                    </div>
+                    <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                        <div class="faq-pac-q"><span>"Exercícios de Kegel realmente funcionam?"</span><span class="faq-arrow">▼</span></div>
+                        <div class="faq-pac-a"><strong style="color:#16a34a">Verdade.</strong> Quando feitos corretamente e com regularidade, os exercícios de Kegel podem reduzir significativamente os sintomas de incontinência leve a moderada. O ideal é ter orientação profissional para garantir a técnica correta.</div>
+                    </div>
+                    <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                        <div class="faq-pac-q"><span>"Só mulheres que tiveram filhos têm incontinência"</span><span class="faq-arrow">▼</span></div>
+                        <div class="faq-pac-a"><strong style="color:var(--rosa-profundo)">Mito.</strong> Embora a gravidez e o parto sejam fatores de risco, mulheres que nunca engravidaram também podem desenvolver incontinência por outros fatores como obesidade, menopausa ou predisposição genética.</div>
+                    </div>
+                    <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                        <div class="faq-pac-q"><span>"Beber menos água ajuda a controlar a incontinência"</span><span class="faq-arrow">▼</span></div>
+                        <div class="faq-pac-a"><strong style="color:var(--rosa-profundo)">Mito.</strong> Reduzir muito a ingestão de líquidos pode concentrar a urina e irritar a bexiga, piorando os sintomas. O ideal é manter hidratação adequada (1,5 a 2 litros por dia) e evitar excessos de cafeína e álcool.</div>
+                    </div>
+                    <div class="faq-pac-item" onclick="this.classList.toggle('open')">
+                        <div class="faq-pac-q"><span>"Prolapso sempre precisa de cirurgia?"</span><span class="faq-arrow">▼</span></div>
+                        <div class="faq-pac-a"><strong style="color:var(--rosa-profundo)">Mito.</strong> Casos leves podem ser tratados com fisioterapia pélvica e uso de pessários (dispositivos de suporte). A cirurgia é reservada para casos mais avançados ou quando os tratamentos conservadores não são suficientes.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sinais de Alerta -->
+        <section style="background: var(--rosa-palido);">
+            <div class="container">
+                <div class="secao-cabecalho">
+                    <div>
+                        <div class="secao-tag">⚠️ Sinais de alerta</div>
+                        <h2 class="secao-titulo">Quando procurar um especialista?</h2>
+                        <p class="secao-subtitulo">Se você se identifica com algum desses sinais, é hora de conversar com um médico</p>
+                    </div>
+                </div>
+                <div class="sinais-grid">
+                    <div class="sinal-card">
+                        <div class="sinal-num">1</div>
+                        <div><div class="sinal-title">Perda de urina ao tossir, rir ou fazer exercício</div><div class="sinal-desc">Mesmo pequenas perdas merecem atenção — não precisa "se acostumar" com isso</div></div>
+                    </div>
+                    <div class="sinal-card">
+                        <div class="sinal-num">2</div>
+                        <div><div class="sinal-title">Urgência repentina para urinar</div><div class="sinal-desc">Precisar correr para o banheiro e às vezes não chegar a tempo</div></div>
+                    </div>
+                    <div class="sinal-card">
+                        <div class="sinal-num">3</div>
+                        <div><div class="sinal-title">Acordar mais de 2 vezes por noite</div><div class="sinal-desc">Levantar frequentemente para urinar pode indicar bexiga hiperativa</div></div>
+                    </div>
+                    <div class="sinal-card">
+                        <div class="sinal-num">4</div>
+                        <div><div class="sinal-title">Sensação de peso ou "bola" na vagina</div><div class="sinal-desc">Pode ser um sinal de prolapso — quanto antes tratar, melhores os resultados</div></div>
+                    </div>
+                    <div class="sinal-card">
+                        <div class="sinal-num">5</div>
+                        <div><div class="sinal-title">Infecção urinária mais de 3 vezes por ano</div><div class="sinal-desc">ITU de repetição precisa de investigação e abordagem preventiva</div></div>
+                    </div>
+                    <div class="sinal-card">
+                        <div class="sinal-num">6</div>
+                        <div><div class="sinal-title">Dor durante a relação sexual</div><div class="sinal-desc">Desconforto íntimo pode ter causa tratável — não precisa sofrer em silêncio</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Especialista -->
+        <section style="background: var(--creme);">
+            <div class="container">
+                <div class="cta-especialista">
+                    <div class="cta-esp-icon">👩‍⚕️</div>
+                    <div class="cta-esp-text">
+                        <div class="cta-esp-title">Converse com uma especialista</div>
+                        <div class="cta-esp-desc">A Dra. Ana Paula de Oliveira Pinto é uroginecologista e coordenadora deste portal. Agende uma consulta.</div>
+                    </div>
+                    <a href="pages/contato.html" class="cta-esp-btn">Entrar em contato</a>
+                </div>
+
+                <!-- Sobre a Dra -->
+                <div class="content-card" style="margin-top: 24px;">
+                    <div class="sobre-dra">
+                        <div class="sobre-dra-foto">👩‍⚕️</div>
+                        <div>
+                            <div class="sobre-dra-nome">Dra. Ana Paula de Oliveira Pinto</div>
+                            <div class="sobre-dra-cargo">Ginecologista & Obstetra — CRM/AM 8341 · Doutora pela UEA</div>
+                            <div class="sobre-dra-bio">Coordenadora científica do portal Uroginecologia em Dia. Todo o conteúdo deste site é revisado por especialistas para garantir informações confiáveis e atualizadas.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-inner">
+                    <div class="newsletter-tag">✉ Fique informada</div>
+                    <h2 class="newsletter-titulo">Receba dicas de saúde pélvica</h2>
+                    <p class="newsletter-subtitulo">Cadastre-se para receber informações úteis sobre saúde feminina direto no seu e-mail.</p>
+                    <form id="newsletterForm" class="newsletter-form">
+                        <label for="newsletterEmail" class="sr-only">Endereço de email</label>
+                        <input type="email" id="newsletterEmail" placeholder="Seu melhor endereço de e-mail..." required />
+                        <button type="submit" class="newsletter-btn">Assinar ✓</button>
+                    </form>
+                    <div class="newsletter-nota">Sem spam. Cancele quando quiser.</div>
+                    <p id="newsletterMessage" class="newsletter-msg hidden" role="alert" aria-live="polite"></p>
+                </div>
+            </div>
+        </section>
+
+        </main>
+    </div>
+
+    <!-- ============================================================
+         ÁREA PROFISSIONAL (oculta por padrão)
+         ============================================================ -->
+    <div class="area-profissional" style="display:none;">
+
+        <!-- Aviso Banner -->
+        <div class="aviso-banner">
+            🎉 Novo protocolo disponível: <a href="pages/protocolo/sindrome-bexiga-hiperativa.html">Síndrome da Bexiga Hiperativa — Atualização 2025</a>
+        </div>
+
+        <!-- Hero Profissional -->
+        <section class="hero">
+            <div class="hero-orb-1"></div>
+            <div class="hero-orb-2"></div>
+            <div class="hero-orb-3"></div>
+            <div class="hero-inner">
+                <div>
+                    <div class="hero-badge anim-1"><span class="badge-dot"></span> Portal para profissionais de saúde</div>
+                    <h1 class="anim-2">Referência clínica em<br><em>Uroginecologia</em><br>sempre atualizada</h1>
+                    <p class="hero-subtitulo anim-3">Protocolos baseados em evidências, artigos científicos e eventos da área para médicos e estudantes de medicina.</p>
+                    <div class="hero-search-wrapper anim-4">
+                        <span class="hero-search-icon">🔍</span>
+                        <input class="hero-search-input" id="proSearchInput" type="text" placeholder="Buscar protocolos, artigos, CID-10..." />
+                        <button class="hero-search-btn" id="proSearchBtn">Pesquisar</button>
+                    </div>
+                    <div class="hero-search-tags anim-5">
+                        <span class="search-tag-label">Buscas frequentes:</span>
+                        <span class="search-tag">Incontinência</span>
+                        <span class="search-tag">Urodinâmica</span>
+                        <span class="search-tag">Prolapso</span>
+                        <span class="search-tag">Bexiga hiperativa</span>
+                    </div>
+                </div>
+                <div class="hero-stats anim-3">
+                    <div class="stat-card"><div class="stat-icon">📋</div><div><div class="stat-numero">24+</div><div class="stat-label">Protocolos clínicos revisados</div></div></div>
+                    <div class="stat-card"><div class="stat-icon">📰</div><div><div class="stat-numero">80+</div><div class="stat-label">Artigos com resumo crítico</div></div></div>
+                    <div class="stat-card"><div class="stat-icon">📅</div><div><div class="stat-numero">12</div><div class="stat-label">Eventos nacionais e internacionais</div></div></div>
+                    <div class="stat-card"><div class="stat-icon">🆕</div><div><div class="stat-numero">Semanal</div><div class="stat-label">Atualização de conteúdo</div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <main>
+
+        <!-- Protocolos -->
+        <section class="sec-protocolos">
+            <div class="container">
+                <div class="secao-cabecalho">
+                    <div>
+                        <div class="secao-tag">📋 Protocolos em Destaque</div>
+                        <h2 class="secao-titulo">Diretrizes baseadas em evidências</h2>
+                        <p class="secao-subtitulo">Protocolos atualizados segundo FEBRASGO, IUGA e sociedades internacionais.</p>
+                    </div>
+                    <a href="pages/protocolos.html" class="ver-todos">Ver todos →</a>
+                </div>
+                <div id="protocolsCarousel" class="cards-grid"></div>
+            </div>
+        </section>
+
+        <!-- Artigos -->
+        <section style="background: var(--creme);">
+            <div class="container">
+                <div class="secao-cabecalho">
+                    <div>
+                        <div class="secao-tag">📰 Artigos em Destaque</div>
+                        <h2 class="secao-titulo">Evidências que mudam a prática</h2>
+                        <p class="secao-subtitulo">Resumos críticos de publicações relevantes com análise clínica.</p>
+                    </div>
+                    <a href="pages/artigos.html" class="ver-todos">Ver todos →</a>
+                </div>
+                <div id="articlesCarousel" class="cards-grid"></div>
+            </div>
+        </section>
+
+        <!-- Notícias -->
+        <section class="sec-noticias">
+            <div class="container">
+                <div class="secao-cabecalho">
+                    <div>
+                        <div class="secao-tag">📢 Últimas Notícias</div>
+                        <h2 class="secao-titulo">O que há de novo na área</h2>
+                        <p class="secao-subtitulo">Fique por dentro das pesquisas, inovações e eventos da uroginecologia.</p>
+                    </div>
+                    <a href="pages/noticias.html" class="ver-todos">Ver todas →</a>
+                </div>
+                <div class="noticias-grid" id="newsContainer"></div>
+            </div>
+        </section>
+
+        <!-- Eventos -->
+        <section class="sec-eventos" style="background: var(--rosa-palido);">
+            <div class="container">
+                <div class="secao-cabecalho">
+                    <div>
+                        <div class="secao-tag">📅 Próximos Eventos</div>
+                        <h2 class="secao-titulo">Agenda da especialidade</h2>
+                        <p class="secao-subtitulo">Congressos, cursos e webinars para atualização profissional.</p>
+                    </div>
+                    <a href="pages/eventos.html" class="ver-todos">Ver todos →</a>
+                </div>
+                <div class="eventos-lista" id="eventsContainer"></div>
+            </div>
+        </section>
+
+        <!-- Sobre -->
+        <section class="sobre-section">
+            <div class="container">
+                <div class="sobre-grid">
+                    <div class="sobre-texto">
+                        <div class="secao-tag">💡 Sobre o Portal</div>
+                        <h2 class="secao-titulo">Conhecimento especializado<br>ao alcance dos profissionais</h2>
+                        <p>O <strong>Uroginecologia em Dia</strong> nasceu da necessidade de um espaço confiável em português para profissionais de saúde que atuam com disfunções do assoalho pélvico feminino.</p>
+                        <p>Reunimos protocolos clínicos atualizados, resumos de artigos científicos e informações sobre eventos — tudo curado por especialistas comprometidos com a medicina baseada em evidências.</p>
+                        <div class="sobre-cita">"O cuidado especializado começa com acesso ao conhecimento certo, no momento certo."</div>
+                        <a href="pages/sobre.html" class="sobre-btn">Conheça nossa missão →</a>
+                    </div>
+                    <div class="sobre-valores">
+                        <div class="valor-item"><div class="valor-emoji">🎯</div><div class="valor-titulo">Foco Clínico</div><div class="valor-desc">Conteúdo dirigido à prática médica, sem ruído acadêmico desnecessário.</div></div>
+                        <div class="valor-item"><div class="valor-emoji">🔬</div><div class="valor-titulo">Baseado em Evidências</div><div class="valor-desc">Toda informação referenciada em fontes de alto impacto e revisadas por pares.</div></div>
+                        <div class="valor-item"><div class="valor-emoji">🇧🇷</div><div class="valor-titulo">Contexto Brasileiro</div><div class="valor-desc">Adaptado à realidade do sistema de saúde e das diretrizes nacionais.</div></div>
+                        <div class="valor-item"><div class="valor-emoji">🔄</div><div class="valor-titulo">Sempre Atualizado</div><div class="valor-desc">Revisão contínua dos protocolos conforme novas publicações surgem.</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Pro -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-inner">
+                    <div class="newsletter-tag">✉ Newsletter Semanal</div>
+                    <h2 class="newsletter-titulo">Não perca nenhuma atualização</h2>
+                    <p class="newsletter-subtitulo">Receba semanalmente os melhores artigos, protocolos novos e eventos da uroginecologia direto no seu e-mail.</p>
+                    <form id="newsletterFormPro" class="newsletter-form">
+                        <label for="newsletterEmailPro" class="sr-only">Endereço de email</label>
+                        <input type="email" id="newsletterEmailPro" placeholder="Seu melhor endereço de e-mail..." required />
+                        <button type="submit" class="newsletter-btn">Assinar ✓</button>
+                    </form>
+                    <div class="newsletter-nota">Sem spam. Cancele quando quiser. Seus dados estão seguros.</div>
+                </div>
+            </div>
+        </section>
+
+        </main>
+    </div>
+
+    <!-- Footer carregado via componente -->
+    <div id="footer-component"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/constants.min.js"></script>
+    <script src="assets/js/utils.min.js"></script>
+    <script src="assets/js/main.min.js"></script>
+    <script src="assets/js/common.min.js"></script>
+    <script src="assets/js/pages/index.min.js" defer></script>
+    <script src="assets/js/mode-toggle.js" defer></script>
+
+    <!-- Netlify Identity: redirect para /admin/ após login -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function(user) {
+          if (!user) { window.netlifyIdentity.on("login", function() { document.location.href = "/admin/"; }); }
+        });
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+# ============================================================
+# NETLIFY CONFIGURATION — Uroginecologia em Dia
+# ============================================================
+
+[build]
+  # Site estático, sem build command necessário
+  publish = "."
+  command = ""
+
+# Redirect www → apex domain (ou vice-versa, conforme CNAME)
+[[redirects]]
+  from = "https://uroginecologiaemdia.com.br/*"
+  to = "https://www.uroginecologiaemdia.com.br/:splat"
+  status = 301
+  force = true
+
+# Headers de segurança e performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache longo para assets estáticos
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache curto para JSONs de dados (mudam com frequência via CMS)
+[[headers]]
+  for = "/assets/data/*.json"
+  [headers.values]
+    Cache-Control = "public, max-age=60, must-revalidate"
+
+# Admin sem cache
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
