@@ -34,14 +34,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/redesign.css">
+    <link rel="stylesheet" href="/assets/css/redesign.css">
 
     <!-- Preconnect para CDNs -->
-
-
-    <!-- Bibliotecas para geração de PDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <meta name="description" content="Revisão de literatura sobre temas relevantes em uroginecologia. Análise crítica de publicações científicas recentes.">
+<meta name="description" content="Revisão de literatura sobre temas relevantes em uroginecologia. Análise crítica de publicações científicas recentes.">
     <meta name="keywords" content="revisão literária, uroginecologia, análise crítica, literatura científica">
 
     <!-- Twitter Card -->
@@ -139,7 +135,7 @@
                     No entanto, a metodologia de desenvolvimento dessas diretrizes, os sistemas de classificação de evidências e as próprias recomendações podem variar substancialmente entre as diferentes sociedades, criando desafios para os clínicos na implementação das melhores práticas baseadas em evidências.
                 </p>
                 <div class="highlight-box">
-                    <p class="text-blue-800 font-semibold mb-2">🎯 Objetivo do Estudo:</p>
+                    <p class="text-blue-800 font-semibold mb-2"><img src="../../assets/images/icons/target.svg" alt="" class="icon-inline" aria-hidden="true"> Objetivo do Estudo:</p>
                     <ul class="list-disc pl-5 text-gray-700 space-y-1">
                         <li>Comparar a qualidade metodológica de diretrizes internacionais utilizando o instrumento AGREE II</li>
                         <li>Identificar inconsistências textuais e de grau de recomendação</li>
@@ -305,7 +301,7 @@
                 </p>
 
                 <div class="bg-yellow-50 p-4 rounded-lg mb-4">
-                    <h4 class="font-semibold text-yellow-800 mb-2">📋 Áreas de Divergência:</h4>
+                    <h4 class="font-semibold text-yellow-800 mb-2"><img src="../../assets/images/icons/clipboard.svg" alt="" class="icon-inline" aria-hidden="true"> Áreas de Divergência:</h4>
                     <ul class="list-disc pl-5 text-yellow-700 space-y-2">
                         <li><strong>Uso de imagem na avaliação inicial:</strong> A maioria não recomenda, exceto a DGG (sociedade geriátrica) que recomenda grau C para pacientes idosos frágeis</li>
                         <li><strong>Testes urodinâmicos pré-cirúrgicos:</strong> CNGOF e IUGA recomendam apesar de não serem necessários; ICUD recomenda antes de qualquer cirurgia para IU</li>
@@ -350,7 +346,7 @@
                 </p>
                 
                 <div class="bg-yellow-50 p-4 rounded-lg mb-4">
-                    <h4 class="font-semibold text-yellow-800 mb-2">💡 Recomendações para Prática Clínica:</h4>
+                    <h4 class="font-semibold text-yellow-800 mb-2"><img src="../../assets/images/icons/lightbulb.svg" alt="" class="icon-inline" aria-hidden="true"> Recomendações para Prática Clínica:</h4>
                     <ul class="list-disc pl-5 text-yellow-700 space-y-2">
                         <li>Priorizar diretrizes com maior qualidade metodológica (escore AGREE II ≥80%)</li>
                         <li>Considerar a data de publicação e atualização das diretrizes</li>
@@ -412,11 +408,7 @@
                 <i data-feather="arrow-left" class="w-4 h-4 inline mr-2"></i>
                 Voltar para Artigos Resumidos
             </a>
-            <button onclick="downloadPDF()" class="bg-blue-800 hover:bg-blue-900 text-white py-3 px-6 rounded-lg font-medium transition-colors w-full sm:w-auto text-center">
-                <i data-feather="download" class="w-4 h-4 inline mr-2"></i>
-                Baixar PDF
-            </button>
-        </div>
+</div>
     
                 <div class="share-bar">
                     <span class="share-bar-label">Compartilhar:</span>
@@ -428,11 +420,7 @@
 
     <!-- Footer carregado via componente -->
     <div id="footer-component"></div>
-
-    <!-- PDF Generator -->
-    <script src="../../assets/js/pdf-generator.min.js"></script>
-
-    <script>
+<script>
         // Initialize Feather Icons
         feather.replace();
 
@@ -498,22 +486,14 @@
         }
 
         // Download PDF Function
-        function downloadPDF() {
-            window.PDFGenerator.generatePDF({
-                contentSelector: 'main',
-                filename: 'Diretrizes_Internacionais_IU_Feminina_Analise_2025.pdf',
-                title: 'Análise Comparativa de Diretrizes Internacionais para IU Feminina',
-                subtitle: 'Metodologia e Inconsistências',
-                author: 'Ana Paula de Oliveira Pinto',
-                date: 'Janeiro de 2025'
-            });
+);
         }
     </script>
     <!-- Scripts -->
-    <script src="../assets/js/constants.min.js"></script>
-    <script src="../assets/js/utils.min.js"></script>
-    <script src="../assets/js/main.min.js"></script>
-    <script src="../assets/js/common.min.js"></script>
-    <script src="assets/js/mode-toggle.js" defer></script>
+    <script src="/assets/js/constants.min.js"></script>
+    <script src="/assets/js/utils.min.js"></script>
+    <script src="/assets/js/main.min.js"></script>
+    <script src="/assets/js/common.min.js"></script>
+    <script src="/assets/js/mode-toggle.js" defer></script>
 </body>
 </html>

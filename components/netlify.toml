@@ -2,6 +2,9 @@
   publish = "."
   command = ""
 
+[build.environment]
+  GIT_SUBMODULE_STRATEGY = "none"
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -17,5 +20,15 @@
 
 [[headers]]
   for = "/admin/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/assets/css/redesign.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/sw.js"
   [headers.values]
     Cache-Control = "no-cache, no-store, must-revalidate"

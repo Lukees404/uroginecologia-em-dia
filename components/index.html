@@ -101,11 +101,10 @@
 }
     </script>
 
-    <!-- Lite YouTube Embed (performance: loads iframe only on click) -->
+    <!-- Lite YouTube Embed -->
     <style>
     lite-youtube{background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover;cursor:pointer;aspect-ratio:16/9;width:100%;border-radius:12px;overflow:hidden}
     lite-youtube::before{content:'';display:block;position:absolute;top:0;background:linear-gradient(180deg,rgba(0,0,0,.5) 0,transparent 50%);height:100%;width:100%;z-index:1;pointer-events:none}
-    lite-youtube::after{content:'';display:block;padding-bottom:calc(100% / (16/9))}
     lite-youtube>iframe{width:100%;height:100%;position:absolute;top:0;left:0;border:0}
     lite-youtube>.lty-playbtn{display:block;width:68px;height:48px;position:absolute;cursor:pointer;transform:translate3d(-50%,-50%,0);top:50%;left:50%;z-index:2;border:0;background:transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>') no-repeat center/contain}
     lite-youtube:hover>.lty-playbtn{background:transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="%23f00"/><path d="M45 24 27 14v20" fill="white"/></svg>') no-repeat center/contain}
@@ -114,7 +113,7 @@
     .lyt-visually-hidden{clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}
     </style>
     <script>
-    class LiteYTEmbed extends HTMLElement{connectedCallback(){this.videoId=this.getAttribute("videoid");let e=this.getAttribute("playlabel")||"Play";if(!this.style.backgroundImage){let t=`https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;this.style.backgroundImage=`url("${t}")`}let n=this.querySelector(".lty-playbtn");n||(n=document.createElement("a"),n.classList.add("lty-playbtn"),n.innerHTML=`<span class="lyt-visually-hidden">${e}</span>`,this.append(n)),this.addEventListener("pointerover",LiteYTEmbed.warmConnections,{once:!0}),this.addEventListener("click",t=>this.addIframe())}static warmConnections(){if(LiteYTEmbed.preconnected)return;let e=document.createElement("link");e.rel="preconnect",e.href="https://www.youtube-nocookie.com",document.head.append(e);let t=document.createElement("link");t.rel="preconnect",t.href="https://www.google.com",document.head.append(t),LiteYTEmbed.preconnected=!0}addIframe(){if(this.classList.contains("lyt-activated"))return;let e=new URLSearchParams(this.getAttribute("params")||[]);e.append("autoplay","1"),e.append("playsinline","1");let t=document.createElement("iframe");t.width=560,t.height=315,t.title=this.getAttribute("playlabel")||"YouTube",t.allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",t.allowFullscreen=!0,t.src=`https://www.youtube-nocookie.com/embed/${this.videoId}?${e.toString()}`,this.append(t),this.classList.add("lyt-activated")}}customElements.define("lite-youtube",LiteYTEmbed);
+    class LiteYTEmbed extends HTMLElement{connectedCallback(){this.videoId=this.getAttribute("videoid");let e=this.getAttribute("playlabel")||"Play";if(!this.style.backgroundImage){let t="https://i.ytimg.com/vi/"+this.videoId+"/hqdefault.jpg";this.style.backgroundImage='url("'+t+'")'}let n=this.querySelector(".lty-playbtn");n||(n=document.createElement("a"),n.classList.add("lty-playbtn"),n.innerHTML='<span class="lyt-visually-hidden">'+e+"</span>",this.append(n)),this.addEventListener("pointerover",LiteYTEmbed.warmConnections,{once:!0}),this.addEventListener("click",function(){return this.addIframe()})}static warmConnections(){if(LiteYTEmbed.preconnected)return;var e=document.createElement("link");e.rel="preconnect",e.href="https://www.youtube-nocookie.com",document.head.append(e);var t=document.createElement("link");t.rel="preconnect",t.href="https://www.google.com",document.head.append(t),LiteYTEmbed.preconnected=!0}addIframe(){if(this.classList.contains("lyt-activated"))return;var e=new URLSearchParams(this.getAttribute("params")||[]);e.append("autoplay","1"),e.append("playsinline","1");var t=document.createElement("iframe");t.width=560,t.height=315,t.title=this.getAttribute("playlabel")||"YouTube",t.allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",t.allowFullscreen=!0,t.src="https://www.youtube-nocookie.com/embed/"+this.videoId+"?"+e.toString(),this.append(t),this.classList.add("lyt-activated")}}customElements.define("lite-youtube",LiteYTEmbed);
     </script>
 
 </head>
@@ -131,13 +130,33 @@
 
         <!-- Hero Paciente -->
         <section class="pac-hero">
-            <div class="pac-hero-icon anim-1">🩷</div>
-            <h1 class="anim-2">Cuidando da sua saúde pélvica</h1>
-            <p class="anim-3">Informações confiáveis, em linguagem acessível, para você entender seu corpo, reconhecer sintomas e saber quando buscar ajuda profissional</p>
-            <div class="hero-search-wrapper anim-4">
-                <span class="hero-search-icon">🔍</span>
-                <input class="hero-search-input" id="heroSearchInput" type="text" placeholder="Buscar: incontinência, prolapso, exercícios..." />
-                <button class="hero-search-btn" id="heroSearchBtn">Pesquisar</button>
+            <div class="hero-orb-1"></div>
+            <div class="hero-orb-2"></div>
+            <div class="hero-orb-3"></div>
+            <div class="pac-hero-inner">
+                <div class="pac-hero-content">
+                    <div class="pac-hero-icon anim-1"><img src="assets/images/logo.svg" alt="Uroginecologia em Dia" class="pac-hero-logo" width="72" height="72"></div>
+                    <h1 class="anim-2">Cuidando da sua<br><em>saúde pélvica</em></h1>
+                    <p class="anim-3">Informações confiáveis, em linguagem acessível, para você entender seu corpo, reconhecer sintomas e saber quando buscar ajuda profissional</p>
+                    <div class="hero-search-wrapper anim-4">
+                        <span class="hero-search-icon"><img src="assets/images/icons/search.svg" alt="" class="icon-inline" aria-hidden="true"></span>
+                        <input class="hero-search-input" id="heroSearchInput" type="text" placeholder="Buscar: incontinência, prolapso, exercícios..." />
+                        <button class="hero-search-btn" id="heroSearchBtn">Pesquisar</button>
+                    </div>
+                    <div class="hero-search-tags anim-5">
+                        <span class="search-tag-label">Assuntos frequentes:</span>
+                        <span class="search-tag">Incontinência</span>
+                        <span class="search-tag">Prolapso</span>
+                        <span class="search-tag">Kegel</span>
+                        <span class="search-tag">Bexiga hiperativa</span>
+                    </div>
+                </div>
+                <div class="pac-hero-stats anim-3">
+                    <div class="stat-card"><div class="stat-icon"><img src="assets/images/icons/heart.svg" alt="" class="icon-inline" aria-hidden="true"></div><div><div class="stat-numero">4</div><div class="stat-label">Condições explicadas com clareza</div></div></div>
+                    <div class="stat-card"><div class="stat-icon"><img src="assets/images/icons/question.svg" alt="" class="icon-inline" aria-hidden="true"></div><div><div class="stat-numero">20+</div><div class="stat-label">Perguntas frequentes respondidas</div></div></div>
+                    <div class="stat-card"><div class="stat-icon"><img src="assets/images/icons/shield.svg" alt="" class="icon-inline" aria-hidden="true"></div><div><div class="stat-numero">100%</div><div class="stat-label">Conteúdo baseado em evidências</div></div></div>
+                    <div class="stat-card"><div class="stat-icon"><img src="assets/images/icons/stethoscope.svg" alt="" class="icon-inline" aria-hidden="true"></div><div><div class="stat-numero">Gratuito</div><div class="stat-label">Acesso livre para todas as pacientes</div></div></div>
+                </div>
             </div>
         </section>
 
@@ -148,7 +167,7 @@
             <div class="container">
                 <div class="secao-cabecalho">
                     <div>
-                        <div class="secao-tag">🩺 Condições comuns</div>
+                        <div class="secao-tag"><img src="assets/images/icons/stethoscope.svg" alt="" class="icon-inline" aria-hidden="true"> Condições comuns</div>
                         <h2 class="secao-titulo">Entenda o que pode estar acontecendo</h2>
                         <p class="secao-subtitulo">Cada condição explicada de forma clara, com sintomas, causas e opções de tratamento</p>
                     </div>
@@ -195,7 +214,7 @@
             <div class="container">
                 <div class="secao-cabecalho">
                     <div>
-                        <div class="secao-tag">💡 Saúde pélvica</div>
+                        <div class="secao-tag"><img src="assets/images/icons/lightbulb.svg" alt="" class="icon-inline" aria-hidden="true"> Saúde pélvica</div>
                         <h2 class="secao-titulo">Cuide-se no dia a dia</h2>
                         <p class="secao-subtitulo">Dicas práticas para fortalecer o assoalho pélvico e prevenir problemas</p>
                     </div>
@@ -203,7 +222,7 @@
                 </div>
                 <div class="dicas-grid">
                     <a href="pages/saude-pelvica.html#kegel" class="dica-card">
-                        <div class="dica-img r1">🧘‍♀️</div>
+                        <div class="dica-img r1"><img src="assets/images/icons/exercise.svg" alt="" class="icon-inline" aria-hidden="true"></div>
                         <div class="dica-body">
                             <div class="dica-title">Exercícios de Kegel: guia completo</div>
                             <div class="dica-desc">Aprenda a fazer corretamente os exercícios que fortalecem o assoalho pélvico</div>
@@ -211,7 +230,7 @@
                         </div>
                     </a>
                     <a href="pages/saude-pelvica.html#habitos" class="dica-card">
-                        <div class="dica-img r2">🚰</div>
+                        <div class="dica-img r2"><img src="assets/images/icons/droplet.svg" alt="" class="icon-inline" aria-hidden="true"></div>
                         <div class="dica-body">
                             <div class="dica-title">Hábitos urinários saudáveis</div>
                             <div class="dica-desc">Quantas vezes é normal ir ao banheiro? Quanto líquido tomar por dia?</div>
@@ -219,7 +238,7 @@
                         </div>
                     </a>
                     <a href="pages/saude-pelvica.html#posparto" class="dica-card">
-                        <div class="dica-img r3">🤰</div>
+                        <div class="dica-img r3"><img src="assets/images/icons/baby.svg" alt="" class="icon-inline" aria-hidden="true"></div>
                         <div class="dica-body">
                             <div class="dica-title">Pós-parto e assoalho pélvico</div>
                             <div class="dica-desc">Cuidados essenciais para recuperar a musculatura após a gestação</div>
@@ -235,7 +254,7 @@
             <div class="container">
                 <div class="secao-cabecalho">
                     <div>
-                        <div class="secao-tag">❓ Perguntas frequentes</div>
+                        <div class="secao-tag"><img src="assets/images/icons/question.svg" alt="" class="icon-inline" aria-hidden="true"> Perguntas frequentes</div>
                         <h2 class="secao-titulo">Mitos e verdades sobre saúde pélvica</h2>
                     </div>
                     <a href="pages/perguntas-frequentes.html" class="ver-todos">Ver todas →</a>
@@ -266,12 +285,11 @@
         </section>
 
 
-    <!-- Vídeos: Assista e entenda melhor -->
     <section id="videos-destaque" style="background: var(--rosa-palido);">
         <div class="container">
             <div class="secao-cabecalho">
                 <div>
-                    <div class="secao-tag">🎬 Vídeos educativos</div>
+                    <div class="secao-tag"><img src="assets/images/icons/play.svg" alt="" class="icon-inline" aria-hidden="true"> Vídeos educativos</div>
                     <h2 class="secao-titulo">Assista e entenda melhor</h2>
                     <p class="secao-subtitulo">Vídeos curtos da Dra. Ana Paula sobre os temas mais importantes da saúde pélvica</p>
                 </div>
@@ -309,6 +327,14 @@
                         </div>
                         <div class="video-title">3 coisas que ajudam a fortalecer o assoalho pélvico</div>
                     </div>
+<div class="video-card">
+                        <div class="video-wrapper">
+                            <lite-youtube videoid="qP_DVujdisg" playlabel="Novo vídeo — Dra. Ana Paula">
+                                <a href="https://youtube.com/shorts/qP_DVujdisg" class="lty-playbtn" title="Assistir"><span class="lyt-visually-hidden">Assistir: Novo vídeo — Dra. Ana Paula</span></a>
+                            </lite-youtube>
+                        </div>
+                        <div class="video-title">Dra. Ana Paula — Dica de saúde pélvica</div>
+                    </div>
             </div>
         </div>
     </section>
@@ -318,7 +344,7 @@
             <div class="container">
                 <div class="secao-cabecalho">
                     <div>
-                        <div class="secao-tag">⚠️ Sinais de alerta</div>
+                        <div class="secao-tag"><img src="assets/images/icons/alert.svg" alt="" class="icon-inline" aria-hidden="true"> Sinais de alerta</div>
                         <h2 class="secao-titulo">Quando procurar um especialista?</h2>
                         <p class="secao-subtitulo">Se você se identifica com algum desses sinais, é hora de conversar com um médico</p>
                     </div>
@@ -356,7 +382,7 @@
         <section style="background: var(--creme);">
             <div class="container">
                 <div class="cta-especialista">
-                    <div class="cta-esp-icon">👩‍⚕️</div>
+                    <div class="cta-esp-icon"><img src="assets/images/icons/stethoscope.svg" alt="" class="icon-inline" aria-hidden="true"></div>
                     <div class="cta-esp-text">
                         <div class="cta-esp-title">Converse com uma especialista</div>
                         <div class="cta-esp-desc">A Dra. Ana Paula de Oliveira Pinto é uroginecologista e coordenadora deste portal. Agende uma consulta.</div>
@@ -385,7 +411,7 @@
         <section class="newsletter-section">
             <div class="container">
                 <div class="newsletter-inner">
-                    <div class="newsletter-tag">✉ Fique informada</div>
+                    <div class="newsletter-tag"><img src="assets/images/icons/mail.svg" alt="" class="icon-inline" aria-hidden="true"> Fique informada</div>
                     <h2 class="newsletter-titulo">Receba dicas de saúde pélvica</h2>
                     <p class="newsletter-subtitulo">Cadastre-se para receber informações úteis sobre saúde feminina direto no seu e-mail.</p>
                     <form id="newsletterForm" class="newsletter-form">
@@ -409,7 +435,7 @@
 
         <!-- Aviso Banner -->
         <div class="aviso-banner">
-            🎉 Novo protocolo disponível: <a href="pages/protocolo/sindrome-bexiga-hiperativa.html">Síndrome da Bexiga Hiperativa — Atualização 2025</a>
+            <img src="assets/images/icons/calendar.svg" alt="" class="icon-inline" aria-hidden="true"> Novo protocolo disponível: <a href="pages/protocolo/sindrome-bexiga-hiperativa.html">Síndrome da Bexiga Hiperativa — Atualização 2025</a>
         </div>
 
         <!-- Hero Profissional -->
@@ -423,7 +449,7 @@
                     <h1 class="anim-2">Referência clínica em<br><em>Uroginecologia</em><br>sempre atualizada</h1>
                     <p class="hero-subtitulo anim-3">Protocolos baseados em evidências, artigos científicos e eventos da área para médicos e estudantes de medicina.</p>
                     <div class="hero-search-wrapper anim-4">
-                        <span class="hero-search-icon">🔍</span>
+                        <span class="hero-search-icon"><img src="assets/images/icons/search.svg" alt="" class="icon-inline" aria-hidden="true"></span>
                         <input class="hero-search-input" id="proSearchInput" type="text" placeholder="Buscar protocolos, artigos, CID-10..." />
                         <button class="hero-search-btn" id="proSearchBtn">Pesquisar</button>
                     </div>
@@ -436,9 +462,9 @@
                     </div>
                 </div>
                 <div class="hero-stats anim-3">
-                    <div class="stat-card"><div class="stat-icon">📋</div><div><div class="stat-numero">24+</div><div class="stat-label">Protocolos clínicos revisados</div></div></div>
-                    <div class="stat-card"><div class="stat-icon">📰</div><div><div class="stat-numero">80+</div><div class="stat-label">Artigos com resumo crítico</div></div></div>
-                    <div class="stat-card"><div class="stat-icon">📅</div><div><div class="stat-numero">12</div><div class="stat-label">Eventos nacionais e internacionais</div></div></div>
+                    <div class="stat-card"><div class="stat-icon"><img src="assets/images/icons/clipboard.svg" alt="" class="icon-inline" aria-hidden="true"></div><div><div class="stat-numero">24+</div><div class="stat-label">Protocolos clínicos revisados</div></div></div>
+                    <div class="stat-card"><div class="stat-icon"><img src="assets/images/icons/clipboard.svg" alt="" class="icon-inline" aria-hidden="true"></div><div><div class="stat-numero">80+</div><div class="stat-label">Artigos com resumo crítico</div></div></div>
+                    <div class="stat-card"><div class="stat-icon"><img src="assets/images/icons/calendar.svg" alt="" class="icon-inline" aria-hidden="true"></div><div><div class="stat-numero">12</div><div class="stat-label">Eventos nacionais e internacionais</div></div></div>
                     <div class="stat-card"><div class="stat-icon">🆕</div><div><div class="stat-numero">Semanal</div><div class="stat-label">Atualização de conteúdo</div></div></div>
                 </div>
             </div>
@@ -451,7 +477,7 @@
             <div class="container">
                 <div class="secao-cabecalho">
                     <div>
-                        <div class="secao-tag">📋 Protocolos em Destaque</div>
+                        <div class="secao-tag"><img src="assets/images/icons/clipboard.svg" alt="" class="icon-inline" aria-hidden="true"> Protocolos em Destaque</div>
                         <h2 class="secao-titulo">Diretrizes baseadas em evidências</h2>
                         <p class="secao-subtitulo">Protocolos atualizados segundo FEBRASGO, IUGA e sociedades internacionais.</p>
                     </div>
@@ -466,7 +492,7 @@
             <div class="container">
                 <div class="secao-cabecalho">
                     <div>
-                        <div class="secao-tag">📰 Artigos em Destaque</div>
+                        <div class="secao-tag"><img src="assets/images/icons/clipboard.svg" alt="" class="icon-inline" aria-hidden="true"> Artigos em Destaque</div>
                         <h2 class="secao-titulo">Evidências que mudam a prática</h2>
                         <p class="secao-subtitulo">Resumos críticos de publicações relevantes com análise clínica.</p>
                     </div>
@@ -481,7 +507,7 @@
             <div class="container">
                 <div class="secao-cabecalho">
                     <div>
-                        <div class="secao-tag">📢 Últimas Notícias</div>
+                        <div class="secao-tag"><img src="assets/images/icons/alert.svg" alt="" class="icon-inline" aria-hidden="true"> Últimas Notícias</div>
                         <h2 class="secao-titulo">O que há de novo na área</h2>
                         <p class="secao-subtitulo">Fique por dentro das pesquisas, inovações e eventos da uroginecologia.</p>
                     </div>
@@ -496,7 +522,7 @@
             <div class="container">
                 <div class="secao-cabecalho">
                     <div>
-                        <div class="secao-tag">📅 Próximos Eventos</div>
+                        <div class="secao-tag"><img src="assets/images/icons/calendar.svg" alt="" class="icon-inline" aria-hidden="true"> Próximos Eventos</div>
                         <h2 class="secao-titulo">Agenda da especialidade</h2>
                         <p class="secao-subtitulo">Congressos, cursos e webinars para atualização profissional.</p>
                     </div>
@@ -511,7 +537,7 @@
             <div class="container">
                 <div class="sobre-grid">
                     <div class="sobre-texto">
-                        <div class="secao-tag">💡 Sobre o Portal</div>
+                        <div class="secao-tag"><img src="assets/images/icons/lightbulb.svg" alt="" class="icon-inline" aria-hidden="true"> Sobre o Portal</div>
                         <h2 class="secao-titulo">Conhecimento especializado<br>ao alcance dos profissionais</h2>
                         <p>O <strong>Uroginecologia em Dia</strong> nasceu da necessidade de um espaço confiável em português para profissionais de saúde que atuam com disfunções do assoalho pélvico feminino.</p>
                         <p>Reunimos protocolos clínicos atualizados, resumos de artigos científicos e informações sobre eventos — tudo curado por especialistas comprometidos com a medicina baseada em evidências.</p>
@@ -519,10 +545,10 @@
                         <a href="pages/sobre.html" class="sobre-btn">Conheça nossa missão →</a>
                     </div>
                     <div class="sobre-valores">
-                        <div class="valor-item"><div class="valor-emoji">🎯</div><div class="valor-titulo">Foco Clínico</div><div class="valor-desc">Conteúdo dirigido à prática médica, sem ruído acadêmico desnecessário.</div></div>
-                        <div class="valor-item"><div class="valor-emoji">🔬</div><div class="valor-titulo">Baseado em Evidências</div><div class="valor-desc">Toda informação referenciada em fontes de alto impacto e revisadas por pares.</div></div>
+                        <div class="valor-item"><div class="valor-emoji"><img src="assets/images/icons/target.svg" alt="" class="icon-inline" aria-hidden="true"></div><div class="valor-titulo">Foco Clínico</div><div class="valor-desc">Conteúdo dirigido à prática médica, sem ruído acadêmico desnecessário.</div></div>
+                        <div class="valor-item"><div class="valor-emoji"><img src="assets/images/icons/stethoscope.svg" alt="" class="icon-inline" aria-hidden="true"></div><div class="valor-titulo">Baseado em Evidências</div><div class="valor-desc">Toda informação referenciada em fontes de alto impacto e revisadas por pares.</div></div>
                         <div class="valor-item"><div class="valor-emoji">🇧🇷</div><div class="valor-titulo">Contexto Brasileiro</div><div class="valor-desc">Adaptado à realidade do sistema de saúde e das diretrizes nacionais.</div></div>
-                        <div class="valor-item"><div class="valor-emoji">🔄</div><div class="valor-titulo">Sempre Atualizado</div><div class="valor-desc">Revisão contínua dos protocolos conforme novas publicações surgem.</div></div>
+                        <div class="valor-item"><div class="valor-emoji"><img src="assets/images/icons/trending.svg" alt="" class="icon-inline" aria-hidden="true"></div><div class="valor-titulo">Sempre Atualizado</div><div class="valor-desc">Revisão contínua dos protocolos conforme novas publicações surgem.</div></div>
                     </div>
                 </div>
             </div>
@@ -532,7 +558,7 @@
         <section class="newsletter-section">
             <div class="container">
                 <div class="newsletter-inner">
-                    <div class="newsletter-tag">✉ Newsletter Semanal</div>
+                    <div class="newsletter-tag"><img src="assets/images/icons/mail.svg" alt="" class="icon-inline" aria-hidden="true"> Newsletter Semanal</div>
                     <h2 class="newsletter-titulo">Não perca nenhuma atualização</h2>
                     <p class="newsletter-subtitulo">Receba semanalmente os melhores artigos, protocolos novos e eventos da uroginecologia direto no seu e-mail.</p>
                     <form id="newsletterFormPro" class="newsletter-form">

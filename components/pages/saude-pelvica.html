@@ -47,7 +47,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/redesign.css">
+    <link rel="stylesheet" href="/assets/css/redesign.css">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -77,11 +77,10 @@
 }
     </script>
 
-    <!-- Lite YouTube Embed (performance: loads iframe only on click) -->
+    <!-- Lite YouTube Embed -->
     <style>
     lite-youtube{background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover;cursor:pointer;aspect-ratio:16/9;width:100%;border-radius:12px;overflow:hidden}
     lite-youtube::before{content:'';display:block;position:absolute;top:0;background:linear-gradient(180deg,rgba(0,0,0,.5) 0,transparent 50%);height:100%;width:100%;z-index:1;pointer-events:none}
-    lite-youtube::after{content:'';display:block;padding-bottom:calc(100% / (16/9))}
     lite-youtube>iframe{width:100%;height:100%;position:absolute;top:0;left:0;border:0}
     lite-youtube>.lty-playbtn{display:block;width:68px;height:48px;position:absolute;cursor:pointer;transform:translate3d(-50%,-50%,0);top:50%;left:50%;z-index:2;border:0;background:transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>') no-repeat center/contain}
     lite-youtube:hover>.lty-playbtn{background:transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="%23f00"/><path d="M45 24 27 14v20" fill="white"/></svg>') no-repeat center/contain}
@@ -90,7 +89,7 @@
     .lyt-visually-hidden{clip:rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px}
     </style>
     <script>
-    class LiteYTEmbed extends HTMLElement{connectedCallback(){this.videoId=this.getAttribute("videoid");let e=this.getAttribute("playlabel")||"Play";if(!this.style.backgroundImage){let t=`https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;this.style.backgroundImage=`url("${t}")`}let n=this.querySelector(".lty-playbtn");n||(n=document.createElement("a"),n.classList.add("lty-playbtn"),n.innerHTML=`<span class="lyt-visually-hidden">${e}</span>`,this.append(n)),this.addEventListener("pointerover",LiteYTEmbed.warmConnections,{once:!0}),this.addEventListener("click",t=>this.addIframe())}static warmConnections(){if(LiteYTEmbed.preconnected)return;let e=document.createElement("link");e.rel="preconnect",e.href="https://www.youtube-nocookie.com",document.head.append(e);let t=document.createElement("link");t.rel="preconnect",t.href="https://www.google.com",document.head.append(t),LiteYTEmbed.preconnected=!0}addIframe(){if(this.classList.contains("lyt-activated"))return;let e=new URLSearchParams(this.getAttribute("params")||[]);e.append("autoplay","1"),e.append("playsinline","1");let t=document.createElement("iframe");t.width=560,t.height=315,t.title=this.getAttribute("playlabel")||"YouTube",t.allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",t.allowFullscreen=!0,t.src=`https://www.youtube-nocookie.com/embed/${this.videoId}?${e.toString()}`,this.append(t),this.classList.add("lyt-activated")}}customElements.define("lite-youtube",LiteYTEmbed);
+    class LiteYTEmbed extends HTMLElement{connectedCallback(){this.videoId=this.getAttribute("videoid");let e=this.getAttribute("playlabel")||"Play";if(!this.style.backgroundImage){let t="https://i.ytimg.com/vi/"+this.videoId+"/hqdefault.jpg";this.style.backgroundImage='url("'+t+'")'}let n=this.querySelector(".lty-playbtn");n||(n=document.createElement("a"),n.classList.add("lty-playbtn"),n.innerHTML='<span class="lyt-visually-hidden">'+e+"</span>",this.append(n)),this.addEventListener("pointerover",LiteYTEmbed.warmConnections,{once:!0}),this.addEventListener("click",function(){return this.addIframe()})}static warmConnections(){if(LiteYTEmbed.preconnected)return;var e=document.createElement("link");e.rel="preconnect",e.href="https://www.youtube-nocookie.com",document.head.append(e);var t=document.createElement("link");t.rel="preconnect",t.href="https://www.google.com",document.head.append(t),LiteYTEmbed.preconnected=!0}addIframe(){if(this.classList.contains("lyt-activated"))return;var e=new URLSearchParams(this.getAttribute("params")||[]);e.append("autoplay","1"),e.append("playsinline","1");var t=document.createElement("iframe");t.width=560,t.height=315,t.title=this.getAttribute("playlabel")||"YouTube",t.allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",t.allowFullscreen=!0,t.src="https://www.youtube-nocookie.com/embed/"+this.videoId+"?"+e.toString(),this.append(t),this.classList.add("lyt-activated")}}customElements.define("lite-youtube",LiteYTEmbed);
     </script>
 
 </head>
@@ -102,7 +101,7 @@
 
     <!-- Page Hero -->
     <section class="pac-hero">
-        <div class="pac-hero-icon anim-1">💡</div>
+        <div class="pac-hero-icon anim-1"><img src="../assets/images/icons/lightbulb.svg" alt="" class="icon-inline" aria-hidden="true"></div>
         <h1 class="anim-2">Saúde Pélvica</h1>
         <p class="anim-3">Guias práticos e confiáveis para cuidar do seu assoalho pélvico no dia a dia. Aprenda exercícios, entenda hábitos saudáveis e saiba como se cuidar em cada fase da vida.</p>
     </section>
@@ -112,15 +111,15 @@
         <div class="container">
             <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px;">
                 <a href="#kegel" class="dica-card" style="display:flex; gap:14px; align-items:center;">
-                    <div style="font-size:1.8rem; flex-shrink:0;">🧘‍♀️</div>
+                    <div style="font-size:1.8rem; flex-shrink:0;"><img src="../assets/images/icons/exercise.svg" alt="" class="icon-inline" aria-hidden="true"></div>
                     <div><div class="dica-title" style="font-size:0.88rem;">Exercícios de Kegel</div><span class="dica-link" style="font-size:0.78rem;">Ir para o guia →</span></div>
                 </a>
                 <a href="#habitos" class="dica-card" style="display:flex; gap:14px; align-items:center;">
-                    <div style="font-size:1.8rem; flex-shrink:0;">🚰</div>
+                    <div style="font-size:1.8rem; flex-shrink:0;"><img src="../assets/images/icons/droplet.svg" alt="" class="icon-inline" aria-hidden="true"></div>
                     <div><div class="dica-title" style="font-size:0.88rem;">Hábitos urinários saudáveis</div><span class="dica-link" style="font-size:0.78rem;">Ir para o artigo →</span></div>
                 </a>
                 <a href="#posparto" class="dica-card" style="display:flex; gap:14px; align-items:center;">
-                    <div style="font-size:1.8rem; flex-shrink:0;">🤰</div>
+                    <div style="font-size:1.8rem; flex-shrink:0;"><img src="../assets/images/icons/baby.svg" alt="" class="icon-inline" aria-hidden="true"></div>
                     <div><div class="dica-title" style="font-size:0.88rem;">Pós-parto e assoalho pélvico</div><span class="dica-link" style="font-size:0.78rem;">Ir para o artigo →</span></div>
                 </a>
             </div>
@@ -134,7 +133,7 @@
         <div class="container">
             <div class="content-card">
                 <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px;">
-                    <div style="width:56px;height:56px;background:linear-gradient(135deg, #fce7f3, #fda4af);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;">🧘‍♀️</div>
+                    <div style="width:56px;height:56px;background:linear-gradient(135deg, #fce7f3, #fda4af);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;"><img src="../assets/images/icons/exercise.svg" alt="" class="icon-inline" aria-hidden="true"></div>
                     <div>
                         <div class="secao-tag">Guia prático</div>
                         <h2 class="secao-titulo" style="font-size:1.5rem;">Exercícios de Kegel: guia completo</h2>
@@ -207,14 +206,13 @@
          ARTIGO 2: HÁBITOS URINÁRIOS SAUDÁVEIS
          ============================================================ -->
 
-    <!-- Vídeos: Aprenda com a Dra. Ana Paula -->
     <section id="videos-exercicios" style="background: var(--rosa-palido);">
         <div class="container">
             <div class="secao-cabecalho">
                 <div>
-                    <div class="secao-tag">🎬 Vídeos: Exercícios e Fortalecimento</div>
+                    <div class="secao-tag"><img src="../assets/images/icons/play.svg" alt="" class="icon-inline" aria-hidden="true"> Vídeos: Exercícios e Fortalecimento</div>
                     <h2 class="secao-titulo">Aprenda com a Dra. Ana Paula</h2>
-                    <p class="secao-subtitulo">Exercícios de Kegel, fortalecimento do assoalho pélvico e diário miccional explicados de forma simples</p>
+                    <p class="secao-subtitulo">Exercícios de Kegel, fortalecimento do assoalho pélvico e diário miccional</p>
                 </div>
             </div>
             <div class="video-grid">
@@ -250,7 +248,7 @@
         <div class="container">
             <div class="content-card">
                 <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px;">
-                    <div style="width:56px;height:56px;background:linear-gradient(135deg, #ede9fe, #c4b5fd);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;">🚰</div>
+                    <div style="width:56px;height:56px;background:linear-gradient(135deg, #ede9fe, #c4b5fd);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;"><img src="../assets/images/icons/droplet.svg" alt="" class="icon-inline" aria-hidden="true"></div>
                     <div>
                         <div class="secao-tag">Artigo educativo</div>
                         <h2 class="secao-titulo" style="font-size:1.5rem;">Hábitos urinários saudáveis</h2>
@@ -310,14 +308,13 @@
          ARTIGO 3: PÓS-PARTO E ASSOALHO PÉLVICO
          ============================================================ -->
 
-    <!-- Vídeos: O que pode piorar ou ajudar -->
     <section id="videos-habitos" style="background: var(--creme);">
         <div class="container">
             <div class="secao-cabecalho">
                 <div>
-                    <div class="secao-tag">🎬 Vídeos: Hábitos e Fatores de Risco</div>
+                    <div class="secao-tag"><img src="../assets/images/icons/play.svg" alt="" class="icon-inline" aria-hidden="true"> Vídeos: Hábitos e Fatores de Risco</div>
                     <h2 class="secao-titulo">O que pode piorar ou ajudar</h2>
-                    <p class="secao-subtitulo">Hábitos do dia a dia que influenciam a saúde pélvica, incluindo alimentação, peso e fases da vida</p>
+                    <p class="secao-subtitulo">Hábitos do dia a dia que influenciam a saúde pélvica</p>
                 </div>
             </div>
             <div class="video-grid">
@@ -377,7 +374,7 @@
         <div class="container">
             <div class="content-card">
                 <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px;">
-                    <div style="width:56px;height:56px;background:linear-gradient(135deg, #dcfce7, #86efac);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;">🤰</div>
+                    <div style="width:56px;height:56px;background:linear-gradient(135deg, #dcfce7, #86efac);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;"><img src="../assets/images/icons/baby.svg" alt="" class="icon-inline" aria-hidden="true"></div>
                     <div>
                         <div class="secao-tag">Artigo educativo</div>
                         <h2 class="secao-titulo" style="font-size:1.5rem;">Pós-parto e assoalho pélvico</h2>
@@ -434,7 +431,7 @@
     <section style="background: var(--rosa-palido);">
         <div class="container">
             <div class="cta-especialista">
-                <div class="cta-esp-icon">👩‍⚕️</div>
+                <div class="cta-esp-icon"><img src="../assets/images/icons/stethoscope.svg" alt="" class="icon-inline" aria-hidden="true"></div>
                 <div class="cta-esp-text">
                     <div class="cta-esp-title">Precisa de orientação personalizada?</div>
                     <div class="cta-esp-desc">Cada mulher é diferente. A Dra. Ana Paula pode ajudar você a encontrar o melhor caminho para cuidar da sua saúde pélvica.</div>
@@ -448,7 +445,7 @@
     <section class="newsletter-section">
         <div class="container">
             <div class="newsletter-inner">
-                <div class="newsletter-tag">✉ Fique informada</div>
+                <div class="newsletter-tag"><img src="../assets/images/icons/mail.svg" alt="" class="icon-inline" aria-hidden="true"> Fique informada</div>
                 <h2 class="newsletter-titulo">Receba dicas de saúde pélvica</h2>
                 <p class="newsletter-subtitulo">Cadastre-se para receber informações úteis sobre saúde feminina direto no seu e-mail.</p>
                 <form id="newsletterForm" class="newsletter-form">
@@ -469,6 +466,6 @@
     <script src="assets/js/utils.min.js"></script>
     <script src="assets/js/main.min.js"></script>
     <script src="assets/js/common.min.js"></script>
-    <script src="assets/js/mode-toggle.js" defer></script>
+    <script src="/assets/js/mode-toggle.js" defer></script>
 </body>
 </html>

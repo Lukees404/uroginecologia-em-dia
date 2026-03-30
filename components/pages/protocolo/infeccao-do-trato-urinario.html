@@ -34,41 +34,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/redesign.css">
+    <link rel="stylesheet" href="/assets/css/redesign.css">
 
     <!-- Preconnect para CDNs -->
 
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js" defer></script>
-
-    <!-- Bibliotecas para geração de PDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        uro: {
-                            azul_escuro: '#1e40af',
-                            azul: '#3b82f6',
-                            azul_claro: '#60a5fa',
-                            branco: '#ffffff',
-                            cinza: '#f3f4f6',
-                            cinza_escuro: '#6b7280'
-                        }
-                    }
-                }
-            }
-        }
-        
-        // Inicializar Mermaid
-        document.addEventListener('DOMContentLoaded', function() {
-            mermaid.initialize({ 
-                startOnLoad: true,
-                theme: 'default',
-                securityLevel: 'loose'
-            });
-        });
-    </script>
     <meta name="description" content="Protocolo clínico para diagnóstico e tratamento de infecções do trato urinário em mulheres. Diretrizes atualizadas.">
     <meta name="keywords" content="infecção urinária, ITU, cistite, antibioticoterapia, protocolo clínico">
 
@@ -409,14 +379,7 @@
         <!-- Navigation -->
         <!-- Botões de Ação -->
         <div class="max-w-4xl mx-auto mt-6 flex gap-4 justify-center no-print">
-            <button onclick="downloadPDF()" class="bg-uro-azul hover:bg-uro-azul_escuro text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors shadow-md hover:shadow-lg">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                </svg>
-                <span id="btnText">Baixar PDF</span>
-            </button>
-
-            <a href="/pages/protocolos.html" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-lg flex items-center gap-2 transition-colors">
+<a href="/pages/protocolos.html" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-3 rounded-lg flex items-center gap-2 transition-colors">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
                 </svg>
@@ -434,11 +397,7 @@
 
     <!-- Footer carregado via componente -->
     <div id="footer-component"></div>
-
-    <!-- PDF Generator -->
-    <script src="../../assets/js/pdf-generator.min.js"></script>
-
-    <script>
+<script>
         // Initialize Feather Icons
         feather.replace();
 
@@ -509,10 +468,10 @@
         });
     </script>
     <!-- Scripts -->
-    <script src="../assets/js/constants.min.js"></script>
-    <script src="../assets/js/utils.min.js"></script>
-    <script src="../assets/js/main.min.js"></script>
-    <script src="../assets/js/common.min.js"></script>
-    <script src="assets/js/mode-toggle.js" defer></script>
+    <script src="/assets/js/constants.min.js"></script>
+    <script src="/assets/js/utils.min.js"></script>
+    <script src="/assets/js/main.min.js"></script>
+    <script src="/assets/js/common.min.js"></script>
+    <script src="/assets/js/mode-toggle.js" defer></script>
 </body>
 </html>
