@@ -21,7 +21,7 @@ async function carregarArtigos() {
     } catch (error) {
         console.error('Erro ao carregar artigos:', error);
         artigos = [
-            { titulo: "Acupuntura na Incontinência Urinária Feminina", arquivo: 'acupuntura-urinaria-feminina.html', categoria: "pesquisa", descricao: "Análise da qualidade metodológica sobre intervenções de acupuntura para IU em mulheres.", data: "Jan 2025", icone: "🔬" },
+            { titulo: "Acupuntura na Incontinência Urinária Feminina", arquivo: 'acupuntura-urinaria-feminina.html', categoria: "pesquisa", descricao: "Análise da qualidade metodológica sobre intervenções de acupuntura para IU em mulheres.", data: "Jan 2025", icone: "microscope" },
             { titulo: "Cirurgias para Incontinência Urinária de Esforço", arquivo: "cirurgias-incontinencia.html", categoria: "meta", descricao: "Meta-análise comparativa das técnicas cirúrgicas para IUE feminina.", data: "Jan 2025", icone: "📊" },
             { titulo: "Diretrizes Internacionais para IU Feminina", arquivo: "revi-literaria-artigo.html", categoria: "revisao", descricao: "Revisão sistemática da qualidade de 17 sociedades médicas.", data: "Jan 2025", icone: "📋" },
             { titulo: "Avaliação da IU Feminina: Revisão Sistemática", arquivo: "revisao-ssistematica.html", categoria: "revisao", descricao: "Análise das diretrizes de avaliação da IU não complicada em mulheres adultas.", data: "Jan 2025", icone: "📋" },

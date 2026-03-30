@@ -50,8 +50,7 @@ async function realizarBusca(termo) {
         }
 
         // Carregar todos os dados em paralelo com cache
-        // Wrapper que desembrulha formato Decap CMS {items: [...]}
-        const unwrap = (data) => (data && !Array.isArray(data) && Array.isArray(data.items)) ? data.items : data;
+        const unwrap = (d) => (d && !Array.isArray(d) && Array.isArray(d.items)) ? d.items : d;
         const fetchFn = window.UroUtils?.fetchWithCache || (url => fetch(url).then(r => r.json()).then(unwrap));
 
         const [protocolos, artigos, eventos, noticias] = await Promise.all([
@@ -90,7 +89,7 @@ async function realizarBusca(termo) {
                     link: `pages/artigo/${item.arquivo}`,
                     categoria: item.categoria,
                     data: item.data,
-                    icone: '📰'
+                    icone: 'clipboard'
                 });
             }
         });

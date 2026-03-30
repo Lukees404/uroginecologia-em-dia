@@ -63,7 +63,7 @@ function gerarCardsProtocolos(filtro = 'todos') {
 
     const badgeMap = {
         infeccioso: { cls: 'badge-infeccioso', label: '🦠 Infeccioso' },
-        urodinamico: { cls: 'badge-urodinamico', label: '🔬 Urodinâmico' },
+        urodinamico: { cls: 'badge-urodinamico', label: 'Urodinâmico' },
         cirurgico: { cls: 'badge-cirurgico', label: '🔪 Cirúrgico' },
         funcional: { cls: 'badge-funcional', label: '⚙️ Funcional' }
     };

@@ -128,7 +128,7 @@ class PDFGenerator {
                 filename = 'documento.pdf',
                 title = 'Documento',
                 subtitle = '',
-                author = 'Ana Paula de Oliveira Pinto',
+                author = 'Ana Paula Oliveira Pinto',
                 date = new Date().toLocaleDateString('pt-BR')
             } = options;
 

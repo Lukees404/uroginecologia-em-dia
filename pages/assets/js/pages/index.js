@@ -351,8 +351,6 @@ async function carregarDados() {
             fetch('assets/data/protocolos.json').then(r => r.json()),
             fetch('assets/data/artigos.json').then(r => r.json())
         ]);
-
-        // Desembrulhar formato Decap CMS {items: [...]} se necessário
         const protocolosData = Array.isArray(protocolosRaw) ? protocolosRaw : (protocolosRaw.items || []);
         const artigosData = Array.isArray(artigosRaw) ? artigosRaw : (artigosRaw.items || []);
 
@@ -485,4 +483,67 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     console.log('🎉 Carrosséis prontos!');
+
+    // Carregar notícias na homepage
+    await carregarNoticiasHome();
 });
+
+/**
+ * Carrega e renderiza as 3 primeiras notícias na homepage
+ */
+const homeIconCategorias = {
+    pesquisa: 'microscope',
+    inovacao: 'lightbulb',
+    evento: 'mic',
+    tratamento: 'medicine',
+    educacao: 'book',
+    alerta: 'alert'
+};
+
+const homeCatClasses = {
+    pesquisa: { bg: 'pesquisa', badge: 'cat-p' },
+    inovacao: { bg: 'inovacao', badge: 'cat-i' },
+    evento:   { bg: 'evento',   badge: 'cat-e' },
+    tratamento: { bg: 'tratamento', badge: 'cat-t' },
+    educacao: { bg: 'educacao', badge: 'cat-ed' },
+    alerta:   { bg: 'alerta',   badge: 'cat-a' }
+};
+
+async function carregarNoticiasHome() {
+    const container = document.getElementById('newsContainer');
+    if (!container) return;
+
+    try {
+        const response = await fetch('assets/data/noticias.json');
+        const raw = await response.json();
+        const noticias = Array.isArray(raw) ? raw : (raw.items || []);
+        const primeiras = noticias.slice(0, 3);
+
+        container.innerHTML = '';
+        primeiras.forEach((noticia, i) => {
+            const cat = homeCatClasses[noticia.categoria] || { bg: 'pesquisa', badge: 'cat-p' };
+            const iconName = homeIconCategorias[noticia.categoria] || 'alert';
+            const capitalize = s => s.charAt(0).toUpperCase() + s.slice(1);
+
+            const card = document.createElement('div');
+            card.className = `card-noticia fade-in${i === 0 ? ' destaque' : ''}`;
+            card.innerHTML = `
+                <div class="noticia-img-placeholder ${cat.bg}">
+                    <img src="assets/images/icons/${iconName}.svg" alt="" class="noticia-icon-svg" aria-hidden="true">
+                    <span class="noticia-categoria ${cat.badge}">${capitalize(noticia.categoria)}</span>
+                </div>
+                <div class="noticia-body">
+                    <span class="noticia-data">${noticia.data}</span>
+                    <div class="noticia-titulo">${noticia.titulo}</div>
+                    ${noticia.link
+                        ? `<a href="${noticia.link}" target="_blank" rel="noopener noreferrer" class="noticia-link">${noticia.linkTexto || 'Ler mais'} →</a>`
+                        : ''}
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        console.log('✅ Notícias da homepage carregadas');
+    } catch (error) {
+        console.error('Erro ao carregar notícias na homepage:', error);
+    }
+}

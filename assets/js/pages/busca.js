@@ -89,7 +89,7 @@ async function realizarBusca(termo) {
                     link: `pages/artigo/${item.arquivo}`,
                     categoria: item.categoria,
                     data: item.data,
-                    icone: '📰'
+                    icone: 'clipboard'
                 });
             }
         });

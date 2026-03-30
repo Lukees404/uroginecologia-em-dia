@@ -5,9 +5,13 @@
 let noticias = [];
 let noticiasFiltradas = [];
 
-const emojiCategorias = {
-    pesquisa: '🧬', inovacao: '🔬', evento: '🎤',
-    tratamento: '💊', educacao: '📚', alerta: '⚠️'
+const iconCategorias = {
+    pesquisa: 'microscope',
+    inovacao: 'lightbulb',
+    evento: 'mic',
+    tratamento: 'medicine',
+    educacao: 'book',
+    alerta: 'alert'
 };
 
 const catClasses = {
@@ -45,12 +49,12 @@ function gerarNoticias() {
 
     noticiasFiltradas.forEach((noticia, i) => {
         const cat = catClasses[noticia.categoria] || { bg: 'pesquisa', badge: 'cat-p' };
-        const emoji = emojiCategorias[noticia.categoria] || '📰';
+        const iconName = iconCategorias[noticia.categoria] || 'alert';
         const card = document.createElement('div');
         card.className = `card-noticia fade-in${i === 0 ? ' destaque' : ''}`;
         card.innerHTML = `
             <div class="noticia-img-placeholder ${cat.bg}">
-                ${emoji}
+                <img src="assets/images/icons/${iconName}.svg" alt="" class="noticia-icon-svg" aria-hidden="true">
                 <span class="noticia-categoria ${cat.badge}">${capitalize(noticia.categoria)}</span>
             </div>
             <div class="noticia-body">
