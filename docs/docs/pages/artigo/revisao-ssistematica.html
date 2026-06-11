@@ -149,7 +149,7 @@
                 <p class="text-gray-700 mb-4 leading-relaxed">
                     Foi realizada uma revisão sistemática abrangendo oito bases de dados bibliográficas, incluindo MEDLINE, Embase, Scopus, CINAHL e Cochrane Library. As buscas foram realizadas em maio de 2017, com atualizações em setembro de 2018 e dezembro de 2019.
                 </p>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
                     <div class="bg-blue-50 p-4 rounded-lg">
                         <h4 class="font-semibold text-blue-800 mb-2">Critérios de Inclusão</h4>
@@ -181,7 +181,7 @@
             <!-- Resultados -->
             <section class="article-section">
                 <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Resultados Principais</h2>
-                
+
                 <div class="key-point">
                     <h3 class="text-xl font-bold text-white mb-3">Síntese das Diretrizes Incluídas</h3>
                     <p class="text-white mb-3">
@@ -290,7 +290,7 @@
                 <p class="text-gray-700 mb-4 leading-relaxed">
                     A omissão de componentes como avaliação de sintomas intestinais, ingestão de líquidos, IMC/obesidade e, especialmente, discussão das metas de tratamento do paciente (incluído em apenas 32% das diretrizes) pode limitar a capacidade dos clínicos de recomendar opções terapêuticas conservadoras efetivas e alinhadas com as preferências dos pacientes.
                 </p>
-                
+
                 <div class="bg-yellow-50 p-4 rounded-lg mb-4">
                     <h4 class="font-semibold text-yellow-800 mb-2">💡 Recomendações Práticas:</h4>
                     <ul class="list-disc pl-5 text-yellow-700 space-y-2">
@@ -306,7 +306,19 @@
                     A ambiguidade e complexidade na redação de algumas diretrizes também foram identificadas como preocupações, com recomendações por vezes difíceis de interpretar ou inconsistentes em diferentes partes da mesma diretriz. Esta falta de clareza pode levar à omissão de componentes importantes de avaliação na prática clínica.
                 </p>
             </section>
-
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Aplicação prática: terapia comportamental</h2>
+                <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-600">
+                    <p class="text-gray-700 mb-3 leading-relaxed">Na transposição dos achados para o cuidado de mulheres com IU, o plano conservador deve registrar explicitamente:</p>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                        <li><strong>Micção programada</strong> para organizar horários de esvaziamento e progressão dos intervalos.</li>
+                        <li><strong>Controle do peso como modificação de estilo de vida para IU</strong>, quando sobrepeso ou obesidade agravam a perda urinária.</li>
+                        <li><strong>Cessação do tabagismo como modificação de estilo de vida para IU</strong>, especialmente quando tosse crônica e irritantes vesicais estão presentes.</li>
+                        <li><strong>Manejo da constipação como modificação de estilo de vida para IU</strong>, reduzindo esforço evacuatório e sobrecarga do assoalho pélvico.</li>
+                    </ul>
+                    <p class="text-gray-700 text-sm mt-3 leading-relaxed">Steenstrup et al., 2022 observaram melhora da qualidade de vida e redução da gravidade da IU com terapia comportamental em grupo.</p>
+                </div>
+            </section>
             <!-- Conclusão -->
             <section class="article-section">
                 <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Conclusão</h2>
@@ -331,7 +343,8 @@
                     <li>Norton JM, Bradley CS, Brady SS, et al. Individualizing urinary incontinence treatment: research needs identified at NIDDK workshop. J Urol. 2018;199(6):1405-7.</li>
                     <li>Clinical Practice Guidelines We Can Trust. Institute of Medicine (US) Committee on Standards for Developing Trustworthy Clinical Practice Guidelines. Washington, DC: National Academies Press; 2011.</li>
                     <li>Abrams P, Andersson KE, Birder L, et al. Fourth international consultation on incontinence recommendations of the international scientific committee: evaluation and treatment of urinary incontinence, pelvic organ prolapse, and fecal incontinence. Neurourol Urodyn. 2010;29(1):213-40.</li>
-                </ol>
+
+                    <li>Steenstrup B, et al. Terapia comportamental em grupo para incontinência urinária: impacto na qualidade de vida e na gravidade dos sintomas. 2022.</li></ol>
             </section>
 
             <!-- Nota Final -->
@@ -359,7 +372,7 @@
                 Baixar PDF
             </button>
         </div>
-    
+
                 <div class="share-bar">
                     <span class="share-bar-label">Compartilhar:</span>
                     <a href="javascript:void(0)" onclick="window.open('https://wa.me/?text='+encodeURIComponent(document.title+' — '+location.href),'_blank')" class="share-btn" aria-label="Compartilhar no WhatsApp"><img src="/assets/images/icons/whatsapp.svg" alt=""></a>
@@ -383,7 +396,7 @@
         const closeMobileMenu = document.getElementById('closeMobileMenu');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        
+
         function openMobileMenu() {
             mobileMenu.classList.remove('hidden');
             setTimeout(() => {
@@ -416,21 +429,21 @@
         // Search Functionality
         const searchInput = document.getElementById('searchInput');
         const searchButton = document.getElementById('searchButton');
-        
+
         function performSearch() {
             const searchTerm = searchInput.value.trim();
-            
+
             if (searchTerm) {
                 // Simulate search - in a real implementation, this would redirect to a search results page
                 alert(`Buscando por: ${searchTerm}\n\nEsta funcionalidade seria implementada em um ambiente de produção.`);
                 // window.location.href = `/pages/search.html?q=${encodeURIComponent(searchTerm)}`;
             }
         }
-        
+
         if (searchButton) {
             searchButton.addEventListener('click', performSearch);
         }
-        
+
         if (searchInput) {
             searchInput.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {

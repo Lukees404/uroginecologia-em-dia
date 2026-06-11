@@ -25,7 +25,7 @@
 <script>
         // Inicializar Mermaid
         document.addEventListener('DOMContentLoaded', function() {
-            mermaid.initialize({ 
+            mermaid.initialize({
                 startOnLoad: true,
                 theme: 'default',
                 securityLevel: 'loose'
@@ -141,23 +141,23 @@
             <!-- Fisiopatologia -->
             <section class="protocol-section">
                 <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Bases Fisiopatológicas</h2>
-                
+
                 <div class="pathophysiology-grid">
                     <div class="theory-card">
                         <h3 class="text-xl font-semibold text-uro-azul_escuro mb-2">Teoria da Equalização Pressórica</h3>
                         <p class="text-gray-700">Baseia-se no princípio de que a localização intra-abdominal do colo vesical é crucial para a continência. Quando comprometida, ocorre transmissão desigual de pressão durante esforços.</p>
                     </div>
-                    
+
                     <div class="theory-card">
                         <h3 class="text-xl font-semibold text-uro-azul_escuro mb-2">Deficiência Esfincteriana Intrínseca</h3>
                         <p class="text-gray-700">Envolve o comprometimento das estruturas uretrais responsáveis pelo fechamento luminal, incluindo mucosa, musculatura e coxim vascular periuretral.</p>
                     </div>
-                    
+
                     <div class="theory-card">
                         <h3 class="text-xl font-semibold text-uro-azul_escuro mb-2">Teoria Integral</h3>
                         <p class="text-gray-700">Propõe que a continência depende do equilíbrio entre forças de tração anterior sobre a uretra e posterior sobre a bexiga.</p>
                     </div>
-                    
+
                     <div class="theory-card">
                         <h3 class="text-xl font-semibold text-uro-azul_escuro mb-2">Teoria do Sistema em Rede</h3>
                         <p class="text-gray-700">Descreve a uretra sustentada por estrutura composta pela fáscia endopélvica e parede vaginal anterior, funcionando como base de apoio.</p>
@@ -168,7 +168,7 @@
             <!-- Diagnóstico -->
             <section class="protocol-section">
                 <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Abordagem Diagnóstica</h2>
-                
+
                 <div class="mb-6">
                     <h3 class="text-xl font-semibold text-uro-azul mb-3">Avaliação Clínica Inicial</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -206,7 +206,7 @@
                                 E --> F{IUE Confirmada?}
                                 F -->|Sim| D
                                 F -->|Não| G[Diagnóstico Diferencial]
-                                
+
                                 D --> H{Resposta Satisfatória?}
                                 H -->|Sim| I[Manutenção do Tratamento]
                                 H -->|Não| J[Abordagem Cirúrgica<br>Sling de Uretra Média]
@@ -242,7 +242,7 @@
             <!-- Tratamento Conservador -->
             <section class="protocol-section">
                 <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Tratamento Conservador</h2>
-                
+
                 <div class="mb-6">
                     <h3 class="text-xl font-semibold text-uro-azul mb-3">Fisioterapia Pélvica Especializada</h3>
                     <div class="bg-green-50 p-4 rounded-lg">
@@ -255,7 +255,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                     <div class="bg-yellow-50 p-4 rounded-lg">
                         <h4 class="font-semibold text-yellow-800 mb-2">Intervenções Comportamentais</h4>
@@ -281,16 +281,26 @@
                             <li>Não como tratamento isolado</li>
                         </ul>
                     </div>
+                <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-uro-azul mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Ampliação comportamental para IU</h3>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                        <li><strong>Micção programada:</strong> útil quando há urgência, frequência aumentada ou componente misto associado à IUE.</li>
+                        <li><strong>Controle do peso como modificação de estilo de vida para IU:</strong> integrar metas ponderais ao tratamento conservador sempre que indicado.</li>
+                        <li><strong>Cessação do tabagismo como modificação de estilo de vida para IU:</strong> reduzir tosse crônica e sobrecarga mecânica sobre o assoalho pélvico.</li>
+                        <li><strong>Manejo da constipação como modificação de estilo de vida para IU:</strong> tratar esforço evacuatório crônico como fator de piora da pressão pélvica.</li>
+                    </ul>
+                    <p class="text-gray-700 text-sm mt-3">A terapia comportamental em grupo apresentou melhora de qualidade de vida e redução da gravidade da IU em Steenstrup et al., 2022.</p>
+                </div>
                 </div>
             </section>
 
             <!-- Tratamento Cirúrgico -->
             <section class="protocol-section">
                 <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Abordagem Cirúrgica</h2>
-                
+
                 <div class="treatment-comparison">
                     <h3 class="text-xl font-semibold text-uro-azul mb-4 text-center">Comparativo das Principais Técnicas Cirúrgicas</h3>
-                    
+
                     <div class="overflow-x-auto">
                         <table class="recommendation-table">
                             <thead>
@@ -356,7 +366,7 @@
             <!-- Recomendações -->
             <section class="protocol-section">
                 <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Recomendações Baseadas em Evidências</h2>
-                
+
                 <div class="overflow-x-auto">
                     <table class="recommendation-table">
                         <thead>
@@ -405,7 +415,7 @@
             <!-- Considerações Finais -->
             <section class="protocol-section">
                 <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Condutas Práticas</h2>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="bg-gray-50 p-4 rounded-lg">
                         <h3 class="text-lg font-semibold text-uro-azul_escuro mb-3">Abordagem em Etapas</h3>
@@ -417,7 +427,7 @@
                             <li><strong>Acompanhamento</strong> - Monitorização a longo prazo</li>
                         </ol>
                     </div>
-                    
+
                     <div class="bg-gray-50 p-4 rounded-lg">
                         <h3 class="text-lg font-semibold text-uro-azul_escuro mb-3">Aspectos Essenciais</h3>
                         <ul class="list-disc pl-5 text-gray-700 space-y-2">
@@ -439,7 +449,8 @@
                     <li>Haylen BT, et al. An International Urogynecological Association (IUGA)/International Continence Society (ICS) joint report on the terminology for female pelvic floor dysfunction. <em>Int Urogynecol J</em>. 2010;21(1):5-26.</li>
                     <li>Dumoulin C, et al. Pelvic floor muscle training versus no treatment, or inactive control treatments, for urinary incontinence in women. <em>Cochrane Database Syst Rev</em>. 2018;10(10):CD005654.</li>
                     <li>Ford AA, et al. Mid-urethral sling operations for stress urinary incontinence in women. <em>Cochrane Database Syst Rev</em>. 2017;7(7):CD006375.</li>
-                </ol>
+
+                    <li>Steenstrup B, et al. Terapia comportamental em grupo para incontinência urinária: impacto na qualidade de vida e na gravidade dos sintomas. 2022.</li></ol>
             </section>
 
             <!-- Nota Final -->
@@ -466,7 +477,7 @@
                 Voltar
             </a>
         </div>
-    
+
                 <div class="share-bar">
                     <span class="share-bar-label">Compartilhar:</span>
                     <a href="javascript:void(0)" onclick="window.open('https://wa.me/?text='+encodeURIComponent(document.title+' — '+location.href),'_blank')" class="share-btn" aria-label="Compartilhar no WhatsApp"><img src="/assets/images/icons/whatsapp.svg" alt=""></a>
@@ -486,7 +497,7 @@
         const closeMobileMenu = document.getElementById('closeMobileMenu');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        
+
         function openMobileMenu() {
             mobileMenu.classList.remove('hidden');
             setTimeout(() => {
@@ -519,15 +530,15 @@
         // Search Functionality
         const searchInput = document.getElementById('searchInput');
         const searchButton = document.getElementById('searchButton');
-        
+
         function performSearch() {
             const searchTerm = searchInput.value.trim();
-            
+
             if (searchTerm) {
                 alert(`Buscando por: ${searchTerm}`);
             }
         }
-        
+
         if (searchButton) {
             searchButton.addEventListener('click', performSearch);
         }

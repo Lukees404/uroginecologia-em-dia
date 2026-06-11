@@ -150,7 +150,7 @@
                 <p class="text-gray-700 mb-4 leading-relaxed">
                     Foi conduzida uma revisão sistemática abrangente seguida de meta-análise de rede, incluindo 37 ensaios clínicos randomizados publicados até maio de 2023. O estudo seguiu rigorosamente as diretrizes PRISMA para revisões sistemáticas e meta-análises, com protocolo registrado no PROSPERO.
                 </p>
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
                     <div class="bg-blue-50 p-4 rounded-lg">
                         <h4 class="font-semibold text-blue-800 mb-2">Critérios de Inclusão</h4>
@@ -183,7 +183,7 @@
             <!-- Resultados -->
             <section class="article-section">
                 <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Resultados Principais</h2>
-                
+
                 <div class="key-point">
                     <h3 class="text-xl font-bold text-white mb-3">Síntese das Evidências</h3>
                     <p class="text-white mb-3">
@@ -284,7 +284,7 @@
                 <p class="text-gray-700 mb-4 leading-relaxed">
                     A superioridade do sling pubovaginal (PVS) em termos de sucesso objetivo pode ser atribuída às suas características técnicas e ao uso de tecido autólogo, que proporciona suporte anatômico mais fisiológico. No entanto, é importante considerar que esta técnica apresenta maior complexidade cirúrgica e tempo operatório quando comparada aos slings sintéticos.
                 </p>
-                
+
                 <div class="bg-green-50 p-4 rounded-lg mb-4">
                     <h4 class="font-semibold text-green-800 mb-2">💡 Recomendações Práticas:</h4>
                     <ul class="list-disc pl-5 text-green-700 space-y-2">
@@ -299,7 +299,19 @@
                     É fundamental reconhecer que a escolha da técnica cirúrgica deve ser individualizada, considerando fatores como experiência do cirurgião, características anatômicas da paciente, presença de comorbidades e preferências pessoais quanto ao uso de materiais sintéticos versus autólogos. A discussão transparente sobre expectativas e possíveis complicações é essencial para o sucesso do tratamento.
                 </p>
             </section>
-
+            <section class="article-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Aplicação prática: terapia comportamental</h2>
+                <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-600">
+                    <p class="text-gray-700 mb-3 leading-relaxed">Na transposição dos achados para o cuidado de mulheres com IU, o plano conservador deve registrar explicitamente:</p>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                        <li><strong>Micção programada</strong> para organizar horários de esvaziamento e progressão dos intervalos.</li>
+                        <li><strong>Controle do peso como modificação de estilo de vida para IU</strong>, quando sobrepeso ou obesidade agravam a perda urinária.</li>
+                        <li><strong>Cessação do tabagismo como modificação de estilo de vida para IU</strong>, especialmente quando tosse crônica e irritantes vesicais estão presentes.</li>
+                        <li><strong>Manejo da constipação como modificação de estilo de vida para IU</strong>, reduzindo esforço evacuatório e sobrecarga do assoalho pélvico.</li>
+                    </ul>
+                    <p class="text-gray-700 text-sm mt-3 leading-relaxed">Steenstrup et al., 2022 observaram melhora da qualidade de vida e redução da gravidade da IU com terapia comportamental em grupo.</p>
+                </div>
+            </section>
             <!-- Conclusão -->
             <section class="article-section">
                 <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-blue-600 pb-2">Conclusão</h2>
@@ -324,7 +336,8 @@
                     <li>Ford AA, Ogah JA. Retropubic or transobturator mid-urethral slings for intrinsic sphincter deficiency-related stress urinary incontinence in women: a systematic review and meta-analysis. Int Urogynecol J. 2016;27:19-28.</li>
                     <li>Novara G, Ficarra V, Boscolo-Berto R, Secco S, Cavalleri S, Artibani W. Tension-free midurethral slings in the treatment of female stress urinary incontinence: a systematic review and meta-analysis of randomized controlled trials of effectiveness. Eur Urol. 2007;52:663-678.</li>
                     <li>Albo ME, Richter HE, Brubaker L, Norton P, Kraus SR, Zimmern PE, et al. Burch colposuspension versus fascial sling to reduce urinary stress incontinence. N Engl J Med. 2007;356:2143-2155.</li>
-                </ol>
+
+                    <li>Steenstrup B, et al. Terapia comportamental em grupo para incontinência urinária: impacto na qualidade de vida e na gravidade dos sintomas. 2022.</li></ol>
             </section>
 
             <!-- Nota Final -->
@@ -352,7 +365,7 @@
                 Baixar PDF
             </button>
         </div>
-    
+
                 <div class="share-bar">
                     <span class="share-bar-label">Compartilhar:</span>
                     <a href="javascript:void(0)" onclick="window.open('https://wa.me/?text='+encodeURIComponent(document.title+' — '+location.href),'_blank')" class="share-btn" aria-label="Compartilhar no WhatsApp"><img src="/assets/images/icons/whatsapp.svg" alt=""></a>
@@ -376,7 +389,7 @@
         const closeMobileMenu = document.getElementById('closeMobileMenu');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        
+
         function openMobileMenu() {
             mobileMenu.classList.remove('hidden');
             setTimeout(() => {
@@ -409,16 +422,16 @@
         // Search Functionality
         const searchInput = document.getElementById('searchInput');
         const searchButton = document.getElementById('searchButton');
-        
+
         function performSearch() {
             const searchTerm = searchInput.value.trim();
-            
+
             if (searchTerm) {
                 // Em ambiente real, redirecionaria para página de busca
                 window.location.href = `pages/busca.html?q=${encodeURIComponent(searchTerm)}`;
             }
         }
-        
+
         if (searchButton) {
             searchButton.addEventListener('click', performSearch);
         }
