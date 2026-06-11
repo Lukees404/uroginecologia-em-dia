@@ -14,23 +14,9 @@
     <!-- Netlify Identity Widget (necessário para redirect pós-login do CMS) -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
+
     <!-- Google Analytics 4 -->
-    <script>
-      fetch('components/analytics.html')
-        .then(response => response.text())
-        .then(html => {
-          const temp = document.createElement('div');
-          temp.innerHTML = html;
-          const scripts = temp.querySelectorAll('script');
-          scripts.forEach(script => {
-            const newScript = document.createElement('script');
-            if (script.src) newScript.src = script.src;
-            else newScript.textContent = script.textContent;
-            if (script.async) newScript.async = true;
-            document.head.appendChild(newScript);
-          });
-        });
-    </script>
+    <script src="/assets/js/analytics-loader.js"></script>
 
     <!-- Meta Tags SEO -->
     <meta name="description" content="Portal sobre saúde pélvica feminina e uroginecologia. Informações confiáveis para pacientes e conteúdo técnico para profissionais de saúde. Coordenado pela Dra. Ana Paula Oliveira Pinto.">
@@ -52,10 +38,7 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 
     <!-- Fonts + CSS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/redesign.css">
+    <link rel="stylesheet" href="/assets/css/redesign.css">
 
 
     <!-- Twitter Card -->
@@ -550,12 +533,12 @@
     <div id="footer-component"></div>
 
     <!-- Scripts -->
-    <script src="assets/js/constants.min.js"></script>
-    <script src="assets/js/utils.min.js"></script>
-    <script src="assets/js/main.min.js"></script>
-    <script src="assets/js/common.min.js"></script>
-    <script src="assets/js/pages/index.min.js" defer></script>
-    <script src="assets/js/mode-toggle.js" defer></script>
+    <script src="/assets/js/constants.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/pages/index.js" defer></script>
+    <script src="/assets/js/mode-toggle.js" defer></script>
 
     <!-- Netlify Identity: redirect para /admin/ após login -->
     <script>

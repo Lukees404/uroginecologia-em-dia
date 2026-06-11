@@ -11,25 +11,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <!-- Google Analytics 4 -->
-    <script>
-      fetch('../components/analytics.html')
-        .then(response => response.text())
-        .then(html => {
-          const temp = document.createElement('div');
-          temp.innerHTML = html;
-          const scripts = temp.querySelectorAll('script');
-          scripts.forEach(script => {
-            const newScript = document.createElement('script');
-            if (script.src) newScript.src = script.src;
-            else newScript.textContent = script.textContent;
-            if (script.async) newScript.async = true;
-            document.head.appendChild(newScript);
-          });
-        });
-    </script>
 
-    <meta name="description" content="Saiba mais sobre incontinência urinária, prolapso de órgãos pélvicos, bexiga hiperativa e infecções urinárias. Informações confiáveis para pacientes.">
+    <!-- Google Analytics 4 -->
+    <script src="/assets/js/analytics-loader.js"></script>
+
+<meta name="description" content="Saiba mais sobre incontinência urinária, prolapso de órgãos pélvicos, bexiga hiperativa e infecções urinárias. Informações confiáveis para pacientes.">
     <meta name="keywords" content="incontinência urinária, prolapso genital, bexiga hiperativa, infecção urinária, ITU, saúde pélvica feminina">
     <meta name="author" content="Uroginecologia em Dia">
     <meta property="og:type" content="website">
@@ -44,10 +30,7 @@
 
     <title>Condições Uroginecológicas | Uroginecologia em Dia</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/redesign.css">
+    <link rel="stylesheet" href="/assets/css/redesign.css">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -492,10 +475,10 @@
     </main>
 
     <div id="footer-component"></div>
-    <script src="assets/js/constants.min.js"></script>
-    <script src="assets/js/utils.min.js"></script>
-    <script src="assets/js/main.min.js"></script>
-    <script src="assets/js/common.min.js"></script>
-    <script src="assets/js/mode-toggle.js" defer></script>
+    <script src="/assets/js/constants.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/mode-toggle.js" defer></script>
 </body>
 </html>

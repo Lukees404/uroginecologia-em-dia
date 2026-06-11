@@ -11,52 +11,18 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <!-- Google Analytics 4 -->
-    <script>
-      fetch('../../components/analytics.html')
-        .then(response => response.text())
-        .then(html => {
-          const temp = document.createElement('div');
-          temp.innerHTML = html;
-          const scripts = temp.querySelectorAll('script');
-          scripts.forEach(script => {
-            const newScript = document.createElement('script');
-            if (script.src) newScript.src = script.src;
-            else newScript.textContent = script.textContent;
-            if (script.async) newScript.async = true;
-            document.head.appendChild(newScript);
-          });
-        });
-    </script>
 
-    <title>Protocolo: Infecção do Trato Urinário | Uroginecologia em Dia</title>
+    <!-- Google Analytics 4 -->
+    <script src="/assets/js/analytics-loader.js"></script>
+
+<title>Protocolo: Infecção do Trato Urinário | Uroginecologia em Dia</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/redesign.css">
+    <link rel="stylesheet" href="/assets/css/redesign.css">
 
     <!-- Preconnect para CDNs -->
 
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js" defer></script>
 <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        uro: {
-                            azul_escuro: '#1e40af',
-                            azul: '#3b82f6',
-                            azul_claro: '#60a5fa',
-                            branco: '#ffffff',
-                            cinza: '#f3f4f6',
-                            cinza_escuro: '#6b7280'
-                        }
-                    }
-                }
-            }
-        }
-        
         // Inicializar Mermaid
         document.addEventListener('DOMContentLoaded', function() {
             mermaid.initialize({ 
@@ -495,10 +461,10 @@
         });
     </script>
     <!-- Scripts -->
-    <script src="../assets/js/constants.min.js"></script>
-    <script src="../assets/js/utils.min.js"></script>
-    <script src="../assets/js/main.min.js"></script>
-    <script src="../assets/js/common.min.js"></script>
-    <script src="assets/js/mode-toggle.js" defer></script>
+    <script src="/assets/js/constants.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/common.js"></script>
+    <script src="/assets/js/mode-toggle.js" defer></script>
 </body>
 </html>

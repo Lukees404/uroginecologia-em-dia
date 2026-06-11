@@ -17,21 +17,11 @@ function obterTermoBusca() {
 }
 
 /**
- * Normaliza string para busca (remove acentos e converte para minúscula)
- */
-function normalizeString(str) {
-    return str
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '');
-}
-
-/**
  * Verifica se o termo de busca está presente no texto
  */
 function matchTerm(text, searchTerm) {
-    const normalizedText = normalizeString(text);
-    const normalizedTerm = normalizeString(searchTerm);
+    const normalizedText = window.UroUtils.normalizeString(text);
+    const normalizedTerm = window.UroUtils.normalizeString(searchTerm);
     return normalizedText.includes(normalizedTerm);
 }
 
