@@ -3,8 +3,8 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/assets/css/redesign.css',
-  '/assets/js/main.min.js',
-  '/assets/js/common.min.js',
+  '/assets/js/main.js',
+  '/assets/js/common.js',
   '/assets/js/mode-toggle.js',
   '/components/header.html',
   '/components/footer.html'

@@ -10,25 +10,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <!-- Google Analytics 4 -->
-    <script>
-      fetch('../components/analytics.html')
-        .then(response => response.text())
-        .then(html => {
-          const temp = document.createElement('div');
-          temp.innerHTML = html;
-          const scripts = temp.querySelectorAll('script');
-          scripts.forEach(script => {
-            const newScript = document.createElement('script');
-            if (script.src) newScript.src = script.src;
-            else newScript.textContent = script.textContent;
-            if (script.async) newScript.async = true;
-            document.head.appendChild(newScript);
-          });
-        });
-    </script>
 
-    <title>Testes Automatizados | Uroginecologia em Dia</title>
+    <!-- Google Analytics 4 -->
+    <script src="/assets/js/analytics-loader.js"></script>
+
+<title>Testes Automatizados | Uroginecologia em Dia</title>
 
     <!-- Preconnect para CDNs -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -87,7 +73,7 @@
         </div>
     </div>
 
-    <script src="../assets/js/pages/busca.min.js"></script>
+    <script src="/assets/js/pages/busca.js"></script>
     <script src="runner.js"></script>
 </body>
 </html>
