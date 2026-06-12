@@ -28,7 +28,7 @@
     <script>
         // Inicializar Mermaid
         document.addEventListener('DOMContentLoaded', function() {
-            mermaid.initialize({ 
+            mermaid.initialize({
                 startOnLoad: true,
                 theme: 'default',
                 securityLevel: 'loose'
@@ -171,12 +171,28 @@
                         </ul>
                     </div>
                 </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Questionários validados</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-uro-azul_escuro mb-2">OABSS — Overactive Bladder Symptom Score</h4>
+                            <p class="text-gray-700 text-sm">Instrumento validado para graduar frequência, noctúria, urgência e urge-incontinência, apoiando linha de base, estratificação de gravidade e resposta terapêutica.</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-uro-azul_escuro mb-2">ICIQ-OAB — International Consultation on Incontinence Questionnaire – Overactive Bladder Module</h4>
+                            <p class="text-gray-700 text-sm">Questionário validado para sintomas de bexiga hiperativa, incômodo percebido e impacto na qualidade de vida, útil para seguimento padronizado.</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm mt-3">Não substituem urocultura ou investigação de ITU. Usar quando sintomas de urgência/frequência persistem após tratamento ou exclusão de infecção, para triagem de BH ou IU associada.</p>
+                </div>
+
             </section>
 
             <!-- Tratamento -->
             <section class="protocol-section">
                 <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Tratamento</h2>
-                
+
                 <div class="mb-6">
                     <h3 class="text-xl font-semibold text-uro-azul mb-3">1. Cistite Não Complicada</h3>
                     <div class="bg-blue-50 p-4 rounded-lg">
@@ -197,7 +213,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="mb-6">
                     <h3 class="text-xl font-semibold text-uro-azul mb-3">2. Pielonefrite Não Complicada</h3>
                     <div class="bg-blue-50 p-4 rounded-lg">
@@ -214,7 +230,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div>
                     <h3 class="text-xl font-semibold text-uro-azul mb-3">3. ITU Complicada / Urosepse</h3>
                     <div class="bg-blue-50 p-4 rounded-lg">
@@ -227,7 +243,7 @@
             <!-- Prevenção -->
             <section class="protocol-section">
                 <h2 class="text-2xl font-bold text-uro-azul_escuro mb-4 border-b-2 border-uro-azul pb-2">Prevenção da ITU Recorrente</h2>
-                
+
                 <div class="mb-6">
                     <h3 class="text-xl font-semibold text-uro-azul mb-3">Medidas Comportamentais</h3>
                     <ul class="list-disc pl-5 text-gray-700 space-y-1">
@@ -237,7 +253,21 @@
                         <li>Evitar duchas vaginais e roupas apertadas</li>
                     </ul>
                 </div>
-                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-uro-azul mb-3">Sintomas urinários associados e IU</h3>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="text-gray-700 mb-3">Em pacientes com ITU recorrente e sintomas persistentes de urgência, frequência ou perdas urinárias após exclusão/tratamento da infecção, associar orientação comportamental para investigar componente de IU ou bexiga hiperativa.</p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                            <li><strong>Micção programada:</strong> organizar horários de esvaziamento vesical quando houver urgência/frequência fora do quadro infeccioso agudo.</li>
+                            <li><strong>Controle do peso como modificação de estilo de vida para IU:</strong> avaliar sobrepeso como fator que pode agravar perdas urinárias concomitantes.</li>
+                            <li><strong>Cessação do tabagismo como modificação de estilo de vida para IU:</strong> reduzir tosse crônica e irritantes vesicais associados.</li>
+                            <li><strong>Manejo da constipação como modificação de estilo de vida para IU:</strong> diminuir esforço evacuatório e sintomas pélvicos associados.</li>
+                        </ul>
+                        <p class="text-gray-700 text-sm mt-3">Steenstrup et al., 2022 reforçam benefício da terapia comportamental em grupo na qualidade de vida e na gravidade da IU.</p>
+                    </div>
+                </div>
+
+
                 <div class="mb-6">
                     <h3 class="text-xl font-semibold text-uro-azul mb-3">Terapias Não Antibióticas</h3>
                     <ul class="list-disc pl-5 text-gray-700 space-y-2">
@@ -247,7 +277,7 @@
                         <li><strong>D-Manose, Probióticos, Instilações vesicais</strong>: Evidências insuficientes para recomendação formal.</li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h3 class="text-xl font-semibold text-uro-azul mb-3">Profilaxia Antimicrobiana</h3>
                     <ul class="list-disc pl-5 text-gray-700 space-y-2">
@@ -273,7 +303,7 @@
                             D --> H{Resultado positivo?}
                             H -->|Sim| I[Tratamento dirigido pelo ATBG]
                             H -->|Não| J[Investigação adicional]
-                            
+
                             K[ITU Recorrente] --> L[Tratar episódio agudo com ATBG]
                             L --> M[Iniciar profilaxia]
                             M --> N[Medidas comportamentais]
@@ -353,7 +383,8 @@
                     <li>Gupta K, et al. International clinical practice guidelines for the treatment of acute uncomplicated cystitis and pyelonephritis in women. <em>Clin Infect Dis</em>. 2011.</li>
                     <li>Anger J, et al. Recurrent uncomplicated urinary tract infections in women: AUA/CUA/SUFU Guideline. <em>J Urol</em>. 2019.</li>
                     <li>Kranz J, et al. European Association of Urology Guidelines on Urological Infections. <em>Eur Urol</em>. 2024.</li>
-                </ol>
+
+                    <li>Steenstrup B, et al. Terapia comportamental em grupo para incontinência urinária: impacto na qualidade de vida e na gravidade dos sintomas. 2022.</li></ol>
             </section>
 
             <!-- Nota Final -->
@@ -389,7 +420,7 @@
                 Voltar
             </a>
         </div>
-    
+
                 <div class="share-bar">
                     <span class="share-bar-label">Compartilhar:</span>
                     <a href="javascript:void(0)" onclick="window.open('https://wa.me/?text='+encodeURIComponent(document.title+' — '+location.href),'_blank')" class="share-btn" aria-label="Compartilhar no WhatsApp"><img src="/assets/images/icons/whatsapp.svg" alt=""></a>
@@ -413,7 +444,7 @@
         const closeMobileMenu = document.getElementById('closeMobileMenu');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        
+
         function openMobileMenu() {
             mobileMenu.classList.remove('hidden');
             setTimeout(() => {
@@ -446,15 +477,15 @@
         // Search Functionality
         const searchInput = document.getElementById('searchInput');
         const searchButton = document.getElementById('searchButton');
-        
+
         function performSearch() {
             const searchTerm = searchInput.value.trim();
-            
+
             if (searchTerm) {
                 alert(`Buscando por: ${searchTerm}`);
             }
         }
-        
+
         if (searchButton) {
             searchButton.addEventListener('click', performSearch);
         }
