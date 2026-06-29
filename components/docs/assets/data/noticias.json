@@ -7,7 +7,7 @@
       "categoria": "pesquisa",
       "data": "18/03/2024",
       "dataOrdenacao": "2024-03-18",
-      "link": "https://bjsm.bmj.com/content/58/7/382",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/23365417/",
       "linkTexto": "Ler Notícia",
       "destaque": true
     },
@@ -18,7 +18,7 @@
       "categoria": "pesquisa",
       "data": "10/03/2024",
       "dataOrdenacao": "2024-03-10",
-      "link": "https://www.nejm.org/doi/full/10.1056/NEJMoa1208312",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/23036134/",
       "linkTexto": "Ler Mais"
     },
     {
@@ -58,7 +58,7 @@
       "categoria": "alerta",
       "data": "25/01/2024",
       "dataOrdenacao": "2024-01-25",
-      "link": "https://www.gov.br/anvisa/pt-br/assuntos/medicamentos/novos-medicamentos",
+      "link": "https://www.gov.br/anvisa/pt-br/assuntos/medicamentos/novos-medicamentos-e-indicacoes",
       "linkTexto": "Ler Mais"
     },
     {
@@ -68,7 +68,7 @@
       "categoria": "educacao",
       "data": "10/01/2024",
       "dataOrdenacao": "2024-01-10",
-      "link": "https://www.sbu.org.br/educacao/cursos",
+      "link": "https://portaldaurologia.org.br/cursos",
       "linkTexto": "Ler Mais"
     }
   ]
